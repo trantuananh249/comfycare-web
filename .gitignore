@@ -1,0 +1,21 @@
+# Generated QA output and browser profiles
+/outputs/
+
+# Internal workspace/project source notes
+/source_data/
+/00_PROJECT_README.md
+/01_project_brief.md
+/02_homepage_requirements.md
+/03_content_map.md
+/04_design_direction.md
+/05_asset_inventory.md
+/06_codex_task_build_homepage.md
+/07_acceptance_checklist.md
+/08_delivery_notes.md
+
+# Local/editor/system files
+.DS_Store
+Thumbs.db
+*.log
+.vscode/
+.idea/

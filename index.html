@@ -1,0 +1,728 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comfycare - Tất áp lực y tế cấp 2, tất và đai thể thao áp lực</title>
+    <meta
+      name="description"
+      content="Comfycare cung cấp tất áp lực y tế cấp 2, tất và đai thể thao áp lực. Tư vấn chọn size theo số đo, đổi size miễn phí 15 ngày."
+    />
+    <link rel="icon" type="image/png" href="./assets/logo/comfycare-logo.png" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="top-bar">
+      <div class="container top-bar__inner">
+        <span class="top-bar__item">
+          <svg class="top-bar__icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 7h12a4 4 0 0 1 4 4v1" />
+            <path d="m16 3 4 4-4 4" />
+            <path d="M20 17H8a4 4 0 0 1-4-4v-1" />
+            <path d="m8 21-4-4 4-4" />
+          </svg>
+          <span class="top-bar__desktop-text">Đổi size miễn phí 15 ngày từ khi nhận hàng</span>
+          <span class="top-bar__mobile-text">Đổi size 15 ngày</span>
+        </span>
+        <a class="top-bar__item" href="tel:0848621092">
+          <svg class="top-bar__icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6.6 4.2 9 3.2l3 5-1.8 1.6a12.1 12.1 0 0 0 4 4l1.6-1.8 5 3-1 2.4c-.4.9-1.3 1.5-2.3 1.4C9.8 18.2 5.8 14.2 5.2 6.5c-.1-1 .5-1.9 1.4-2.3Z" />
+          </svg>
+          <span>Hotline/Zalo: 0848 621 092</span>
+        </a>
+      </div>
+    </div>
+
+    <header class="site-header">
+      <div class="container header__inner">
+        <a class="brand" href="#top" aria-label="Comfycare trang chủ">
+          <img src="./assets/logo/comfycare-logo.png" alt="Comfycare" />
+          <span>COMFYCARE</span>
+        </a>
+        <button class="nav-toggle" type="button" aria-label="Mở menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav class="main-nav" aria-label="Menu chính">
+          <a href="#products">Sản phẩm</a>
+          <a href="#size">Hướng dẫn chọn size</a>
+          <a href="#faq">Kiến thức</a>
+          <a href="#certifications">Về Comfycare</a>
+          <a href="#contact">Liên hệ</a>
+        </nav>
+        <div class="header-actions">
+          <button class="icon-button" type="button" aria-label="Tìm kiếm">
+            <svg class="header-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="11" cy="11" r="7" />
+              <path d="m16.5 16.5 4 4" />
+            </svg>
+          </button>
+          <button class="icon-button" type="button" aria-label="Giỏ hàng">
+            <svg class="header-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 6h2l1.3 9.1a2 2 0 0 0 2 1.7h6.9a2 2 0 0 0 1.9-1.5L20.5 9H8" />
+              <circle cx="10" cy="20" r="1.5" />
+              <circle cx="18" cy="20" r="1.5" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="container hero__inner">
+          <div class="hero__content">
+            <h1>TẤT ÁP LỰC COMFYCARE</h1>
+            <p class="hero__lead">
+              Giảm đau, hỗ trợ tuần hoàn, ngăn ngừa suy giãn tĩnh mạch.
+            </p>
+            <div class="hero__features" aria-label="Thông tin nổi bật">
+              <article class="hero-feature">
+                <img src="./assets/icons/hero/hero-icon-medical-standard.png" alt="" aria-hidden="true" />
+                <strong>Chuẩn y khoa</strong>
+                <span>Được kiểm định chất lượng</span>
+              </article>
+              <article class="hero-feature">
+                <img src="./assets/icons/hero/hero-icon-effectiveness.png" alt="" aria-hidden="true" />
+                <strong>Hiệu quả</strong>
+                <span>Hỗ trợ điều trị và ngăn ngừa suy giãn tĩnh mạch</span>
+              </article>
+              <article class="hero-feature">
+                <img src="./assets/icons/hero/hero-icon-comfort.png" alt="" aria-hidden="true" />
+                <strong>Thoải mái</strong>
+                <span>Chất liệu cao cấp thoáng khí</span>
+              </article>
+              <article class="hero-feature">
+                <img src="./assets/icons/hero/hero-icon-official.png" alt="" aria-hidden="true" />
+                <strong>Chính hãng</strong>
+                <span>Thương hiệu Comfycare chuyên tất áp lực</span>
+              </article>
+            </div>
+            <div class="hero__actions">
+              <a class="btn btn--primary" href="#products">
+                <svg class="cta-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M6 6h15l-1.6 8.2a2 2 0 0 1-2 1.6H9.1a2 2 0 0 1-2-1.7L5.8 3.8H3" />
+                  <circle cx="9.5" cy="20" r="1.5" />
+                  <circle cx="17.5" cy="20" r="1.5" />
+                </svg>
+                <span>Mua ngay</span>
+              </a>
+              <a class="btn btn--secondary" href="https://zalo.me/0848621092">
+                <svg class="cta-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M6.6 4.2 9 3.2l3 5-1.8 1.6a12.1 12.1 0 0 0 4 4l1.6-1.8 5 3-1 2.4c-.4.9-1.3 1.5-2.3 1.4C9.8 18.2 5.8 14.2 5.2 6.5c-.1-1 .5-1.9 1.4-2.3Z" />
+                </svg>
+                <span>Tư vấn miễn phí</span>
+              </a>
+            </div>
+          </div>
+          <div class="hero__visual">
+            <div class="hero__image-frame">
+              <img src="./assets/hero/hero-main.png" alt="Người đang mang tất áp lực Comfycare" />
+            </div>
+            <aside class="hero-treatment" aria-label="Hỗ trợ điều trị">
+              <strong>Hỗ trợ điều trị</strong>
+              <ul>
+                <li>Suy giãn tĩnh mạch</li>
+                <li>Phù chân phù nề</li>
+                <li>Đau mỏi nặng chân</li>
+                <li>Chuột rút về đêm</li>
+                <li>Phòng ngừa huyết khối</li>
+              </ul>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="trust-strip" aria-label="Cam kết dịch vụ">
+        <div class="container trust-strip__grid">
+          <article>
+            <svg class="trust-strip__icon trust-strip__icon--bold" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M3 6h10v9H3z" />
+              <path d="M13 9h4.2l3.3 4v2H13z" />
+              <path d="M5 6V4h5v2" />
+              <path d="M15.5 11.2h1.8l1.2 1.5h-3z" />
+              <path d="M2 10H5" />
+              <path d="M1.5 13H5" />
+              <circle cx="6.5" cy="18" r="2.2" />
+              <circle cx="17.5" cy="18" r="2.2" />
+              <path d="M8.7 18h6.6" />
+            </svg>
+            <strong>GIAO HÀNG TOÀN QUỐC</strong>
+            <span>Nhanh chóng, tiện lợi</span>
+          </article>
+          <article>
+            <svg class="trust-strip__icon trust-strip__icon--bold" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m12 3 8 4.5-8 4.5-8-4.5L12 3Z" />
+              <path d="M4 7.5v9L12 21l8-4.5v-9" />
+              <path d="M12 12v9" />
+              <path d="m8 5.5 8 4.5" />
+              <path d="m15 16.2 1.5 1.5 3.8-4.2" />
+              <path d="M16.5 17.7h4" />
+            </svg>
+            <strong>KIỂM TRA HÀNG</strong>
+            <span>Trước khi thanh toán</span>
+          </article>
+          <article>
+            <svg class="trust-strip__icon trust-strip__icon--bold" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20 7v5h-5" />
+              <path d="M4 17v-5h5" />
+              <path d="M18.6 9A7 7 0 0 0 6.4 6.1L4 8.5" />
+              <path d="M5.4 15A7 7 0 0 0 17.6 17.9L20 15.5" />
+            </svg>
+            <strong>ĐỔI TRẢ DỄ DÀNG</strong>
+            <span>Trong 15 ngày</span>
+          </article>
+          <article>
+            <svg class="trust-strip__icon trust-strip__icon--bold" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 3 20 6v6c0 5-3.4 8-8 9-4.6-1-8-4-8-9V6l8-3Z" />
+              <path d="m9 12 2 2 4-5" />
+            </svg>
+            <strong>BẢO HÀNH CHÍNH HÃNG</strong>
+            <span>Cam kết chất lượng</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="products">
+        <div class="container">
+          <div class="section-heading product-heading">
+            <h2>SẢN PHẨM NỔI BẬT</h2>
+          </div>
+          <div class="product-grid">
+            <article class="product-card">
+              <div class="product-card__media">
+                <img src="./assets/products/CS21/CS21(1).png" alt="CS21 Tất Ống Chân Không Bàn" />
+              </div>
+              <div class="product-card__body">
+                <span class="sku">CS21</span>
+                <h3>Tất Ống Chân Không Bàn</h3>
+                <p class="product-pressure">Áp lực 21-32mmHg</p>
+                <strong>168.000đ</strong>
+                <div class="card-actions">
+                  <a class="btn btn--primary btn--small" href="https://shopee.vn/comfycare_official_store">Mua ngay</a>
+                </div>
+              </div>
+            </article>
+            <article class="product-card">
+              <div class="product-card__media">
+                <img src="./assets/products/CS22/CS22(1).png" alt="CS22 Tất Ống Chân Hở Ngón" />
+              </div>
+              <div class="product-card__body">
+                <span class="sku">CS22</span>
+                <h3>Tất Ống Chân Hở Ngón</h3>
+                <p class="product-pressure">Áp lực 21-32mmHg</p>
+                <strong>285.600đ</strong>
+                <div class="card-actions">
+                  <a class="btn btn--primary btn--small" href="https://shopee.vn/comfycare_official_store">Mua ngay</a>
+                </div>
+              </div>
+            </article>
+            <article class="product-card">
+              <div class="product-card__media">
+                <img src="./assets/products/CS23/CS23(1).png" alt="CS23 Tất Đùi Không Bàn" />
+              </div>
+              <div class="product-card__body">
+                <span class="sku">CS23</span>
+                <h3>Tất Đùi Không Bàn</h3>
+                <p class="product-pressure">Áp lực 21-32mmHg</p>
+                <strong>425.600đ</strong>
+                <div class="card-actions">
+                  <a class="btn btn--primary btn--small" href="https://shopee.vn/comfycare_official_store">Mua ngay</a>
+                </div>
+              </div>
+            </article>
+            <article class="product-card">
+              <div class="product-card__media">
+                <img src="./assets/products/CS35/CS35(1).png" alt="CS35 Tất Quần Kín Bàn" />
+              </div>
+              <div class="product-card__body">
+                <span class="sku">CS35</span>
+                <h3>Tất Quần Kín Bàn</h3>
+                <p class="product-pressure">Áp lực 21-32mmHg</p>
+                <strong>800.000đ</strong>
+                <div class="card-actions">
+                  <a class="btn btn--primary btn--small" href="https://shopee.vn/comfycare_official_store">Mua ngay</a>
+                </div>
+              </div>
+            </article>
+            <article class="product-card">
+              <div class="product-card__media">
+                <img src="./assets/products/CS25/CS25(1).png" alt="CS25 Tất Bàn Chân Cấp 2" />
+              </div>
+              <div class="product-card__body">
+                <span class="sku">CS25</span>
+                <h3>Tất Bàn Chân Cấp 2</h3>
+                <p class="product-pressure">Áp lực 21-32mmHg</p>
+                <strong>224.000đ</strong>
+                <div class="card-actions">
+                  <a class="btn btn--primary btn--small" href="https://shopee.vn/comfycare_official_store">Mua ngay</a>
+                </div>
+              </div>
+            </article>
+            <article class="product-card">
+              <div class="product-card__media">
+                <img src="./assets/products/CS30/CS30(1).png" alt="CS30 Găng Tay Cấp 2" />
+              </div>
+              <div class="product-card__body">
+                <span class="sku">CS30</span>
+                <h3>Găng Tay Cấp 2</h3>
+                <p class="product-pressure">Áp lực 21-32mmHg</p>
+                <strong>176.000đ</strong>
+                <div class="card-actions">
+                  <a class="btn btn--primary btn--small" href="https://shopee.vn/comfycare_official_store">Mua ngay</a>
+                </div>
+              </div>
+            </article>
+            <article class="product-card">
+              <div class="product-card__media">
+                <img src="./assets/products/CS31/CS31(1).png" alt="CS31 Đai Khuỷu Tay Cấp 2" />
+              </div>
+              <div class="product-card__body">
+                <span class="sku">CS31</span>
+                <h3>Đai Khuỷu Tay Cấp 2</h3>
+                <p class="product-pressure">Áp lực 21-32mmHg</p>
+                <strong>224.000đ</strong>
+                <div class="card-actions">
+                  <a class="btn btn--primary btn--small" href="https://shopee.vn/comfycare_official_store">Mua ngay</a>
+                </div>
+              </div>
+            </article>
+            <article class="product-card">
+              <div class="product-card__media">
+                <img src="./assets/products/CS28/CS28(1).png" alt="CS28 Đai Đầu Gối Cấp 2" />
+              </div>
+              <div class="product-card__body">
+                <span class="sku">CS28</span>
+                <h3>Đai Đầu Gối Cấp 2</h3>
+                <p class="product-pressure">Áp lực 21-32mmHg</p>
+                <strong>272.000đ</strong>
+                <div class="card-actions">
+                  <a class="btn btn--primary btn--small" href="https://shopee.vn/comfycare_official_store">Mua ngay</a>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="product-section-actions">
+            <a class="btn btn--outline" href="https://shopee.vn/comfycare_official_store">XEM TẤT CẢ SẢN PHẨM</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--why">
+        <div class="container why-choose">
+          <div class="why-choose__media">
+            <img src="./assets/sections/why-choose/doctor.png" alt="Bác sĩ nữ Comfycare tư vấn tất áp lực" loading="lazy" />
+          </div>
+          <div class="why-choose__content">
+            <div class="why-choose__heading">
+              <h2>VÌ SAO NÊN CHỌN COMFYCARE?</h2>
+            </div>
+            <div class="why-choose__reasons">
+              <article class="why-reason">
+                <span class="why-reason__icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M3 12h4l3-7 4 14 3-7h4" />
+                    <path d="M17 4v4" />
+                    <path d="M15 6h4" />
+                  </svg>
+                </span>
+                <div>
+                  <h3>Hiệu quả y khoa</h3>
+                  <p>Áp lực chuẩn tác động cải thiện lưu thông máu, giảm triệu chứng</p>
+                </div>
+              </article>
+              <article class="why-reason">
+                <span class="why-reason__icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 3 19 6v5.5c0 4.6-2.8 7.8-7 9.5-4.2-1.7-7-4.9-7-9.5V6l7-3Z" />
+                    <path d="m8.8 12 2.1 2.1 4.5-4.6" />
+                  </svg>
+                </span>
+                <div>
+                  <h3>An toàn &amp; chất lượng</h3>
+                  <p>Được kiểm định và cấp phép bởi Bộ Y tế</p>
+                </div>
+              </article>
+              <article class="why-reason">
+                <span class="why-reason__icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M20.5 4.5C15 4.8 9 7.8 5.8 12.4 4 15 3.6 17.4 4.8 19c1.5 2 4.8 1.2 7.6-1.2 4.5-3.8 7-8.7 8.1-13.3Z" />
+                    <path d="M5 19c3.4-5.4 8.1-8.1 13-10" />
+                  </svg>
+                </span>
+                <div>
+                  <h3>Thoải mái cả ngày dài</h3>
+                  <p>Chất liệu mềm mại, thoáng khí, co giãn 4 chiều</p>
+                </div>
+              </article>
+              <div class="why-choose__divider" aria-hidden="true"></div>
+              <article class="why-reason">
+                <span class="why-reason__icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="3.5" y="4" width="7" height="7" rx="1.5" />
+                    <rect x="13.5" y="4" width="7" height="7" rx="1.5" />
+                    <rect x="3.5" y="14" width="7" height="7" rx="1.5" />
+                    <rect x="13.5" y="14" width="7" height="7" rx="1.5" />
+                  </svg>
+                </span>
+                <div>
+                  <h3>Đa dạng mẫu mã</h3>
+                  <p>Nhiều kiểu dáng, màu sắc phù hợp mọi nhu cầu</p>
+                </div>
+              </article>
+              <article class="why-reason">
+                <span class="why-reason__icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M6 3v18" />
+                    <path d="M6 5h5" />
+                    <path d="M6 9h3" />
+                    <path d="M6 13h5" />
+                    <path d="M6 17h3" />
+                    <path d="M14 7h2.5a3.5 3.5 0 0 1 0 7H14" />
+                    <path d="m16 11-2 3 2 3" />
+                  </svg>
+                </span>
+                <div>
+                  <h3>Dễ dàng sử dụng</h3>
+                  <p>Thiết kế ôm vừa vặn, dễ mang, dễ tháo</p>
+                </div>
+              </article>
+              <article class="why-reason">
+                <span class="why-reason__icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="12" cy="12" r="8.5" />
+                    <path d="M12 7v5l3 2" />
+                    <path d="m7.7 15.6 1.7 1.7" />
+                    <path d="m16.3 6.7 1.7 1.7" />
+                  </svg>
+                </span>
+                <div>
+                  <h3>Bền bỉ theo thời gian</h3>
+                  <p>Sợi dệt cao cấp, bền chắc, giữ áp lực lâu dài</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--product-comparison" id="product-comparison">
+        <div class="container">
+          <div class="product-comparison__heading">
+            <h2><span>SO SÁNH DÒNG</span> <span>SẢN PHẨM COMFYCARE</span></h2>
+          </div>
+          <div class="product-comparison__table-wrap" role="region" aria-label="Bảng so sánh dòng sản phẩm Comfycare" tabindex="0">
+            <table class="product-comparison__table">
+              <colgroup>
+                <col class="product-comparison__criteria-col" />
+                <col />
+                <col />
+                <col />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col">Tiêu chí</th>
+                  <th scope="col">Tất thể thao cấp 1</th>
+                  <th scope="col">Đai thể thao cấp 2</th>
+                  <th scope="col">Tất tĩnh mạch</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Mức áp lực</th>
+                  <td>10–20 mmHg</td>
+                  <td>21–32 mmHg</td>
+                  <td>21–32 mmHg</td>
+                </tr>
+                <tr>
+                  <th scope="row">Đối tượng</th>
+                  <td>Người đứng/ngồi lâu, chơi thể thao mức độ vừa, muốn phòng ngừa sớm</td>
+                  <td>Người chơi thể thao, đau mỏi khớp nhẹ, tập gym, chạy bộ, tennis, cầu lông</td>
+                  <td>Người có triệu chứng suy giãn tĩnh mạch, đau mỏi nặng chân, đứng/ngồi lâu, sau sinh, người trung niên/cao tuổi</td>
+                </tr>
+                <tr>
+                  <th scope="row">Công dụng</th>
+                  <td>Hỗ trợ tuần hoàn nhẹ, giảm mỏi chân, ổn định cơ khi vận động</td>
+                  <td>Hỗ trợ ổn định khớp/cơ, giảm đau mỏi, hỗ trợ vận động cường độ cao</td>
+                  <td>Hỗ trợ điều trị suy giãn tĩnh mạch, giảm đau mỏi, giảm phù chân, hỗ trợ tuần hoàn máu</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="product-comparison__note">* Nên tham khảo tư vấn để chọn sản phẩm và mức áp lực phù hợp.</p>
+          <div class="product-comparison__actions">
+            <a class="btn btn--primary product-comparison__cta" href="https://zalo.me/0848621092">TƯ VẤN MIỄN PHÍ</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--certifications" id="certifications">
+        <div class="container">
+          <div class="cert-panel">
+            <h2>CHỨNG NHẬN & GIẤY PHÉP</h2>
+            <div class="cert-grid">
+              <article class="cert-item">
+                <img src="./assets/certifications/byt.png" alt="Công bố BYT 250000052/PCBA-HP" loading="lazy" />
+                <strong>BYT 250000052/PCBA-HP</strong>
+                <span>Dòng tất y tế cấp 2</span>
+              </article>
+              <article class="cert-item">
+                <img src="./assets/certifications/fda.png" alt="FDA USA Fiscal Year 2025" loading="lazy" />
+                <strong>FDA USA 2025</strong>
+                <span>Đăng ký cơ sở sản xuất</span>
+              </article>
+              <article class="cert-item">
+                <img src="./assets/certifications/iso13485.png" alt="ISO 13485:2016" loading="lazy" />
+                <strong>ISO 13485:2016</strong>
+                <span>Quản lý thiết bị y tế</span>
+              </article>
+              <article class="cert-item">
+                <img src="./assets/certifications/iso9001.png" alt="ISO 9001:2015" loading="lazy" />
+                <strong>ISO 9001:2015</strong>
+                <span>Quản lý chất lượng</span>
+              </article>
+              <article class="cert-item">
+                <img src="./assets/certifications/ccpit.webp" alt="CCPIT / hợp pháp hóa lãnh sự" loading="lazy" />
+                <strong>CCPIT</strong>
+                <span>Hợp pháp hóa lãnh sự</span>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--reviews">
+        <div class="container">
+          <div class="section-heading review-heading">
+            <h2>KHÁCH HÀNG NÓI GÌ VỀ COMFYCARE?</h2>
+          </div>
+          <div class="review-carousel" aria-label="Ảnh review Shopee">
+            <button class="carousel-button carousel-button--prev" type="button" aria-label="Review trước">‹</button>
+            <div class="review-carousel__viewport" tabindex="0">
+              <div class="review-carousel__track">
+                <button class="review-slide" type="button" data-review-src="./assets/reviews/review-shopee-01.png" aria-label="Phóng to review Shopee 01">
+                  <img src="./assets/reviews/review-shopee-01.png" alt="Ảnh review Shopee 01" loading="eager" />
+                </button>
+                <button class="review-slide" type="button" data-review-src="./assets/reviews/review-shopee-02.png" aria-label="Phóng to review Shopee 02">
+                  <img src="./assets/reviews/review-shopee-02.png" alt="Ảnh review Shopee 02" loading="eager" />
+                </button>
+                <button class="review-slide" type="button" data-review-src="./assets/reviews/review-shopee-03.png" aria-label="Phóng to review Shopee 03">
+                  <img src="./assets/reviews/review-shopee-03.png" alt="Ảnh review Shopee 03" loading="eager" />
+                </button>
+                <button class="review-slide" type="button" data-review-src="./assets/reviews/review-shopee-04.png" aria-label="Phóng to review Shopee 04">
+                  <img src="./assets/reviews/review-shopee-04.png" alt="Ảnh review Shopee 04" loading="eager" />
+                </button>
+                <button class="review-slide" type="button" data-review-src="./assets/reviews/review-shopee-05.png" aria-label="Phóng to review Shopee 05">
+                  <img src="./assets/reviews/review-shopee-05.png" alt="Ảnh review Shopee 05" loading="eager" />
+                </button>
+                <button class="review-slide" type="button" data-review-src="./assets/reviews/review-shopee-06.png" aria-label="Phóng to review Shopee 06">
+                  <img src="./assets/reviews/review-shopee-06.png" alt="Ảnh review Shopee 06" loading="eager" />
+                </button>
+              </div>
+            </div>
+            <button class="carousel-button carousel-button--next" type="button" aria-label="Review tiếp theo">›</button>
+            <div class="carousel-dots" aria-label="Phân trang review"></div>
+            <p class="review-hint">Bấm vào ảnh để xem review rõ hơn</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--soft section--size" id="size">
+        <div class="container">
+          <div class="section-heading size-heading">
+            <h2>HƯỚNG DẪN CHỌN SIZE</h2>
+            <p class="size-note">
+              <em>Với tất y tế cấp 2, đo chu vi mắt cá chân cB, bắp chân cC và đùi cG. Nếu nằm giữa 2 size, khách mới sử dụng nên chọn size lớn hơn để làm quen áp lực</em>
+            </p>
+          </div>
+          <div class="size-layout">
+            <figure class="size-measure-card">
+              <img src="./assets/size-guide/measure-leg.png" alt="Minh họa vị trí đo cB, cC và cG trên chân" loading="lazy" />
+            </figure>
+            <div class="size-table-card">
+              <div class="table-wrap size-table-wrap">
+                <table class="size-table" aria-label="Bảng size cấp 2 theo chu vi chân">
+                  <thead>
+                    <tr><th>Size</th><th>cB</th><th>cC</th><th>cG</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>S</td><td>19-21</td><td>30-34</td><td>44-48</td></tr>
+                    <tr><td>M</td><td>21-23</td><td>33-37</td><td>48-52</td></tr>
+                    <tr><td>L</td><td>23-25</td><td>36-40</td><td>53-57</td></tr>
+                    <tr><td>XL</td><td>25-27</td><td>40-44</td><td>58-62</td></tr>
+                    <tr><td>XXL</td><td>27-29</td><td>43-47</td><td>62-66</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="size-cta">
+            <a class="btn btn--primary" href="https://zalo.me/0848621092">Gửi số đo để được tư vấn size</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="faq">
+        <div class="container faq-layout">
+          <div class="faq-heading">
+            <h2>CÂU HỎI THƯỜNG GẶP</h2>
+          </div>
+          <div class="faq-list">
+            <details>
+              <summary>Tất y khoa Comfycare có tác dụng gì?</summary>
+              <p>Dòng tất y khoa cấp 2 Comfycare hỗ trợ giảm cảm giác nặng chân, đau mỏi, phù chân và hỗ trợ tuần hoàn khi dùng đúng size, đúng thời điểm. Sản phẩm không thay thế thăm khám hoặc điều trị y tế trong trường hợp bệnh nặng.</p>
+            </details>
+            <details>
+              <summary>Có thể giặt tất y khoa bằng máy giặt không?</summary>
+              <p>Có thể giặt tay hoặc giặt máy chế độ nhẹ, nhiệt độ tối đa 30°C. Không dùng nước tẩy, nước xả/chất làm mềm vải, không sấy, không ủi và nên phơi khô tự nhiên, tránh ánh nắng trực tiếp.</p>
+            </details>
+            <details>
+              <summary>Mang tất y khoa có khó chịu không?</summary>
+              <p>Cảm giác nén là bình thường vì tất tạo áp lực hỗ trợ tuần hoàn. Người mới dùng nên mang 1-2 giờ/ngày trong 2-3 ngày đầu rồi tăng dần; tháo ngay nếu thấy tê, lạnh, đổi màu hoặc đau bất thường.</p>
+            </details>
+            <details>
+              <summary>Phụ nữ mang thai có dùng được không?</summary>
+              <p>Tất y khoa cấp 2 là một trong những dòng phù hợp cho phụ nữ mang thai và sau sinh. Nếu thai kỳ có biến chứng, có bệnh nền hoặc triệu chứng bất thường, nên hỏi bác sĩ sản khoa trước khi dùng.</p>
+            </details>
+            <details>
+              <summary>Nên mang tất y khoa trong bao lâu mỗi ngày?</summary>
+              <p>Nên mang vào buổi sáng sau khi ngủ dậy hoặc sau khi kê chân 5-10 phút, tháo trước khi ngủ. Với dòng cấp 2, không mang quá 12 giờ liên tục; nếu có bệnh nền như tiểu đường hoặc tuần hoàn kém, nên hỏi bác sĩ trước khi dùng.</p>
+            </details>
+            <details>
+              <summary>Đổi trả nếu không vừa size như thế nào?</summary>
+              <p>Comfycare hỗ trợ đổi size/sản phẩm 1 lần trong 15 ngày kể từ ngày nhận hàng, miễn phí vận chuyển lần đầu. Sản phẩm cần chưa qua giặt, còn nguyên tem mác, không có mùi lạ, vết bẩn hoặc trầy xước do người dùng; khi đổi trả không tặng lại CS100.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="contact">
+      <section class="footer-newsletter" aria-labelledby="footer-newsletter-title">
+        <div class="container footer-newsletter__inner">
+          <div class="footer-newsletter__content">
+            <div>
+              <h2 id="footer-newsletter-title">TÔI MUỐN ĐƯỢC TƯ VẤN CHỌN TẤT/SIZE PHÙ HỢP</h2>
+            </div>
+          </div>
+          <a class="btn btn--primary footer-newsletter__cta" href="https://zalo.me/0848621092">TƯ VẤN QUA ZALO</a>
+        </div>
+      </section>
+
+      <div class="footer-main">
+        <div class="container footer-grid">
+          <div class="footer-company">
+            <a class="footer-brand" href="#" aria-label="Comfycare trang chủ">
+              <img class="footer-logo" src="./assets/logo/comfycare-logo.png" alt="Comfycare" />
+              <span>COMFYCARE</span>
+            </a>
+            <p>
+              Comfycare cam kết mang đến những sản phẩm tất áp lực chất lượng cao, giúp chăm sóc sức khỏe đôi chân
+              và nâng cao chất lượng cuộc sống.
+            </p>
+            <div class="footer-social" aria-label="Mạng xã hội Comfycare">
+              <a href="https://facebook.com/Comfycare249" aria-label="Facebook Comfycare">
+                <img src="./assets/icons/icon facebook.png" alt="" loading="lazy" />
+              </a>
+              <a href="https://zalo.me/0848621092" aria-label="Zalo Comfycare">
+                <img src="./assets/icons/icon zalo.png" alt="" loading="lazy" />
+              </a>
+              <a href="https://shopee.vn/comfycare_official_store" aria-label="Shopee Comfycare">
+                <img src="./assets/icons/icon shopee.png" alt="" loading="lazy" />
+              </a>
+              <a href="https://tiktok.com/@comfycare_store" aria-label="TikTok Comfycare">
+                <img src="./assets/icons/icon tiktok.png" alt="" loading="lazy" />
+              </a>
+            </div>
+          </div>
+
+          <nav class="footer-links" aria-label="Về chúng tôi">
+            <h3>VỀ CHÚNG TÔI</h3>
+            <a href="#">Giới thiệu</a>
+            <a href="#">Sứ mệnh &amp; Tầm nhìn</a>
+            <a href="#certifications">Chứng nhận</a>
+            <a href="#faq">Tin tức</a>
+            <a href="#contact">Liên hệ</a>
+          </nav>
+
+          <nav class="footer-links" aria-label="Chính sách">
+            <h3>CHÍNH SÁCH</h3>
+            <a href="#">Chính sách bảo mật</a>
+            <a href="#">Chính sách đổi trả</a>
+            <a href="#">Chính sách vận chuyển</a>
+            <a href="#">Hướng dẫn thanh toán</a>
+            <a href="#">Điều khoản sử dụng</a>
+          </nav>
+
+          <div class="footer-contact">
+            <h3>HỖ TRỢ KHÁCH HÀNG</h3>
+            <ul>
+              <li>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h4l2 5-2.5 1.5A12 12 0 0 0 15 15.5L16.5 13l5 2v4a2 2 0 0 1-2 2C10.4 21 3 13.6 3 4.5a2 2 0 0 1 2-2z"></path></svg>
+                <a href="tel:0848621092">Hotline/Zalo: 0848 621 092</a>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z"></path><path d="m4 7 8 6 8-6"></path></svg>
+                <a href="mailto:comfycare.store@gmail.com">Email: comfycare.store@gmail.com</a>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6v6l4 2"></path><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z"></path></svg>
+                <span>Thời gian: 8:00 - 22:00 hằng ngày</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-5.1 7-11a7 7 0 1 0-14 0c0 5.9 7 11 7 11z"></path><path d="M12 10.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"></path></svg>
+                <span>CN1: 128 An Đà, Gia Viên, Hải Phòng</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-5.1 7-11a7 7 0 1 0-14 0c0 5.9 7 11 7 11z"></path><path d="M12 10.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"></path></svg>
+                <span>CN2: 48 Phương Lưu, Đông Hải, Hải Phòng</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-protection">
+            <h3>CHỨNG NHẬN / BẢO VỆ</h3>
+            <div class="footer-badge">
+              <span class="footer-badge__icon footer-badge__icon--bct" aria-hidden="true">
+                <img src="./assets/icons/icon bocongthuong.png" alt="" loading="lazy" />
+              </span>
+              <strong>ĐÃ THÔNG BÁO BỘ CÔNG THƯƠNG</strong>
+            </div>
+            <div class="footer-badge">
+              <span class="footer-badge__icon footer-badge__icon--protected" aria-hidden="true">
+                <img src="./assets/icons/icon protected.png" alt="" loading="lazy" />
+              </span>
+              <strong>PROTECTED</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="container footer-bottom">
+          <p>© 2026 Comfycare. All rights reserved.</p>
+          <div class="payment-icons" aria-label="Icon phương thức thanh toán">
+            <span class="payment-icon"><img src="./assets/payment/payment-visa.png" alt="Visa" loading="lazy" /></span>
+            <span class="payment-icon"><img src="./assets/payment/payment-mastercard.png" alt="Mastercard" loading="lazy" /></span>
+            <span class="payment-icon"><img src="./assets/payment/payment-momo.png" alt="MoMo" loading="lazy" /></span>
+            <span class="payment-icon"><img src="./assets/payment/payment-zalopay.png" alt="ZaloPay" loading="lazy" /></span>
+            <span class="payment-icon"><img src="./assets/payment/payment-vnpay.png" alt="VNPay" loading="lazy" /></span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="review-lightbox" aria-hidden="true" role="dialog" aria-label="Ảnh review Shopee phóng to">
+      <button class="review-lightbox__close" type="button" aria-label="Đóng ảnh review">×</button>
+      <div class="review-lightbox__content">
+        <img alt="Ảnh review Shopee phóng to" />
+      </div>
+    </div>
+
+    <div class="mobile-sticky-cta" aria-label="Liên hệ nhanh">
+      <a class="btn btn--secondary" href="https://zalo.me/0848621092">Tư vấn size qua Zalo</a>
+      <a class="btn btn--primary" href="tel:0848621092">Gọi hotline</a>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
