@@ -2,8 +2,8 @@
   const basePath = document.body.dataset.basePath || '/';
   const currentPath = document.body.dataset.currentPath || '';
   const route = (path = '') => `${basePath}${path}`;
-  const homeRoute = () => route('index.html');
-  const pageRoute = (path = '') => (path ? route(`${path}/index.html`) : homeRoute());
+  const homeRoute = () => route('');
+  const pageRoute = (path = '') => (path ? route(`${path}/`) : homeRoute());
   const isCurrent = (path) => currentPath === path;
   const link = (path, label) => `<a href="${pageRoute(path)}"${isCurrent(path) ? ' aria-current="page"' : ''}>${label}</a>`;
 
