@@ -11,63 +11,8 @@
     <link rel="icon" type="image/png" href="./assets/logo/comfycare-logo.png" />
     <link rel="stylesheet" href="./styles.css" />
   </head>
-  <body>
-    <div class="top-bar">
-      <div class="container top-bar__inner">
-        <span class="top-bar__item">
-          <svg class="top-bar__icon" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M4 7h12a4 4 0 0 1 4 4v1" />
-            <path d="m16 3 4 4-4 4" />
-            <path d="M20 17H8a4 4 0 0 1-4-4v-1" />
-            <path d="m8 21-4-4 4-4" />
-          </svg>
-          <span class="top-bar__desktop-text">Đổi size miễn phí 15 ngày từ khi nhận hàng</span>
-          <span class="top-bar__mobile-text">Đổi size 15 ngày</span>
-        </span>
-        <a class="top-bar__item" href="tel:0848621092">
-          <svg class="top-bar__icon" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M6.6 4.2 9 3.2l3 5-1.8 1.6a12.1 12.1 0 0 0 4 4l1.6-1.8 5 3-1 2.4c-.4.9-1.3 1.5-2.3 1.4C9.8 18.2 5.8 14.2 5.2 6.5c-.1-1 .5-1.9 1.4-2.3Z" />
-          </svg>
-          <span>Hotline/Zalo: 0848 621 092</span>
-        </a>
-      </div>
-    </div>
-
-    <header class="site-header">
-      <div class="container header__inner">
-        <a class="brand" href="#top" aria-label="Comfycare trang chủ">
-          <img src="./assets/logo/comfycare-logo.png" alt="Comfycare" />
-          <span>COMFYCARE</span>
-        </a>
-        <button class="nav-toggle" type="button" aria-label="Mở menu" aria-expanded="false">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-        <nav class="main-nav" aria-label="Menu chính">
-          <a href="#products">Sản phẩm</a>
-          <a href="#size">Hướng dẫn chọn size</a>
-          <a href="#faq">Kiến thức</a>
-          <a href="#certifications">Về Comfycare</a>
-          <a href="#contact">Liên hệ</a>
-        </nav>
-        <div class="header-actions">
-          <button class="icon-button" type="button" aria-label="Tìm kiếm">
-            <svg class="header-icon" viewBox="0 0 24 24" aria-hidden="true">
-              <circle cx="11" cy="11" r="7" />
-              <path d="m16.5 16.5 4 4" />
-            </svg>
-          </button>
-          <button class="icon-button" type="button" aria-label="Giỏ hàng">
-            <svg class="header-icon" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M5 6h2l1.3 9.1a2 2 0 0 0 2 1.7h6.9a2 2 0 0 0 1.9-1.5L20.5 9H8" />
-              <circle cx="10" cy="20" r="1.5" />
-              <circle cx="18" cy="20" r="1.5" />
-            </svg>
-          </button>
-        </div>
-      </div>
-    </header>
+  <body data-base-path="./" data-current-path="home">
+    <div data-site-header></div>
 
     <main id="top">
       <section class="hero">
@@ -341,7 +286,7 @@
                 </span>
                 <div>
                   <h3>An toàn &amp; chất lượng</h3>
-                  <p>Được kiểm định và cấp phép bởi Bộ Y tế</p>
+                  <p>Dòng tất y tế cấp 2 có công bố BYT</p>
                 </div>
               </article>
               <article class="why-reason">
@@ -597,119 +542,7 @@
         </div>
       </section>
     </main>
-
-    <footer class="site-footer" id="contact">
-      <section class="footer-newsletter" aria-labelledby="footer-newsletter-title">
-        <div class="container footer-newsletter__inner">
-          <div class="footer-newsletter__content">
-            <div>
-              <h2 id="footer-newsletter-title">TÔI MUỐN ĐƯỢC TƯ VẤN CHỌN TẤT/SIZE PHÙ HỢP</h2>
-            </div>
-          </div>
-          <a class="btn btn--primary footer-newsletter__cta" href="https://zalo.me/0848621092">TƯ VẤN QUA ZALO</a>
-        </div>
-      </section>
-
-      <div class="footer-main">
-        <div class="container footer-grid">
-          <div class="footer-company">
-            <a class="footer-brand" href="#" aria-label="Comfycare trang chủ">
-              <img class="footer-logo" src="./assets/logo/comfycare-logo.png" alt="Comfycare" />
-              <span>COMFYCARE</span>
-            </a>
-            <p>
-              Comfycare cam kết mang đến những sản phẩm tất áp lực chất lượng cao, giúp chăm sóc sức khỏe đôi chân
-              và nâng cao chất lượng cuộc sống.
-            </p>
-            <div class="footer-social" aria-label="Mạng xã hội Comfycare">
-              <a href="https://facebook.com/Comfycare249" aria-label="Facebook Comfycare">
-                <img src="./assets/icons/icon facebook.png" alt="" loading="lazy" />
-              </a>
-              <a href="https://zalo.me/0848621092" aria-label="Zalo Comfycare">
-                <img src="./assets/icons/icon zalo.png" alt="" loading="lazy" />
-              </a>
-              <a href="https://shopee.vn/comfycare_official_store" aria-label="Shopee Comfycare">
-                <img src="./assets/icons/icon shopee.png" alt="" loading="lazy" />
-              </a>
-              <a href="https://tiktok.com/@comfycare_store" aria-label="TikTok Comfycare">
-                <img src="./assets/icons/icon tiktok.png" alt="" loading="lazy" />
-              </a>
-            </div>
-          </div>
-
-          <nav class="footer-links" aria-label="Về chúng tôi">
-            <h3>VỀ CHÚNG TÔI</h3>
-            <a href="#">Giới thiệu</a>
-            <a href="#">Sứ mệnh &amp; Tầm nhìn</a>
-            <a href="#certifications">Chứng nhận</a>
-            <a href="#faq">Tin tức</a>
-            <a href="#contact">Liên hệ</a>
-          </nav>
-
-          <nav class="footer-links" aria-label="Chính sách">
-            <h3>CHÍNH SÁCH</h3>
-            <a href="#">Chính sách bảo mật</a>
-            <a href="#">Chính sách đổi trả</a>
-            <a href="#">Chính sách vận chuyển</a>
-            <a href="#">Hướng dẫn thanh toán</a>
-            <a href="#">Điều khoản sử dụng</a>
-          </nav>
-
-          <div class="footer-contact">
-            <h3>HỖ TRỢ KHÁCH HÀNG</h3>
-            <ul>
-              <li>
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h4l2 5-2.5 1.5A12 12 0 0 0 15 15.5L16.5 13l5 2v4a2 2 0 0 1-2 2C10.4 21 3 13.6 3 4.5a2 2 0 0 1 2-2z"></path></svg>
-                <a href="tel:0848621092">Hotline/Zalo: 0848 621 092</a>
-              </li>
-              <li>
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z"></path><path d="m4 7 8 6 8-6"></path></svg>
-                <a href="mailto:comfycare.store@gmail.com">Email: comfycare.store@gmail.com</a>
-              </li>
-              <li>
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6v6l4 2"></path><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z"></path></svg>
-                <span>Thời gian: 8:00 - 22:00 hằng ngày</span>
-              </li>
-              <li>
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-5.1 7-11a7 7 0 1 0-14 0c0 5.9 7 11 7 11z"></path><path d="M12 10.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"></path></svg>
-                <span>CN1: 128 An Đà, Gia Viên, Hải Phòng</span>
-              </li>
-              <li>
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-5.1 7-11a7 7 0 1 0-14 0c0 5.9 7 11 7 11z"></path><path d="M12 10.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"></path></svg>
-                <span>CN2: 48 Phương Lưu, Đông Hải, Hải Phòng</span>
-              </li>
-            </ul>
-          </div>
-
-          <div class="footer-protection">
-            <h3>CHỨNG NHẬN / BẢO VỆ</h3>
-            <div class="footer-badge">
-              <span class="footer-badge__icon footer-badge__icon--bct" aria-hidden="true">
-                <img src="./assets/icons/icon bocongthuong.png" alt="" loading="lazy" />
-              </span>
-              <strong>ĐÃ THÔNG BÁO BỘ CÔNG THƯƠNG</strong>
-            </div>
-            <div class="footer-badge">
-              <span class="footer-badge__icon footer-badge__icon--protected" aria-hidden="true">
-                <img src="./assets/icons/icon protected.png" alt="" loading="lazy" />
-              </span>
-              <strong>PROTECTED</strong>
-            </div>
-          </div>
-        </div>
-
-        <div class="container footer-bottom">
-          <p>© 2026 Comfycare. All rights reserved.</p>
-          <div class="payment-icons" aria-label="Icon phương thức thanh toán">
-            <span class="payment-icon"><img src="./assets/payment/payment-visa.png" alt="Visa" loading="lazy" /></span>
-            <span class="payment-icon"><img src="./assets/payment/payment-mastercard.png" alt="Mastercard" loading="lazy" /></span>
-            <span class="payment-icon"><img src="./assets/payment/payment-momo.png" alt="MoMo" loading="lazy" /></span>
-            <span class="payment-icon"><img src="./assets/payment/payment-zalopay.png" alt="ZaloPay" loading="lazy" /></span>
-            <span class="payment-icon"><img src="./assets/payment/payment-vnpay.png" alt="VNPay" loading="lazy" /></span>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <div data-site-footer></div>
 
     <div class="review-lightbox" aria-hidden="true" role="dialog" aria-label="Ảnh review Shopee phóng to">
       <button class="review-lightbox__close" type="button" aria-label="Đóng ảnh review">×</button>
@@ -718,11 +551,7 @@
       </div>
     </div>
 
-    <div class="mobile-sticky-cta" aria-label="Liên hệ nhanh">
-      <a class="btn btn--secondary" href="https://zalo.me/0848621092">Tư vấn size qua Zalo</a>
-      <a class="btn btn--primary" href="tel:0848621092">Gọi hotline</a>
-    </div>
-
+    <script src="./layout.js"></script>
     <script src="./script.js"></script>
   </body>
 </html>

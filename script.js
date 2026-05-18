@@ -11,6 +11,7 @@ if (navToggle && mainNav) {
     if (event.target instanceof HTMLAnchorElement) {
       mainNav.classList.remove("is-open");
       navToggle.setAttribute("aria-expanded", "false");
+      mainNav.querySelectorAll("details[open]").forEach((details) => details.removeAttribute("open"));
     }
   });
 }
