@@ -1,5 +1,5 @@
 (() => {
-  const basePath = document.body.dataset.basePath || './';
+  const basePath = document.body.dataset.basePath || '/';
   const currentPath = document.body.dataset.currentPath || '';
   const route = (path = '') => `${basePath}${path}`;
   const homeRoute = () => route('index.html');
