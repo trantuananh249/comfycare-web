@@ -5,6 +5,7 @@
   const homeRoute = () => route('');
   const pageRoute = (path = '') => (path ? route(`${path}/`) : homeRoute());
   const isCurrent = (path) => currentPath === path;
+  const isContactPage = currentPath === 'lien-he';
   const link = (path, label) => `<a href="${pageRoute(path)}"${isCurrent(path) ? ' aria-current="page"' : ''}>${label}</a>`;
 
   const headerMount = document.querySelector('[data-site-header]');
@@ -21,8 +22,8 @@
               <path d="M20 17H8a4 4 0 0 1-4-4v-1" />
               <path d="m8 21-4-4 4-4" />
             </svg>
-            <span class="top-bar__desktop-text">Đổi size miễn phí 15 ngày từ khi nhận hàng</span>
-            <span class="top-bar__mobile-text">Đổi size 15 ngày</span>
+            <span class="top-bar__desktop-text">${isContactPage ? 'Danh bạ liên hệ chính thức Comfycare' : 'Đổi size miễn phí 15 ngày từ khi nhận hàng'}</span>
+            <span class="top-bar__mobile-text">${isContactPage ? 'Danh bạ liên hệ' : 'Đổi size 15 ngày'}</span>
           </span>
           <a class="top-bar__item" href="tel:0848621092">
             <svg class="top-bar__icon" viewBox="0 0 24 24" aria-hidden="true">
@@ -77,7 +78,7 @@
             </details>
           </nav>
           <div class="header-actions">
-            <a class="btn btn--small btn--primary" href="${pageRoute('san-pham')}">Mua ngay</a>
+            <a class="btn btn--small btn--primary" href="${isContactPage ? 'tel:0848621092' : pageRoute('san-pham')}">${isContactPage ? 'Gọi ngay' : 'Mua ngay'}</a>
           </div>
         </div>
       </header>
@@ -91,10 +92,10 @@
           <div class="container footer-newsletter__inner">
             <div class="footer-newsletter__content">
               <div>
-                <h2 id="footer-newsletter-title">TÔI MUỐN ĐƯỢC TƯ VẤN CHỌN TẤT/SIZE PHÙ HỢP</h2>
+                <h2 id="footer-newsletter-title">${isContactPage ? 'LIÊN HỆ COMFYCARE QUA HOTLINE/ZALO CHÍNH THỨC' : 'TÔI MUỐN ĐƯỢC TƯ VẤN CHỌN TẤT/SIZE PHÙ HỢP'}</h2>
               </div>
             </div>
-            <a class="btn btn--primary footer-newsletter__cta" href="https://zalo.me/0848621092">TƯ VẤN QUA ZALO</a>
+            <a class="btn btn--primary footer-newsletter__cta" href="https://zalo.me/0848621092">${isContactPage ? 'NHẮN ZALO' : 'TƯ VẤN QUA ZALO'}</a>
           </div>
         </section>
 
@@ -200,7 +201,7 @@
       </footer>
 
       <div class="mobile-sticky-cta" aria-label="Liên hệ nhanh">
-        <a class="btn btn--secondary" href="https://zalo.me/0848621092">Tư vấn size qua Zalo</a>
+        <a class="btn btn--secondary" href="https://zalo.me/0848621092">${isContactPage ? 'Nhắn Zalo' : 'Tư vấn size qua Zalo'}</a>
         <a class="btn btn--primary" href="tel:0848621092">Gọi hotline</a>
       </div>
     `;

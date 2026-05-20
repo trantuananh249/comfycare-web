@@ -2062,6 +2062,275 @@ input {
   overflow-wrap: anywhere;
 }
 
+.contact-directory {
+  display: grid;
+  gap: 24px;
+}
+
+.contact-hero-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 24px;
+  align-items: center;
+  padding: 30px;
+  border: 1px solid rgba(10, 169, 178, 0.28);
+  border-radius: 20px;
+  background:
+    linear-gradient(135deg, rgba(10, 169, 178, 0.12) 0%, rgba(255, 255, 255, 0.96) 52%, rgba(242, 158, 36, 0.16) 100%),
+    var(--white);
+  box-shadow: 0 22px 55px rgba(8, 127, 134, 0.13);
+}
+
+.contact-hero-card__content {
+  display: grid;
+  gap: 8px;
+}
+
+.contact-hero-card__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--teal-dark);
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.contact-hero-card__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--orange);
+  box-shadow: 0 0 0 6px rgba(242, 158, 36, 0.18);
+}
+
+.contact-hero-card h2 {
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(24px, 3.2vw, 34px);
+  line-height: 1.08;
+}
+
+.contact-hero-card__phone {
+  margin: 0;
+  color: var(--teal-dark);
+  font-size: clamp(32px, 5vw, 54px);
+  font-weight: 900;
+  line-height: 1;
+}
+
+.contact-hero-card__phone a {
+  color: inherit;
+}
+
+.contact-hero-card__note {
+  margin: 0;
+  color: #475569;
+  font-size: 17px;
+}
+
+.contact-hero-card__actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(130px, 1fr));
+  gap: 12px;
+  min-width: 330px;
+}
+
+.contact-hero-card__actions .btn {
+  min-height: 54px;
+  padding-inline: 22px;
+}
+
+.contact-info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.contact-mini-card {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--white);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.05);
+}
+
+.contact-mini-card__icon {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  border-radius: 12px;
+  background: var(--teal-soft);
+  color: var(--teal-dark);
+}
+
+.contact-mini-card__icon svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.contact-mini-card h2 {
+  margin: 0 0 6px;
+  color: var(--teal-dark);
+  font-size: 18px;
+}
+
+.contact-mini-card p {
+  margin: 0;
+  color: #526173;
+}
+
+.contact-mini-card p + p {
+  margin-top: 4px;
+}
+
+.contact-mini-card a {
+  color: var(--teal-dark);
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
+.contact-section {
+  display: grid;
+  gap: 16px;
+}
+
+.contact-address-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.contact-address-card {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  min-height: 220px;
+  padding: 24px;
+  border: 1px solid rgba(10, 169, 178, 0.24);
+  border-radius: 20px;
+  background: #f8ffff;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.05);
+}
+
+.contact-address-card--showroom {
+  border-color: rgba(242, 158, 36, 0.34);
+  background: #fffaf0;
+}
+
+.contact-address-card__label {
+  display: inline-flex;
+  width: fit-content;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: var(--teal);
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
+.contact-address-card--showroom .contact-address-card__label {
+  background: var(--orange);
+}
+
+.contact-address-card h3 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+.contact-address-card p {
+  margin: 0;
+  color: #475569;
+  font-size: 17px;
+}
+
+.contact-address-card .btn {
+  width: fit-content;
+  margin-top: auto;
+}
+
+.official-channel-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.official-channel-card {
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  gap: 8px;
+  min-height: 132px;
+  padding: 16px 12px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--white);
+  color: var(--ink);
+  text-align: center;
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.045);
+}
+
+.official-channel-card:hover {
+  border-color: rgba(10, 169, 178, 0.46);
+  transform: translateY(-2px);
+}
+
+.official-channel-card__icon {
+  display: inline-grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background: var(--teal-soft);
+}
+
+.official-channel-card__icon img {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
+
+.official-channel-card__icon--svg {
+  color: var(--teal-dark);
+}
+
+.official-channel-card__icon--svg svg {
+  width: 25px;
+  height: 25px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.official-channel-card span:not(.official-channel-card__icon) {
+  color: var(--teal-dark);
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.official-channel-card strong {
+  color: #526173;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.28;
+  overflow-wrap: anywhere;
+}
+
 .split-panel {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2450,6 +2719,14 @@ input {
 
   .contact-channel-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .contact-info-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .official-channel-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
@@ -3003,6 +3280,46 @@ input {
 
   .page-content {
     padding-bottom: 34px;
+  }
+
+  .contact-hero-card {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 22px;
+  }
+
+  .contact-hero-card__actions {
+    grid-template-columns: 1fr;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .contact-info-grid,
+  .contact-address-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-mini-card,
+  .contact-address-card {
+    padding: 18px;
+  }
+
+  .contact-address-card {
+    min-height: 0;
+  }
+
+  .official-channel-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .official-channel-card {
+    min-height: 126px;
+    padding: 14px 10px;
+  }
+
+  .official-channel-card--wide {
+    grid-column: 1 / -1;
   }
 
   .split-panel,
