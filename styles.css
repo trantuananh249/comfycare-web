@@ -2143,18 +2143,18 @@ input {
 
 .contact-info-grid {
   display: grid;
-  grid-template-columns: minmax(295px, 1.28fr) minmax(210px, 1fr) minmax(210px, 1fr) minmax(270px, 1.18fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 18px;
   align-items: stretch;
 }
 
 .contact-mini-card {
   display: flex;
-  gap: 14px;
+  gap: 12px;
   align-items: flex-start;
-  min-height: 168px;
+  min-height: 146px;
   height: 100%;
-  padding: 20px;
+  padding: 18px;
   border: 1px solid var(--line);
   border-radius: 20px;
   background: var(--white);
@@ -2211,13 +2211,13 @@ input {
 
 .contact-mini-card--email a[href^="mailto:"] {
   white-space: nowrap;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .contact-mini-card .btn {
   width: fit-content;
   min-width: 132px;
-  min-height: 40px;
+  min-height: 44px;
   margin-top: 12px;
   padding-inline: 14px;
 }
@@ -3334,7 +3334,12 @@ input {
 
   .contact-mini-card,
   .contact-address-card {
-    padding: 18px;
+    padding: 16px;
+  }
+
+  .contact-mini-card {
+    min-height: 0;
+    height: auto;
   }
 
   .contact-address-card {
