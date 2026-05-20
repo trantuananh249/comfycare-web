@@ -2143,19 +2143,28 @@ input {
 
 .contact-info-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: minmax(295px, 1.28fr) minmax(210px, 1fr) minmax(210px, 1fr) minmax(270px, 1.18fr);
   gap: 18px;
+  align-items: stretch;
 }
 
 .contact-mini-card {
   display: flex;
   gap: 14px;
   align-items: flex-start;
-  padding: 22px;
+  min-height: 168px;
+  height: 100%;
+  padding: 20px;
   border: 1px solid var(--line);
   border-radius: 20px;
   background: var(--white);
   box-shadow: 0 12px 30px rgba(15, 23, 42, 0.05);
+}
+
+.contact-mini-card > div {
+  display: grid;
+  align-content: start;
+  min-width: 0;
 }
 
 .contact-mini-card__icon {
@@ -2200,6 +2209,19 @@ input {
   overflow-wrap: anywhere;
 }
 
+.contact-mini-card--email a[href^="mailto:"] {
+  white-space: nowrap;
+  font-size: 14px;
+}
+
+.contact-mini-card .btn {
+  width: fit-content;
+  min-width: 132px;
+  min-height: 40px;
+  margin-top: 12px;
+  padding-inline: 14px;
+}
+
 .contact-section {
   display: grid;
   gap: 16px;
@@ -2211,11 +2233,15 @@ input {
   gap: 18px;
 }
 
+.contact-address-grid--single {
+  grid-template-columns: 1fr;
+}
+
 .contact-address-card {
   display: grid;
   align-content: start;
   gap: 12px;
-  min-height: 220px;
+  min-height: 150px;
   padding: 24px;
   border: 1px solid rgba(10, 169, 178, 0.24);
   border-radius: 20px;
@@ -2264,43 +2290,50 @@ input {
 
 .official-channel-grid {
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 14px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
 }
 
 .official-channel-card {
   display: grid;
   justify-items: center;
   align-content: start;
-  gap: 8px;
-  min-height: 132px;
+  gap: 10px;
+  min-height: 154px;
   padding: 16px 12px;
-  border: 1px solid var(--line);
+  border: 0;
   border-radius: 16px;
-  background: var(--white);
+  background: #f8ffff;
   color: var(--ink);
   text-align: center;
-  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.045);
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.04);
 }
 
 .official-channel-card:hover {
-  border-color: rgba(10, 169, 178, 0.46);
+  background: #f0fbfb;
   transform: translateY(-2px);
 }
 
 .official-channel-card__icon {
-  display: inline-grid;
-  place-items: center;
-  width: 46px;
-  height: 46px;
-  border-radius: 14px;
-  background: var(--teal-soft);
+  position: relative;
+  display: inline-block;
+  width: 76px;
+  height: 76px;
+  overflow: hidden;
+  border: 0;
+  border-radius: 999px;
+  background: var(--white);
 }
 
 .official-channel-card__icon img {
-  width: 34px;
-  height: 34px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 176px;
+  height: 176px;
+  max-width: none;
   object-fit: contain;
+  transform: translate(-50%, -50%);
 }
 
 .official-channel-card__icon--svg {
@@ -3306,6 +3339,16 @@ input {
 
   .contact-address-card {
     min-height: 0;
+  }
+
+  .contact-address-card .btn {
+    width: 100%;
+    min-height: 44px;
+  }
+
+  .contact-mini-card .btn {
+    width: 100%;
+    min-height: 44px;
   }
 
   .official-channel-grid {
