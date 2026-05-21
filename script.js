@@ -16,6 +16,27 @@ if (navToggle && mainNav) {
   });
 }
 
+const sizeGuidePage = document.querySelector(".size-guide-page");
+
+if (sizeGuidePage) {
+  const openSizeDetails = (hash) => {
+    if (!hash || !hash.startsWith("#")) return;
+    const target = document.querySelector(hash);
+    if (!target) return;
+    const details = target instanceof HTMLDetailsElement ? target : target.closest("details");
+    if (details) details.open = true;
+  };
+
+  document.querySelectorAll("[data-size-target]").forEach((link) => {
+    link.addEventListener("click", () => {
+      openSizeDetails(link.getAttribute("href"));
+    });
+  });
+
+  openSizeDetails(window.location.hash);
+  window.addEventListener("hashchange", () => openSizeDetails(window.location.hash));
+}
+
 const reviewViewport = document.querySelector(".review-carousel__viewport");
 const reviewSlides = Array.from(document.querySelectorAll(".review-slide"));
 const reviewPrev = document.querySelector(".carousel-button--prev");
