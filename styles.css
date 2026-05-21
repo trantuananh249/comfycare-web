@@ -2015,47 +2015,64 @@ input {
 
 .certificate-gallery {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  align-items: stretch;
 }
 
 .certificate-card {
   display: grid;
-  gap: 14px;
+  grid-template-rows: auto auto 1fr;
+  gap: 12px;
   align-content: start;
-  padding: 18px;
+  padding: 16px;
   border: 1px solid var(--line);
   border-radius: 16px;
   background: var(--white);
-  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.08);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.07);
 }
 
 .certificate-card h3 {
   margin: 0;
   color: var(--teal-dark);
-  font-size: 19px;
+  font-size: 18px;
   line-height: 1.25;
   text-align: center;
 }
 
 .certificate-card__image {
+  position: relative;
   display: grid;
   place-items: center;
-  min-height: 0;
-  padding: 12px;
+  height: 238px;
+  padding: 0;
   border-radius: 12px;
+  overflow: hidden;
   background: var(--white);
   box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.06);
 }
 
 .certificate-card__image img {
-  width: auto;
-  max-width: 100%;
-  height: auto;
-  max-height: 760px;
+  position: absolute;
+  inset: 10px;
+  width: calc(100% - 20px) !important;
+  max-width: none;
+  height: calc(100% - 20px) !important;
+  max-height: none;
   object-fit: contain;
   border-radius: 8px;
   background: var(--white);
+}
+
+.certificate-card p {
+  margin: 0;
+  padding: 10px;
+  border-radius: 10px;
+  background: #f8ffff;
+  color: #526173;
+  font-size: 14px;
+  line-height: 1.45;
+  text-align: center;
 }
 
 .byt-lookup-card {
@@ -2063,7 +2080,7 @@ input {
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
   gap: 24px;
-  padding: 26px;
+  padding: 24px;
   border: 1px solid rgba(10, 169, 178, 0.24);
   border-radius: 20px;
   background: linear-gradient(135deg, #f4ffff 0%, #ffffff 62%, #fff8eb 100%);
@@ -2856,6 +2873,10 @@ input {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .certificate-card__image {
+    height: 300px;
+  }
+
   .byt-lookup-card {
     grid-template-columns: 1fr;
     align-items: start;
@@ -3499,11 +3520,11 @@ input {
   }
 
   .certificate-card__image {
-    padding: 10px;
+    height: 340px;
   }
 
-  .certificate-card__image img {
-    max-height: none;
+  .certificate-card p {
+    font-size: 14px;
   }
 
   .byt-lookup-card {
