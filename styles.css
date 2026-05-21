@@ -2661,6 +2661,221 @@ input {
   min-width: 680px;
 }
 
+.size-guide-page .page-stack {
+  gap: 28px;
+}
+
+.size-guide-page .split-panel {
+  border-color: rgba(10, 169, 178, 0.22);
+  background: linear-gradient(135deg, #f8ffff 0%, #ffffff 58%, #fff9ef 100%);
+}
+
+.size-guide-block,
+.size-guide-reference {
+  display: grid;
+  gap: 18px;
+}
+
+.size-guide-block {
+  min-width: 0;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  background: var(--white);
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.06);
+}
+
+.size-guide-block--featured {
+  padding: 26px;
+  border-color: rgba(10, 169, 178, 0.36);
+  background:
+    linear-gradient(135deg, rgba(10, 169, 178, 0.1) 0%, rgba(255, 255, 255, 0.98) 46%, rgba(242, 158, 36, 0.12) 100%),
+    var(--white);
+  box-shadow: 0 22px 52px rgba(8, 127, 134, 0.14);
+}
+
+.size-guide-block--compact {
+  padding: 18px;
+  gap: 14px;
+  border-radius: 22px;
+}
+
+.size-guide-block--wide {
+  grid-column: 1 / -1;
+}
+
+.size-guide-heading {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.size-guide-heading .eyebrow {
+  margin: 0;
+}
+
+.size-guide-heading h2 {
+  margin: 0;
+  color: var(--orange);
+  font-size: clamp(21px, 2.4vw, 30px);
+  line-height: 1.18;
+}
+
+.size-guide-block--compact .size-guide-heading h2 {
+  font-size: clamp(18px, 2vw, 23px);
+}
+
+.size-guide-heading h2::after {
+  content: "";
+  display: block;
+  width: 72px;
+  height: 4px;
+  margin: 10px auto 0;
+  border-radius: 999px;
+  background: var(--orange);
+}
+
+.size-guide-heading--section {
+  margin-top: 4px;
+}
+
+.size-guide-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  min-height: 30px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--teal);
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 900;
+  line-height: 1.2;
+  text-transform: uppercase;
+  box-shadow: 0 8px 18px rgba(10, 169, 178, 0.2);
+}
+
+.size-guide-badge--reference {
+  background: var(--orange);
+  box-shadow: 0 8px 18px rgba(242, 158, 36, 0.18);
+}
+
+.size-guide-reference-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  align-items: start;
+}
+
+.size-guide-table-shell {
+  max-width: 100%;
+  overflow-x: auto;
+  border: 1px solid #dce8e9;
+  border-radius: 22px;
+  background: var(--white);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.06);
+  -webkit-overflow-scrolling: touch;
+}
+
+.size-guide-block--featured .size-guide-table-shell {
+  border-color: rgba(10, 169, 178, 0.32);
+  box-shadow: 0 14px 34px rgba(8, 127, 134, 0.11);
+}
+
+.size-guide-table-shell:focus {
+  outline: 3px solid rgba(10, 169, 178, 0.2);
+  outline-offset: 3px;
+}
+
+.catalog-size-table {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.catalog-size-table--primary {
+  min-width: 620px;
+}
+
+.catalog-size-table--narrow {
+  min-width: 360px;
+}
+
+.catalog-size-table--medium {
+  min-width: 500px;
+}
+
+.catalog-size-table--wide {
+  min-width: 760px;
+}
+
+.catalog-size-table th,
+.catalog-size-table td {
+  padding: 15px 16px;
+  border-right: 1px solid #e3edef;
+  border-bottom: 1px solid #e3edef;
+  text-align: center;
+  line-height: 1.35;
+  white-space: nowrap;
+}
+
+.catalog-size-table thead th {
+  background: var(--teal);
+  color: var(--white);
+  font-weight: 900;
+}
+
+.catalog-size-table tbody th,
+.catalog-size-table tbody td {
+  color: var(--teal-dark);
+  font-weight: 800;
+}
+
+.catalog-size-table tbody th,
+.catalog-size-table tbody td:first-child {
+  background: var(--orange);
+  color: var(--white);
+  font-weight: 900;
+}
+
+.catalog-size-table th:last-child,
+.catalog-size-table td:last-child {
+  border-right: 0;
+}
+
+.catalog-size-table tbody tr:last-child th,
+.catalog-size-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.size-guide-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.size-guide-meta span,
+.size-guide-helper {
+  margin: 0;
+  color: #0b5560;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.size-guide-meta span {
+  padding: 8px 11px;
+  border-radius: 999px;
+  background: rgba(10, 169, 178, 0.1);
+}
+
+.size-guide-helper {
+  text-align: center;
+}
+
 .faq-list--page {
   max-width: none;
 }
@@ -4168,5 +4383,112 @@ input {
 
   .product-card strong {
     font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .size-guide-page .page-stack {
+    gap: 20px;
+  }
+
+  .size-guide-page .split-panel {
+    gap: 16px;
+  }
+
+  .size-guide-block,
+  .size-guide-block--featured,
+  .size-guide-block--compact {
+    padding: 16px;
+    border-radius: 20px;
+  }
+
+  .size-guide-reference-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .size-guide-heading {
+    gap: 7px;
+  }
+
+  .size-guide-heading h2 {
+    font-size: 22px;
+  }
+
+  .size-guide-block--compact .size-guide-heading h2 {
+    font-size: 19px;
+  }
+
+  .size-guide-heading h2::after {
+    width: 52px;
+    height: 3px;
+    margin-top: 8px;
+  }
+
+  .size-guide-badge {
+    max-width: 100%;
+    min-height: 28px;
+    padding: 6px 10px;
+    font-size: 11px;
+    white-space: normal;
+  }
+
+  .size-guide-table-shell {
+    border-radius: 18px;
+  }
+
+  .catalog-size-table th,
+  .catalog-size-table td {
+    padding: 12px 11px;
+    font-size: 14px;
+    line-height: 1.3;
+  }
+
+  .catalog-size-table--primary {
+    min-width: 100%;
+    table-layout: fixed;
+  }
+
+  .catalog-size-table--narrow {
+    min-width: 330px;
+  }
+
+  .catalog-size-table--medium {
+    min-width: 460px;
+  }
+
+  .catalog-size-table--wide {
+    min-width: 720px;
+  }
+
+  .catalog-size-table--primary th,
+  .catalog-size-table--primary td {
+    padding-inline: 8px;
+  }
+
+  .size-guide-meta {
+    justify-content: stretch;
+  }
+
+  .size-guide-meta span {
+    width: 100%;
+    border-radius: 14px;
+  }
+
+  .size-guide-helper {
+    font-size: 13.5px;
+    line-height: 1.4;
+  }
+}
+
+@media (max-width: 380px) {
+  .catalog-size-table th,
+  .catalog-size-table td {
+    padding: 11px 10px;
+    font-size: 13.5px;
+  }
+
+  .catalog-size-table--narrow {
+    min-width: 320px;
   }
 }
