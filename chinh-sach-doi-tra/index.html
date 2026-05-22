@@ -9,7 +9,7 @@
     <link rel="icon" type="image/png" href="/assets/logo/comfycare-logo.png" />
     <link rel="stylesheet" href="/styles.css" />
   </head>
-  <body class="info-page" data-base-path="/" data-current-path="chinh-sach-doi-tra">
+  <body class="info-page return-policy-page" data-base-path="/" data-current-path="chinh-sach-doi-tra">
     <div data-site-header></div>
 
     <main class="content-page" id="top">
@@ -28,20 +28,68 @@
 
       <section class="page-content">
         <div class="container page-stack">
-          <div class="info-grid">
-            <article class="info-card">
-              <h2>15 ngày</h2>
-              <p>Thời hạn đổi size hoặc đổi sản phẩm kể từ ngày nhận hàng.</p>
+          <div class="return-benefit-grid" aria-label="Quyền lợi đổi trả chính">
+            <article class="return-benefit-card">
+              <span class="return-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M8 2v4" />
+                  <path d="M16 2v4" />
+                  <path d="M4 9h16" />
+                  <rect x="4" y="4" width="16" height="18" rx="3" />
+                  <path d="m9 15 2 2 4-5" />
+                </svg>
+              </span>
+              <h2>Đổi size trong 15 ngày</h2>
+              <p>Kể từ ngày nhận hàng</p>
             </article>
-            <article class="info-card">
-              <h2>1 lần đổi miễn phí</h2>
-              <p>Miễn phí vận chuyển cho lần đổi đầu tiên.</p>
+            <article class="return-benefit-card">
+              <span class="return-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M3 7h11v10H3z" />
+                  <path d="M14 10h4l3 3v4h-7z" />
+                  <circle cx="7" cy="18" r="2" />
+                  <circle cx="18" cy="18" r="2" />
+                  <path d="M7 7V5h4" />
+                </svg>
+              </span>
+              <h2>Miễn phí ship lần đổi đầu</h2>
+              <p>Bưu tá hỗ trợ đổi hàng tận nhà</p>
             </article>
-            <article class="info-card">
-              <h2>14 ngày bảo hành</h2>
-              <p>Áp dụng cho lỗi sản xuất như rách, tuột chỉ hoặc sai size ghi trên bao bì.</p>
+            <article class="return-benefit-card">
+              <span class="return-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M7 3h7l3 3v15H7z" />
+                  <path d="M14 3v4h4" />
+                  <path d="M9 13h6" />
+                  <path d="M9 17h4" />
+                  <path d="m8 9 1.5 1.5L13 7" />
+                </svg>
+              </span>
+              <h2>Được thử kiểm tra size</h2>
+              <p>Chưa giặt, sạch sẽ, nguyên tem mác</p>
+            </article>
+            <article class="return-benefit-card">
+              <span class="return-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 3 5 6v5c0 4.8 2.9 8.2 7 10 4.1-1.8 7-5.2 7-10V6z" />
+                  <path d="m9 12 2 2 4-4" />
+                </svg>
+              </span>
+              <h2>Bảo hành lỗi 14 ngày</h2>
+              <p>Rách, tuột chỉ hoặc sai size do sản xuất</p>
             </article>
           </div>
+
+          <aside class="return-highlight-card" aria-label="Thông tin nổi bật về đổi size">
+            <span class="return-highlight-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M4 17.5V7a2 2 0 0 1 2-2h9l5 5v7.5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z" />
+                <path d="M14 5v5h5" />
+                <path d="m8 14 2.2 2.2L16 10.5" />
+              </svg>
+            </span>
+            <p><strong>Anh/chị có thể thử sản phẩm để kiểm tra size.</strong> Comfycare hỗ trợ đổi size hoặc đổi sang sản phẩm phù hợp hơn trong vòng 15 ngày kể từ ngày nhận hàng, miễn phí vận chuyển cho lần đổi đầu tiên. Sản phẩm đổi cần chưa qua giặt, còn nguyên tem mác, sạch sẽ, không có mùi lạ, vết bẩn hoặc hư hỏng do người dùng.</p>
+          </aside>
 
           <section class="table-block">
             <div class="page-section-heading">
@@ -52,42 +100,91 @@
               <table class="page-table page-table--compact">
                 <tbody>
                   <tr>
-                    <th>Thời hạn áp dụng</th>
+                    <th scope="row">Thời hạn áp dụng</th>
                     <td>15 ngày kể từ ngày nhận hàng.</td>
                   </tr>
                   <tr>
-                    <th>Phí vận chuyển</th>
-                    <td>Miễn phí 1 lần đầu.</td>
+                    <th scope="row">Thử kiểm tra size</th>
+                    <td>Khách hàng được thử sản phẩm để kiểm tra độ vừa size trước khi quyết định đổi.</td>
                   </tr>
                   <tr>
-                    <th>Số lần đổi</th>
-                    <td>Áp dụng đổi 1 lần.</td>
+                    <th scope="row">Phí vận chuyển lần đầu</th>
+                    <td>Miễn phí vận chuyển cho lần đổi đầu tiên.</td>
                   </tr>
                   <tr>
-                    <th>Điều kiện</th>
-                    <td>Sản phẩm chưa qua giặt, còn nguyên tem mác, không có mùi lạ, không vết bẩn, không trầy xước do người dùng.</td>
+                    <th scope="row">Điều kiện sản phẩm đổi</th>
+                    <td>Chưa qua giặt, còn nguyên tem mác, sạch sẽ, không có mùi lạ, vết bẩn hoặc hư hỏng do người dùng.</td>
                   </tr>
                   <tr>
-                    <th>Đổi sang sản phẩm cùng giá / cao hơn</th>
+                    <th scope="row">Đổi sang sản phẩm cùng giá / cao hơn</th>
                     <td>Có thể đổi sang sản phẩm cùng giá hoặc cao hơn. Nếu cao hơn, khách thanh toán phần chênh lệch giá gốc và được giảm 20% trên phần chênh lệch.</td>
                   </tr>
                   <tr>
-                    <th>Đổi sang sản phẩm thấp hơn</th>
+                    <th scope="row">Đổi sang sản phẩm thấp hơn</th>
                     <td>Hoàn lại phần chênh lệch theo voucher hoặc tiền mặt.</td>
                   </tr>
                   <tr>
-                    <th>Quà tặng kèm</th>
-                    <td>Không tặng lại CS100 khi đổi trả.</td>
+                    <th scope="row">Quà tặng kèm</th>
+                    <td>Không tặng lại dụng cụ hỗ trợ xỏ tất CS100 khi đổi trả.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Đổi lần tiếp theo</th>
+                    <td>Khách thanh toán phí vận chuyển 2 chiều; nếu nguyên nhân do Comfycare tư vấn sai size thì vẫn được hỗ trợ miễn phí.</td>
                   </tr>
                 </tbody>
               </table>
             </div>
           </section>
 
-          <aside class="notice-card">
-            <strong>Đổi size lần 2:</strong>
-            <span>Khách chịu phí vận chuyển 2 chiều; nếu là lỗi tư vấn của Comfycare thì vẫn được miễn phí.</span>
-          </aside>
+          <section class="return-steps-section" aria-labelledby="return-steps-title">
+            <div class="page-section-heading">
+              <p class="eyebrow">Quy trình đổi hàng</p>
+              <h2 id="return-steps-title">Đổi size đơn giản trong 3 bước</h2>
+            </div>
+            <div class="return-step-grid">
+              <article class="return-step-card">
+                <span class="return-step-card__number">01</span>
+                <span class="return-step-card__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z" />
+                    <path d="M8 9h8" />
+                    <path d="M8 13h5" />
+                  </svg>
+                </span>
+                <h3>Gửi thông tin</h3>
+                <p>Gửi số điện thoại đặt hàng và size/sản phẩm cần đổi qua Zalo Comfycare.</p>
+              </article>
+              <article class="return-step-card">
+                <span class="return-step-card__number">02</span>
+                <span class="return-step-card__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M8 3h8l3 3v15H5V3z" />
+                    <path d="M16 3v4h4" />
+                    <path d="m8.5 14 2.2 2.2L16 10.8" />
+                  </svg>
+                </span>
+                <h3>Xác nhận đổi hàng</h3>
+                <p>Comfycare kiểm tra điều kiện, tư vấn lại size phù hợp và tạo đơn đổi hàng.</p>
+              </article>
+              <article class="return-step-card">
+                <span class="return-step-card__number">03</span>
+                <span class="return-step-card__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M3 7h11v10H3z" />
+                    <path d="M14 10h4l3 3v4h-7z" />
+                    <circle cx="7" cy="18" r="2" />
+                    <circle cx="18" cy="18" r="2" />
+                    <path d="m6 11 2 2 4-4" />
+                  </svg>
+                </span>
+                <h3>Nhận hàng đổi tận nhà</h3>
+                <p>Bưu tá Viettel Post đến tận nhà thu sản phẩm cũ và giao sản phẩm đổi. Lần đổi đầu tiên được miễn phí vận chuyển.</p>
+              </article>
+            </div>
+            <div class="return-steps-section__cta">
+              <a class="btn btn--primary" href="https://zalo.me/0848621092">Liên hệ đổi size qua Zalo</a>
+            </div>
+          </section>
 
           <section class="table-block">
             <div class="page-section-heading">
@@ -98,15 +195,15 @@
               <table class="page-table">
                 <tbody>
                   <tr>
-                    <th>Thời hạn</th>
+                    <th scope="row">Thời hạn</th>
                     <td>14 ngày kể từ ngày nhận hàng.</td>
                   </tr>
                   <tr>
-                    <th>Phạm vi</th>
+                    <th scope="row">Phạm vi</th>
                     <td>Rách hoặc tuột chỉ do lỗi sản xuất, dệt sai mẫu, sai size ghi trên bao bì.</td>
                   </tr>
                   <tr>
-                    <th>Không bảo hành</th>
+                    <th scope="row">Không bảo hành</th>
                     <td>Lỗi do giặt hoặc sấy sai cách, móc rách trong quá trình sử dụng, hoặc dùng quá thời hạn.</td>
                   </tr>
                 </tbody>
@@ -125,40 +222,78 @@
                 <ul class="check-list">
                   <li>Sản phẩm lỗi nặng không thể sử dụng và Comfycare không có sản phẩm đổi.</li>
                   <li>Khách yêu cầu hoàn tiền trong 15 ngày và không lựa chọn được sản phẩm phù hợp khác.</li>
-                  <li>Khách đã dùng đúng cách 7 ngày nhưng chưa hài lòng về hiệu quả; chuyển CSKH duyệt xử lý.</li>
+                  <li>Trường hợp anh/chị đã sử dụng đúng hướng dẫn trong 7 ngày nhưng cảm thấy sản phẩm chưa phù hợp, Comfycare sẽ tiếp nhận thông tin và hỗ trợ phương án đổi/trả phù hợp sau khi CSKH kiểm tra.</li>
                 </ul>
               </article>
               <article>
                 <h2>Hình thức hoàn</h2>
                 <ul class="check-list">
-                  <li>Đơn Shopee / TikTok Shop: hoàn về phương thức thanh toán ban đầu.</li>
-                  <li>Đơn Fanpage COD: chuyển khoản trực tiếp về tài khoản khách.</li>
+                  <li>Đơn Shopee / TikTok Shop: Hoàn tiền theo quy trình và thời gian xử lý của sàn.</li>
+                  <li>Đơn Fanpage COD: Chuyển khoản trực tiếp sau khi CSKH xác nhận đủ điều kiện đổi/trả.</li>
                 </ul>
               </article>
             </div>
           </section>
 
-          <section class="table-block">
+          <section class="return-support-section" aria-labelledby="return-support-title">
             <div class="page-section-heading">
               <p class="eyebrow">Mục 4</p>
-              <h2>Quy trình liên hệ</h2>
+              <h2 id="return-support-title">Cần chuẩn bị gì khi yêu cầu hỗ trợ?</h2>
             </div>
-            <div class="split-panel">
-              <article>
-                <h2>Liên hệ Comfycare</h2>
+            <div class="return-support-grid">
+              <article class="return-support-card">
+                <h3>Đổi size / đổi sản phẩm</h3>
                 <ul class="check-list">
-                  <li>Hotline / Zalo: <a href="https://zalo.me/0848621092">0848 621 092</a></li>
-                  <li>CSKH sẽ kiểm tra thông tin và hướng dẫn theo đúng trường hợp.</li>
+                  <li>Số điện thoại đặt hàng</li>
+                  <li>Mã đơn nếu có</li>
+                  <li>Size hoặc sản phẩm muốn đổi sang</li>
                 </ul>
               </article>
-              <article>
-                <h2>Chuẩn bị trước khi gửi yêu cầu</h2>
+              <article class="return-support-card">
+                <h3>Báo lỗi sản xuất</h3>
                 <ul class="check-list">
-                  <li>Số điện thoại đặt hàng.</li>
-                  <li>Mã đơn nếu có.</li>
-                  <li>Ảnh hoặc video sản phẩm nếu cần báo lỗi.</li>
+                  <li>Số điện thoại đặt hàng</li>
+                  <li>Ngày nhận hàng</li>
+                  <li>Ảnh hoặc video thể hiện lỗi sản phẩm</li>
                 </ul>
               </article>
+              <article class="return-support-card">
+                <h3>Yêu cầu hoàn tiền</h3>
+                <ul class="check-list">
+                  <li>Số điện thoại đặt hàng</li>
+                  <li>Mã đơn nếu có</li>
+                  <li>Lý do cần hỗ trợ hoàn tiền</li>
+                </ul>
+              </article>
+            </div>
+            <aside class="notice-card return-contact-note">
+              <strong>Hotline / Zalo:</strong>
+              <a href="https://zalo.me/0848621092">0848 621 092</a>
+            </aside>
+          </section>
+
+          <section class="return-faq-section" aria-labelledby="return-faq-title">
+            <div class="page-section-heading">
+              <p class="eyebrow">FAQ đổi trả</p>
+              <h2 id="return-faq-title">Câu hỏi thường gặp về đổi trả</h2>
+            </div>
+            <div class="faq-list return-faq-list">
+              <details>
+                <summary>Tôi đã thử đeo tất thì có được đổi size không?</summary>
+                <p>Có. Anh/chị được thử sản phẩm để kiểm tra độ vừa size. Sản phẩm vẫn được hỗ trợ đổi nếu chưa giặt, còn nguyên tem mác, sạch sẽ, không có mùi lạ, vết bẩn hoặc hư hỏng do sử dụng.</p>
+              </details>
+              <details>
+                <summary>Tôi ở tỉnh khác có được đổi miễn phí không?</summary>
+                <p>Có. Comfycare hỗ trợ miễn phí vận chuyển cho lần đổi đầu tiên. Bưu tá sẽ đến tận nhà hỗ trợ thu sản phẩm cũ và giao sản phẩm đổi.</p>
+              </details>
+              <details>
+                <summary>Tôi đã đổi một lần nhưng vẫn chưa vừa size thì sao?</summary>
+                <p>Comfycare vẫn hỗ trợ đổi tiếp nếu sản phẩm đáp ứng điều kiện đổi trả. Từ lần đổi tiếp theo, khách thanh toán phí vận chuyển 2 chiều; trường hợp do Comfycare tư vấn sai size thì vẫn được miễn phí.</p>
+              </details>
+              <details>
+                <summary>Tôi có cần giặt sản phẩm trước khi đổi không?</summary>
+                <p>Không. Anh/chị không nên giặt sản phẩm trước khi xác nhận vừa size, vì sản phẩm đã qua giặt sẽ không đủ điều kiện đổi.</p>
+              </details>
             </div>
           </section>
         </div>
@@ -167,10 +302,10 @@
       <section class="page-cta">
         <div class="container page-cta__inner">
           <div>
-            <p class="eyebrow">Cần đổi size?</p>
-            <h2>Gửi thông tin đơn hàng để Comfycare kiểm tra và hướng dẫn bước tiếp theo.</h2>
+            <p class="eyebrow">Chưa chắc size nào phù hợp?</p>
+            <h2>Gửi số đo chân hoặc thông tin đơn hàng qua Zalo, Comfycare sẽ kiểm tra và hỗ trợ anh/chị chọn size hoặc đổi sản phẩm phù hợp.</h2>
           </div>
-          <a class="btn btn--primary" href="https://zalo.me/0848621092">Liên hệ đổi size qua Zalo</a>
+          <a class="btn btn--primary" href="https://zalo.me/0848621092">Gửi thông tin qua Zalo</a>
         </div>
       </section>
     </main>
