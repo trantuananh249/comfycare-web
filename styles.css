@@ -2530,6 +2530,56 @@ input {
   color: #8b4b05;
 }
 
+.notice-card--suggestion {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+  border-color: rgba(242, 158, 36, 0.42);
+  background: linear-gradient(180deg, #fffaf1 0%, #fffef7 100%);
+  color: #70420c;
+  box-shadow: 0 10px 24px rgba(242, 158, 36, 0.08);
+}
+
+.notice-card__icon {
+  display: inline-grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border-radius: 999px;
+  background: #fff2dc;
+  color: var(--orange-dark);
+}
+
+.notice-card__icon svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.notice-card__content {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
+.notice-card__content strong {
+  color: #7a4508;
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+.notice-card__content p {
+  margin: 0;
+  color: #45535f;
+  font-size: 15.5px;
+  line-height: 1.55;
+}
+
 .page-section-heading {
   display: grid;
   gap: 8px;
@@ -5855,5 +5905,149 @@ input {
   .san-pham-page .product-help-box {
     gap: 18px;
     margin-top: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .category-list-page .page-stack {
+    gap: 16px;
+  }
+
+  .category-list-page .notice-card--suggestion {
+    position: relative;
+    display: block;
+    padding: 12px 13px 12px 52px;
+    border-radius: 14px;
+  }
+
+  .category-list-page .notice-card__icon {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    width: 34px;
+    height: 34px;
+  }
+
+  .category-list-page .notice-card__icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .category-list-page .notice-card__content strong {
+    font-size: 14.5px;
+  }
+
+  .category-list-page .notice-card__content p {
+    font-size: 13.4px;
+    line-height: 1.38;
+  }
+
+  .category-list-page .category-product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .category-list-page .category-product-card {
+    border-radius: 14px;
+    box-shadow: 0 8px 18px rgba(15, 23, 42, 0.06);
+  }
+
+  .category-list-page .category-product-card__media {
+    height: clamp(142px, 40vw, 158px);
+    aspect-ratio: auto;
+    padding: 8px;
+  }
+
+  .category-list-page .category-product-card__media img {
+    width: min(100%, 146px);
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    object-position: center;
+    place-self: center;
+  }
+
+  .category-list-page .category-product-card__body {
+    gap: 5px;
+    padding: 9px;
+  }
+
+  .category-list-page .catalog-badge {
+    min-height: 20px;
+    max-width: 100%;
+    padding: 0 7px;
+    font-size: 10.5px;
+    line-height: 1.12;
+    white-space: normal;
+  }
+
+  .category-list-page .category-product-card .sku {
+    font-size: 11px;
+    line-height: 1.15;
+  }
+
+  .category-list-page .category-product-card h3 {
+    display: -webkit-box;
+    min-height: 0;
+    overflow: hidden;
+    color: var(--ink);
+    font-size: 13.2px;
+    line-height: 1.18;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+  .category-list-page .category-product-card p {
+    font-size: 11.2px;
+    line-height: 1.25;
+  }
+
+  .category-list-page .category-product-card strong {
+    font-size: 15.5px;
+    line-height: 1.15;
+  }
+
+  .category-list-page .category-product-card__actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+    padding-top: 4px;
+  }
+
+  .category-list-page .category-product-card__actions .btn {
+    min-height: 30px;
+    padding: 0 5px;
+    border-radius: 7px;
+    font-size: 10px;
+    line-height: 1.05;
+    white-space: normal;
+  }
+}
+
+@media (max-width: 380px) {
+  .category-list-page .category-product-grid {
+    gap: 8px;
+  }
+
+  .category-list-page .category-product-card__media {
+    padding: 7px;
+  }
+
+  .category-list-page .category-product-card__media img {
+    width: min(100%, 136px);
+  }
+
+  .category-list-page .category-product-card__body {
+    padding: 8px;
+  }
+
+  .category-list-page .category-product-card h3 {
+    font-size: 12.5px;
+  }
+
+  .category-list-page .category-product-card__actions .btn {
+    min-height: 29px;
+    padding: 0 4px;
+    font-size: 9.5px;
   }
 }
