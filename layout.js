@@ -77,12 +77,12 @@
             ${link('gioi-thieu', 'Giới thiệu')}
             ${link('lien-he', 'Liên hệ')}
             <div class="main-nav__mobile-actions">
-              <a class="btn btn--primary" href="${shopeeUrl}" target="_blank" rel="noopener">MUA TRÊN SHOPEE</a>
+              <a class="btn btn--primary" href="${shopeeUrl}" target="_blank" rel="noopener noreferrer">MUA TRÊN SHOPEE</a>
               <a class="btn btn--secondary" href="${zaloUrl}" target="_blank" rel="noopener">TƯ VẤN ZALO</a>
             </div>
           </nav>
           <div class="header-actions">
-            <a class="btn btn--small btn--primary" href="${shopeeUrl}" target="_blank" rel="noopener">MUA TRÊN SHOPEE</a>
+            <a class="btn btn--small btn--primary" href="${shopeeUrl}" target="_blank" rel="noopener noreferrer">MUA TRÊN SHOPEE</a>
           </div>
         </div>
       </header>
@@ -109,7 +109,7 @@
                 <a href="${zaloUrl}" aria-label="Zalo Comfycare">
                   <img src="${route('assets/icons/icon zalo.png')}" alt="" loading="lazy" />
                 </a>
-                <a href="${shopeeUrl}" aria-label="Shopee Comfycare">
+                <a href="${shopeeUrl}" aria-label="Shopee Comfycare" target="_blank" rel="noopener noreferrer">
                   <img src="${route('assets/icons/icon shopee.png')}" alt="" loading="lazy" />
                 </a>
                 <a href="${tiktokUrl}" aria-label="TikTok Comfycare">
