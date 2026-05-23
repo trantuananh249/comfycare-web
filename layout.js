@@ -7,6 +7,13 @@
   const isCurrent = (path) => currentPath === path;
   const isContactPage = currentPath === 'lien-he';
   const link = (path, label) => `<a href="${pageRoute(path)}"${isCurrent(path) ? ' aria-current="page"' : ''}>${label}</a>`;
+  const productPaths = ['san-pham', 'tat-y-te-cap-2', 'tat-dai-the-thao-cap-2', 'tat-the-thao-cap-1', 'phu-kien'];
+  const guidePaths = ['huong-dan-chon-size', 'huong-dan-su-dung', 'cau-hoi-thuong-gap'];
+  const isProductPath = productPaths.includes(currentPath);
+  const isGuidePath = guidePaths.includes(currentPath);
+  const shopeeUrl = 'https://shopee.vn/comfycare_official_store';
+  const tiktokUrl = 'https://www.tiktok.com/@comfycare_store';
+  const zaloUrl = 'https://zalo.me/0848621092';
 
   const headerMount = document.querySelector('[data-site-header]');
   const footerMount = document.querySelector('[data-site-footer]');
@@ -46,39 +53,36 @@
             <span></span>
           </button>
           <nav class="main-nav" aria-label="Menu chính">
-            ${link('san-pham', 'Sản phẩm')}
-            ${link('huong-dan-chon-size', 'Chọn size')}
+            <details class="nav-dropdown">
+              <summary${isProductPath ? ' aria-current="page"' : ''}>
+                <span class="nav-label--desktop">Sản phẩm</span>
+                <span class="nav-label--mobile">Mua sản phẩm</span>
+              </summary>
+              <div class="nav-dropdown__panel">
+                ${link('tat-y-te-cap-2', 'Tất y tế cấp 2')}
+                ${link('tat-dai-the-thao-cap-2', 'Tất/đai thể thao cấp 2')}
+                ${link('tat-the-thao-cap-1', 'Tất thể thao cấp 1')}
+                ${link('phu-kien', 'Phụ kiện')}
+              </div>
+            </details>
+            <details class="nav-dropdown">
+              <summary${isGuidePath ? ' aria-current="page"' : ''}>Hướng dẫn</summary>
+              <div class="nav-dropdown__panel">
+                ${link('huong-dan-chon-size', 'Chọn size')}
+                ${link('huong-dan-su-dung', 'Hướng dẫn sử dụng')}
+                ${link('cau-hoi-thuong-gap', 'Câu hỏi thường gặp')}
+              </div>
+            </details>
             ${link('chung-nhan', 'Chứng nhận')}
             ${link('gioi-thieu', 'Giới thiệu')}
             ${link('lien-he', 'Liên hệ')}
-            <details class="nav-more">
-              <summary>Thêm</summary>
-              <div class="nav-more__panel">
-                <div>
-                  <strong>Sản phẩm</strong>
-                  ${link('tat-y-te-cap-2', 'Tất y tế cấp 2')}
-                  ${link('tat-dai-the-thao-cap-2', 'Tất/đai thể thao cấp 2')}
-                  ${link('tat-the-thao-cap-1', 'Tất thể thao cấp 1')}
-                  ${link('phu-kien', 'Phụ kiện')}
-                </div>
-                <div>
-                  <strong>Hướng dẫn</strong>
-                  ${link('huong-dan-su-dung', 'Hướng dẫn sử dụng')}
-                  ${link('cau-hoi-thuong-gap', 'Câu hỏi thường gặp')}
-                </div>
-                <div>
-                  <strong>Chính sách</strong>
-                  ${link('chinh-sach-doi-tra', 'Đổi trả')}
-                  ${link('chinh-sach-van-chuyen', 'Vận chuyển')}
-                  ${link('chinh-sach-thanh-toan', 'Thanh toán')}
-                  ${link('chinh-sach-bao-mat', 'Bảo mật')}
-                  ${link('dieu-khoan-su-dung', 'Điều khoản sử dụng')}
-                </div>
-              </div>
-            </details>
+            <div class="main-nav__mobile-actions">
+              <a class="btn btn--primary" href="${shopeeUrl}" target="_blank" rel="noopener">MUA TRÊN SHOPEE</a>
+              <a class="btn btn--secondary" href="${zaloUrl}" target="_blank" rel="noopener">TƯ VẤN ZALO</a>
+            </div>
           </nav>
           <div class="header-actions">
-            <a class="btn btn--small btn--primary" href="${isContactPage ? 'tel:0848621092' : pageRoute('san-pham')}">${isContactPage ? 'Gọi ngay' : 'Mua ngay'}</a>
+            <a class="btn btn--small btn--primary" href="${shopeeUrl}" target="_blank" rel="noopener">MUA TRÊN SHOPEE</a>
           </div>
         </div>
       </header>
@@ -88,17 +92,6 @@
   if (footerMount) {
     footerMount.outerHTML = `
       <footer class="site-footer" id="contact">
-        <section class="footer-newsletter" aria-labelledby="footer-newsletter-title">
-          <div class="container footer-newsletter__inner">
-            <div class="footer-newsletter__content">
-              <div>
-                <h2 id="footer-newsletter-title">${isContactPage ? 'LIÊN HỆ COMFYCARE QUA HOTLINE/ZALO CHÍNH THỨC' : 'TÔI MUỐN ĐƯỢC TƯ VẤN CHỌN TẤT/SIZE PHÙ HỢP'}</h2>
-              </div>
-            </div>
-            <a class="btn btn--primary footer-newsletter__cta" href="https://zalo.me/0848621092">${isContactPage ? 'NHẮN ZALO' : 'TƯ VẤN QUA ZALO'}</a>
-          </div>
-        </section>
-
         <div class="footer-main">
           <div class="container footer-grid">
             <div class="footer-company">
@@ -113,13 +106,13 @@
                 <a href="https://facebook.com/Comfycare249" aria-label="Facebook Comfycare">
                   <img src="${route('assets/icons/icon facebook.png')}" alt="" loading="lazy" />
                 </a>
-                <a href="https://zalo.me/0848621092" aria-label="Zalo Comfycare">
+                <a href="${zaloUrl}" aria-label="Zalo Comfycare">
                   <img src="${route('assets/icons/icon zalo.png')}" alt="" loading="lazy" />
                 </a>
-                <a href="https://shopee.vn/comfycare_official_store" aria-label="Shopee Comfycare">
+                <a href="${shopeeUrl}" aria-label="Shopee Comfycare">
                   <img src="${route('assets/icons/icon shopee.png')}" alt="" loading="lazy" />
                 </a>
-                <a href="https://tiktok.com/@comfycare_store" aria-label="TikTok Comfycare">
+                <a href="${tiktokUrl}" aria-label="TikTok Comfycare">
                   <img src="${route('assets/icons/icon tiktok.png')}" alt="" loading="lazy" />
                 </a>
               </div>
@@ -144,13 +137,12 @@
               ${link('lien-he', 'Liên hệ')}
             </nav>
 
-            <nav class="footer-links" aria-label="Chính sách">
-              <h3>CHÍNH SÁCH</h3>
-              ${link('chinh-sach-doi-tra', 'Chính sách đổi trả')}
-              ${link('chinh-sach-van-chuyen', 'Chính sách vận chuyển')}
-              ${link('chinh-sach-thanh-toan', 'Chính sách thanh toán')}
-              ${link('chinh-sach-bao-mat', 'Chính sách bảo mật')}
-              ${link('dieu-khoan-su-dung', 'Điều khoản sử dụng')}
+            <nav class="footer-links" aria-label="Hỗ trợ mua hàng">
+              <h3>HỖ TRỢ MUA HÀNG</h3>
+              ${link('chinh-sach-doi-tra', 'Đổi size & đổi sản phẩm')}
+              ${link('chinh-sach-thanh-toan', 'Mua hàng & thanh toán trên sàn')}
+              ${link('chinh-sach-van-chuyen', 'Vận chuyển đơn hàng trên sàn')}
+              ${link('chinh-sach-bao-mat', 'Bảo mật thông tin')}
             </nav>
 
             <div class="footer-support">
@@ -175,33 +167,24 @@
                   </li>
                 </ul>
               </div>
-              <div class="footer-protection">
-                <h3>CHỨNG NHẬN / BẢO VỆ</h3>
-                <div class="footer-badge">
-                  <span class="footer-badge__icon footer-badge__icon--bct" aria-hidden="true">
-                    <img src="${route('assets/icons/icon bocongthuong.png')}" alt="" loading="lazy" />
-                  </span>
-                  <strong>ĐÃ THÔNG BÁO BỘ CÔNG THƯƠNG</strong>
-                </div>
-              </div>
             </div>
           </div>
 
           <div class="container footer-bottom">
-            <p>© 2026 Comfycare. All rights reserved.</p>
-            <div class="payment-icons" aria-label="Icon phương thức thanh toán">
-              <span class="payment-icon"><img src="${route('assets/payment/payment-visa.png')}" alt="Visa" loading="lazy" /></span>
-              <span class="payment-icon"><img src="${route('assets/payment/payment-mastercard.png')}" alt="Mastercard" loading="lazy" /></span>
-              <span class="payment-icon"><img src="${route('assets/payment/payment-momo.png')}" alt="MoMo" loading="lazy" /></span>
-              <span class="payment-icon"><img src="${route('assets/payment/payment-zalopay.png')}" alt="ZaloPay" loading="lazy" /></span>
-              <span class="payment-icon"><img src="${route('assets/payment/payment-vnpay.png')}" alt="VNPay" loading="lazy" /></span>
+            <div class="footer-bottom__meta">
+              <p>© 2026 Comfycare. All rights reserved.</p>
+              <div class="footer-legal-links" aria-label="Liên kết pháp lý">
+                ${link('dieu-khoan-su-dung', 'Điều khoản website')}
+                ${link('chinh-sach-bao-mat', 'Bảo mật thông tin')}
+              </div>
             </div>
+            <p class="footer-sales-note"><span>Mua hàng chính hãng qua gian hàng</span> <span>Shopee/TikTok Shop của Comfycare.</span></p>
           </div>
         </div>
       </footer>
 
       <div class="mobile-sticky-cta" aria-label="Liên hệ nhanh">
-        <a class="btn btn--secondary" href="https://zalo.me/0848621092">${isContactPage ? 'Nhắn Zalo' : 'Tư vấn size qua Zalo'}</a>
+        <a class="btn btn--secondary" href="${zaloUrl}">${isContactPage ? 'Nhắn Zalo' : 'Tư vấn size qua Zalo'}</a>
         <a class="btn btn--primary" href="tel:0848621092">Gọi hotline</a>
       </div>
     `;

@@ -7,8 +7,19 @@ if (navToggle && mainNav) {
     navToggle.setAttribute("aria-expanded", String(isOpen));
   });
 
+  mainNav.querySelectorAll("details").forEach((details) => {
+    details.addEventListener("toggle", () => {
+      if (!details.open) return;
+      mainNav.querySelectorAll("details[open]").forEach((otherDetails) => {
+        if (otherDetails !== details) otherDetails.removeAttribute("open");
+      });
+    });
+  });
+
   mainNav.addEventListener("click", (event) => {
-    if (event.target instanceof HTMLAnchorElement) {
+    const target = event.target;
+    const link = target instanceof Element ? target.closest("a") : null;
+    if (link) {
       mainNav.classList.remove("is-open");
       navToggle.setAttribute("aria-expanded", "false");
       mainNav.querySelectorAll("details[open]").forEach((details) => details.removeAttribute("open"));
