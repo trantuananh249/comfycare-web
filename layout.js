@@ -78,7 +78,7 @@
             ${link('lien-he', 'Liên hệ')}
             <div class="main-nav__mobile-actions">
               <a class="btn btn--primary" href="${shopeeUrl}" target="_blank" rel="noopener noreferrer">MUA TRÊN SHOPEE</a>
-              <a class="btn btn--secondary" href="${zaloUrl}" target="_blank" rel="noopener">TƯ VẤN ZALO</a>
+              <a class="btn btn--secondary" href="${zaloUrl}" target="_blank" rel="noopener noreferrer">TƯ VẤN ZALO</a>
             </div>
           </nav>
           <div class="header-actions">
@@ -100,19 +100,19 @@
                 <span>COMFYCARE</span>
               </a>
               <p>
-                Comfycare cung cấp tất áp lực y khoa cấp 2, tất/đai thể thao áp lực và phụ kiện hỗ trợ chăm sóc đôi chân đúng cách.
+                Comfycare cung cấp tất y tế cấp 2, tất/đai thể thao áp lực và phụ kiện hỗ trợ chăm sóc đôi chân đúng cách.
               </p>
               <div class="footer-social" aria-label="Mạng xã hội Comfycare">
-                <a href="https://facebook.com/Comfycare249" aria-label="Facebook Comfycare">
+                <a href="https://facebook.com/Comfycare249" aria-label="Facebook Comfycare" target="_blank" rel="noopener noreferrer">
                   <img src="${route('assets/icons/icon facebook.png')}" alt="" loading="lazy" />
                 </a>
-                <a href="${zaloUrl}" aria-label="Zalo Comfycare">
+                <a href="${zaloUrl}" aria-label="Zalo Comfycare" target="_blank" rel="noopener noreferrer">
                   <img src="${route('assets/icons/icon zalo.png')}" alt="" loading="lazy" />
                 </a>
                 <a href="${shopeeUrl}" aria-label="Shopee Comfycare" target="_blank" rel="noopener noreferrer">
                   <img src="${route('assets/icons/icon shopee.png')}" alt="" loading="lazy" />
                 </a>
-                <a href="${tiktokUrl}" aria-label="TikTok Comfycare">
+                <a href="${tiktokUrl}" aria-label="TikTok Comfycare" target="_blank" rel="noopener noreferrer">
                   <img src="${route('assets/icons/icon tiktok.png')}" alt="" loading="lazy" />
                 </a>
               </div>
@@ -184,7 +184,7 @@
       </footer>
 
       <div class="mobile-sticky-cta" aria-label="Liên hệ nhanh">
-        <a class="btn btn--secondary" href="${zaloUrl}">${isContactPage ? 'Nhắn Zalo' : 'Tư vấn size qua Zalo'}</a>
+        <a class="btn btn--secondary" href="${zaloUrl}" target="_blank" rel="noopener noreferrer">${isContactPage ? 'Nhắn Zalo' : 'Tư vấn size qua Zalo'}</a>
         <a class="btn btn--primary" href="tel:0848621092">Gọi hotline</a>
       </div>
     `;

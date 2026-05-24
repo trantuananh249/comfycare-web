@@ -316,7 +316,7 @@ a {
   background:
     linear-gradient(90deg, rgba(255, 254, 247, 0.98) 0%, rgba(255, 254, 247, 0.94) 35%, rgba(255, 254, 247, 0.66) 52%, rgba(255, 254, 247, 0.18) 70%, rgba(255, 254, 247, 0) 86%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(232, 248, 248, 0.28)),
-    url("./assets/hero/hero-main.png") right 84% / cover no-repeat,
+    url("./assets/hero/hero-main.webp") right 84% / cover no-repeat,
     var(--cream);
 }
 
@@ -837,6 +837,15 @@ h3 {
   margin-top: 28px;
 }
 
+.product-price-note {
+  max-width: 760px;
+  margin: 18px auto 0;
+  color: #64748b;
+  font-size: 13.5px;
+  line-height: 1.45;
+  text-align: center;
+}
+
 .product-section-actions .btn {
   min-width: 240px;
 }
@@ -1232,6 +1241,22 @@ h3 {
   line-height: 1.32;
 }
 
+.cert-panel__actions {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  margin-top: 24px;
+  text-align: center;
+}
+
+.cert-panel__actions p {
+  max-width: 620px;
+  margin: 0;
+  color: #526173;
+  font-size: 13.5px;
+  line-height: 1.45;
+}
+
 .review-heading {
   display: grid;
   justify-items: center;
@@ -1351,6 +1376,17 @@ h3 {
   color: var(--muted);
   font-size: 14px;
   text-align: center;
+}
+
+.review-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.review-actions .btn {
+  min-width: 260px;
 }
 
 .review-lightbox {
@@ -2117,6 +2153,35 @@ input {
 .split-panel a {
   color: var(--teal-dark);
   font-weight: 700;
+}
+
+.legacy-notice {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 24px;
+  border: 1px solid rgba(10, 169, 178, 0.22);
+  border-radius: 16px;
+  background: #f8ffff;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.06);
+}
+
+.legacy-notice h2 {
+  margin: 0 0 10px;
+  color: var(--ink);
+  font-size: clamp(22px, 2.6vw, 30px);
+  line-height: 1.2;
+}
+
+.legacy-notice p {
+  margin: 0;
+  color: #526173;
+}
+
+.legacy-notice__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
 }
 
 .info-grid--contact .info-card p {
@@ -4803,8 +4868,8 @@ input {
     order: 3;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    width: calc(100vw - 24px);
-    max-width: calc(100vw - 24px);
+    width: 100%;
+    max-width: 100%;
     min-width: 0;
     margin-top: 20px;
     gap: 10px;
@@ -4833,8 +4898,8 @@ input {
     order: 4;
     grid-template-columns: repeat(4, 25%);
     gap: 0;
-    width: calc(100vw - 24px);
-    max-width: calc(100vw - 24px);
+    width: 100%;
+    max-width: 100%;
     align-self: flex-start;
     margin-top: 14px;
     padding: 7px 0;
