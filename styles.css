@@ -4329,6 +4329,13 @@ input {
     var(--white);
 }
 
+.category-product-card__media picture {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  place-items: center;
+}
+
 .category-product-card__media img {
   width: 100%;
   height: 100%;
