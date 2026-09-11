@@ -9,21 +9,32 @@
       content="Comfycare cung cấp tất áp lực y tế cấp 2, tất và đai thể thao áp lực. Tư vấn chọn size theo số đo, đổi size miễn phí 15 ngày."
     />
     <link rel="canonical" href="https://comfycare.vn/" />
-    <link rel="preload" as="image" href="/assets/hero/hero-main.webp" fetchpriority="high" />
-    <link rel="icon" type="image/png" href="/assets/logo/comfycare-logo.png" />
-    <link rel="stylesheet" href="/styles.css" />
+    <link rel="preload" as="image" href="/assets/hero/hero-main-800.webp" imagesrcset="/assets/hero/hero-main-480.webp 480w, /assets/hero/hero-main-800.webp 800w, /assets/hero/hero-main-1200.webp 1200w, /assets/hero/hero-main.webp 1672w" imagesizes="100vw" media="(max-width: 700px)" fetchpriority="high" />
+    <link rel="preload" as="image" href="/assets/hero/hero-main.webp" media="(min-width: 701px)" fetchpriority="high" />
+    <link rel="icon" type="image/webp" href="/assets/logo/comfycare-logo-64.webp" />
+    <link rel="stylesheet" href="/styles.min.css" />
+    <script src="/site.min.js" defer></script>
     <!-- Meta Pixel Code -->
     <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '871690012650957');
-    fbq('track', 'PageView');
+    !function(w,d,s,u,id){
+      if(w.fbq)return;
+      var q=w.fbq=function(){q.callMethod?q.callMethod.apply(q,arguments):q.queue.push(arguments)};
+      if(!w._fbq)w._fbq=q;
+      q.push=q;q.loaded=!0;q.version="2.0";q.queue=[];
+      var loaded=!1,timer,events=["pointerdown","keydown","touchstart","scroll"];
+      function load(){
+        if(loaded)return;
+        loaded=!0;
+        events.forEach(function(eventName){w.removeEventListener(eventName,activate)});
+        w.clearTimeout(timer);
+        var js=d.createElement(s),first=d.getElementsByTagName(s)[0];
+        js.async=!0;js.src=u;first.parentNode.insertBefore(js,first);
+      }
+      function activate(){load()}
+      events.forEach(function(eventName){w.addEventListener(eventName,activate,{once:!0,passive:!0})});
+      w.addEventListener("load",function(){timer=w.setTimeout(load,8000)},{once:!0});
+      q("init",id);q("track","PageView");
+    }(window,document,"script","https://connect.facebook.net/en_US/fbevents.js","871690012650957");
     </script>
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=871690012650957&ev=PageView&noscript=1"
@@ -43,22 +54,22 @@
             </p>
             <div class="hero__features" aria-label="Thông tin nổi bật">
               <article class="hero-feature">
-                <img src="/assets/icons/hero/hero-icon-medical-standard.png" alt="" aria-hidden="true" />
+                <img src="/assets/icons/hero/hero-icon-medical-standard.png" srcset="/assets/icons/hero/hero-icon-medical-standard-64.webp 64w, /assets/icons/hero/hero-icon-medical-standard-128.webp 128w" sizes="(max-width: 700px) 30px, 88px" alt="" aria-hidden="true" width="512" height="512" decoding="async" />
                 <strong>Chuẩn y khoa</strong>
                 <span>Được kiểm định chất lượng</span>
               </article>
               <article class="hero-feature">
-                <img src="/assets/icons/hero/hero-icon-effectiveness.png" alt="" aria-hidden="true" />
+                <img src="/assets/icons/hero/hero-icon-effectiveness.png" srcset="/assets/icons/hero/hero-icon-effectiveness-64.webp 64w, /assets/icons/hero/hero-icon-effectiveness-128.webp 128w" sizes="(max-width: 700px) 30px, 88px" alt="" aria-hidden="true" width="512" height="512" decoding="async" />
                 <strong>Hiệu quả</strong>
                 <span>Hỗ trợ điều trị và ngăn ngừa suy giãn tĩnh mạch</span>
               </article>
               <article class="hero-feature">
-                <img src="/assets/icons/hero/hero-icon-comfort.png" alt="" aria-hidden="true" />
+                <img src="/assets/icons/hero/hero-icon-comfort.png" srcset="/assets/icons/hero/hero-icon-comfort-64.webp 64w, /assets/icons/hero/hero-icon-comfort-128.webp 128w" sizes="(max-width: 700px) 30px, 88px" alt="" aria-hidden="true" width="512" height="512" decoding="async" />
                 <strong>Thoải mái</strong>
                 <span>Chất liệu cao cấp thoáng khí</span>
               </article>
               <article class="hero-feature">
-                <img src="/assets/icons/hero/hero-icon-official.png" alt="" aria-hidden="true" />
+                <img src="/assets/icons/hero/hero-icon-official.png" srcset="/assets/icons/hero/hero-icon-official-64.webp 64w, /assets/icons/hero/hero-icon-official-128.webp 128w" sizes="(max-width: 700px) 30px, 88px" alt="" aria-hidden="true" width="512" height="512" decoding="async" />
                 <strong>Chính hãng</strong>
                 <span>Thương hiệu Comfycare chuyên tất áp lực</span>
               </article>
@@ -82,7 +93,7 @@
           </div>
           <div class="hero__visual">
             <div class="hero__image-frame">
-              <img src="/assets/hero/hero-main.webp" alt="Người đang mang tất áp lực Comfycare" width="1672" height="941" fetchpriority="high" decoding="async" />
+              <img src="/assets/hero/hero-main.webp" srcset="/assets/hero/hero-main-480.webp 480w, /assets/hero/hero-main-800.webp 800w, /assets/hero/hero-main-1200.webp 1200w, /assets/hero/hero-main.webp 1672w" sizes="100vw" alt="Người đang mang tất áp lực Comfycare" width="1672" height="941" fetchpriority="high" decoding="async" />
             </div>
             <aside class="hero-treatment" aria-label="Hỗ trợ điều trị">
               <strong>Hỗ trợ điều trị</strong>
@@ -156,7 +167,7 @@
           <div class="product-grid">
             <article class="product-card">
               <div class="product-card__media">
-                <img src="/assets/products/CS21/CS21-1.webp" alt="CS21 Tất Ống Chân Không Bàn" width="718" height="982" loading="lazy" decoding="async" />
+                <img src="/assets/products/CS21/CS21-1.webp" srcset="/assets/products/CS21/CS21-1-192.webp 192w, /assets/products/CS21/CS21-1-384.webp 384w, /assets/products/CS21/CS21-1.webp 718w" sizes="(max-width: 700px) 76px, 132px" alt="CS21 Tất Ống Chân Không Bàn" width="718" height="982" loading="lazy" decoding="async" />
               </div>
               <div class="product-card__body">
                 <span class="sku">CS21</span>
@@ -170,7 +181,7 @@
             </article>
             <article class="product-card">
               <div class="product-card__media">
-                <img src="/assets/products/CS22/CS22-1.webp" alt="CS22 Tất Ống Chân Hở Ngón" width="718" height="982" loading="lazy" decoding="async" />
+                <img src="/assets/products/CS22/CS22-1.webp" srcset="/assets/products/CS22/CS22-1-192.webp 192w, /assets/products/CS22/CS22-1-384.webp 384w, /assets/products/CS22/CS22-1.webp 718w" sizes="(max-width: 700px) 76px, 132px" alt="CS22 Tất Ống Chân Hở Ngón" width="718" height="982" loading="lazy" decoding="async" />
               </div>
               <div class="product-card__body">
                 <span class="sku">CS22</span>
@@ -184,7 +195,7 @@
             </article>
             <article class="product-card">
               <div class="product-card__media">
-                <img src="/assets/products/CS23/CS23-1.webp" alt="CS23 Tất Đùi Không Bàn" width="718" height="982" loading="lazy" decoding="async" />
+                <img src="/assets/products/CS23/CS23-1.webp" srcset="/assets/products/CS23/CS23-1-192.webp 192w, /assets/products/CS23/CS23-1-384.webp 384w, /assets/products/CS23/CS23-1.webp 718w" sizes="(max-width: 700px) 76px, 132px" alt="CS23 Tất Đùi Không Bàn" width="718" height="982" loading="lazy" decoding="async" />
               </div>
               <div class="product-card__body">
                 <span class="sku">CS23</span>
@@ -198,7 +209,7 @@
             </article>
             <article class="product-card">
               <div class="product-card__media">
-                <img src="/assets/products/CS35/CS35-1.webp" alt="CS35 Tất Quần Kín Bàn" width="718" height="982" loading="lazy" decoding="async" />
+                <img src="/assets/products/CS35/CS35-1.webp" srcset="/assets/products/CS35/CS35-1-192.webp 192w, /assets/products/CS35/CS35-1-384.webp 384w, /assets/products/CS35/CS35-1.webp 718w" sizes="(max-width: 700px) 76px, 132px" alt="CS35 Tất Quần Kín Bàn" width="718" height="982" loading="lazy" decoding="async" />
               </div>
               <div class="product-card__body">
                 <span class="sku">CS35</span>
@@ -212,7 +223,7 @@
             </article>
             <article class="product-card">
               <div class="product-card__media">
-                <img src="/assets/products/CS25/CS25-1.webp" alt="CS25 Tất Bàn Chân Cấp 2" width="718" height="982" loading="lazy" decoding="async" />
+                <img src="/assets/products/CS25/CS25-1.webp" srcset="/assets/products/CS25/CS25-1-192.webp 192w, /assets/products/CS25/CS25-1-384.webp 384w, /assets/products/CS25/CS25-1.webp 718w" sizes="(max-width: 700px) 76px, 132px" alt="CS25 Tất Bàn Chân Cấp 2" width="718" height="982" loading="lazy" decoding="async" />
               </div>
               <div class="product-card__body">
                 <span class="sku">CS25</span>
@@ -226,7 +237,7 @@
             </article>
             <article class="product-card">
               <div class="product-card__media">
-                <img src="/assets/products/CS30/CS30-1.webp" alt="CS30 Găng Tay Cấp 2" width="718" height="982" loading="lazy" decoding="async" />
+                <img src="/assets/products/CS30/CS30-1.webp" srcset="/assets/products/CS30/CS30-1-192.webp 192w, /assets/products/CS30/CS30-1-384.webp 384w, /assets/products/CS30/CS30-1.webp 718w" sizes="(max-width: 700px) 76px, 132px" alt="CS30 Găng Tay Cấp 2" width="718" height="982" loading="lazy" decoding="async" />
               </div>
               <div class="product-card__body">
                 <span class="sku">CS30</span>
@@ -240,7 +251,7 @@
             </article>
             <article class="product-card">
               <div class="product-card__media">
-                <img src="/assets/products/CS31/CS31-1.webp" alt="CS31 Đai Khuỷu Tay Cấp 2" width="718" height="982" loading="lazy" decoding="async" />
+                <img src="/assets/products/CS31/CS31-1.webp" srcset="/assets/products/CS31/CS31-1-192.webp 192w, /assets/products/CS31/CS31-1-384.webp 384w, /assets/products/CS31/CS31-1.webp 718w" sizes="(max-width: 700px) 76px, 132px" alt="CS31 Đai Khuỷu Tay Cấp 2" width="718" height="982" loading="lazy" decoding="async" />
               </div>
               <div class="product-card__body">
                 <span class="sku">CS31</span>
@@ -254,7 +265,7 @@
             </article>
             <article class="product-card">
               <div class="product-card__media">
-                <img src="/assets/products/CS28/CS28-1.webp" alt="CS28 Đai Đầu Gối Cấp 2" width="718" height="982" loading="lazy" decoding="async" />
+                <img src="/assets/products/CS28/CS28-1.webp" srcset="/assets/products/CS28/CS28-1-192.webp 192w, /assets/products/CS28/CS28-1-384.webp 384w, /assets/products/CS28/CS28-1.webp 718w" sizes="(max-width: 700px) 76px, 132px" alt="CS28 Đai Đầu Gối Cấp 2" width="718" height="982" loading="lazy" decoding="async" />
               </div>
               <div class="product-card__body">
                 <span class="sku">CS28</span>
@@ -277,7 +288,7 @@
       <section class="section section--why">
         <div class="container why-choose">
           <div class="why-choose__media">
-            <img src="/assets/sections/why-choose/doctor.webp" alt="Bác sĩ nữ Comfycare tư vấn tất áp lực" width="1023" height="1537" loading="lazy" decoding="async" />
+            <img src="/assets/sections/why-choose/doctor.webp" srcset="/assets/sections/why-choose/doctor-320.webp 320w, /assets/sections/why-choose/doctor-640.webp 640w, /assets/sections/why-choose/doctor.webp 1023w" sizes="(max-width: 700px) 92px, 330px" alt="Bác sĩ nữ Comfycare tư vấn tất áp lực" width="1023" height="1537" loading="lazy" decoding="async" />
           </div>
           <div class="why-choose__content">
             <div class="why-choose__heading">
@@ -428,27 +439,27 @@
             <h2>CHỨNG NHẬN & GIẤY PHÉP</h2>
             <div class="cert-grid">
               <article class="cert-item">
-                <img src="/assets/certifications/byt.webp" alt="Công bố BYT 250000052/PCBA-HP" width="1254" height="1254" loading="lazy" decoding="async" />
+                <img src="/assets/certifications/byt.webp" srcset="/assets/certifications/byt-128.webp 128w, /assets/certifications/byt-256.webp 256w, /assets/certifications/byt.webp 1254w" sizes="78px" alt="Công bố BYT 250000052/PCBA-HP" width="1254" height="1254" loading="lazy" decoding="async" />
                 <strong>BYT 250000052/PCBA-HP</strong>
                 <span>Dòng tất y tế cấp 2</span>
               </article>
               <article class="cert-item">
-                <img src="/assets/certifications/fda.webp" alt="FDA USA Fiscal Year 2025" width="1254" height="1254" loading="lazy" decoding="async" />
+                <img src="/assets/certifications/fda.webp" srcset="/assets/certifications/fda-128.webp 128w, /assets/certifications/fda-256.webp 256w, /assets/certifications/fda.webp 1254w" sizes="78px" alt="FDA USA Fiscal Year 2025" width="1254" height="1254" loading="lazy" decoding="async" />
                 <strong>FDA USA 2025</strong>
                 <span>Hồ sơ cơ sở sản xuất</span>
               </article>
               <article class="cert-item">
-                <img src="/assets/certifications/iso13485.webp" alt="ISO 13485:2016" width="1254" height="1254" loading="lazy" decoding="async" />
+                <img src="/assets/certifications/iso13485.webp" srcset="/assets/certifications/iso13485-128.webp 128w, /assets/certifications/iso13485-256.webp 256w, /assets/certifications/iso13485.webp 1254w" sizes="78px" alt="ISO 13485:2016" width="1254" height="1254" loading="lazy" decoding="async" />
                 <strong>ISO 13485:2016</strong>
                 <span>Quản lý thiết bị y tế</span>
               </article>
               <article class="cert-item">
-                <img src="/assets/certifications/iso9001.webp" alt="ISO 9001:2015" width="1254" height="1254" loading="lazy" decoding="async" />
+                <img src="/assets/certifications/iso9001.webp" srcset="/assets/certifications/iso9001-128.webp 128w, /assets/certifications/iso9001-256.webp 256w, /assets/certifications/iso9001.webp 1254w" sizes="78px" alt="ISO 9001:2015" width="1254" height="1254" loading="lazy" decoding="async" />
                 <strong>ISO 9001:2015</strong>
                 <span>Quản lý chất lượng</span>
               </article>
               <article class="cert-item">
-                <img src="/assets/certifications/ccpit.webp" alt="CCPIT / hợp pháp hóa lãnh sự" loading="lazy" />
+                <img src="/assets/certifications/ccpit.webp" srcset="/assets/certifications/ccpit-128.webp 128w, /assets/certifications/ccpit-256.webp 256w, /assets/certifications/ccpit.webp 1448w" sizes="78px" alt="CCPIT / hợp pháp hóa lãnh sự" width="1448" height="1296" loading="lazy" decoding="async" />
                 <strong>CCPIT</strong>
                 <span>Hợp pháp hóa lãnh sự</span>
               </article>
@@ -471,22 +482,22 @@
             <div class="review-carousel__viewport" tabindex="0">
               <div class="review-carousel__track">
                 <button class="review-slide" type="button" data-review-src="/assets/reviews/review-shopee-01.png" aria-label="Phóng to review Shopee 01">
-                  <img src="/assets/reviews/review-shopee-01.png" alt="Ảnh review Shopee 01" width="906" height="277" loading="lazy" decoding="async" />
+                  <picture class="responsive-picture"><source type="image/webp" srcset="/assets/reviews/review-shopee-01-480.webp 480w, /assets/reviews/review-shopee-01-800.webp 800w" sizes="(max-width: 700px) calc(100vw - 24px), 398px" /><img src="/assets/reviews/review-shopee-01.png" alt="Ảnh review Shopee 01" width="906" height="277" loading="lazy" decoding="async" /></picture>
                 </button>
                 <button class="review-slide" type="button" data-review-src="/assets/reviews/review-shopee-02.png" aria-label="Phóng to review Shopee 02">
-                  <img src="/assets/reviews/review-shopee-02.png" alt="Ảnh review Shopee 02" width="938" height="312" loading="lazy" decoding="async" />
+                  <picture class="responsive-picture"><source type="image/webp" srcset="/assets/reviews/review-shopee-02-480.webp 480w, /assets/reviews/review-shopee-02-800.webp 800w" sizes="(max-width: 700px) calc(100vw - 24px), 398px" /><img src="/assets/reviews/review-shopee-02.png" alt="Ảnh review Shopee 02" width="938" height="312" loading="lazy" decoding="async" /></picture>
                 </button>
                 <button class="review-slide" type="button" data-review-src="/assets/reviews/review-shopee-03.png" aria-label="Phóng to review Shopee 03">
-                  <img src="/assets/reviews/review-shopee-03.png" alt="Ảnh review Shopee 03" width="915" height="287" loading="lazy" decoding="async" />
+                  <picture class="responsive-picture"><source type="image/webp" srcset="/assets/reviews/review-shopee-03-480.webp 480w, /assets/reviews/review-shopee-03-800.webp 800w" sizes="(max-width: 700px) calc(100vw - 24px), 398px" /><img src="/assets/reviews/review-shopee-03.png" alt="Ảnh review Shopee 03" width="915" height="287" loading="lazy" decoding="async" /></picture>
                 </button>
                 <button class="review-slide" type="button" data-review-src="/assets/reviews/review-shopee-04.png" aria-label="Phóng to review Shopee 04">
-                  <img src="/assets/reviews/review-shopee-04.png" alt="Ảnh review Shopee 04" width="925" height="275" loading="lazy" decoding="async" />
+                  <picture class="responsive-picture"><source type="image/webp" srcset="/assets/reviews/review-shopee-04-480.webp 480w, /assets/reviews/review-shopee-04-800.webp 800w" sizes="(max-width: 700px) calc(100vw - 24px), 398px" /><img src="/assets/reviews/review-shopee-04.png" alt="Ảnh review Shopee 04" width="925" height="275" loading="lazy" decoding="async" /></picture>
                 </button>
                 <button class="review-slide" type="button" data-review-src="/assets/reviews/review-shopee-05.png" aria-label="Phóng to review Shopee 05">
-                  <img src="/assets/reviews/review-shopee-05.png" alt="Ảnh review Shopee 05" width="916" height="290" loading="lazy" decoding="async" />
+                  <picture class="responsive-picture"><source type="image/webp" srcset="/assets/reviews/review-shopee-05-480.webp 480w, /assets/reviews/review-shopee-05-800.webp 800w" sizes="(max-width: 700px) calc(100vw - 24px), 398px" /><img src="/assets/reviews/review-shopee-05.png" alt="Ảnh review Shopee 05" width="916" height="290" loading="lazy" decoding="async" /></picture>
                 </button>
                 <button class="review-slide" type="button" data-review-src="/assets/reviews/review-shopee-06.png" aria-label="Phóng to review Shopee 06">
-                  <img src="/assets/reviews/review-shopee-06.png" alt="Ảnh review Shopee 06" width="913" height="312" loading="lazy" decoding="async" />
+                  <picture class="responsive-picture"><source type="image/webp" srcset="/assets/reviews/review-shopee-06-480.webp 480w, /assets/reviews/review-shopee-06-800.webp 800w" sizes="(max-width: 700px) calc(100vw - 24px), 398px" /><img src="/assets/reviews/review-shopee-06.png" alt="Ảnh review Shopee 06" width="913" height="312" loading="lazy" decoding="async" /></picture>
                 </button>
               </div>
             </div>
@@ -510,7 +521,7 @@
           </div>
           <div class="size-layout">
             <figure class="size-measure-card">
-              <img src="/assets/size-guide/measure-leg.webp" alt="Minh họa vị trí đo cB, cC và cG trên chân" width="1448" height="1086" loading="lazy" decoding="async" />
+              <img src="/assets/size-guide/measure-leg.webp" srcset="/assets/size-guide/measure-leg-480.webp 480w, /assets/size-guide/measure-leg-800.webp 800w, /assets/size-guide/measure-leg.webp 1448w" sizes="(max-width: 700px) calc(100vw - 24px), 548px" alt="Minh họa vị trí đo cB, cC và cG trên chân" width="1448" height="1086" loading="lazy" decoding="async" />
             </figure>
             <div class="size-table-card">
               <div class="table-wrap size-table-wrap">
@@ -578,7 +589,5 @@
       </div>
     </div>
 
-    <script src="/layout.js"></script>
-    <script src="/script.js"></script>
-  </body>
+</body>
 </html>

@@ -6,20 +6,30 @@
     <title>Chứng nhận | Comfycare</title>
     <meta name="description" content="Thông tin chứng nhận BYT, FDA, ISO và phạm vi áp dụng theo từng dòng sản phẩm Comfycare." />
     <link rel="canonical" href="https://comfycare.vn/chung-nhan/" />
-    <link rel="icon" type="image/png" href="/assets/logo/comfycare-logo.png" />
-    <link rel="stylesheet" href="/styles.css" />
+    <link rel="icon" type="image/webp" href="/assets/logo/comfycare-logo-64.webp" />
+    <link rel="stylesheet" href="/styles.min.css" />
+    <script src="/site.min.js" defer></script>
     <!-- Meta Pixel Code -->
     <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '871690012650957');
-    fbq('track', 'PageView');
+    !function(w,d,s,u,id){
+      if(w.fbq)return;
+      var q=w.fbq=function(){q.callMethod?q.callMethod.apply(q,arguments):q.queue.push(arguments)};
+      if(!w._fbq)w._fbq=q;
+      q.push=q;q.loaded=!0;q.version="2.0";q.queue=[];
+      var loaded=!1,timer,events=["pointerdown","keydown","touchstart","scroll"];
+      function load(){
+        if(loaded)return;
+        loaded=!0;
+        events.forEach(function(eventName){w.removeEventListener(eventName,activate)});
+        w.clearTimeout(timer);
+        var js=d.createElement(s),first=d.getElementsByTagName(s)[0];
+        js.async=!0;js.src=u;first.parentNode.insertBefore(js,first);
+      }
+      function activate(){load()}
+      events.forEach(function(eventName){w.addEventListener(eventName,activate,{once:!0,passive:!0})});
+      w.addEventListener("load",function(){timer=w.setTimeout(load,8000)},{once:!0});
+      q("init",id);q("track","PageView");
+    }(window,document,"script","https://connect.facebook.net/en_US/fbevents.js","871690012650957");
     </script>
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=871690012650957&ev=PageView&noscript=1"
@@ -52,28 +62,28 @@
             <article class="certificate-card">
               <h3>FDA USA 2025</h3>
               <div class="certificate-card__image">
-                <img src="/assets/FDA.webp" alt="Chứng nhận FDA USA 2025 của nhà máy sản xuất Comfycare" width="904" height="1280" loading="lazy" decoding="async" />
+                <img src="/assets/FDA.webp" srcset="/assets/FDA-480.webp 480w, /assets/FDA-800.webp 800w, /assets/FDA.webp 904w" sizes="(max-width: 700px) 316px, 234px" alt="Chứng nhận FDA USA 2025 của nhà máy sản xuất Comfycare" width="904" height="1280" loading="lazy" decoding="async" />
               </div>
               <p>Hồ sơ cơ sở sản xuất tại Mỹ cho đúng nhóm sản phẩm được liệt kê trong tài liệu.</p>
             </article>
             <article class="certificate-card">
               <h3>ISO 13485:2016</h3>
               <div class="certificate-card__image">
-                <img src="/assets/Iso%2013485.webp" alt="Chứng nhận ISO 13485 của nhà máy sản xuất Comfycare" width="1414" height="2000" loading="lazy" decoding="async" />
+                <img src="/assets/Iso%2013485.webp" srcset="/assets/Iso%2013485-480.webp 480w, /assets/Iso%2013485-800.webp 800w, /assets/Iso%2013485.webp 1414w" sizes="(max-width: 700px) 316px, 234px" alt="Chứng nhận ISO 13485 của nhà máy sản xuất Comfycare" width="1414" height="2000" loading="lazy" decoding="async" />
               </div>
               <p>Hệ thống quản lý thiết bị y tế của nhà máy sản xuất, hiệu lực 22/08/2025 – 21/08/2028.</p>
             </article>
             <article class="certificate-card">
               <h3>ISO 9001:2015</h3>
               <div class="certificate-card__image">
-                <img src="/assets/Iso%209001.webp" alt="Chứng nhận ISO 9001 của nhà máy sản xuất Comfycare" width="1414" height="2000" loading="lazy" decoding="async" />
+                <img src="/assets/Iso%209001.webp" srcset="/assets/Iso%209001-480.webp 480w, /assets/Iso%209001-800.webp 800w, /assets/Iso%209001.webp 1414w" sizes="(max-width: 700px) 316px, 234px" alt="Chứng nhận ISO 9001 của nhà máy sản xuất Comfycare" width="1414" height="2000" loading="lazy" decoding="async" />
               </div>
               <p>Hệ thống quản lý chất lượng của nhà máy sản xuất, hiệu lực 10/07/2025 – 09/07/2028.</p>
             </article>
             <article class="certificate-card">
               <h3>CCPIT / Hợp pháp hóa lãnh sự</h3>
               <div class="certificate-card__image">
-                <img src="/assets/H%E1%BB%A3p%20ph%C3%A1p%20l%C3%A3nh%20s%E1%BB%B1.webp" alt="Hồ sơ hợp pháp hóa lãnh sự Việt Nam của chứng nhận Comfycare" width="1414" height="2000" loading="lazy" decoding="async" />
+                <img src="/assets/H%E1%BB%A3p%20ph%C3%A1p%20l%C3%A3nh%20s%E1%BB%B1.webp" srcset="/assets/H%E1%BB%A3p%20ph%C3%A1p%20l%C3%A3nh%20s%E1%BB%B1-480.webp 480w, /assets/H%E1%BB%A3p%20ph%C3%A1p%20l%C3%A3nh%20s%E1%BB%B1-800.webp 800w, /assets/H%E1%BB%A3p%20ph%C3%A1p%20l%C3%A3nh%20s%E1%BB%B1.webp 1414w" sizes="(max-width: 700px) 316px, 234px" alt="Hồ sơ hợp pháp hóa lãnh sự Việt Nam của chứng nhận Comfycare" width="1414" height="2000" loading="lazy" decoding="async" />
               </div>
               <p>Hồ sơ được chứng thực bởi Bộ Ngoại Giao Trung Quốc và hợp pháp hóa lãnh sự Việt Nam; CCPIT chứng thực chứng thư xuất khẩu thiết bị y tế.</p>
             </article>
@@ -150,9 +160,7 @@
 
     <div data-site-footer></div>
 
-    <script src="/layout.js"></script>
-    <script src="/script.js"></script>
-  </body>
+</body>
 </html>
 
 

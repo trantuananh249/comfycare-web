@@ -29,9 +29,18 @@ body {
   overflow-x: clip;
 }
 
+[data-site-header] {
+  display: block;
+  min-height: 118px;
+}
+
 img {
   display: block;
   max-width: 100%;
+}
+
+.responsive-picture {
+  display: contents;
 }
 
 a {
@@ -4761,6 +4770,10 @@ input {
 @media (max-width: 700px) {
   body {
     padding-bottom: 96px;
+  }
+
+  [data-site-header] {
+    min-height: 108px;
   }
 
   .container {

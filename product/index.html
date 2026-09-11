@@ -7,20 +7,29 @@
     <meta name="robots" content="noindex,follow" />
     <link rel="canonical" href="https://comfycare.vn/san-pham/" />
     <meta http-equiv="refresh" content="0; url=/san-pham/" />
-    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/styles.min.css" />
     <script>window.location.replace('/san-pham/');</script>
     <!-- Meta Pixel Code -->
     <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '871690012650957');
-    fbq('track', 'PageView');
+    !function(w,d,s,u,id){
+      if(w.fbq)return;
+      var q=w.fbq=function(){q.callMethod?q.callMethod.apply(q,arguments):q.queue.push(arguments)};
+      if(!w._fbq)w._fbq=q;
+      q.push=q;q.loaded=!0;q.version="2.0";q.queue=[];
+      var loaded=!1,timer,events=["pointerdown","keydown","touchstart","scroll"];
+      function load(){
+        if(loaded)return;
+        loaded=!0;
+        events.forEach(function(eventName){w.removeEventListener(eventName,activate)});
+        w.clearTimeout(timer);
+        var js=d.createElement(s),first=d.getElementsByTagName(s)[0];
+        js.async=!0;js.src=u;first.parentNode.insertBefore(js,first);
+      }
+      function activate(){load()}
+      events.forEach(function(eventName){w.addEventListener(eventName,activate,{once:!0,passive:!0})});
+      w.addEventListener("load",function(){timer=w.setTimeout(load,8000)},{once:!0});
+      q("init",id);q("track","PageView");
+    }(window,document,"script","https://connect.facebook.net/en_US/fbevents.js","871690012650957");
     </script>
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=871690012650957&ev=PageView&noscript=1"

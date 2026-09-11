@@ -6,20 +6,30 @@
     <title>Hướng dẫn sử dụng tất áp lực | Comfycare</title>
     <meta name="description" content="Hướng dẫn mang tất áp lực Comfycare đúng cách, thời điểm sử dụng, dấu hiệu cần tháo tất và cách giặt bảo quản." />
     <link rel="canonical" href="https://comfycare.vn/huong-dan-su-dung/" />
-    <link rel="icon" type="image/png" href="/assets/logo/comfycare-logo.png" />
-    <link rel="stylesheet" href="/styles.css" />
+    <link rel="icon" type="image/webp" href="/assets/logo/comfycare-logo-64.webp" />
+    <link rel="stylesheet" href="/styles.min.css" />
+    <script src="/site.min.js" defer></script>
     <!-- Meta Pixel Code -->
     <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '871690012650957');
-    fbq('track', 'PageView');
+    !function(w,d,s,u,id){
+      if(w.fbq)return;
+      var q=w.fbq=function(){q.callMethod?q.callMethod.apply(q,arguments):q.queue.push(arguments)};
+      if(!w._fbq)w._fbq=q;
+      q.push=q;q.loaded=!0;q.version="2.0";q.queue=[];
+      var loaded=!1,timer,events=["pointerdown","keydown","touchstart","scroll"];
+      function load(){
+        if(loaded)return;
+        loaded=!0;
+        events.forEach(function(eventName){w.removeEventListener(eventName,activate)});
+        w.clearTimeout(timer);
+        var js=d.createElement(s),first=d.getElementsByTagName(s)[0];
+        js.async=!0;js.src=u;first.parentNode.insertBefore(js,first);
+      }
+      function activate(){load()}
+      events.forEach(function(eventName){w.addEventListener(eventName,activate,{once:!0,passive:!0})});
+      w.addEventListener("load",function(){timer=w.setTimeout(load,8000)},{once:!0});
+      q("init",id);q("track","PageView");
+    }(window,document,"script","https://connect.facebook.net/en_US/fbevents.js","871690012650957");
     </script>
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=871690012650957&ev=PageView&noscript=1"
@@ -51,7 +61,10 @@
                 <p>Thực hiện lần lượt từng bước để tất ôm đều chân, không bị xoắn hoặc dồn vải.</p>
               </div>
               <figure class="usage-illustration">
-                <img src="/assets/guides/usage/how-to-wear-illustration.png" alt="Minh họa thao tác mang tất áp lực" width="1831" height="653" loading="lazy" decoding="async" />
+                <picture class="responsive-picture">
+                  <source type="image/webp" srcset="/assets/guides/usage/how-to-wear-illustration-480.webp 480w, /assets/guides/usage/how-to-wear-illustration-800.webp 800w" sizes="(max-width: 700px) calc(100vw - 42px), 367px" />
+                  <img src="/assets/guides/usage/how-to-wear-illustration.png" alt="Minh họa thao tác mang tất áp lực" width="1831" height="653" loading="lazy" decoding="async" />
+                </picture>
                 <figcaption>Hình minh họa cách mang tất áp lực đúng vị trí</figcaption>
               </figure>
             </div>
@@ -59,7 +72,10 @@
             <div class="wear-steps-grid" aria-label="6 bước mang tất áp lực đúng cách">
               <article class="wear-step-card">
                 <figure class="wear-step-card__media">
-                  <img src="/assets/guides/usage/how-to-wear-step-01.png" alt="Bước 01: lộn tất đến phần gót chân" width="1529" height="868" loading="lazy" decoding="async" />
+                  <picture class="responsive-picture">
+                    <source type="image/webp" srcset="/assets/guides/usage/how-to-wear-step-01-480.webp 480w, /assets/guides/usage/how-to-wear-step-01-800.webp 800w" sizes="(max-width: 700px) calc(100vw - 42px), 367px" />
+                    <img src="/assets/guides/usage/how-to-wear-step-01.png" alt="Bước 01: lộn tất đến phần gót chân" width="1529" height="868" loading="lazy" decoding="async" />
+                  </picture>
                 </figure>
                 <div class="wear-step-card__body">
                   <span class="wear-step-card__number">Bước 01</span>
@@ -70,7 +86,10 @@
 
               <article class="wear-step-card">
                 <figure class="wear-step-card__media">
-                  <img src="/assets/guides/usage/how-to-wear-step-02.png" alt="Bước 02: đưa bàn chân vào tất" width="1519" height="870" loading="lazy" decoding="async" />
+                  <picture class="responsive-picture">
+                    <source type="image/webp" srcset="/assets/guides/usage/how-to-wear-step-02-480.webp 480w, /assets/guides/usage/how-to-wear-step-02-800.webp 800w" sizes="(max-width: 700px) calc(100vw - 42px), 367px" />
+                    <img src="/assets/guides/usage/how-to-wear-step-02.png" alt="Bước 02: đưa bàn chân vào tất" width="1519" height="870" loading="lazy" decoding="async" />
+                  </picture>
                 </figure>
                 <div class="wear-step-card__body">
                   <span class="wear-step-card__number">Bước 02</span>
@@ -81,7 +100,10 @@
 
               <article class="wear-step-card">
                 <figure class="wear-step-card__media">
-                  <img src="/assets/guides/usage/how-to-wear-step-03.png" alt="Bước 03: kéo tất qua gót chân" width="1518" height="869" loading="lazy" decoding="async" />
+                  <picture class="responsive-picture">
+                    <source type="image/webp" srcset="/assets/guides/usage/how-to-wear-step-03-480.webp 480w, /assets/guides/usage/how-to-wear-step-03-800.webp 800w" sizes="(max-width: 700px) calc(100vw - 42px), 367px" />
+                    <img src="/assets/guides/usage/how-to-wear-step-03.png" alt="Bước 03: kéo tất qua gót chân" width="1518" height="869" loading="lazy" decoding="async" />
+                  </picture>
                 </figure>
                 <div class="wear-step-card__body">
                   <span class="wear-step-card__number">Bước 03</span>
@@ -92,7 +114,10 @@
 
               <article class="wear-step-card">
                 <figure class="wear-step-card__media">
-                  <img src="/assets/guides/usage/how-to-wear-step-04.png" alt="Bước 04: chỉnh đúng vị trí gót" width="1527" height="884" loading="lazy" decoding="async" />
+                  <picture class="responsive-picture">
+                    <source type="image/webp" srcset="/assets/guides/usage/how-to-wear-step-04-480.webp 480w, /assets/guides/usage/how-to-wear-step-04-800.webp 800w" sizes="(max-width: 700px) calc(100vw - 42px), 367px" />
+                    <img src="/assets/guides/usage/how-to-wear-step-04.png" alt="Bước 04: chỉnh đúng vị trí gót" width="1527" height="884" loading="lazy" decoding="async" />
+                  </picture>
                 </figure>
                 <div class="wear-step-card__body">
                   <span class="wear-step-card__number">Bước 04</span>
@@ -103,7 +128,10 @@
 
               <article class="wear-step-card">
                 <figure class="wear-step-card__media">
-                  <img src="/assets/guides/usage/how-to-wear-step-05.png" alt="Bước 05: vuốt đều tất lên chân" width="1526" height="878" loading="lazy" decoding="async" />
+                  <picture class="responsive-picture">
+                    <source type="image/webp" srcset="/assets/guides/usage/how-to-wear-step-05-480.webp 480w, /assets/guides/usage/how-to-wear-step-05-800.webp 800w" sizes="(max-width: 700px) calc(100vw - 42px), 367px" />
+                    <img src="/assets/guides/usage/how-to-wear-step-05.png" alt="Bước 05: vuốt đều tất lên chân" width="1526" height="878" loading="lazy" decoding="async" />
+                  </picture>
                 </figure>
                 <div class="wear-step-card__body">
                   <span class="wear-step-card__number">Bước 05</span>
@@ -114,7 +142,10 @@
 
               <article class="wear-step-card">
                 <figure class="wear-step-card__media">
-                  <img src="/assets/guides/usage/how-to-wear-step-06.png" alt="Bước 06: kiểm tra sau khi mang" width="1528" height="888" loading="lazy" decoding="async" />
+                  <picture class="responsive-picture">
+                    <source type="image/webp" srcset="/assets/guides/usage/how-to-wear-step-06-480.webp 480w, /assets/guides/usage/how-to-wear-step-06-800.webp 800w" sizes="(max-width: 700px) calc(100vw - 42px), 367px" />
+                    <img src="/assets/guides/usage/how-to-wear-step-06.png" alt="Bước 06: kiểm tra sau khi mang" width="1528" height="888" loading="lazy" decoding="async" />
+                  </picture>
                 </figure>
                 <div class="wear-step-card__body">
                   <span class="wear-step-card__number">Bước 06</span>
@@ -265,9 +296,7 @@
 
     <div data-site-footer></div>
 
-    <script src="/layout.js"></script>
-    <script src="/script.js"></script>
-  </body>
+</body>
 </html>
 
 

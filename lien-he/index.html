@@ -6,20 +6,30 @@
     <title>Liên hệ | Comfycare</title>
     <meta name="description" content="Danh bạ liên hệ chính thức của Comfycare: Hotline/Zalo, email, website, giờ làm việc, kênh chính thức và địa điểm." />
     <link rel="canonical" href="https://comfycare.vn/lien-he/" />
-    <link rel="icon" type="image/png" href="/assets/logo/comfycare-logo.png" />
-    <link rel="stylesheet" href="/styles.css" />
+    <link rel="icon" type="image/webp" href="/assets/logo/comfycare-logo-64.webp" />
+    <link rel="stylesheet" href="/styles.min.css" />
+    <script src="/site.min.js" defer></script>
     <!-- Meta Pixel Code -->
     <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '871690012650957');
-    fbq('track', 'PageView');
+    !function(w,d,s,u,id){
+      if(w.fbq)return;
+      var q=w.fbq=function(){q.callMethod?q.callMethod.apply(q,arguments):q.queue.push(arguments)};
+      if(!w._fbq)w._fbq=q;
+      q.push=q;q.loaded=!0;q.version="2.0";q.queue=[];
+      var loaded=!1,timer,events=["pointerdown","keydown","touchstart","scroll"];
+      function load(){
+        if(loaded)return;
+        loaded=!0;
+        events.forEach(function(eventName){w.removeEventListener(eventName,activate)});
+        w.clearTimeout(timer);
+        var js=d.createElement(s),first=d.getElementsByTagName(s)[0];
+        js.async=!0;js.src=u;first.parentNode.insertBefore(js,first);
+      }
+      function activate(){load()}
+      events.forEach(function(eventName){w.addEventListener(eventName,activate,{once:!0,passive:!0})});
+      w.addEventListener("load",function(){timer=w.setTimeout(load,8000)},{once:!0});
+      q("init",id);q("track","PageView");
+    }(window,document,"script","https://connect.facebook.net/en_US/fbevents.js","871690012650957");
     </script>
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=871690012650957&ev=PageView&noscript=1"
@@ -121,22 +131,22 @@
               </div>
               <div class="official-channel-grid">
                 <a class="official-channel-card" href="https://shopee.vn/comfycare_official_store" target="_blank" rel="noopener noreferrer">
-                  <span class="official-channel-card__icon" aria-hidden="true"><img src="/assets/icons/icon shopee.png" alt="" loading="lazy" /></span>
+                  <span class="official-channel-card__icon" aria-hidden="true"><img src="/assets/icons/icon shopee.png" srcset="/assets/icons/icon-shopee-64.webp 64w" sizes="40px" alt="" width="1254" height="1254" loading="lazy" decoding="async" /></span>
                   <span>Shopee</span>
                   <strong>comfycare_official_store</strong>
                 </a>
                 <a class="official-channel-card" href="https://www.tiktok.com/@comfycare_store" target="_blank" rel="noopener noreferrer">
-                  <span class="official-channel-card__icon" aria-hidden="true"><img src="/assets/icons/icon tiktok.png" alt="" loading="lazy" /></span>
+                  <span class="official-channel-card__icon" aria-hidden="true"><img src="/assets/icons/icon tiktok.png" srcset="/assets/icons/icon-tiktok-64.webp 64w" sizes="40px" alt="" width="1254" height="1254" loading="lazy" decoding="async" /></span>
                   <span>TikTok</span>
                   <strong>@comfycare_store</strong>
                 </a>
                 <a class="official-channel-card" href="https://facebook.com/Comfycare249" target="_blank" rel="noopener noreferrer">
-                  <span class="official-channel-card__icon" aria-hidden="true"><img src="/assets/icons/icon facebook.png" alt="" loading="lazy" /></span>
+                  <span class="official-channel-card__icon" aria-hidden="true"><img src="/assets/icons/icon facebook.png" srcset="/assets/icons/icon-facebook-64.webp 64w" sizes="40px" alt="" width="1254" height="1254" loading="lazy" decoding="async" /></span>
                   <span>Facebook</span>
                   <strong>Comfycare249</strong>
                 </a>
                 <a class="official-channel-card" href="https://zalo.me/0848621092" target="_blank" rel="noopener noreferrer">
-                  <span class="official-channel-card__icon" aria-hidden="true"><img src="/assets/icons/icon zalo.png" alt="" loading="lazy" /></span>
+                  <span class="official-channel-card__icon" aria-hidden="true"><img src="/assets/icons/icon zalo.png" srcset="/assets/icons/icon-zalo-64.webp 64w" sizes="40px" alt="" width="1254" height="1254" loading="lazy" decoding="async" /></span>
                   <span>Zalo</span>
                   <strong>0848 621 092</strong>
                 </a>
@@ -149,7 +159,5 @@
 
     <div data-site-footer></div>
 
-    <script src="/layout.js"></script>
-    <script src="/script.js"></script>
-  </body>
+</body>
 </html>

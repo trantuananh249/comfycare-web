@@ -44,7 +44,7 @@
       <header class="site-header">
         <div class="container header__inner">
           <a class="brand" href="${homeRoute()}" aria-label="Comfycare trang chủ">
-            <img src="${route('assets/logo/comfycare-logo.png')}" alt="Comfycare" />
+            <img src="${route('assets/logo/comfycare-logo.png')}" srcset="${route('assets/logo/comfycare-logo-64.webp')} 64w, ${route('assets/logo/comfycare-logo-128.webp')} 128w" sizes="(max-width: 700px) 36px, 44px" alt="Comfycare" width="2303" height="2320" decoding="async" />
             <span>COMFYCARE</span>
           </a>
           <button class="nav-toggle" type="button" aria-label="Mở menu" aria-expanded="false">
@@ -96,7 +96,7 @@
           <div class="container footer-grid">
             <div class="footer-company">
               <a class="footer-brand" href="${homeRoute()}" aria-label="Comfycare trang chủ">
-                <img class="footer-logo" src="${route('assets/logo/comfycare-logo.png')}" alt="Comfycare" />
+                <img class="footer-logo" src="${route('assets/logo/comfycare-logo.png')}" srcset="${route('assets/logo/comfycare-logo-64.webp')} 64w, ${route('assets/logo/comfycare-logo-128.webp')} 128w" sizes="58px" alt="Comfycare" width="2303" height="2320" loading="lazy" decoding="async" />
                 <span>COMFYCARE</span>
               </a>
               <p>
@@ -104,16 +104,16 @@
               </p>
               <div class="footer-social" aria-label="Mạng xã hội Comfycare">
                 <a href="https://facebook.com/Comfycare249" aria-label="Facebook Comfycare" target="_blank" rel="noopener noreferrer">
-                  <img src="${route('assets/icons/icon facebook.png')}" alt="" loading="lazy" />
+                  <img src="${route('assets/icons/icon facebook.png')}" srcset="${route('assets/icons/icon-facebook-64.webp')} 64w" sizes="40px" alt="" width="1254" height="1254" loading="lazy" decoding="async" />
                 </a>
                 <a href="${zaloUrl}" aria-label="Zalo Comfycare" target="_blank" rel="noopener noreferrer">
-                  <img src="${route('assets/icons/icon zalo.png')}" alt="" loading="lazy" />
+                  <img src="${route('assets/icons/icon zalo.png')}" srcset="${route('assets/icons/icon-zalo-64.webp')} 64w" sizes="40px" alt="" width="1254" height="1254" loading="lazy" decoding="async" />
                 </a>
                 <a href="${shopeeUrl}" aria-label="Shopee Comfycare" target="_blank" rel="noopener noreferrer">
-                  <img src="${route('assets/icons/icon shopee.png')}" alt="" loading="lazy" />
+                  <img src="${route('assets/icons/icon shopee.png')}" srcset="${route('assets/icons/icon-shopee-64.webp')} 64w" sizes="40px" alt="" width="1254" height="1254" loading="lazy" decoding="async" />
                 </a>
                 <a href="${tiktokUrl}" aria-label="TikTok Comfycare" target="_blank" rel="noopener noreferrer">
-                  <img src="${route('assets/icons/icon tiktok.png')}" alt="" loading="lazy" />
+                  <img src="${route('assets/icons/icon tiktok.png')}" srcset="${route('assets/icons/icon-tiktok-64.webp')} 64w" sizes="40px" alt="" width="1254" height="1254" loading="lazy" decoding="async" />
                 </a>
               </div>
             </div>
