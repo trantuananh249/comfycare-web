@@ -163,7 +163,7 @@
                   </li>
                   <li>
                     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-5.1 7-11a7 7 0 1 0-14 0c0 5.9 7 11 7 11z"></path><path d="M12 10.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"></path></svg>
-                    <span>48 Phương Lưu, Đông Hải, Hải Phòng</span>
+                    <span>111 đường 3C, Lô 9 Lê Hồng Phong, phường Hải An, Hải Phòng (hẹn trước qua hotline)</span>
                   </li>
                 </ul>
               </div>

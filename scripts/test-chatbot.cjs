@@ -4,7 +4,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const root = path.resolve(__dirname, '..');
-const output = path.join(root, 'outputs/chatbot-20261012');
+const output = process.env.CHATBOT_TEST_OUTPUT || path.join(root, 'outputs/chatbot-latest');
 fs.mkdirSync(output, { recursive: true });
 const base = process.env.CHATBOT_TEST_URL || 'http://127.0.0.1:4173';
 const pages = ['', 'cart/', 'cau-hoi-thuong-gap/', 'chinh-sach-bao-mat/', 'chinh-sach-doi-tra/', 'chinh-sach-thanh-toan/', 'chinh-sach-van-chuyen/', 'chung-nhan/', 'dieu-khoan-su-dung/', 'gioi-thieu/', 'huong-dan-chon-size/', 'huong-dan-su-dung/', 'lien-he/', 'phu-kien/', 'san-pham/', 'tat-dai-the-thao-cap-2/', 'tat-the-thao-cap-1/', 'tat-y-te-cap-2/'];

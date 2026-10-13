@@ -7283,3 +7283,9 @@ input {
     font-size: 32px;
   }
 }
+
+/* Keep the certification title within narrow phone screens. */
+@media (max-width: 360px) {
+  .cert-panel h2 { white-space: normal; font-size: 20px; }
+  .cert-panel { padding-top: 42px; }
+}
