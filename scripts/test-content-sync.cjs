@@ -33,13 +33,14 @@ const routes=['','cart/','cau-hoi-thuong-gap/','chinh-sach-bao-mat/','chinh-sach
  for(const route of ['lien-he','chinh-sach-doi-tra','chung-nhan','tat-the-thao-cap-1']){
   await page.goto(base+'/'+route+'/');await page.setViewportSize({width:390,height:844});
   await page.evaluate(async()=>{for(let y=0;y<document.documentElement.scrollHeight;y+=600){scrollTo(0,y);await new Promise(r=>setTimeout(r,40));}scrollTo(0,0);});
-  await page.locator('img').evaluateAll(imgs=>Promise.all(imgs.map(img=>img.decode().catch(()=>{}))));
+  // Newer Chrome never settles decode() on a lazy image that has not started loading.
+  await page.locator('img').evaluateAll(imgs=>Promise.all(imgs.map(img=>{img.loading='eager';return img.decode().catch(()=>{})})));
   await page.screenshot({path:path.join(out,route+'-mobile.png'),fullPage:true});
  }
  await page.setViewportSize({width:1440,height:1000});await page.goto(base+'/chinh-sach-doi-tra/');
  const copy=await page.locator('main').innerText();assert.match(copy,/trừ số tiền khách thực trả/);assert.match(copy,/bằng chuyển khoản/);assert.doesNotMatch(copy,/giảm đi 20%/);
  await page.evaluate(async()=>{for(let y=0;y<document.documentElement.scrollHeight;y+=700){scrollTo(0,y);await new Promise(r=>setTimeout(r,40));}scrollTo(0,0);});
- await page.locator('img').evaluateAll(imgs=>Promise.all(imgs.map(img=>img.decode().catch(()=>{}))));
+ await page.locator('img').evaluateAll(imgs=>Promise.all(imgs.map(img=>{img.loading='eager';return img.decode().catch(()=>{})})));
  await page.screenshot({path:path.join(out,'returns-desktop.png'),fullPage:true});
  // The one static bundle edit must match the editable layout source exactly.
  const bundledFooter=await page.locator('footer').innerHTML();

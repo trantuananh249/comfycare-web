@@ -172,7 +172,8 @@
 
           <div class="container footer-bottom">
             <div class="footer-bottom__meta">
-              <p>© 2026 Comfycare. All rights reserved.</p>
+              <p>© 2026 Công ty TNHH Comfycare. All rights reserved.</p>
+              <p>MST: 0202260378 · Trụ sở: 15C/19/128 An Đà, Phường Gia Viên, Hải Phòng</p>
               <div class="footer-legal-links" aria-label="Liên kết pháp lý">
                 ${link('dieu-khoan-su-dung', 'Điều khoản website')}
                 ${link('chinh-sach-bao-mat', 'Bảo mật thông tin')}
