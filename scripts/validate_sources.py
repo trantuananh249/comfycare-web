@@ -1,5 +1,6 @@
 """Read-only checks: approved database -> shared knowledge -> data -> website."""
 from pathlib import Path
+import json
 import re
 import sqlite3
 from urllib.parse import unquote
@@ -54,11 +55,27 @@ for rel in ('index.html','cau-hoi-thuong-gap/index.html','huong-dan-su-dung/inde
 check('Không gập hoặc cuộn viền' in read(PROJECT/'cau-hoi-thuong-gap/index.html'), 'Cuff folding advice')
 check(not (BRAIN/'source'/'Comfycare_Master_Spec_v1.2.md').exists(), 'User-authorized obsolete source removal')
 web_prices = {}
+shopee_links = {}
 for route in ('tat-y-te-cap-2','tat-dai-the-thao-cap-2','tat-the-thao-cap-1','phu-kien'):
     page = read(PROJECT/route/'index.html')
     for sku, amount in re.findall(r'<span class="sku">(CS\d+)</span>[\s\S]*?<strong>([\d.]+)đ</strong>', page):
         check(sku not in web_prices, 'Duplicate product card: '+sku)
         web_prices[sku] = amount
+    shopee_links.update(re.findall(r'<span class="sku">(CS\d+)</span>[\s\S]*?href="(https://shopee\.vn/product/[^"]+)"', page))
+# data/products.json (scripts/build-products.py) dùng cho trang chi tiết và tính tiền: giá, link Shopee phải khớp.
+product_data = {p['sku']: p for p in json.loads(read(PROJECT/'data/products.json'))['products']}
+check(set(product_data) == set(prices), 'products.json SKU coverage differs from approved catalog')
+for sku, p in product_data.items():
+    check(sku in prices and p['price'] == int(prices[sku].replace('.', '')), 'products.json price: '+sku)
+    check(p['shopee_url'] == shopee_links.get(sku), 'products.json Shopee link: '+sku)
+    detail = PROJECT/'san-pham'/sku.lower()/'index.html'
+    if detail.exists():
+        html = read(detail)
+        amount = f"{p['price']:,}".replace(',', '.')
+        check(f'<strong>{amount}đ</strong>' in html and f'"price": {p["price"]}' in html, 'Detail page price: '+sku)
+        check(p['shopee_url'] in html, 'Detail page Shopee link: '+sku)
+        check(('250000052/PCBA-HP' in html) == p['has_byt'], 'Detail page BYT scope: '+sku)
+        check(('class="pd-gift"' in html) == p['gift_cs100'], 'Detail page CS100 gift: '+sku)
 check(set(prices) == set(web_prices), 'Website SKU coverage differs from approved catalog')
 for sku, amount in prices.items():
     row = re.search(r'^\| \*\*'+sku+r'\*\*[^\n]+',catalog,re.M)

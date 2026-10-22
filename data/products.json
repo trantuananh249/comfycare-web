@@ -1,0 +1,2429 @@
+{
+  "note": "Sinh tự động bởi scripts/build-products.py từ brain; sửa nguồn rồi chạy lại.",
+  "shipping": {
+    "fee": 25000,
+    "free_from": 300000
+  },
+  "products": [
+    {
+      "sku": "CS21",
+      "name": "Tất Ống Chân Không Bàn",
+      "group": "c2-y-te",
+      "category_route": "tat-y-te-cap-2",
+      "category_label": "Tất y tế cấp 2",
+      "price": 178500,
+      "gift_cs100": true,
+      "style": "Đến gối, hở cả bàn chân (cấu trúc legging ngắn)",
+      "pressure": "21–32 mmHg",
+      "material": "14% Nylon + 26% Spandex + sợi đàn hồi nhập khẩu từ Đức",
+      "description": "Muốn để bàn chân thoáng khi mang tất đến dưới gối? CS21 có thiết kế không bàn, áp lực 21–32 mmHg thuộc dòng tất y tế cấp 2 hỗ trợ điều trị suy giãn tĩnh mạch.",
+      "has_byt": true,
+      "unit": "đôi",
+      "colors": [
+        "Da",
+        "Đen"
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "size_table": {
+        "header": [
+          "Size",
+          "cB (cm)",
+          "cC (cm)"
+        ],
+        "rows": [
+          [
+            "S",
+            "19–21",
+            "30–34"
+          ],
+          [
+            "M",
+            "21–23",
+            "33–37"
+          ],
+          [
+            "L",
+            "23–25",
+            "36–40"
+          ],
+          [
+            "XL",
+            "25–27",
+            "40–44"
+          ],
+          [
+            "XXL",
+            "27–29",
+            "43–47"
+          ]
+        ]
+      },
+      "size_guide_url": "/huong-dan-chon-size/#medical-compression-size",
+      "shopee_url": "https://shopee.vn/product/1268125014/26651928715",
+      "image": "/assets/products/CS21/1.png",
+      "gallery": [
+        {
+          "n": 1,
+          "src": "/assets/products/CS21/gallery/1.webp",
+          "medium": "/assets/products/CS21/gallery/1-640.webp",
+          "thumb": "/assets/products/CS21/gallery/1-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 2,
+          "src": "/assets/products/CS21/gallery/2.webp",
+          "medium": "/assets/products/CS21/gallery/2-640.webp",
+          "thumb": "/assets/products/CS21/gallery/2-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 3,
+          "src": "/assets/products/CS21/gallery/3.webp",
+          "medium": "/assets/products/CS21/gallery/3-640.webp",
+          "thumb": "/assets/products/CS21/gallery/3-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 4,
+          "src": "/assets/products/CS21/gallery/4.webp",
+          "medium": "/assets/products/CS21/gallery/4-640.webp",
+          "thumb": "/assets/products/CS21/gallery/4-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 5,
+          "src": "/assets/products/CS21/gallery/5.webp",
+          "medium": "/assets/products/CS21/gallery/5-640.webp",
+          "thumb": "/assets/products/CS21/gallery/5-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 6,
+          "src": "/assets/products/CS21/gallery/6.webp",
+          "medium": "/assets/products/CS21/gallery/6-640.webp",
+          "thumb": "/assets/products/CS21/gallery/6-160.webp",
+          "width": 1129,
+          "height": 1129
+        },
+        {
+          "n": 7,
+          "src": "/assets/products/CS21/gallery/7.webp",
+          "medium": "/assets/products/CS21/gallery/7-640.webp",
+          "thumb": "/assets/products/CS21/gallery/7-160.webp",
+          "width": 1129,
+          "height": 1129
+        },
+        {
+          "n": 8,
+          "src": "/assets/products/CS21/gallery/8.webp",
+          "medium": "/assets/products/CS21/gallery/8-640.webp",
+          "thumb": "/assets/products/CS21/gallery/8-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 9,
+          "src": "/assets/products/CS21/gallery/9.webp",
+          "medium": "/assets/products/CS21/gallery/9-640.webp",
+          "thumb": "/assets/products/CS21/gallery/9-160.webp",
+          "width": 1254,
+          "height": 1254
+        }
+      ],
+      "url": "/san-pham/cs21/"
+    },
+    {
+      "sku": "CS22",
+      "name": "Tất Ống Chân Hở Ngón",
+      "group": "c2-y-te",
+      "category_route": "tat-y-te-cap-2",
+      "category_label": "Tất y tế cấp 2",
+      "price": 303450,
+      "gift_cs100": true,
+      "style": "Đến gối, có bàn chân nhưng để hở 5 đầu ngón",
+      "pressure": "21–32 mmHg",
+      "material": "14% Nylon + 26% Spandex + sợi đàn hồi nhập khẩu từ Đức",
+      "description": "CS22 phủ bàn chân và ống chân đến dưới gối, để hở đầu ngón. Đây là tất y tế cấp 2, áp lực 21–32 mmHg.",
+      "has_byt": true,
+      "unit": "đôi",
+      "colors": [
+        "Da",
+        "Đen"
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "size_table": {
+        "header": [
+          "Size",
+          "cB (cm)",
+          "cC (cm)"
+        ],
+        "rows": [
+          [
+            "S",
+            "19–21",
+            "30–34"
+          ],
+          [
+            "M",
+            "21–23",
+            "33–37"
+          ],
+          [
+            "L",
+            "23–25",
+            "36–40"
+          ],
+          [
+            "XL",
+            "25–27",
+            "40–44"
+          ],
+          [
+            "XXL",
+            "27–29",
+            "43–47"
+          ]
+        ]
+      },
+      "size_guide_url": "/huong-dan-chon-size/#medical-compression-size",
+      "shopee_url": "https://shopee.vn/product/1268125014/27851924204",
+      "image": "/assets/products/CS22/1.png",
+      "gallery": [
+        {
+          "n": 1,
+          "src": "/assets/products/CS22/gallery/1.webp",
+          "medium": "/assets/products/CS22/gallery/1-640.webp",
+          "thumb": "/assets/products/CS22/gallery/1-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 2,
+          "src": "/assets/products/CS22/gallery/2.webp",
+          "medium": "/assets/products/CS22/gallery/2-640.webp",
+          "thumb": "/assets/products/CS22/gallery/2-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 3,
+          "src": "/assets/products/CS22/gallery/3.webp",
+          "medium": "/assets/products/CS22/gallery/3-640.webp",
+          "thumb": "/assets/products/CS22/gallery/3-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 4,
+          "src": "/assets/products/CS22/gallery/4.webp",
+          "medium": "/assets/products/CS22/gallery/4-640.webp",
+          "thumb": "/assets/products/CS22/gallery/4-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 5,
+          "src": "/assets/products/CS22/gallery/5.webp",
+          "medium": "/assets/products/CS22/gallery/5-640.webp",
+          "thumb": "/assets/products/CS22/gallery/5-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 6,
+          "src": "/assets/products/CS22/gallery/6.webp",
+          "medium": "/assets/products/CS22/gallery/6-640.webp",
+          "thumb": "/assets/products/CS22/gallery/6-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 7,
+          "src": "/assets/products/CS22/gallery/7.webp",
+          "medium": "/assets/products/CS22/gallery/7-640.webp",
+          "thumb": "/assets/products/CS22/gallery/7-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 8,
+          "src": "/assets/products/CS22/gallery/8.webp",
+          "medium": "/assets/products/CS22/gallery/8-640.webp",
+          "thumb": "/assets/products/CS22/gallery/8-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 9,
+          "src": "/assets/products/CS22/gallery/9.webp",
+          "medium": "/assets/products/CS22/gallery/9-640.webp",
+          "thumb": "/assets/products/CS22/gallery/9-160.webp",
+          "width": 1254,
+          "height": 1254
+        }
+      ],
+      "url": "/san-pham/cs22/"
+    },
+    {
+      "sku": "CS26",
+      "name": "Tất Ống Chân Kín Bàn",
+      "group": "c2-y-te",
+      "category_route": "tat-y-te-cap-2",
+      "category_label": "Tất y tế cấp 2",
+      "price": 327250,
+      "gift_cs100": false,
+      "style": "Đến gối, kín toàn bộ bàn chân và ngón",
+      "pressure": "21–32 mmHg",
+      "material": "14% Nylon + 26% Spandex + sợi đàn hồi nhập khẩu từ Đức",
+      "description": "CS26 dài đến dưới gối, che cả bàn chân và ngón chân. Mẫu này thuộc dòng tất y tế cấp 2, áp lực 21–32 mmHg.",
+      "has_byt": true,
+      "unit": "đôi",
+      "colors": [
+        "Da",
+        "Đen"
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "size_table": {
+        "header": [
+          "Size",
+          "cB (cm)",
+          "cC (cm)"
+        ],
+        "rows": [
+          [
+            "S",
+            "19–21",
+            "30–34"
+          ],
+          [
+            "M",
+            "21–23",
+            "33–37"
+          ],
+          [
+            "L",
+            "23–25",
+            "36–40"
+          ],
+          [
+            "XL",
+            "25–27",
+            "40–44"
+          ],
+          [
+            "XXL",
+            "27–29",
+            "43–47"
+          ]
+        ]
+      },
+      "size_guide_url": "/huong-dan-chon-size/#medical-compression-size",
+      "shopee_url": "https://shopee.vn/product/1268125014/28156777299",
+      "image": "/assets/products/CS26/1.png",
+      "gallery": [
+        {
+          "n": 1,
+          "src": "/assets/products/CS26/gallery/1.webp",
+          "medium": "/assets/products/CS26/gallery/1-640.webp",
+          "thumb": "/assets/products/CS26/gallery/1-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 2,
+          "src": "/assets/products/CS26/gallery/2.webp",
+          "medium": "/assets/products/CS26/gallery/2-640.webp",
+          "thumb": "/assets/products/CS26/gallery/2-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 3,
+          "src": "/assets/products/CS26/gallery/3.webp",
+          "medium": "/assets/products/CS26/gallery/3-640.webp",
+          "thumb": "/assets/products/CS26/gallery/3-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 4,
+          "src": "/assets/products/CS26/gallery/4.webp",
+          "medium": "/assets/products/CS26/gallery/4-640.webp",
+          "thumb": "/assets/products/CS26/gallery/4-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 5,
+          "src": "/assets/products/CS26/gallery/5.webp",
+          "medium": "/assets/products/CS26/gallery/5-640.webp",
+          "thumb": "/assets/products/CS26/gallery/5-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 6,
+          "src": "/assets/products/CS26/gallery/6.webp",
+          "medium": "/assets/products/CS26/gallery/6-640.webp",
+          "thumb": "/assets/products/CS26/gallery/6-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 7,
+          "src": "/assets/products/CS26/gallery/7.webp",
+          "medium": "/assets/products/CS26/gallery/7-640.webp",
+          "thumb": "/assets/products/CS26/gallery/7-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 8,
+          "src": "/assets/products/CS26/gallery/8.webp",
+          "medium": "/assets/products/CS26/gallery/8-640.webp",
+          "thumb": "/assets/products/CS26/gallery/8-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 9,
+          "src": "/assets/products/CS26/gallery/9.webp",
+          "medium": "/assets/products/CS26/gallery/9-640.webp",
+          "thumb": "/assets/products/CS26/gallery/9-160.webp",
+          "width": 1254,
+          "height": 1254
+        }
+      ],
+      "url": "/san-pham/cs26/"
+    },
+    {
+      "sku": "CS23",
+      "name": "Tất Đùi Không Bàn",
+      "group": "c2-y-te",
+      "category_route": "tat-y-te-cap-2",
+      "category_label": "Tất y tế cấp 2",
+      "price": 452200,
+      "gift_cs100": true,
+      "style": "Đến đùi, hở cả bàn chân",
+      "pressure": "21–32 mmHg",
+      "material": "14% Nylon + 26% Spandex + sợi đàn hồi nhập khẩu từ Đức",
+      "description": "CS23 dài đến đùi nhưng để hở bàn chân. Mẫu tất y tế cấp 2 này có áp lực 21–32 mmHg.",
+      "has_byt": true,
+      "unit": "đôi",
+      "colors": [
+        "Da",
+        "Đen"
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "size_table": {
+        "header": [
+          "Size",
+          "cB (cm)",
+          "cC (cm)",
+          "cG (cm)"
+        ],
+        "rows": [
+          [
+            "S",
+            "19–21",
+            "30–34",
+            "44–48"
+          ],
+          [
+            "M",
+            "21–23",
+            "33–37",
+            "48–52"
+          ],
+          [
+            "L",
+            "23–25",
+            "36–40",
+            "53–57"
+          ],
+          [
+            "XL",
+            "25–27",
+            "40–44",
+            "58–62"
+          ],
+          [
+            "XXL",
+            "27–29",
+            "43–47",
+            "62–66"
+          ]
+        ]
+      },
+      "size_guide_url": "/huong-dan-chon-size/#medical-compression-size",
+      "shopee_url": "https://shopee.vn/product/1268125014/24881765401",
+      "image": "/assets/products/CS23/1.png",
+      "gallery": [
+        {
+          "n": 1,
+          "src": "/assets/products/CS23/gallery/1.webp",
+          "medium": "/assets/products/CS23/gallery/1-640.webp",
+          "thumb": "/assets/products/CS23/gallery/1-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 2,
+          "src": "/assets/products/CS23/gallery/2.webp",
+          "medium": "/assets/products/CS23/gallery/2-640.webp",
+          "thumb": "/assets/products/CS23/gallery/2-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 3,
+          "src": "/assets/products/CS23/gallery/3.webp",
+          "medium": "/assets/products/CS23/gallery/3-640.webp",
+          "thumb": "/assets/products/CS23/gallery/3-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 4,
+          "src": "/assets/products/CS23/gallery/4.webp",
+          "medium": "/assets/products/CS23/gallery/4-640.webp",
+          "thumb": "/assets/products/CS23/gallery/4-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 5,
+          "src": "/assets/products/CS23/gallery/5.webp",
+          "medium": "/assets/products/CS23/gallery/5-640.webp",
+          "thumb": "/assets/products/CS23/gallery/5-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 6,
+          "src": "/assets/products/CS23/gallery/6.webp",
+          "medium": "/assets/products/CS23/gallery/6-640.webp",
+          "thumb": "/assets/products/CS23/gallery/6-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 7,
+          "src": "/assets/products/CS23/gallery/7.webp",
+          "medium": "/assets/products/CS23/gallery/7-640.webp",
+          "thumb": "/assets/products/CS23/gallery/7-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 8,
+          "src": "/assets/products/CS23/gallery/8.webp",
+          "medium": "/assets/products/CS23/gallery/8-640.webp",
+          "thumb": "/assets/products/CS23/gallery/8-160.webp",
+          "width": 1066,
+          "height": 1066
+        },
+        {
+          "n": 9,
+          "src": "/assets/products/CS23/gallery/9.webp",
+          "medium": "/assets/products/CS23/gallery/9-640.webp",
+          "thumb": "/assets/products/CS23/gallery/9-160.webp",
+          "width": 1254,
+          "height": 1254
+        }
+      ],
+      "url": "/san-pham/cs23/"
+    },
+    {
+      "sku": "CS24",
+      "name": "Tất Đùi Hở Ngón",
+      "group": "c2-y-te",
+      "category_route": "tat-y-te-cap-2",
+      "category_label": "Tất y tế cấp 2",
+      "price": 541450,
+      "gift_cs100": true,
+      "style": "Đến đùi, có bàn chân hở ngón",
+      "pressure": "21–32 mmHg",
+      "material": "14% Nylon + 26% Spandex + sợi đàn hồi nhập khẩu từ Đức",
+      "description": "CS24 phủ từ bàn chân lên đùi và để hở đầu ngón, thuộc dòng tất y tế cấp 2 21–32 mmHg. Chọn tất dài cần kiểm tra đủ ba số đo mắt cá, bắp chân và đùi.",
+      "has_byt": true,
+      "unit": "đôi",
+      "colors": [
+        "Da",
+        "Đen"
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "size_table": {
+        "header": [
+          "Size",
+          "cB (cm)",
+          "cC (cm)",
+          "cG (cm)"
+        ],
+        "rows": [
+          [
+            "S",
+            "19–21",
+            "30–34",
+            "44–48"
+          ],
+          [
+            "M",
+            "21–23",
+            "33–37",
+            "48–52"
+          ],
+          [
+            "L",
+            "23–25",
+            "36–40",
+            "53–57"
+          ],
+          [
+            "XL",
+            "25–27",
+            "40–44",
+            "58–62"
+          ],
+          [
+            "XXL",
+            "27–29",
+            "43–47",
+            "62–66"
+          ]
+        ]
+      },
+      "size_guide_url": "/huong-dan-chon-size/#medical-compression-size",
+      "shopee_url": "https://shopee.vn/product/1268125014/29151924794",
+      "image": "/assets/products/CS24/1.png",
+      "gallery": [
+        {
+          "n": 1,
+          "src": "/assets/products/CS24/gallery/1.webp",
+          "medium": "/assets/products/CS24/gallery/1-640.webp",
+          "thumb": "/assets/products/CS24/gallery/1-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 2,
+          "src": "/assets/products/CS24/gallery/2.webp",
+          "medium": "/assets/products/CS24/gallery/2-640.webp",
+          "thumb": "/assets/products/CS24/gallery/2-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 3,
+          "src": "/assets/products/CS24/gallery/3.webp",
+          "medium": "/assets/products/CS24/gallery/3-640.webp",
+          "thumb": "/assets/products/CS24/gallery/3-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 4,
+          "src": "/assets/products/CS24/gallery/4.webp",
+          "medium": "/assets/products/CS24/gallery/4-640.webp",
+          "thumb": "/assets/products/CS24/gallery/4-160.webp",
+          "width": 1000,
+          "height": 1000
+        },
+        {
+          "n": 5,
+          "src": "/assets/products/CS24/gallery/5.webp",
+          "medium": "/assets/products/CS24/gallery/5-640.webp",
+          "thumb": "/assets/products/CS24/gallery/5-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 6,
+          "src": "/assets/products/CS24/gallery/6.webp",
+          "medium": "/assets/products/CS24/gallery/6-640.webp",
+          "thumb": "/assets/products/CS24/gallery/6-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 7,
+          "src": "/assets/products/CS24/gallery/7.webp",
+          "medium": "/assets/products/CS24/gallery/7-640.webp",
+          "thumb": "/assets/products/CS24/gallery/7-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 8,
+          "src": "/assets/products/CS24/gallery/8.webp",
+          "medium": "/assets/products/CS24/gallery/8-640.webp",
+          "thumb": "/assets/products/CS24/gallery/8-160.webp",
+          "width": 1229,
+          "height": 1229
+        },
+        {
+          "n": 9,
+          "src": "/assets/products/CS24/gallery/9.webp",
+          "medium": "/assets/products/CS24/gallery/9-640.webp",
+          "thumb": "/assets/products/CS24/gallery/9-160.webp",
+          "width": 1254,
+          "height": 1254
+        }
+      ],
+      "url": "/san-pham/cs24/"
+    },
+    {
+      "sku": "CS27",
+      "name": "Tất Đùi Kín Bàn",
+      "group": "c2-y-te",
+      "category_route": "tat-y-te-cap-2",
+      "category_label": "Tất y tế cấp 2",
+      "price": 595000,
+      "gift_cs100": false,
+      "style": "Đến đùi, kín toàn bộ bàn chân",
+      "pressure": "21–32 mmHg",
+      "material": "14% Nylon + 26% Spandex + sợi đàn hồi nhập khẩu từ Đức",
+      "description": "CS27 kéo dài lên đùi, kín cả bàn chân và ngón, áp lực 21–32 mmHg thuộc dòng tất y tế cấp 2. Comfycare sẽ hỗ trợ chọn size và hướng dẫn cách mang đúng mẫu.",
+      "has_byt": true,
+      "unit": "đôi",
+      "colors": [
+        "Da",
+        "Đen"
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "size_table": {
+        "header": [
+          "Size",
+          "cB (cm)",
+          "cC (cm)",
+          "cG (cm)"
+        ],
+        "rows": [
+          [
+            "S",
+            "19–21",
+            "30–34",
+            "44–48"
+          ],
+          [
+            "M",
+            "21–23",
+            "33–37",
+            "48–52"
+          ],
+          [
+            "L",
+            "23–25",
+            "36–40",
+            "53–57"
+          ],
+          [
+            "XL",
+            "25–27",
+            "40–44",
+            "58–62"
+          ],
+          [
+            "XXL",
+            "27–29",
+            "43–47",
+            "62–66"
+          ]
+        ]
+      },
+      "size_guide_url": "/huong-dan-chon-size/#medical-compression-size",
+      "shopee_url": "https://shopee.vn/product/1268125014/27356777930",
+      "image": "/assets/products/CS27/1.png",
+      "gallery": [
+        {
+          "n": 1,
+          "src": "/assets/products/CS27/gallery/1.webp",
+          "medium": "/assets/products/CS27/gallery/1-640.webp",
+          "thumb": "/assets/products/CS27/gallery/1-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 2,
+          "src": "/assets/products/CS27/gallery/2.webp",
+          "medium": "/assets/products/CS27/gallery/2-640.webp",
+          "thumb": "/assets/products/CS27/gallery/2-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 3,
+          "src": "/assets/products/CS27/gallery/3.webp",
+          "medium": "/assets/products/CS27/gallery/3-640.webp",
+          "thumb": "/assets/products/CS27/gallery/3-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 4,
+          "src": "/assets/products/CS27/gallery/4.webp",
+          "medium": "/assets/products/CS27/gallery/4-640.webp",
+          "thumb": "/assets/products/CS27/gallery/4-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 5,
+          "src": "/assets/products/CS27/gallery/5.webp",
+          "medium": "/assets/products/CS27/gallery/5-640.webp",
+          "thumb": "/assets/products/CS27/gallery/5-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 6,
+          "src": "/assets/products/CS27/gallery/6.webp",
+          "medium": "/assets/products/CS27/gallery/6-640.webp",
+          "thumb": "/assets/products/CS27/gallery/6-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 7,
+          "src": "/assets/products/CS27/gallery/7.webp",
+          "medium": "/assets/products/CS27/gallery/7-640.webp",
+          "thumb": "/assets/products/CS27/gallery/7-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 8,
+          "src": "/assets/products/CS27/gallery/8.webp",
+          "medium": "/assets/products/CS27/gallery/8-640.webp",
+          "thumb": "/assets/products/CS27/gallery/8-160.webp",
+          "width": 1066,
+          "height": 1066
+        },
+        {
+          "n": 9,
+          "src": "/assets/products/CS27/gallery/9.webp",
+          "medium": "/assets/products/CS27/gallery/9-640.webp",
+          "thumb": "/assets/products/CS27/gallery/9-160.webp",
+          "width": 1254,
+          "height": 1254
+        }
+      ],
+      "url": "/san-pham/cs27/"
+    },
+    {
+      "sku": "CS33",
+      "name": "Tất Quần Không Bàn",
+      "group": "c2-y-te",
+      "category_route": "tat-y-te-cap-2",
+      "category_label": "Tất y tế cấp 2",
+      "price": 722500,
+      "gift_cs100": true,
+      "style": "Pantyhose dạng legging, hở bàn chân",
+      "pressure": "21–32 mmHg",
+      "material": "14% Nylon + 26% Spandex + sợi đàn hồi nhập khẩu từ Đức",
+      "description": "CS33 là quần tất một mảnh, để hở bàn chân, thuộc dòng tất y tế cấp 2 21–32 mmHg. Nếu mang chưa vừa ý, cứ báo lại để được hỗ trợ.",
+      "has_byt": true,
+      "unit": "chiếc",
+      "colors": [
+        "Da",
+        "Đen"
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "size_table": {
+        "header": [
+          "Size",
+          "cB (cm)",
+          "cC (cm)",
+          "cG (cm)"
+        ],
+        "rows": [
+          [
+            "S",
+            "19–21",
+            "30–34",
+            "44–48"
+          ],
+          [
+            "M",
+            "21–23",
+            "33–37",
+            "48–52"
+          ],
+          [
+            "L",
+            "23–25",
+            "36–40",
+            "53–57"
+          ],
+          [
+            "XL",
+            "25–27",
+            "40–44",
+            "58–62"
+          ],
+          [
+            "XXL",
+            "27–29",
+            "43–47",
+            "62–66"
+          ]
+        ]
+      },
+      "size_guide_url": "/huong-dan-chon-size/#medical-compression-size",
+      "shopee_url": "https://shopee.vn/product/1268125014/45558066622",
+      "image": "/assets/products/CS33/1.png",
+      "gallery": [
+        {
+          "n": 1,
+          "src": "/assets/products/CS33/gallery/1.webp",
+          "medium": "/assets/products/CS33/gallery/1-640.webp",
+          "thumb": "/assets/products/CS33/gallery/1-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 2,
+          "src": "/assets/products/CS33/gallery/2.webp",
+          "medium": "/assets/products/CS33/gallery/2-640.webp",
+          "thumb": "/assets/products/CS33/gallery/2-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 3,
+          "src": "/assets/products/CS33/gallery/3.webp",
+          "medium": "/assets/products/CS33/gallery/3-640.webp",
+          "thumb": "/assets/products/CS33/gallery/3-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 4,
+          "src": "/assets/products/CS33/gallery/4.webp",
+          "medium": "/assets/products/CS33/gallery/4-640.webp",
+          "thumb": "/assets/products/CS33/gallery/4-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 5,
+          "src": "/assets/products/CS33/gallery/5.webp",
+          "medium": "/assets/products/CS33/gallery/5-640.webp",
+          "thumb": "/assets/products/CS33/gallery/5-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 6,
+          "src": "/assets/products/CS33/gallery/6.webp",
+          "medium": "/assets/products/CS33/gallery/6-640.webp",
+          "thumb": "/assets/products/CS33/gallery/6-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 7,
+          "src": "/assets/products/CS33/gallery/7.webp",
+          "medium": "/assets/products/CS33/gallery/7-640.webp",
+          "thumb": "/assets/products/CS33/gallery/7-160.webp",
+          "width": 1120,
+          "height": 1120
+        },
+        {
+          "n": 8,
+          "src": "/assets/products/CS33/gallery/8.webp",
+          "medium": "/assets/products/CS33/gallery/8-640.webp",
+          "thumb": "/assets/products/CS33/gallery/8-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 9,
+          "src": "/assets/products/CS33/gallery/9.webp",
+          "medium": "/assets/products/CS33/gallery/9-640.webp",
+          "thumb": "/assets/products/CS33/gallery/9-160.webp",
+          "width": 1254,
+          "height": 1254
+        }
+      ],
+      "url": "/san-pham/cs33/"
+    },
+    {
+      "sku": "CS34",
+      "name": "Tất Quần Hở Ngón",
+      "group": "c2-y-te",
+      "category_route": "tat-y-te-cap-2",
+      "category_label": "Tất y tế cấp 2",
+      "price": 807500,
+      "gift_cs100": true,
+      "style": "Pantyhose có bàn chân hở ngón",
+      "pressure": "21–32 mmHg",
+      "material": "14% Nylon + 26% Spandex + sợi đàn hồi nhập khẩu từ Đức",
+      "description": "CS34 là quần tất một mảnh có phần bàn chân, để hở đầu ngón. Mức áp lực 21–32 mmHg thuộc dòng tất y tế cấp 2.",
+      "has_byt": true,
+      "unit": "chiếc",
+      "colors": [
+        "Da",
+        "Đen"
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "size_table": {
+        "header": [
+          "Size",
+          "cB (cm)",
+          "cC (cm)",
+          "cG (cm)"
+        ],
+        "rows": [
+          [
+            "S",
+            "19–21",
+            "30–34",
+            "44–48"
+          ],
+          [
+            "M",
+            "21–23",
+            "33–37",
+            "48–52"
+          ],
+          [
+            "L",
+            "23–25",
+            "36–40",
+            "53–57"
+          ],
+          [
+            "XL",
+            "25–27",
+            "40–44",
+            "58–62"
+          ],
+          [
+            "XXL",
+            "27–29",
+            "43–47",
+            "62–66"
+          ]
+        ]
+      },
+      "size_guide_url": "/huong-dan-chon-size/#medical-compression-size",
+      "shopee_url": "https://shopee.vn/product/1268125014/44858057663",
+      "image": "/assets/products/CS34/1.png",
+      "gallery": [
+        {
+          "n": 1,
+          "src": "/assets/products/CS34/gallery/1.webp",
+          "medium": "/assets/products/CS34/gallery/1-640.webp",
+          "thumb": "/assets/products/CS34/gallery/1-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 2,
+          "src": "/assets/products/CS34/gallery/2.webp",
+          "medium": "/assets/products/CS34/gallery/2-640.webp",
+          "thumb": "/assets/products/CS34/gallery/2-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 3,
+          "src": "/assets/products/CS34/gallery/3.webp",
+          "medium": "/assets/products/CS34/gallery/3-640.webp",
+          "thumb": "/assets/products/CS34/gallery/3-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 4,
+          "src": "/assets/products/CS34/gallery/4.webp",
+          "medium": "/assets/products/CS34/gallery/4-640.webp",
+          "thumb": "/assets/products/CS34/gallery/4-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 5,
+          "src": "/assets/products/CS34/gallery/5.webp",
+          "medium": "/assets/products/CS34/gallery/5-640.webp",
+          "thumb": "/assets/products/CS34/gallery/5-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 6,
+          "src": "/assets/products/CS34/gallery/6.webp",
+          "medium": "/assets/products/CS34/gallery/6-640.webp",
+          "thumb": "/assets/products/CS34/gallery/6-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 7,
+          "src": "/assets/products/CS34/gallery/7.webp",
+          "medium": "/assets/products/CS34/gallery/7-640.webp",
+          "thumb": "/assets/products/CS34/gallery/7-160.webp",
+          "width": 1104,
+          "height": 1104
+        },
+        {
+          "n": 8,
+          "src": "/assets/products/CS34/gallery/8.webp",
+          "medium": "/assets/products/CS34/gallery/8-640.webp",
+          "thumb": "/assets/products/CS34/gallery/8-160.webp",
+          "width": 1166,
+          "height": 1166
+        },
+        {
+          "n": 9,
+          "src": "/assets/products/CS34/gallery/9.webp",
+          "medium": "/assets/products/CS34/gallery/9-640.webp",
+          "thumb": "/assets/products/CS34/gallery/9-160.webp",
+          "width": 1254,
+          "height": 1254
+        }
+      ],
+      "url": "/san-pham/cs34/"
+    },
+    {
+      "sku": "CS35",
+      "name": "Tất Quần Kín Bàn",
+      "group": "c2-y-te",
+      "category_route": "tat-y-te-cap-2",
+      "category_label": "Tất y tế cấp 2",
+      "price": 850000,
+      "gift_cs100": false,
+      "style": "Pantyhose kín toàn bộ bàn chân (legging y tế)",
+      "pressure": "21–32 mmHg",
+      "material": "14% Nylon + 26% Spandex + sợi đàn hồi nhập khẩu từ Đức",
+      "description": "CS35 là quần tất một mảnh, kín cả bàn chân và ngón, áp lực 21–32 mmHg thuộc dòng tất y tế cấp 2. Em sẽ cùng kiểm tra để chọn loại và size phù hợp.",
+      "has_byt": true,
+      "unit": "chiếc",
+      "colors": [
+        "Da",
+        "Đen"
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "size_table": {
+        "header": [
+          "Size",
+          "cB (cm)",
+          "cC (cm)",
+          "cG (cm)"
+        ],
+        "rows": [
+          [
+            "S",
+            "19–21",
+            "30–34",
+            "44–48"
+          ],
+          [
+            "M",
+            "21–23",
+            "33–37",
+            "48–52"
+          ],
+          [
+            "L",
+            "23–25",
+            "36–40",
+            "53–57"
+          ],
+          [
+            "XL",
+            "25–27",
+            "40–44",
+            "58–62"
+          ],
+          [
+            "XXL",
+            "27–29",
+            "43–47",
+            "62–66"
+          ]
+        ]
+      },
+      "size_guide_url": "/huong-dan-chon-size/#medical-compression-size",
+      "shopee_url": "https://shopee.vn/product/1268125014/41729664819",
+      "image": "/assets/products/CS35/1.png",
+      "gallery": [
+        {
+          "n": 1,
+          "src": "/assets/products/CS35/gallery/1.webp",
+          "medium": "/assets/products/CS35/gallery/1-640.webp",
+          "thumb": "/assets/products/CS35/gallery/1-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 2,
+          "src": "/assets/products/CS35/gallery/2.webp",
+          "medium": "/assets/products/CS35/gallery/2-640.webp",
+          "thumb": "/assets/products/CS35/gallery/2-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 3,
+          "src": "/assets/products/CS35/gallery/3.webp",
+          "medium": "/assets/products/CS35/gallery/3-640.webp",
+          "thumb": "/assets/products/CS35/gallery/3-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 4,
+          "src": "/assets/products/CS35/gallery/4.webp",
+          "medium": "/assets/products/CS35/gallery/4-640.webp",
+          "thumb": "/assets/products/CS35/gallery/4-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 5,
+          "src": "/assets/products/CS35/gallery/5.webp",
+          "medium": "/assets/products/CS35/gallery/5-640.webp",
+          "thumb": "/assets/products/CS35/gallery/5-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 6,
+          "src": "/assets/products/CS35/gallery/6.webp",
+          "medium": "/assets/products/CS35/gallery/6-640.webp",
+          "thumb": "/assets/products/CS35/gallery/6-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 7,
+          "src": "/assets/products/CS35/gallery/7.webp",
+          "medium": "/assets/products/CS35/gallery/7-640.webp",
+          "thumb": "/assets/products/CS35/gallery/7-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 8,
+          "src": "/assets/products/CS35/gallery/8.webp",
+          "medium": "/assets/products/CS35/gallery/8-640.webp",
+          "thumb": "/assets/products/CS35/gallery/8-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 9,
+          "src": "/assets/products/CS35/gallery/9.webp",
+          "medium": "/assets/products/CS35/gallery/9-640.webp",
+          "thumb": "/assets/products/CS35/gallery/9-160.webp",
+          "width": 1254,
+          "height": 1254
+        }
+      ],
+      "url": "/san-pham/cs35/"
+    },
+    {
+      "sku": "CS25",
+      "name": "Tất Bàn Chân Cấp 2",
+      "group": "c2-the-thao",
+      "category_route": "tat-dai-the-thao-cap-2",
+      "category_label": "Tất/đai thể thao cấp 2",
+      "price": 238000,
+      "gift_cs100": false,
+      "style": "Bàn chân (kiểu ankle)",
+      "pressure": "21–32 mmHg",
+      "material": null,
+      "description": "CS25 là tất thể thao cấp 2 ôm bàn chân, áp lực 21–32 mmHg, bán theo đôi. Đây là dòng thể thao, không phải tất y khoa điều trị suy giãn tĩnh mạch.",
+      "has_byt": false,
+      "unit": "đôi",
+      "colors": [
+        "Da",
+        "Đen"
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "size_table": {
+        "header": [
+          "Cỡ",
+          "Size giày"
+        ],
+        "rows": [
+          [
+            "S",
+            "≤ 35"
+          ],
+          [
+            "M",
+            "36–38"
+          ],
+          [
+            "L",
+            "39–41"
+          ],
+          [
+            "XL",
+            "42–43"
+          ],
+          [
+            "XXL",
+            "≥ 44"
+          ]
+        ]
+      },
+      "size_guide_url": "/huong-dan-chon-size/#cs25-size",
+      "shopee_url": "https://shopee.vn/product/1268125014/28956486512",
+      "image": "/assets/products/CS25/1.png",
+      "gallery": [
+        {
+          "n": 1,
+          "src": "/assets/products/CS25/gallery/1.webp",
+          "medium": "/assets/products/CS25/gallery/1-640.webp",
+          "thumb": "/assets/products/CS25/gallery/1-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 2,
+          "src": "/assets/products/CS25/gallery/2.webp",
+          "medium": "/assets/products/CS25/gallery/2-640.webp",
+          "thumb": "/assets/products/CS25/gallery/2-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 3,
+          "src": "/assets/products/CS25/gallery/3.webp",
+          "medium": "/assets/products/CS25/gallery/3-640.webp",
+          "thumb": "/assets/products/CS25/gallery/3-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 4,
+          "src": "/assets/products/CS25/gallery/4.webp",
+          "medium": "/assets/products/CS25/gallery/4-640.webp",
+          "thumb": "/assets/products/CS25/gallery/4-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 5,
+          "src": "/assets/products/CS25/gallery/5.webp",
+          "medium": "/assets/products/CS25/gallery/5-640.webp",
+          "thumb": "/assets/products/CS25/gallery/5-160.webp",
+          "width": 1307,
+          "height": 1203
+        },
+        {
+          "n": 6,
+          "src": "/assets/products/CS25/gallery/6.webp",
+          "medium": "/assets/products/CS25/gallery/6-640.webp",
+          "thumb": "/assets/products/CS25/gallery/6-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 7,
+          "src": "/assets/products/CS25/gallery/7.webp",
+          "medium": "/assets/products/CS25/gallery/7-640.webp",
+          "thumb": "/assets/products/CS25/gallery/7-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 8,
+          "src": "/assets/products/CS25/gallery/8.webp",
+          "medium": "/assets/products/CS25/gallery/8-640.webp",
+          "thumb": "/assets/products/CS25/gallery/8-160.webp",
+          "width": 1254,
+          "height": 1254
+        }
+      ],
+      "url": "/san-pham/cs25/"
+    },
+    {
+      "sku": "CS28",
+      "name": "Đai Đầu Gối Cấp 2",
+      "group": "c2-the-thao",
+      "category_route": "tat-dai-the-thao-cap-2",
+      "category_label": "Tất/đai thể thao cấp 2",
+      "price": 289000,
+      "gift_cs100": false,
+      "style": "Đầu gối",
+      "pressure": "21–32 mmHg",
+      "material": null,
+      "description": "CS28 là đai thể thao cấp 2 hỗ trợ vùng đầu gối, áp lực 21–32 mmHg. Nhận về rộng, chật hoặc chưa vừa ý, anh/chị cứ báo lại để Comfycare hỗ trợ.",
+      "has_byt": false,
+      "unit": "đôi",
+      "colors": [
+        "Da",
+        "Đen"
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "size_table": {
+        "header": [
+          "Cỡ",
+          "Chu vi đùi (đo cách gối 10cm)",
+          "Theo cân nặng"
+        ],
+        "rows": [
+          [
+            "S",
+            "< 30 cm",
+            "< 45 kg"
+          ],
+          [
+            "M",
+            "30–35 cm",
+            "45–55 kg"
+          ],
+          [
+            "L",
+            "35–40 cm",
+            "55–60 kg"
+          ],
+          [
+            "XL",
+            "40–45 cm",
+            "60–70 kg"
+          ],
+          [
+            "XXL",
+            "45–50 cm",
+            "> 70 kg"
+          ]
+        ]
+      },
+      "size_guide_url": "/huong-dan-chon-size/#cs28-size",
+      "shopee_url": "https://shopee.vn/product/1268125014/41050137462",
+      "image": "/assets/products/CS28/1.png",
+      "gallery": [
+        {
+          "n": 1,
+          "src": "/assets/products/CS28/gallery/1.webp",
+          "medium": "/assets/products/CS28/gallery/1-640.webp",
+          "thumb": "/assets/products/CS28/gallery/1-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 2,
+          "src": "/assets/products/CS28/gallery/2.webp",
+          "medium": "/assets/products/CS28/gallery/2-640.webp",
+          "thumb": "/assets/products/CS28/gallery/2-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 3,
+          "src": "/assets/products/CS28/gallery/3.webp",
+          "medium": "/assets/products/CS28/gallery/3-640.webp",
+          "thumb": "/assets/products/CS28/gallery/3-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 4,
+          "src": "/assets/products/CS28/gallery/4.webp",
+          "medium": "/assets/products/CS28/gallery/4-640.webp",
+          "thumb": "/assets/products/CS28/gallery/4-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 5,
+          "src": "/assets/products/CS28/gallery/5.webp",
+          "medium": "/assets/products/CS28/gallery/5-640.webp",
+          "thumb": "/assets/products/CS28/gallery/5-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 6,
+          "src": "/assets/products/CS28/gallery/6.webp",
+          "medium": "/assets/products/CS28/gallery/6-640.webp",
+          "thumb": "/assets/products/CS28/gallery/6-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 7,
+          "src": "/assets/products/CS28/gallery/7.webp",
+          "medium": "/assets/products/CS28/gallery/7-640.webp",
+          "thumb": "/assets/products/CS28/gallery/7-160.webp",
+          "width": 1104,
+          "height": 1104
+        },
+        {
+          "n": 8,
+          "src": "/assets/products/CS28/gallery/8.webp",
+          "medium": "/assets/products/CS28/gallery/8-640.webp",
+          "thumb": "/assets/products/CS28/gallery/8-160.webp",
+          "width": 1154,
+          "height": 1154
+        },
+        {
+          "n": 9,
+          "src": "/assets/products/CS28/gallery/9.webp",
+          "medium": "/assets/products/CS28/gallery/9-640.webp",
+          "thumb": "/assets/products/CS28/gallery/9-160.webp",
+          "width": 1254,
+          "height": 1254
+        }
+      ],
+      "url": "/san-pham/cs28/"
+    },
+    {
+      "sku": "CS29",
+      "name": "Đai Cổ Tay Cấp 2",
+      "group": "c2-the-thao",
+      "category_route": "tat-dai-the-thao-cap-2",
+      "category_label": "Tất/đai thể thao cấp 2",
+      "price": 110500,
+      "gift_cs100": false,
+      "style": "Cổ tay",
+      "pressure": "21–32 mmHg",
+      "material": null,
+      "description": "CS29 ôm vùng cổ tay, áp lực 21–32 mmHg, thuộc dòng đai thể thao cấp 2.",
+      "has_byt": false,
+      "unit": "đôi",
+      "colors": [
+        "Da",
+        "Đen"
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "size_table": {
+        "header": [
+          "Cỡ",
+          "Chu vi cổ tay (cm)"
+        ],
+        "rows": [
+          [
+            "S",
+            "10–13"
+          ],
+          [
+            "M",
+            "14–15"
+          ],
+          [
+            "L",
+            "16–17"
+          ],
+          [
+            "XL",
+            "18–19"
+          ],
+          [
+            "XXL",
+            "20–22"
+          ]
+        ]
+      },
+      "size_guide_url": "/huong-dan-chon-size/#cs29-cs30-size",
+      "shopee_url": "https://shopee.vn/product/1268125014/49758235651",
+      "image": "/assets/products/CS29/1.png",
+      "gallery": [
+        {
+          "n": 1,
+          "src": "/assets/products/CS29/gallery/1.webp",
+          "medium": "/assets/products/CS29/gallery/1-640.webp",
+          "thumb": "/assets/products/CS29/gallery/1-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 2,
+          "src": "/assets/products/CS29/gallery/2.webp",
+          "medium": "/assets/products/CS29/gallery/2-640.webp",
+          "thumb": "/assets/products/CS29/gallery/2-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 3,
+          "src": "/assets/products/CS29/gallery/3.webp",
+          "medium": "/assets/products/CS29/gallery/3-640.webp",
+          "thumb": "/assets/products/CS29/gallery/3-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 4,
+          "src": "/assets/products/CS29/gallery/4.webp",
+          "medium": "/assets/products/CS29/gallery/4-640.webp",
+          "thumb": "/assets/products/CS29/gallery/4-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 5,
+          "src": "/assets/products/CS29/gallery/5.webp",
+          "medium": "/assets/products/CS29/gallery/5-640.webp",
+          "thumb": "/assets/products/CS29/gallery/5-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 6,
+          "src": "/assets/products/CS29/gallery/6.webp",
+          "medium": "/assets/products/CS29/gallery/6-640.webp",
+          "thumb": "/assets/products/CS29/gallery/6-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 7,
+          "src": "/assets/products/CS29/gallery/7.webp",
+          "medium": "/assets/products/CS29/gallery/7-640.webp",
+          "thumb": "/assets/products/CS29/gallery/7-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 8,
+          "src": "/assets/products/CS29/gallery/8.webp",
+          "medium": "/assets/products/CS29/gallery/8-640.webp",
+          "thumb": "/assets/products/CS29/gallery/8-160.webp",
+          "width": 1154,
+          "height": 1154
+        },
+        {
+          "n": 9,
+          "src": "/assets/products/CS29/gallery/9.webp",
+          "medium": "/assets/products/CS29/gallery/9-640.webp",
+          "thumb": "/assets/products/CS29/gallery/9-160.webp",
+          "width": 1254,
+          "height": 1254
+        }
+      ],
+      "url": "/san-pham/cs29/"
+    },
+    {
+      "sku": "CS30",
+      "name": "Găng Tay Cấp 2",
+      "group": "c2-the-thao",
+      "category_route": "tat-dai-the-thao-cap-2",
+      "category_label": "Tất/đai thể thao cấp 2",
+      "price": 187000,
+      "gift_cs100": false,
+      "style": "Bàn tay (hở ngón, ôm cổ tay)",
+      "pressure": "21–32 mmHg",
+      "material": null,
+      "description": "CS30 có thiết kế găng tay hở ngón, ôm bàn tay và cổ tay, áp lực 21–32 mmHg. Mẫu này thuộc dòng thể thao cấp 2.",
+      "has_byt": false,
+      "unit": "đôi",
+      "colors": [
+        "Da",
+        "Đen"
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "size_table": {
+        "header": [
+          "Cỡ",
+          "Chu vi cổ tay (cm)"
+        ],
+        "rows": [
+          [
+            "S",
+            "10–13"
+          ],
+          [
+            "M",
+            "14–15"
+          ],
+          [
+            "L",
+            "16–17"
+          ],
+          [
+            "XL",
+            "18–19"
+          ],
+          [
+            "XXL",
+            "20–22"
+          ]
+        ]
+      },
+      "size_guide_url": "/huong-dan-chon-size/#cs29-cs30-size",
+      "shopee_url": "https://shopee.vn/product/1268125014/43800142577",
+      "image": "/assets/products/CS30/1.png",
+      "gallery": [
+        {
+          "n": 1,
+          "src": "/assets/products/CS30/gallery/1.webp",
+          "medium": "/assets/products/CS30/gallery/1-640.webp",
+          "thumb": "/assets/products/CS30/gallery/1-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 2,
+          "src": "/assets/products/CS30/gallery/2.webp",
+          "medium": "/assets/products/CS30/gallery/2-640.webp",
+          "thumb": "/assets/products/CS30/gallery/2-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 3,
+          "src": "/assets/products/CS30/gallery/3.webp",
+          "medium": "/assets/products/CS30/gallery/3-640.webp",
+          "thumb": "/assets/products/CS30/gallery/3-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 4,
+          "src": "/assets/products/CS30/gallery/4.webp",
+          "medium": "/assets/products/CS30/gallery/4-640.webp",
+          "thumb": "/assets/products/CS30/gallery/4-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 5,
+          "src": "/assets/products/CS30/gallery/5.webp",
+          "medium": "/assets/products/CS30/gallery/5-640.webp",
+          "thumb": "/assets/products/CS30/gallery/5-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 6,
+          "src": "/assets/products/CS30/gallery/6.webp",
+          "medium": "/assets/products/CS30/gallery/6-640.webp",
+          "thumb": "/assets/products/CS30/gallery/6-160.webp",
+          "width": 1166,
+          "height": 1166
+        },
+        {
+          "n": 7,
+          "src": "/assets/products/CS30/gallery/7.webp",
+          "medium": "/assets/products/CS30/gallery/7-640.webp",
+          "thumb": "/assets/products/CS30/gallery/7-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 8,
+          "src": "/assets/products/CS30/gallery/8.webp",
+          "medium": "/assets/products/CS30/gallery/8-640.webp",
+          "thumb": "/assets/products/CS30/gallery/8-160.webp",
+          "width": 1254,
+          "height": 1254
+        }
+      ],
+      "url": "/san-pham/cs30/"
+    },
+    {
+      "sku": "CS31",
+      "name": "Đai Khuỷu Tay Cấp 2",
+      "group": "c2-the-thao",
+      "category_route": "tat-dai-the-thao-cap-2",
+      "category_label": "Tất/đai thể thao cấp 2",
+      "price": 238000,
+      "gift_cs100": false,
+      "style": "Khuỷu tay",
+      "pressure": "21–32 mmHg",
+      "material": null,
+      "description": "CS31 là đai thể thao cấp 2 ôm khuỷu tay, áp lực 21–32 mmHg. Comfycare sẽ hướng dẫn cách mang và hỗ trợ đổi nếu lựa chọn ban đầu chưa phù hợp.",
+      "has_byt": false,
+      "unit": "đôi",
+      "colors": [
+        "Da",
+        "Đen"
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "size_table": {
+        "header": [
+          "Cỡ",
+          "Chiều rộng dưới (cm)",
+          "Chiều rộng trên (cm)",
+          "Chu vi khuỷu tay (cm)"
+        ],
+        "rows": [
+          [
+            "S",
+            "11.0",
+            "22.6",
+            "19–23"
+          ],
+          [
+            "M",
+            "11.6",
+            "22.6",
+            "23–27"
+          ],
+          [
+            "L",
+            "12.3",
+            "22.6",
+            "26–30"
+          ],
+          [
+            "XL",
+            "13.0",
+            "22.6",
+            "29–33"
+          ],
+          [
+            "XXL",
+            "13.7",
+            "22.6",
+            "32–35"
+          ]
+        ]
+      },
+      "size_guide_url": "/huong-dan-chon-size/#cs31-size",
+      "shopee_url": "https://shopee.vn/product/1268125014/45108300810",
+      "image": "/assets/products/CS31/1.png",
+      "gallery": [
+        {
+          "n": 1,
+          "src": "/assets/products/CS31/gallery/1.webp",
+          "medium": "/assets/products/CS31/gallery/1-640.webp",
+          "thumb": "/assets/products/CS31/gallery/1-160.webp",
+          "width": 1166,
+          "height": 1166
+        },
+        {
+          "n": 2,
+          "src": "/assets/products/CS31/gallery/2.webp",
+          "medium": "/assets/products/CS31/gallery/2-640.webp",
+          "thumb": "/assets/products/CS31/gallery/2-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 3,
+          "src": "/assets/products/CS31/gallery/3.webp",
+          "medium": "/assets/products/CS31/gallery/3-640.webp",
+          "thumb": "/assets/products/CS31/gallery/3-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 4,
+          "src": "/assets/products/CS31/gallery/4.webp",
+          "medium": "/assets/products/CS31/gallery/4-640.webp",
+          "thumb": "/assets/products/CS31/gallery/4-160.webp",
+          "width": 1166,
+          "height": 1166
+        },
+        {
+          "n": 5,
+          "src": "/assets/products/CS31/gallery/5.webp",
+          "medium": "/assets/products/CS31/gallery/5-640.webp",
+          "thumb": "/assets/products/CS31/gallery/5-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 6,
+          "src": "/assets/products/CS31/gallery/6.webp",
+          "medium": "/assets/products/CS31/gallery/6-640.webp",
+          "thumb": "/assets/products/CS31/gallery/6-160.webp",
+          "width": 1129,
+          "height": 1129
+        },
+        {
+          "n": 7,
+          "src": "/assets/products/CS31/gallery/7.webp",
+          "medium": "/assets/products/CS31/gallery/7-640.webp",
+          "thumb": "/assets/products/CS31/gallery/7-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 8,
+          "src": "/assets/products/CS31/gallery/8.webp",
+          "medium": "/assets/products/CS31/gallery/8-640.webp",
+          "thumb": "/assets/products/CS31/gallery/8-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 9,
+          "src": "/assets/products/CS31/gallery/9.webp",
+          "medium": "/assets/products/CS31/gallery/9-640.webp",
+          "thumb": "/assets/products/CS31/gallery/9-160.webp",
+          "width": 1254,
+          "height": 1254
+        }
+      ],
+      "url": "/san-pham/cs31/"
+    },
+    {
+      "sku": "CS11",
+      "name": "Tất Ống Chân C1",
+      "group": "c1",
+      "category_route": "tat-the-thao-cap-1",
+      "category_label": "Tất thể thao cấp 1",
+      "price": 99750,
+      "gift_cs100": false,
+      "style": "Ống chân, hở bàn",
+      "pressure": "10–20 mmHg",
+      "material": "55% Nylon + 35% Polyester + 10% Spandex",
+      "description": "CS11 ôm ống chân, để hở bàn chân, áp lực 10–20 mmHg. Mẫu thể thao cấp 1 này hiện có cỡ S/M trong bảng đã công bố.",
+      "has_byt": false,
+      "unit": "đôi",
+      "colors": [
+        "Da",
+        "Đen"
+      ],
+      "sizes": [
+        "S/M"
+      ],
+      "size_table": {
+        "header": [
+          "Tiêu chí",
+          "S/M"
+        ],
+        "rows": [
+          [
+            "Chu vi bắp chân",
+            "< 35 cm"
+          ],
+          [
+            "Cân nặng tham khảo",
+            "< 55 kg"
+          ]
+        ]
+      },
+      "size_guide_url": "/huong-dan-chon-size/#sport-level-1-size",
+      "shopee_url": "https://shopee.vn/product/1268125014/26751930208",
+      "image": "/assets/products/CS11/1.png",
+      "gallery": [
+        {
+          "n": 1,
+          "src": "/assets/products/CS11/gallery/1.webp",
+          "medium": "/assets/products/CS11/gallery/1-640.webp",
+          "thumb": "/assets/products/CS11/gallery/1-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 2,
+          "src": "/assets/products/CS11/gallery/2.webp",
+          "medium": "/assets/products/CS11/gallery/2-640.webp",
+          "thumb": "/assets/products/CS11/gallery/2-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 3,
+          "src": "/assets/products/CS11/gallery/3.webp",
+          "medium": "/assets/products/CS11/gallery/3-640.webp",
+          "thumb": "/assets/products/CS11/gallery/3-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 4,
+          "src": "/assets/products/CS11/gallery/4.webp",
+          "medium": "/assets/products/CS11/gallery/4-640.webp",
+          "thumb": "/assets/products/CS11/gallery/4-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 5,
+          "src": "/assets/products/CS11/gallery/5.webp",
+          "medium": "/assets/products/CS11/gallery/5-640.webp",
+          "thumb": "/assets/products/CS11/gallery/5-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 6,
+          "src": "/assets/products/CS11/gallery/6.webp",
+          "medium": "/assets/products/CS11/gallery/6-640.webp",
+          "thumb": "/assets/products/CS11/gallery/6-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 7,
+          "src": "/assets/products/CS11/gallery/7.webp",
+          "medium": "/assets/products/CS11/gallery/7-640.webp",
+          "thumb": "/assets/products/CS11/gallery/7-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 8,
+          "src": "/assets/products/CS11/gallery/8.webp",
+          "medium": "/assets/products/CS11/gallery/8-640.webp",
+          "thumb": "/assets/products/CS11/gallery/8-160.webp",
+          "width": 1254,
+          "height": 1254
+        }
+      ],
+      "url": "/san-pham/cs11/"
+    },
+    {
+      "sku": "CS12",
+      "name": "Tất Bàn Chân C1",
+      "group": "c1",
+      "category_route": "tat-the-thao-cap-1",
+      "category_label": "Tất thể thao cấp 1",
+      "price": 73500,
+      "gift_cs100": false,
+      "style": "Bàn chân ngắn (ankle)",
+      "pressure": "10–20 mmHg",
+      "material": "55% Nylon + 35% Polyester + 10% Spandex",
+      "description": "CS12 là tất thể thao bàn chân cấp 1, áp lực 10–20 mmHg, bán theo đôi. Cỡ đã công bố dành cho size giày 36–40.",
+      "has_byt": false,
+      "unit": "đôi",
+      "colors": [
+        "Da",
+        "Đen"
+      ],
+      "sizes": [
+        "S/M"
+      ],
+      "size_table": {
+        "header": [
+          "Tiêu chí",
+          "Quy đổi"
+        ],
+        "rows": [
+          [
+            "Size giày",
+            "36 – 40"
+          ]
+        ]
+      },
+      "size_guide_url": "/huong-dan-chon-size/#sport-level-1-size",
+      "shopee_url": "https://shopee.vn/product/1268125014/26601929950",
+      "image": "/assets/products/CS12/1.png",
+      "gallery": [
+        {
+          "n": 1,
+          "src": "/assets/products/CS12/gallery/1.webp",
+          "medium": "/assets/products/CS12/gallery/1-640.webp",
+          "thumb": "/assets/products/CS12/gallery/1-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 2,
+          "src": "/assets/products/CS12/gallery/2.webp",
+          "medium": "/assets/products/CS12/gallery/2-640.webp",
+          "thumb": "/assets/products/CS12/gallery/2-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 3,
+          "src": "/assets/products/CS12/gallery/3.webp",
+          "medium": "/assets/products/CS12/gallery/3-640.webp",
+          "thumb": "/assets/products/CS12/gallery/3-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 4,
+          "src": "/assets/products/CS12/gallery/4.webp",
+          "medium": "/assets/products/CS12/gallery/4-640.webp",
+          "thumb": "/assets/products/CS12/gallery/4-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 5,
+          "src": "/assets/products/CS12/gallery/5.webp",
+          "medium": "/assets/products/CS12/gallery/5-640.webp",
+          "thumb": "/assets/products/CS12/gallery/5-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 6,
+          "src": "/assets/products/CS12/gallery/6.webp",
+          "medium": "/assets/products/CS12/gallery/6-640.webp",
+          "thumb": "/assets/products/CS12/gallery/6-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 7,
+          "src": "/assets/products/CS12/gallery/7.webp",
+          "medium": "/assets/products/CS12/gallery/7-640.webp",
+          "thumb": "/assets/products/CS12/gallery/7-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 8,
+          "src": "/assets/products/CS12/gallery/8.webp",
+          "medium": "/assets/products/CS12/gallery/8-640.webp",
+          "thumb": "/assets/products/CS12/gallery/8-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 9,
+          "src": "/assets/products/CS12/gallery/9.webp",
+          "medium": "/assets/products/CS12/gallery/9-640.webp",
+          "thumb": "/assets/products/CS12/gallery/9-160.webp",
+          "width": 1254,
+          "height": 1254
+        }
+      ],
+      "url": "/san-pham/cs12/"
+    },
+    {
+      "sku": "CS14",
+      "name": "Đai thể thao áp lực hỗ trợ đầu gối",
+      "group": "c1",
+      "category_route": "tat-the-thao-cap-1",
+      "category_label": "Tất thể thao cấp 1",
+      "price": 105000,
+      "gift_cs100": false,
+      "style": "Đầu gối (đai gối)",
+      "pressure": "10–20 mmHg",
+      "material": "55% Nylon + 35% Polyester + 10% Spandex",
+      "description": "CS14 — Đai thể thao áp lực hỗ trợ đầu gối — thuộc dòng thể thao cấp 1. Comfycare sẽ cùng kiểm tra độ vừa và hỗ trợ đổi nếu nhận về chưa phù hợp.",
+      "has_byt": false,
+      "unit": "đôi",
+      "colors": [
+        "Da",
+        "Đen"
+      ],
+      "sizes": [
+        "S/M",
+        "L/XL"
+      ],
+      "size_table": {
+        "header": [
+          "Size",
+          "Chu vi đùi (vị trí A)"
+        ],
+        "rows": [
+          [
+            "S/M",
+            "≤ 44 cm"
+          ],
+          [
+            "L/XL",
+            "> 44 – 52 cm"
+          ]
+        ]
+      },
+      "size_guide_url": "/huong-dan-chon-size/#sport-level-1-size",
+      "shopee_url": "https://shopee.vn/product/1268125014/29406484639",
+      "image": "/assets/products/CS14/1.png",
+      "gallery": [
+        {
+          "n": 1,
+          "src": "/assets/products/CS14/gallery/1.webp",
+          "medium": "/assets/products/CS14/gallery/1-640.webp",
+          "thumb": "/assets/products/CS14/gallery/1-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 2,
+          "src": "/assets/products/CS14/gallery/2.webp",
+          "medium": "/assets/products/CS14/gallery/2-640.webp",
+          "thumb": "/assets/products/CS14/gallery/2-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 3,
+          "src": "/assets/products/CS14/gallery/3.webp",
+          "medium": "/assets/products/CS14/gallery/3-640.webp",
+          "thumb": "/assets/products/CS14/gallery/3-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 4,
+          "src": "/assets/products/CS14/gallery/4.webp",
+          "medium": "/assets/products/CS14/gallery/4-640.webp",
+          "thumb": "/assets/products/CS14/gallery/4-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 6,
+          "src": "/assets/products/CS14/gallery/6.webp",
+          "medium": "/assets/products/CS14/gallery/6-640.webp",
+          "thumb": "/assets/products/CS14/gallery/6-160.webp",
+          "width": 1129,
+          "height": 1129
+        },
+        {
+          "n": 7,
+          "src": "/assets/products/CS14/gallery/7.webp",
+          "medium": "/assets/products/CS14/gallery/7-640.webp",
+          "thumb": "/assets/products/CS14/gallery/7-160.webp",
+          "width": 1066,
+          "height": 1066
+        },
+        {
+          "n": 8,
+          "src": "/assets/products/CS14/gallery/8.webp",
+          "medium": "/assets/products/CS14/gallery/8-640.webp",
+          "thumb": "/assets/products/CS14/gallery/8-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 9,
+          "src": "/assets/products/CS14/gallery/9.webp",
+          "medium": "/assets/products/CS14/gallery/9-640.webp",
+          "thumb": "/assets/products/CS14/gallery/9-160.webp",
+          "width": 1254,
+          "height": 1254
+        }
+      ],
+      "url": "/san-pham/cs14/"
+    },
+    {
+      "sku": "CS110",
+      "name": "Tất Ống Chân Kín Bàn C1",
+      "group": "c1",
+      "category_route": "tat-the-thao-cap-1",
+      "category_label": "Tất thể thao cấp 1",
+      "price": 105000,
+      "gift_cs100": false,
+      "style": "Ống chân + bàn chân kín",
+      "pressure": "10–20 mmHg",
+      "material": "55% Nylon + 35% Polyester + 10% Spandex",
+      "description": "CS110 phủ ống chân và bàn chân kín, áp lực 10–20 mmHg thuộc dòng thể thao cấp 1. Bảng hiện có S/M và L/XL.",
+      "has_byt": false,
+      "unit": "đôi",
+      "colors": [
+        "Da",
+        "Đen"
+      ],
+      "sizes": [
+        "S/M",
+        "L/XL"
+      ],
+      "size_table": {
+        "header": [
+          "Cỡ",
+          "S/M",
+          "L/XL"
+        ],
+        "rows": [
+          [
+            "Nam",
+            "< 60 kg",
+            "60–65 kg"
+          ],
+          [
+            "Nữ",
+            "< 55 kg",
+            "55–60 kg"
+          ]
+        ]
+      },
+      "size_guide_url": "/huong-dan-chon-size/#sport-level-1-size",
+      "shopee_url": "https://shopee.vn/product/1268125014/29484186147",
+      "image": "/assets/products/CS110/1.png",
+      "gallery": [
+        {
+          "n": 1,
+          "src": "/assets/products/CS110/gallery/1.webp",
+          "medium": "/assets/products/CS110/gallery/1-640.webp",
+          "thumb": "/assets/products/CS110/gallery/1-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 2,
+          "src": "/assets/products/CS110/gallery/2.webp",
+          "medium": "/assets/products/CS110/gallery/2-640.webp",
+          "thumb": "/assets/products/CS110/gallery/2-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 3,
+          "src": "/assets/products/CS110/gallery/3.webp",
+          "medium": "/assets/products/CS110/gallery/3-640.webp",
+          "thumb": "/assets/products/CS110/gallery/3-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 4,
+          "src": "/assets/products/CS110/gallery/4.webp",
+          "medium": "/assets/products/CS110/gallery/4-640.webp",
+          "thumb": "/assets/products/CS110/gallery/4-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 5,
+          "src": "/assets/products/CS110/gallery/5.webp",
+          "medium": "/assets/products/CS110/gallery/5-640.webp",
+          "thumb": "/assets/products/CS110/gallery/5-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 6,
+          "src": "/assets/products/CS110/gallery/6.webp",
+          "medium": "/assets/products/CS110/gallery/6-640.webp",
+          "thumb": "/assets/products/CS110/gallery/6-160.webp",
+          "width": 1129,
+          "height": 1129
+        },
+        {
+          "n": 7,
+          "src": "/assets/products/CS110/gallery/7.webp",
+          "medium": "/assets/products/CS110/gallery/7-640.webp",
+          "thumb": "/assets/products/CS110/gallery/7-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 8,
+          "src": "/assets/products/CS110/gallery/8.webp",
+          "medium": "/assets/products/CS110/gallery/8-640.webp",
+          "thumb": "/assets/products/CS110/gallery/8-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 9,
+          "src": "/assets/products/CS110/gallery/9.webp",
+          "medium": "/assets/products/CS110/gallery/9-640.webp",
+          "thumb": "/assets/products/CS110/gallery/9-160.webp",
+          "width": 1254,
+          "height": 1254
+        }
+      ],
+      "url": "/san-pham/cs110/"
+    },
+    {
+      "sku": "CS100",
+      "name": "Dụng Cụ Hỗ Trợ Xỏ Tất",
+      "group": "phu-kien",
+      "category_route": "phu-kien",
+      "category_label": "Phụ kiện",
+      "price": 20000,
+      "gift_cs100": false,
+      "style": "Phụ kiện hỗ trợ mang tất, dạng miếng vải",
+      "pressure": null,
+      "material": "Miếng vải polyester, không có kim loại",
+      "description": "CS100 là dụng cụ hỗ trợ xỏ tất dạng miếng vải polyester, đi kèm một số mẫu không bàn và hở ngón.",
+      "has_byt": false,
+      "unit": "chiếc",
+      "colors": [],
+      "sizes": [],
+      "size_table": null,
+      "size_guide_url": null,
+      "shopee_url": "https://shopee.vn/product/1268125014/28706085493",
+      "image": "/assets/products/CS100/1.png",
+      "gallery": [
+        {
+          "src": "/assets/products/CS100/1.webp",
+          "medium": "/assets/products/CS100/1-640.webp",
+          "thumb": "/assets/products/CS100/1-320.webp",
+          "width": 1254,
+          "height": 1254
+        }
+      ],
+      "url": "/san-pham/cs100/"
+    }
+  ]
+}
