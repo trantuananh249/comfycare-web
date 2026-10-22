@@ -4,8 +4,8 @@ import re, json, sqlite3, hashlib
 from workspace_paths import SITE as PROJECT, BRAIN_DB, CONTENT, QA_BASELINES
 # Nguồn duy nhất: Tuấn Anh Workspace/brain/brain.db
 BASELINE=QA_BASELINES/"data-brain-20261012"
-# Hash brain.db hiện hành so với baseline mới nhất (22/10 bản c: thêm business 33).
-DB_BASELINE=QA_BASELINES/"brain-baseline-20261022c.json"
+# Hash brain.db hiện hành so với baseline mới nhất (22/10 bản d: thêm business 34).
+DB_BASELINE=QA_BASELINES/"brain-baseline-20261022d.json"
 OUT=PROJECT/"outputs/data-validation"
 OUT.mkdir(parents=True, exist_ok=True)
 DATA=CONTENT

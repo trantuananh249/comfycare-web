@@ -3,7 +3,7 @@
 Chạy từ thư mục repo (`C:\Users\mrtua\dev\comfycare-vn-website`). Các script đọc dữ liệu ở workspace OneDrive qua `scripts/workspace_paths.py`; đặt biến `COMFYCARE_WORKSPACE` nếu workspace nằm chỗ khác.
 
 - Kiểm tra asset/link: `python scripts/validate_site.py`.
-- Kiểm tra kho nội dung theo brain.db: `python scripts/validate_data.py`. Đọc `brain/brain.db` và `brain/content/` trong workspace; so file với baseline lịch sử `projects/website-comfycare/qa-baselines/data-brain-20261012` (không xóa). Hash brain.db so với `qa-baselines/brain-baseline-20261022.json` (41 bản ghi, không còn business 1–2 mẫu giả lập). Khi brain.db được duyệt thay đổi, tạo baseline mới bên cạnh và trỏ DB_BASELINE sang, không ghi đè bản cũ.
+- Kiểm tra kho nội dung theo brain.db: `python scripts/validate_data.py`. Đọc `brain/brain.db` và `brain/content/` trong workspace; so file với baseline lịch sử `projects/website-comfycare/qa-baselines/data-brain-20261012` (không xóa). Hash brain.db so với `qa-baselines/brain-baseline-20261022d.json` (44 bản ghi, mới nhất business 34). Khi brain.db được duyệt thay đổi, tạo baseline mới bên cạnh và trỏ DB_BASELINE sang, không ghi đè bản cũ.
 - Đối chiếu giá/nguồn giữa database, `brain/knowledge`, `brain/content` và HTML: `python scripts/validate_sources.py`.
 - Regression nội dung local: `node scripts/test-content-sync.cjs` (Playwright; CHATBOT_TEST_URL mặc định http://127.0.0.1:4183; kết quả mặc định ở outputs/content-latest).
 - Tạo ảnh responsive: `python scripts/generate_responsive_images.py` (cần Pillow). Chỉ chạy khi thay ảnh nguồn.
