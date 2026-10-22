@@ -2,7 +2,7 @@
 const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
 const root=path.resolve(__dirname,'..');
-const out=path.resolve(process.env.CONTENT_TEST_OUTPUT||path.join(root,'outputs/maintenance-20261013/content-qa'));fs.mkdirSync(out,{recursive:true});
+const out=path.resolve(process.env.CONTENT_TEST_OUTPUT||path.join(root,'outputs/content-latest'));fs.mkdirSync(out,{recursive:true});
 const base=process.env.CHATBOT_TEST_URL||'http://127.0.0.1:4183';
 const routes=['','cart/','cau-hoi-thuong-gap/','chinh-sach-bao-mat/','chinh-sach-doi-tra/','chinh-sach-thanh-toan/','chinh-sach-van-chuyen/','chung-nhan/','dieu-khoan-su-dung/','gioi-thieu/','huong-dan-chon-size/','huong-dan-su-dung/','lien-he/','phu-kien/','san-pham/','tat-dai-the-thao-cap-2/','tat-the-thao-cap-1/','tat-y-te-cap-2/'];
 (async()=>{

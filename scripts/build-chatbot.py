@@ -7,8 +7,10 @@ import hashlib
 import json
 import re
 
+from workspace_paths import CONTENT
+
 root = Path(__file__).resolve().parents[1]
-source = (root.parents[1] / 'sales_script.md').read_text(encoding='utf-8')
+source = (CONTENT / 'sales_script.md').read_text(encoding='utf-8')
 
 def quotes(text):
     return re.findall(r'^> (.+)$', text, re.M)
