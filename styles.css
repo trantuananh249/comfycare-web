@@ -1953,6 +1953,17 @@ input {
   display: inline;
 }
 
+.footer-bct {
+  display: inline-flex;
+  margin-top: 16px;
+}
+
+.footer-bct img {
+  display: block;
+  width: 120px;
+  height: auto;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;

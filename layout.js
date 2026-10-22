@@ -116,6 +116,9 @@
                   <img src="${route('assets/icons/icon tiktok.png')}" srcset="${route('assets/icons/icon-tiktok-64.webp')} 64w" sizes="40px" alt="" width="1254" height="1254" loading="lazy" decoding="async" />
                 </a>
               </div>
+              <a class="footer-bct" href="https://online.gov.vn/nen-tang/2162bbaa-3fc3-4df5-8ed0-d7c52256bc97" target="_blank" rel="noopener noreferrer" aria-label="Đã thông báo Bộ Công Thương, xem hồ sơ trên online.gov.vn">
+                <img src="https://fileserver.online.gov.vn/uploads/Resources/iconxacnhan/DaThongBao.png" alt="Đã thông báo Bộ Công Thương" width="230" height="86" loading="lazy" decoding="async" />
+              </a>
             </div>
 
             <nav class="footer-links" aria-label="Sản phẩm">

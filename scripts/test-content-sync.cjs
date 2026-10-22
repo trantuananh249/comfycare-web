@@ -23,7 +23,8 @@ const routes=['','cart/','cau-hoi-thuong-gap/','chinh-sach-bao-mat/','chinh-sach
    assert.ok(sizes.scroll<=sizes.width+1,`${route} ${width}px horizontal overflow: ${sizes.scroll}`);
    // Viewport changes can switch srcset after load; wait for the selected images.
    await page.locator('img').evaluateAll(imgs=>Promise.all(imgs.map(async img=>{img.loading='eager';try{await img.decode()}catch{}})));
-   assert.deepEqual(await page.locator('img').evaluateAll(imgs=>imgs.filter(i=>i.currentSrc&&i.naturalWidth===0).map(i=>i.currentSrc)),[],route+' images');
+   // External requests are stubbed above, so only same-origin images are checked.
+   assert.deepEqual(await page.locator('img').evaluateAll(imgs=>imgs.filter(i=>i.currentSrc&&new URL(i.currentSrc).origin===location.origin&&i.naturalWidth===0).map(i=>i.currentSrc)),[],route+' images');
    results.push({route,width,passed:true});
   }
  }
