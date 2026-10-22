@@ -463,7 +463,7 @@ def render_page(p, head, css_version, js_version):
               </form>
               <div class="pd-actions">
                 <a class="btn btn--primary" href="{p["shopee_url"]}" target="_blank" rel="noopener noreferrer">Mua trên Shopee</a>
-                <button class="btn pd-web-buy" type="button" disabled aria-describedby="pd-web-note">Đặt mua trên web <span class="pd-soon">Sắp ra mắt</span></button>
+                <button class="btn pd-web-buy" type="button" disabled aria-describedby="pd-web-note">Mua ngay <span class="pd-soon">Sắp ra mắt</span></button>
               </div>
               <p class="pd-muted" id="pd-web-note">Đặt mua trực tiếp trên website đang được chuẩn bị. Trong lúc chờ, anh/chị mua trên Shopee hoặc nhắn Zalo để được tư vấn.</p>
               <a class="pd-zalo" href="{ZALO}" target="_blank" rel="noopener noreferrer">{'Cần tư vấn size? Nhắn Zalo' if p['sizes'] else 'Cần tư vấn? Nhắn Zalo'}</a>

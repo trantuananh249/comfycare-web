@@ -7,7 +7,9 @@ const root = path.resolve(__dirname, '..');
 const output = process.env.CHATBOT_TEST_OUTPUT || path.join(root, 'outputs/chatbot-latest');
 fs.mkdirSync(output, { recursive: true });
 const base = process.env.CHATBOT_TEST_URL || 'http://127.0.0.1:4173';
-const pages = ['', 'cart/', 'cau-hoi-thuong-gap/', 'chinh-sach-bao-mat/', 'chinh-sach-doi-tra/', 'chinh-sach-thanh-toan/', 'chinh-sach-van-chuyen/', 'chung-nhan/', 'dieu-khoan-su-dung/', 'gioi-thieu/', 'huong-dan-chon-size/', 'huong-dan-su-dung/', 'lien-he/', 'phu-kien/', 'san-pham/', 'tat-dai-the-thao-cap-2/', 'tat-the-thao-cap-1/', 'tat-y-te-cap-2/'];
+const pages = ['', 'cart/', 'cau-hoi-thuong-gap/', 'chinh-sach-bao-mat/', 'chinh-sach-doi-tra/', 'chinh-sach-thanh-toan/', 'chinh-sach-van-chuyen/', 'chung-nhan/', 'dieu-khoan-su-dung/', 'gioi-thieu/', 'huong-dan-chon-size/', 'huong-dan-su-dung/', 'lien-he/', 'phu-kien/', 'san-pham/', 'tat-dai-the-thao-cap-2/', 'tat-the-thao-cap-1/', 'tat-y-te-cap-2/',
+  // Trang chi tiết sản phẩm (scripts/build-products.py)
+  ...['cs21', 'cs22', 'cs23', 'cs24', 'cs26', 'cs27', 'cs33', 'cs34', 'cs35', 'cs25', 'cs28', 'cs29', 'cs30', 'cs31', 'cs11', 'cs12', 'cs14', 'cs110', 'cs100'].map(sku => `san-pham/${sku}/`)];
 (async () => {
   const browser = await chromium.launch({ executablePath: process.env.CHROME_PATH || 'C:/Program Files/Google/Chrome/Application/chrome.exe', headless: true });
   const context = await browser.newContext({ viewport: { width: 1366, height: 900 } });
@@ -23,7 +25,7 @@ const pages = ['', 'cart/', 'cau-hoi-thuong-gap/', 'chinh-sach-bao-mat/', 'chinh
       assert.equal(await page.locator('#comfy-chat').count(), 1, route);
       assert.equal(await page.locator('.cc-panel').isVisible(), false, route);
       await page.locator('.cc-launcher').click();
-      assert.match(await page.locator('.cc-history').innerText(), /Chào bạn, mình là trợ lý tư vấn/);
+      assert.match(await page.locator('.cc-history').innerText(), /Chào anh\/chị, em là trợ lý tư vấn/);
       assert.equal(await page.locator('.cc-topic-list button').count(), 10);
     }
     await page.goto(base);
@@ -65,7 +67,7 @@ const pages = ['', 'cart/', 'cau-hoi-thuong-gap/', 'chinh-sach-bao-mat/', 'chinh
     await send('CS25 chọn size nào', /bảng size riêng/);
     await send('<img src=x onerror=alert(1)>', /kiểm tra thêm/);
     assert.equal(await page.locator('.cc-history img').count(), 0, 'Input rendered as text');
-    await send('Xin chào', /Chào bạn/);
+    await send('Xin chào', /Chào anh\/chị/);
     await page.screenshot({ path: path.join(output, 'desktop.png') });
     const mobile = await context.newPage();
     await mobile.setViewportSize({ width: 390, height: 844 });
@@ -87,6 +89,6 @@ const pages = ['', 'cart/', 'cau-hoi-thuong-gap/', 'chinh-sach-bao-mat/', 'chinh
     assert.deepEqual(errors, []);
     assert.deepEqual(failures, []);
     fs.writeFileSync(path.join(output, 'validation.json'), JSON.stringify({ pages: pages.length, faq: 10, scenarios: 15, viewports: ['1366x900','390x844','320x568','844x390'], errors, assetFailures: failures, result: 'passed' }, null, 2));
-    console.log('PASS: 18 pages, 10 FAQs, conversation routing, safe rendering, keyboard controls, responsive layout.');
+    console.log(`PASS: ${pages.length} pages, 10 FAQs, conversation routing, safe rendering, keyboard controls, responsive layout.`);
   } finally { await browser.close(); }
 })().catch(error => { console.error(error); process.exitCode = 1; });

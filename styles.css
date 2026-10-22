@@ -7251,3 +7251,147 @@ input {
   .cert-panel h2 { white-space: normal; font-size: 20px; }
   .cert-panel { padding-top: 42px; }
 }
+
+/* Kế hoạch 09 bước 3: thẻ sản phẩm dẫn vào trang chi tiết, nút "Mua ngay" (web) chờ mở bán, giỏ hàng ẩn trong header */
+.category-product-card h3 a,
+.product-card h3 a {
+  color: inherit;
+}
+
+.category-product-card h3 a:hover,
+.product-card h3 a:hover {
+  color: var(--teal-dark);
+}
+
+a.product-card__media {
+  display: block;
+}
+
+.category-product-card__actions,
+.category-list-page .category-product-card__actions {
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+/* Trang chủ: 2 nút cùng một hàng (ngoài product-card__body) để thẻ giữ chiều cao cũ, ảnh không bị kéo dài */
+.product-card {
+  grid-template-rows: 1fr auto;
+}
+
+.product-card__media {
+  grid-row: 1 / span 2;
+}
+
+.product-card__body {
+  padding-bottom: 6px;
+}
+
+.product-card > .card-actions {
+  grid-column: 2;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+  margin-top: 0;
+  padding: 0 12px 12px 10px;
+}
+
+.product-card .card-actions .btn {
+  min-width: 0;
+  padding: 0 6px;
+  font-size: 12.5px;
+  white-space: normal;
+  line-height: 1.1;
+}
+
+.product-card .btn.btn--small.btn-web-soon {
+  font-size: 12.5px;
+}
+
+.product-card .btn-web-soon span {
+  font-size: 9.5px;
+}
+
+.btn-web-soon {
+  flex-direction: column;
+  gap: 1px;
+  border: 1px dashed #b8c7cc;
+  background: #f1f5f6;
+  color: #64748b;
+  font: inherit;
+  font-weight: 700;
+  line-height: 1.1;
+  text-transform: uppercase;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.btn-web-soon span {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: none;
+}
+
+.btn.btn--small.btn-web-soon {
+  font-size: 13px;
+}
+
+.header-cart:not([hidden]) {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  color: var(--teal-dark);
+}
+
+.header-cart svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.header-cart__count:not([hidden]) {
+  position: absolute;
+  top: 2px;
+  right: 0;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: var(--orange);
+  color: var(--white);
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 18px;
+  text-align: center;
+}
+
+@media (max-width: 700px) {
+  .product-card__media {
+    grid-row: 1;
+  }
+
+  .product-card__body {
+    padding-bottom: 4px;
+  }
+
+  .product-card > .card-actions {
+    grid-column: 1 / -1;
+    gap: 5px;
+    padding: 0 7px 7px;
+  }
+
+  .product-card .card-actions .btn,
+  .product-card .btn.btn--small.btn-web-soon {
+    min-height: 28px;
+    padding: 2px 6px;
+    font-size: 10.5px;
+  }
+
+  .product-card .btn-web-soon span {
+    font-size: 9px;
+  }
+}

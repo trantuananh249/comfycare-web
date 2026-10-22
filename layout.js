@@ -82,6 +82,10 @@
             </div>
           </nav>
           <div class="header-actions">
+            <a class="header-cart" href="${route('cart/')}" aria-label="Giỏ hàng" data-cart-link hidden>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.4 10.2a2 2 0 0 0 2 1.6h7.4a2 2 0 0 0 2-1.5L20.5 8H6.2" /><circle cx="10" cy="20" r="1.4" /><circle cx="17" cy="20" r="1.4" /></svg>
+              <span class="header-cart__count" data-cart-count hidden>0</span>
+            </a>
             <a class="btn btn--small btn--primary" href="${shopeeUrl}" target="_blank" rel="noopener noreferrer">MUA TRÊN SHOPEE</a>
           </div>
         </div>
