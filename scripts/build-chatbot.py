@@ -23,9 +23,10 @@ for i in range(1, len(faq_parts), 3):
     faqs.append({'id': int(faq_parts[i]), 'question': faq_parts[i+1], 'answers': quotes(faq_parts[i+2])})
 assert len(faqs) == 10
 assert [len(f['answers']) for f in faqs] == [2, 2, 3, 2, 1, 1, 2, 1, 2, 3], 'Script changed: review reply mapping'
-fallback = re.search(r'khi chưa có form, dùng câu: “([^”]+)”', source).group(1)
+later = quotes(sections[3])
+assert len(later) == 3, 'Expected three replies in section 4 (Zalo hand-off)'
 data = {'greeting': quotes(sections[0])[0], 'discovery': quotes(sections[0])[2],
-        'faqs': faqs, 'later': fallback, 'decline': quotes(sections[3])[2]}
+        'faqs': faqs, 'later': later[0], 'decline': later[2]}
 payload = json.dumps(data, ensure_ascii=False)
 assert '{{' not in payload and 'Nội bộ:' not in payload
 runtime = (root / 'chatbot-ui.js').read_text(encoding='utf-8')
