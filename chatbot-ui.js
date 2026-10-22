@@ -24,8 +24,8 @@
       <div class="cc-history" role="log" aria-label="Cuộc trò chuyện" aria-live="polite" aria-relevant="additions" tabindex="0"></div>
       <details class="cc-topics"><summary>Câu hỏi thường gặp · 10 chủ đề</summary><div class="cc-topic-list"></div></details>
       <form class="cc-form">
-        <label class="cc-sr" for="cc-input">Câu hỏi của bạn</label>
-        <input id="cc-input" name="message" type="text" maxlength="600" autocomplete="off" placeholder="Bạn muốn hỏi gì?" enterkeyhint="send" />
+        <label class="cc-sr" for="cc-input">Câu hỏi của anh/chị</label>
+        <input id="cc-input" name="message" type="text" maxlength="600" autocomplete="off" placeholder="Anh/chị muốn hỏi gì?" enterkeyhint="send" />
         <button type="submit" aria-label="Gửi tin nhắn">Gửi</button>
       </form>
       <p class="cc-note">Cần tư vấn riêng? <a href="https://zalo.me/0848621092" target="_blank" rel="noopener noreferrer">Nhắn Zalo</a> · 08:00–22:00</p>
@@ -51,7 +51,7 @@
     row.className = `cc-message cc-message--${author}`;
     const label = document.createElement('span');
     label.className = 'cc-message-label';
-    label.textContent = author === 'bot' ? 'Comfycare' : 'Bạn';
+    label.textContent = author === 'bot' ? 'Comfycare' : 'Anh/chị';
     const body = document.createElement('p');
     body.textContent = text;
     row.append(label, body);
@@ -71,21 +71,21 @@
     while (history.children.length > 100) history.firstElementChild.remove();
     history.scrollTop = history.scrollHeight;
   };
-  const fallback = () => message('Phần này mình cần kiểm tra thêm cho đúng. Bạn nhắn tư vấn viên qua Zalo giúp mình nhé, hoặc gọi 0848 621 092.', 'bot', ['zalo']);
+  const fallback = () => message('Phần này em cần kiểm tra thêm cho đúng. Anh/chị nhắn tư vấn viên qua Zalo giúp em nhé, hoặc gọi 0848 621 092.', 'bot', ['zalo']);
   function answerFAQ(id, text = '') {
     lastTopic = id;
     const answers = content.faqs[id - 1].answers;
     if (id === 2) {
       if (sku && !/^CS(21|22|23|24|26|27|33|34|35)$/.test(sku)) {
-        message(`Mẫu ${sku} cần đối chiếu bảng size riêng. Bạn xem hướng dẫn theo đúng mã, hoặc gửi số đo qua Zalo để bên mình kiểm tra nhé.`, 'bot', ['size', 'zalo']);
+        message(`Mẫu ${sku} cần đối chiếu bảng size riêng. Anh/chị xem hướng dẫn theo đúng mã, hoặc gửi số đo qua Zalo để bên em kiểm tra nhé.`, 'bot', ['size', 'zalo']);
       } else message(answers[0], 'bot', ['size', 'zalo']);
     } else if (id === 3) {
       if (sku === 'CS21') message(answers[channel === 'fanpage' ? 2 : 1], 'bot', ['shop']);
-      else if (sku) message(`Với mẫu ${sku}, bạn xem giá và phân loại trên gian hàng chính thức nhé. Nếu muốn đặt qua Fanpage, bên mình sẽ kiểm tra giá và phí ship theo số lượng trước khi bạn quyết định.`, 'bot', ['shop', 'facebook']);
+      else if (sku) message(`Với mẫu ${sku}, anh/chị xem giá và phân loại trên gian hàng chính thức nhé. Nếu muốn đặt qua Fanpage, bên em sẽ kiểm tra giá và phí ship theo số lượng trước khi anh/chị quyết định.`, 'bot', ['shop', 'facebook']);
       else message(answers[0]);
     } else if (id === 5) {
       message(answers[0], 'bot', ['zalo']);
-      if (sku && !/^CS(21|22|23|24|26|27|33|34|35)$/.test(sku)) message(`Mình chưa có cơ sở áp dụng công bố trên cho ${sku}. Bạn nhắn tư vấn viên để kiểm tra đúng mã và lô hàng nhé.`, 'bot', ['zalo']);
+      if (sku && !/^CS(21|22|23|24|26|27|33|34|35)$/.test(sku)) message(`Em chưa có cơ sở áp dụng công bố trên cho ${sku}. Anh/chị nhắn tư vấn viên để kiểm tra đúng mã và lô hàng nhé.`, 'bot', ['zalo']);
     } else if (id === 9) message(answers.join('\n\n'), 'bot', ['zalo']);
     else if (id === 10) {
       message(answers[0] + (channel ? '\n\n' + answers[channel === 'fanpage' ? 2 : 1] : ''));
@@ -117,15 +117,15 @@
     if (has(text, ['dat hang', 'dat mua', 'chot don', 'mua ngay', 'muon mua', 'lay mot', 'lay 1', 'lay hai', 'lay 2'])) {
       lastTopic = null;
       return message(channel === 'fanpage'
-        ? 'Bạn nhắn Fanpage mẫu muốn mua, size và số lượng nhé. Bên mình sẽ kiểm tra rồi báo tổng tiền trước khi bạn quyết định.'
-        : 'Bạn có thể đặt trên gian hàng chính thức nhé. Chọn đúng mẫu, size, màu và số lượng, rồi kiểm tra tổng tiền sau voucher. Nếu chưa chắc size, mình hướng dẫn đo trước; khi nhận mà chưa vừa ý hoặc cần hướng dẫn cách mang, cứ nhắn Comfycare.', 'bot', channel === 'fanpage' ? ['facebook', 'size'] : ['shop', 'size']);
+        ? 'Anh/chị nhắn Fanpage mẫu muốn mua, size và số lượng nhé. Bên em sẽ kiểm tra rồi báo tổng tiền trước khi anh/chị quyết định.'
+        : 'Anh/chị có thể đặt trên gian hàng chính thức nhé. Chọn đúng mẫu, size, màu và số lượng, rồi kiểm tra tổng tiền sau voucher. Nếu chưa chắc size, em hướng dẫn đo trước; khi nhận mà chưa vừa ý hoặc cần hướng dẫn cách mang, cứ nhắn Comfycare.', 'bot', channel === 'fanpage' ? ['facebook', 'size'] : ['shop', 'size']);
     }
     if (has(text, ['tu van vien', 'nguoi that', 'hotline', 'zalo', 'lien he'])) { lastTopic = null; return fallback(); }
     if (/^(chao|xin chao|hello|hi|alo)( ban| shop)?$/.test(text)) return message(content.greeting);
-    if (has(text, ['cam on', 'thank'])) { lastTopic = null; return message('Không có gì nhé. Khi cần kiểm tra size hoặc cách mang, bạn cứ nhắn Comfycare.'); }
+    if (has(text, ['cam on', 'thank'])) { lastTopic = null; return message('Không có gì nhé. Khi cần kiểm tra size hoặc cách mang, anh/chị cứ nhắn Comfycare.'); }
     if (has(text, ['cho minh', 'nguoi than', 'cho me', 'cho bo', 'cho ba', 'cho ong'])) return message(content.discovery);
     if ((code || has(text, ['fanpage', 'facebook', 'fb', 'shopee', 'tiktok', 'san'])) && [3, 10].includes(lastTopic)) return answerFAQ(lastTopic, text);
-    if (code) return message(`Bạn đang xem mẫu ${sku}. Bạn muốn hỏi về size, giá hay cách mang?`);
+    if (code) return message(`Anh/chị đang xem mẫu ${sku}. Anh/chị muốn hỏi về size, giá hay cách mang?`);
     fallback();
   }
   content.faqs.forEach(faq => {
