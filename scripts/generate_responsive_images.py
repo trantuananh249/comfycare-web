@@ -129,7 +129,7 @@ jobs.append(
     )
 )
 
-for index in range(1, 7):
+for index in range(1, 6):  # review 06 đã gỡ 22/10/2026 (lời khách hứa khỏi bệnh)
     name = f"review-shopee-{index:02d}"
     jobs.append(
         (
