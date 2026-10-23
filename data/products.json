@@ -2064,7 +2064,7 @@
       "style": "Bàn chân ngắn (ankle)",
       "pressure": "10–20 mmHg",
       "material": "55% Nylon + 35% Polyester + 10% Spandex",
-      "description": "CS12 là tất thể thao bàn chân cấp 1, áp lực 10–20 mmHg, bán theo đôi. Cỡ đã công bố dành cho size giày 36–40.",
+      "description": "CS12 là tất thể thao bàn chân cấp 1, áp lực 10–20 mmHg, bán theo đôi. Có 2 cỡ: S/M cho size giày 36–40, L/XL cho size giày từ 41.",
       "has_byt": false,
       "unit": "đôi",
       "colors": [
@@ -2072,17 +2072,22 @@
         "Đen"
       ],
       "sizes": [
-        "S/M"
+        "S/M",
+        "L/XL"
       ],
       "size_table": {
         "header": [
-          "Tiêu chí",
-          "Quy đổi"
+          "Cỡ",
+          "Size giày"
         ],
         "rows": [
           [
-            "Size giày",
+            "S/M",
             "36 – 40"
+          ],
+          [
+            "L/XL",
+            "Từ 41"
           ]
         ]
       },
@@ -2103,14 +2108,6 @@
           "src": "/assets/products/CS12/gallery/2.webp",
           "medium": "/assets/products/CS12/gallery/2-640.webp",
           "thumb": "/assets/products/CS12/gallery/2-160.webp",
-          "width": 1254,
-          "height": 1254
-        },
-        {
-          "n": 3,
-          "src": "/assets/products/CS12/gallery/3.webp",
-          "medium": "/assets/products/CS12/gallery/3-640.webp",
-          "thumb": "/assets/products/CS12/gallery/3-160.webp",
           "width": 1254,
           "height": 1254
         },

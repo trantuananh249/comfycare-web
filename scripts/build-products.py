@@ -16,10 +16,11 @@ from workspace_paths import SITE as ROOT, KNOWLEDGE, CONTENT
 # Trang chi tiết: mẫu CS22 được duyệt 22/10/2026, áp dụng cho cả 19 mã (kế hoạch 09, bước 2).
 PAGE_SKUS = ['CS21', 'CS22', 'CS23', 'CS24', 'CS26', 'CS27', 'CS33', 'CS34', 'CS35',
              'CS25', 'CS28', 'CS29', 'CS30', 'CS31', 'CS11', 'CS12', 'CS14', 'CS110', 'CS100']
-# Ảnh sàn không đưa lên web vì trái brain: CS14 ảnh 5 chọn size theo cân nặng (F.7: CS14 chỉ theo chu vi đùi A).
-GALLERY_SKIP = {'CS14': {5}}
+# Ảnh sàn không đưa lên web vì trái brain: CS14 ảnh 5 chọn size theo cân nặng (F.7: CS14 chỉ theo chu vi đùi A);
+# CS12 ảnh 3 ghi "1 size S/M" (business 36: CS12 có thêm L/XL), đưa lại khi có ảnh mới.
+GALLERY_SKIP = {'CS14': {5}, 'CS12': {3}}
 # Ảnh trong gallery có bảng size + vị trí đo, dùng làm hình minh họa ở khối chọn size (dòng y tế dùng measure-leg).
-SIZE_FIGURE = {'CS25': 8, 'CS28': 9, 'CS29': 9, 'CS30': 8, 'CS31': 9, 'CS11': 3, 'CS12': 3, 'CS110': 4}
+SIZE_FIGURE = {'CS25': 8, 'CS28': 9, 'CS29': 9, 'CS30': 8, 'CS31': 9, 'CS11': 3, 'CS110': 4}
 # Số đo cần lấy theo F.3–F.7 cho mã ngoài dòng y tế: (các bước, ghi chú).
 MEASURE = {
     'CS25': (['Size giày đang đi'], ''),
@@ -28,7 +29,7 @@ MEASURE = {
     'CS30': (['Chu vi cổ tay'], ''),
     'CS31': (['Chu vi khuỷu tay'], ''),
     'CS11': (['Chu vi bắp chân: cỡ S/M dưới 35 cm', 'Cân nặng tham khảo: dưới 55 kg'], 'CS11 chỉ có một cỡ S/M.'),
-    'CS12': (['Size giày: cỡ S/M cho giày 36–40'], 'Đi giày trên size 40: xem <a class="pd-link" href="/san-pham/cs25/">Tất Bàn Chân Cấp 2 (CS25)</a>.'),
+    'CS12': (['Size giày: cỡ S/M cho giày 36–40, cỡ L/XL cho giày từ 41'], ''),
     'CS14': (['Chu vi đùi tại vị trí A, phần trên gối'], 'Không chọn CS14 theo cân nặng. Chu vi đùi tại A trên 52 cm hiện chưa có size phù hợp.'),
     'CS110': (['Giới tính và cân nặng (bảng tham khảo)'], 'Cân nặng ngoài khoảng trong bảng: nhắn Comfycare để kiểm tra số đo thực tế trước khi mua.'),
 }
@@ -50,9 +51,9 @@ SHOPEE = {
 SHOP_ID = '1268125014'
 ZALO = 'https://zalo.me/0848621092'
 BYT_NUMBER = '250000052/PCBA-HP'
-# F.1–F.7: các cỡ đang bán. CS11, CS12 chỉ một cỡ S/M; CS14, CS110 có S/M và L/XL.
+# F.1–F.7: các cỡ đang bán. CS11 chỉ một cỡ S/M; CS12 (business 36), CS14, CS110 có S/M và L/XL.
 FULL_SIZES = ['S', 'M', 'L', 'XL', 'XXL']
-SIZES = {'CS11': ['S/M'], 'CS12': ['S/M'], 'CS14': ['S/M', 'L/XL'], 'CS110': ['S/M', 'L/XL'], 'CS100': []}
+SIZES = {'CS11': ['S/M'], 'CS12': ['S/M', 'L/XL'], 'CS14': ['S/M', 'L/XL'], 'CS110': ['S/M', 'L/XL'], 'CS100': []}
 # Tiêu đề trong size_guides.md -> mã dùng bảng đó; neo tương ứng trên /huong-dan-chon-size/.
 SIZE_SECTIONS = [
     ('### F.1.', ['CS21', 'CS22', 'CS26', 'CS23', 'CS24', 'CS27', 'CS33', 'CS34', 'CS35'], 'medical-compression-size'),
