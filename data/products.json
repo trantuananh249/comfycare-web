@@ -1956,7 +1956,7 @@
       "style": "Ống chân, hở bàn",
       "pressure": "10–20 mmHg",
       "material": "55% Nylon + 35% Polyester + 10% Spandex",
-      "description": "CS11 ôm ống chân, để hở bàn chân, áp lực 10–20 mmHg. Mẫu thể thao cấp 1 này hiện có cỡ S/M trong bảng đã công bố.",
+      "description": "CS11 ôm ống chân, để hở bàn chân, áp lực 10–20 mmHg. Có 2 cỡ theo chu vi bắp chân: S/M dưới 35 cm, L/XL từ 35 đến 40 cm.",
       "has_byt": false,
       "unit": "đôi",
       "colors": [
@@ -1964,21 +1964,22 @@
         "Đen"
       ],
       "sizes": [
-        "S/M"
+        "S/M",
+        "L/XL"
       ],
       "size_table": {
         "header": [
-          "Tiêu chí",
-          "S/M"
+          "Cỡ",
+          "Chu vi bắp chân"
         ],
         "rows": [
           [
-            "Chu vi bắp chân",
+            "S/M",
             "< 35 cm"
           ],
           [
-            "Cân nặng tham khảo",
-            "< 55 kg"
+            "L/XL",
+            "35–40 cm"
           ]
         ]
       },

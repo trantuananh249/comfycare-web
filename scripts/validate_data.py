@@ -1,11 +1,11 @@
-from pathlib import Path
+﻿from pathlib import Path
 from urllib.parse import unquote
 import re, json, sqlite3, hashlib
 from workspace_paths import SITE as PROJECT, BRAIN_DB, CONTENT, QA_BASELINES
 # Nguồn duy nhất: Tuấn Anh Workspace/brain/brain.db
 BASELINE=QA_BASELINES/"data-brain-20261012"
-# Hash brain.db hiện hành so với baseline mới nhất (24/10 bản b: thêm business 38).
-DB_BASELINE=QA_BASELINES/"brain-baseline-20261024b.json"
+# Hash brain.db hiện hành so với baseline mới nhất (24/10 bản c: thêm business 39).
+DB_BASELINE=QA_BASELINES/"brain-baseline-20261024c.json"
 OUT=PROJECT/"outputs/data-validation"
 OUT.mkdir(parents=True, exist_ok=True)
 DATA=CONTENT

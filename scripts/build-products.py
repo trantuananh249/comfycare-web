@@ -27,7 +27,7 @@ MEASURE = {
     'CS29': (['Chu vi cổ tay'], ''),
     'CS30': (['Chu vi cổ tay'], ''),
     'CS31': (['Chu vi khuỷu tay'], ''),
-    'CS11': (['Chu vi bắp chân: cỡ S/M dưới 35 cm', 'Cân nặng tham khảo: dưới 55 kg'], 'CS11 chỉ có một cỡ S/M.'),
+    'CS11': (['Chu vi bắp chân, chỗ to nhất: cỡ S/M dưới 35 cm, cỡ L/XL 35–40 cm'], 'Không chọn CS11 theo cân nặng. Bắp chân trên 40 cm hiện chưa có size phù hợp.'),
     'CS12': (['Size giày: cỡ S/M cho giày 36–40, cỡ L/XL cho giày từ 41'], ''),
     'CS14': (['Chu vi đùi tại vị trí A, phần trên gối'], 'Không chọn CS14 theo cân nặng. Chu vi đùi tại A trên 52 cm hiện chưa có size phù hợp.'),
     'CS110': (['Giới tính và cân nặng (bảng tham khảo)'], 'Cân nặng ngoài khoảng trong bảng: nhắn Comfycare để kiểm tra số đo thực tế trước khi mua.'),
@@ -50,9 +50,9 @@ SHOPEE = {
 SHOP_ID = '1268125014'
 ZALO = 'https://zalo.me/0848621092'
 BYT_NUMBER = '250000052/PCBA-HP'
-# F.1–F.7: các cỡ đang bán. CS11 chỉ một cỡ S/M; CS12 (business 36), CS14, CS110 có S/M và L/XL.
+# F.1–F.7: các cỡ đang bán. CS11 (business 39), CS12 (business 36), CS14, CS110 có S/M và L/XL.
 FULL_SIZES = ['S', 'M', 'L', 'XL', 'XXL']
-SIZES = {'CS11': ['S/M'], 'CS12': ['S/M', 'L/XL'], 'CS14': ['S/M', 'L/XL'], 'CS110': ['S/M', 'L/XL'], 'CS100': [], 'CS101': []}
+SIZES = {'CS11': ['S/M', 'L/XL'], 'CS12': ['S/M', 'L/XL'], 'CS14': ['S/M', 'L/XL'], 'CS110': ['S/M', 'L/XL'], 'CS100': [], 'CS101': []}
 # Tiêu đề trong size_guides.md -> mã dùng bảng đó; neo tương ứng trên /huong-dan-chon-size/.
 SIZE_SECTIONS = [
     ('### F.1.', ['CS21', 'CS22', 'CS26', 'CS23', 'CS24', 'CS27', 'CS33', 'CS34', 'CS35'], 'medical-compression-size'),
