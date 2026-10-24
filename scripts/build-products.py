@@ -8,10 +8,15 @@ from html import escape
 from pathlib import Path
 import hashlib
 import json
+import os
 import re
 import struct
 
 from workspace_paths import SITE as ROOT, KNOWLEDGE, CONTENT
+
+# Nội dung mô tả trang chi tiết lấy từ file mô tả sàn (cùng nội dung đăng Shopee/TikTok), đặt cạnh ảnh sản phẩm:
+# <Ảnh sản phẩm>/<mã viết thường>/<MÃ>_Tieu_de_Mo_ta.txt. File sinh từ brain; sửa nội dung thì sửa brain rồi sinh lại file.
+LISTINGS = Path(os.environ.get('PRODUCT_IMAGE_SOURCE', 'C:/Users/mrtua/OneDrive/Desktop/Database Comfycare/Ảnh sản phẩm'))
 
 # Trang chi tiết: mẫu CS22 được duyệt 22/10/2026, áp dụng cho cả 19 mã (kế hoạch 09, bước 2).
 PAGE_SKUS = ['CS21', 'CS22', 'CS23', 'CS24', 'CS26', 'CS27', 'CS33', 'CS34', 'CS35',
@@ -20,19 +25,18 @@ PAGE_SKUS = ['CS21', 'CS22', 'CS23', 'CS24', 'CS26', 'CS27', 'CS33', 'CS34', 'CS
 GALLERY_SKIP = {}
 # Ảnh trong gallery có bảng size + vị trí đo, dùng làm hình minh họa ở khối chọn size (dòng y tế dùng measure-leg).
 SIZE_FIGURE = {'CS25': 8, 'CS28': 9, 'CS29': 9, 'CS30': 8, 'CS31': 9, 'CS11': 3, 'CS12': 3, 'CS14': 5, 'CS110': 4}
-# Số đo cần lấy theo F.3–F.7 cho mã ngoài dòng y tế: (các bước, ghi chú).
+# Số đo cần lấy theo F.3–F.7 cho mã ngoài dòng y tế. Ghi chú chọn size lấy từ file mô tả (mục HƯỚNG DẪN CHỌN SIZE).
 MEASURE = {
-    'CS25': (['Size giày đang đi'], ''),
-    'CS28': (['Chu vi đùi, đo cách gối 10 cm', 'Cân nặng, chỉ để tham khảo khi chưa đo được'], ''),
-    'CS29': (['Chu vi cổ tay'], ''),
-    'CS30': (['Chu vi cổ tay'], ''),
-    'CS31': (['Chu vi khuỷu tay'], ''),
-    'CS11': (['Chu vi bắp chân, chỗ to nhất: cỡ S/M dưới 35 cm, cỡ L/XL 35–40 cm'], 'Không chọn CS11 theo cân nặng. Bắp chân trên 40 cm hiện chưa có size phù hợp.'),
-    'CS12': (['Size giày: cỡ S/M cho giày 36–40, cỡ L/XL cho giày từ 41'], ''),
-    'CS14': (['Chu vi đùi tại vị trí A, phần trên gối'], 'Không chọn CS14 theo cân nặng. Chu vi đùi tại A trên 52 cm hiện chưa có size phù hợp.'),
-    'CS110': (['Giới tính và cân nặng (bảng tham khảo)'], 'Cân nặng ngoài khoảng trong bảng: nhắn Comfycare để kiểm tra số đo thực tế trước khi mua.'),
+    'CS25': ['Size giày đang đi'],
+    'CS28': ['Chu vi đùi, đo cách gối 10 cm', 'Cân nặng, chỉ để tham khảo khi chưa đo được'],
+    'CS29': ['Chu vi cổ tay, chỗ nhỏ nhất'],
+    'CS30': ['Chu vi cổ tay, chỗ nhỏ nhất'],
+    'CS31': ['Chu vi qua tâm khuỷu tay'],
+    'CS11': ['Chu vi bắp chân, chỗ to nhất'],
+    'CS12': ['Size giày đang đi'],
+    'CS14': ['Chu vi đùi, đo ngay phía trên gối'],
+    'CS110': ['Giới tính và cân nặng (bảng tham khảo)'],
 }
-
 CATEGORIES = {
     'D.1': ('c2-y-te', 'tat-y-te-cap-2', 'Tất y tế cấp 2'),
     'D.2': ('c2-the-thao', 'tat-dai-the-thao-cap-2', 'Tất/đai thể thao cấp 2'),
@@ -67,30 +71,30 @@ SIZE_SECTIONS = [
 ]
 # F.1 "Số đo cần thu thập": tất ống chân chỉ cần cB + cC.
 LEG_ONLY = {'CS21', 'CS22', 'CS26'}
-# J.1, rút gọn. Không đưa các dòng claim nhạy cảm (DVT, sau phẫu thuật) lên trang bán hàng.
-AUDIENCE = {
-    'c2-y-te': ['Người phải đứng lâu, đi lại nhiều: giáo viên, bán hàng, tài xế, y tá, lễ tân',
-                'Phụ nữ sau sinh có dấu hiệu suy giãn tĩnh mạch',
-                'Người trung niên, cao tuổi hay đau mỏi, nặng chân vào cuối ngày',
-                'Người đã được chẩn đoán suy giãn tĩnh mạch chân'],
-    'c2-the-thao': ['Người chơi thể thao cần ổn định khớp, cơ',
-                    'Người đau mỏi khớp gối, khuỷu tay, cổ tay nhẹ, chưa đến mức cần điều trị',
-                    'Người tập gym, chạy bộ, leo núi, tennis, cầu lông'],
-    'c1': ['Người muốn phòng ngừa từ sớm',
-           'Người chơi thể thao cường độ vừa',
-           'Người đứng, ngồi lâu nhưng chưa có triệu chứng'],
-}
-# J.2, J.3.
-CAUTIONS = [
-    'Không dùng khi vùng đeo có vết thương hở, viêm nhiễm da hoặc viêm mô tế bào.',
-    'Không dùng nếu dị ứng Nylon, Polyester hoặc Spandex.',
-    'Có bệnh tim mạch, tuần hoàn nặng, đang mang thai, tiểu đường, sau phẫu thuật hoặc dùng thuốc chống đông: hỏi bác sĩ trước khi dùng.',
-    'Nếu đau, tê, lạnh, đổi màu da hoặc tổn thương da khi mang: ngừng mang và hỏi ý kiến bác sĩ.',
-]
-
-
 def read(path):
     return path.read_text(encoding='utf-8-sig')
+
+
+LISTING = {}
+
+
+def parse_listing(sku):
+    """File mô tả sàn -> {tiêu đề mục: [dòng]}; dòng gạch đầu dòng bỏ '- '."""
+    text = read(LISTINGS / sku.lower() / f'{sku}_Tieu_de_Mo_ta.txt')
+    sections = {}
+    for block in re.split(r'\n=+\n', text):
+        lines = [l.strip() for l in block.strip().splitlines() if l.strip()]
+        if lines:
+            sections[lines[0]] = lines[1:]
+    for need in ('GIỚI THIỆU SẢN PHẨM', 'CÔNG DỤNG', 'QUÀ TẶNG', 'ĐỔI TRẢ 15 NGÀY'):
+        assert need in sections, f'{sku}: file mô tả thiếu mục {need}'
+    return sections
+
+
+def bullets(lines):
+    # File mô tả viết cho sàn ("nhắn shop"); trên web đổi thành Comfycare.
+    web = lambda s: s.replace('nhắn tin trực tiếp cho shop', 'nhắn Comfycare qua Zalo').replace('nhắn shop', 'nhắn Comfycare')
+    return [web(l[2:]) for l in lines if l.startswith('- ')]
 
 
 def money(text):
@@ -217,6 +221,9 @@ def build_products():
     tables = parse_sizes()
     for sku, p in products.items():
         p.update(parse_content(sku))
+        LISTING[sku] = parse_listing(sku)
+        # Câu mở đầu trang lấy từ file mô tả sàn để web và sàn nói cùng một nội dung.
+        p['description'] = next(l for l in LISTING[sku]['GIỚI THIỆU SẢN PHẨM'] if not l.startswith('- '))
         p['has_byt'] = p['group'] == 'c2-y-te'
         # D.6: tất quần bán theo chiếc; phụ kiện CS100, CS101 theo chiếc; còn lại theo đôi.
         p['unit'] = 'chiếc' if sku in ('CS33', 'CS34', 'CS35', 'CS100', 'CS101') else 'đôi'
@@ -250,7 +257,7 @@ def head_parts():
 
 def size_table_html(p):
     header, rows = p['size_table']['header'], p['size_table']['rows']
-    th = ''.join(f'<th scope="col">{escape(h)}</th>' for h in header)
+    th = ''.join(f'<th scope="col">{escape(h.replace(" (vị trí A)", " (ngay trên gối)"))}</th>' for h in header)
     body = '\n'.join(
         '                  <tr>' + ''.join(f'<td>{escape(c)}</td>' for c in row) + '</tr>' for row in rows)
     # Không dùng catalog-size-table: CSS chung đổi bảng đó thành thẻ dọc trên điện thoại.
@@ -304,21 +311,24 @@ def render_page(p, head, css_version, js_version):
                   <div class="pd-chips">{options("color", p["colors"])}</div>
                 </fieldset>''' if p['colors'] else '')
 
-    facts = [('Mã', sku), ('Dòng', p['category_label']), ('Kiểu dáng', p['style'])]
-    if p['pressure']:
-        facts.append(('Áp lực', p['pressure']))
-    if p['material']:
-        facts.append(('Chất liệu', p['material']))
-    facts.append(('Đơn vị bán', f'1 {unit}' + (' (2 chiếc)' if unit == 'đôi' else '')))
-    if p['colors']:
-        facts.append(('Màu', ', '.join(p['colors'])))
-    if p['sizes']:
-        facts.append(('Size', ', '.join(p['sizes'])))
+    listing = LISTING[sku]
+    # Thông tin sản phẩm: các dòng "Tên: giá trị" trong mục GIỚI THIỆU của file mô tả; dòng không có nhãn gom vào "Đặc điểm".
+    facts = []
+    for line in bullets(listing['GIỚI THIỆU SẢN PHẨM']):
+        key, sep, value = line.partition(': ')
+        if not sep:
+            key, value = 'Đặc điểm', line
+        if key in ('Tên sản phẩm', 'Thương hiệu'):
+            continue
+        facts.append((key, value[:1].upper() + value[1:]))
     fact_rows = '\n'.join(f'                <div><dt>{escape(k)}</dt><dd>{escape(v)}</dd></div>' for k, v in facts)
     if p['has_byt']:
         fact_rows += (f'\n                <div><dt>Công bố</dt><dd>Công bố tiêu chuẩn áp dụng {BYT_NUMBER} tại Sở Y tế Hải Phòng, '
                       f'size S–XXL. <a href="/chung-nhan/">Xem hồ sơ</a></dd></div>')
 
+    # Lời khuyên chọn size (dòng không gạch đầu dòng, không kết thúc bằng ":" trong mục HƯỚNG DẪN CHỌN SIZE).
+    notes = [l.replace('nhắn shop', 'nhắn Comfycare') for l in listing.get('HƯỚNG DẪN CHỌN SIZE', []) if not l.startswith('- ') and not l.endswith(':')]
+    size_notes = '\n              '.join(f'<p class="pd-muted">{escape(n)}</p>' for n in notes)
     size_section = ''
     if p['size_table']:
         figure, measures = '', ''
@@ -337,10 +347,9 @@ def render_page(p, head, css_version, js_version):
                 <img src="/assets/size-guide/measure-leg-800.webp" srcset="/assets/size-guide/measure-leg-480.webp 480w, /assets/size-guide/measure-leg-800.webp 800w, /assets/size-guide/measure-leg.webp 1448w" sizes="(max-width: 900px) calc(100vw - 32px), 560px" alt="Minh họa vị trí đo cB (mắt cá), cC (bắp chân), cG (đùi)" width="1448" height="1086" loading="lazy" decoding="async" />
               </figure>'''
         elif sku in MEASURE:
-            steps, note = MEASURE[sku]
-            items = ''.join(f'<li><span class="pd-measure-key">{i}</span>{escape(s)}</li>' for i, s in enumerate(steps, 1))
+            items = ''.join(f'<li><span class="pd-measure-key">{i}</span>{escape(s)}</li>' for i, s in enumerate(MEASURE[sku], 1))
             measures = f'''<p class="pd-size__need">{sku} chọn size theo:</p>
-                <ol class="pd-measure">{items}</ol>''' + (f'\n                <p class="pd-muted">{note}</p>' if note else '')
+                <ol class="pd-measure">{items}</ol>'''
             g = next((g for g in p['gallery'] if g.get('n') == SIZE_FIGURE.get(sku)), None)
             if g:
                 figure = f'''<figure class="pd-size__figure pd-size__figure--square">
@@ -358,7 +367,7 @@ def render_page(p, head, css_version, js_version):
             <div class="pd-size__chart">
               <p class="pd-size__label">Đối chiếu số đo với bảng (cm)</p>
               {size_table_html(p)}
-              <p class="pd-muted">Số đo nằm giữa hai size hoặc chạm ranh giới: nhắn Comfycare để được kiểm tra, không tự chọn nhỏ hơn để tăng áp lực.</p>
+              {size_notes}
               <div class="pd-size__links">
                 <a class="btn btn--secondary btn--small" href="{ZALO}" target="_blank" rel="noopener noreferrer">Gửi số đo qua Zalo</a>
                 <a class="pd-link" href="{p["size_guide_url"]}">Hướng dẫn chọn size đầy đủ</a>
@@ -387,23 +396,29 @@ def render_page(p, head, css_version, js_version):
               </div>{thumbs}
             </div>'''
 
-    audience = AUDIENCE.get(p['group'])
-    audience_html = ''
-    if audience:
-        items = ''.join(f'<li>{escape(a)}</li>' for a in audience)
-        audience_html = f'''
-          <section class="pd-card" aria-labelledby="pd-audience-title">
-            <h2 id="pd-audience-title">Phù hợp với ai</h2>
-            <ul class="pd-list">{items}</ul>
-          </section>'''
-    cautions = ''
-    if p['group'] != 'phu-kien':
-        items = ''.join(f'<li>{escape(c)}</li>' for c in CAUTIONS)
-        cautions = f'''
-          <section class="pd-card pd-card--warn" aria-labelledby="pd-caution-title">
-            <h2 id="pd-caution-title">Lưu ý khi dùng</h2>
-            <ul class="pd-list">{items}</ul>
-            <p class="pd-muted">Sản phẩm hỗ trợ, không thay thế chỉ định của bác sĩ. <a class="pd-link" href="/huong-dan-su-dung/">Cách mang và bảo quản</a></p>
+    # Các thẻ nội dung lấy nguyên từ file mô tả sàn: (mục trong file, tiêu đề trên web, id, kiểu thẻ, link kèm).
+    cards_spec = [
+        ('CÔNG DỤNG', 'Công dụng', 'benefit', '', ''),
+        ('PHÙ HỢP VỚI', 'Phù hợp với ai', 'audience', '', ''),
+        ('HƯỚNG DẪN SỬ DỤNG', 'Cách sử dụng', 'usage', '', '<a class="pd-link" href="/huong-dan-su-dung/">Hướng dẫn mang tất chi tiết</a>'),
+        ('CÁCH DÙNG', 'Cách dùng', 'usage', '', ''),
+        ('GIẶT VÀ BẢO QUẢN', 'Giặt và bảo quản', 'care', '', ''),
+        ('LƯU Ý KHI DÙNG', 'Lưu ý khi dùng', 'caution', ' pd-card--warn', ''),
+        ('HỒ SƠ CHẤT LƯỢNG', 'Hồ sơ chất lượng', 'quality', '', '<a class="pd-link" href="/chung-nhan/">Xem hồ sơ chứng nhận</a>'),
+        ('QUÀ TẶNG', 'Quà tặng', 'gift', '', ''),
+        ('ĐỔI TRẢ 15 NGÀY', 'Đổi trả 15 ngày', 'exchange', '', '<a class="pd-link" href="/chinh-sach-doi-tra/">Xem chính sách đổi trả</a>'),
+    ]
+    cards = ''
+    for key, heading, cid, extra, link in cards_spec:
+        items = bullets(listing.get(key, []))
+        if not items:
+            continue
+        lis = ''.join(f'<li>{escape(i)}</li>' for i in items)
+        tail = f'\n            <p>{link}</p>' if link else ''
+        cards += f'''
+          <section class="pd-card{extra}" aria-labelledby="pd-{cid}-title">
+            <h2 id="pd-{cid}-title">{heading}</h2>
+            <ul class="pd-list">{lis}</ul>{tail}
           </section>'''
     cta = (f'Gửi mã {sku} và số đo qua Zalo, Comfycare chọn size cùng anh/chị.' if p['sizes']
            else 'Cần mua thêm túi giặt hoặc hỏi về quà tặng? Nhắn Comfycare qua Zalo.' if sku == 'CS101'
@@ -489,12 +504,7 @@ def render_page(p, head, css_version, js_version):
 {fact_rows}
             </dl>
           </section>
-{audience_html}{cautions}
-          <section class="pd-card" aria-labelledby="pd-exchange-title">
-            <h2 id="pd-exchange-title">Mang chưa vừa?</h2>
-            <p>Comfycare tư vấn size trước khi mua, hướng dẫn cách mang và hỗ trợ đổi nếu nhận về chưa vừa.</p>
-            <p><a class="pd-link" href="/chinh-sach-doi-tra/">Xem chính sách đổi trả</a></p>
-          </section>
+{cards}
         </div>
       </section>
 

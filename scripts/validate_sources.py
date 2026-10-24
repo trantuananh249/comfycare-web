@@ -92,8 +92,13 @@ check('giá sản phẩm mới' in returns, 'Exchange price reference')
 check('bảo hành' not in returns.lower() and '14 ngày' not in returns, 'Returns page: no warranty wording or 14-day term')
 check('Size giày từ 41' in size_page, 'CS12 web L/XL row')
 check('Đai thể thao áp lực hỗ trợ đầu gối' in read(PROJECT/'tat-the-thao-cap-1/index.html'), 'CS14 name')
-check('CS32 chưa được xác nhận bán' in read(PROJECT/'chung-nhan/index.html'), 'Separate declaration and sale catalog')
-check('chưa có hồ sơ FY2026' in read(PROJECT/'chung-nhan/index.html'), 'FDA date qualification')
+# business 40: web chỉ hiển thị nội dung cho khách; không ghi CS32, phiên bản hồ sơ, "trong nguồn", mã vị trí đo nội bộ.
+cert = read(PROJECT/'chung-nhan/index.html')
+check('CS32' not in cert and '9 mẫu tất y tế cấp 2' in cert, 'Declaration lists the 9 selling SKUs only')
+for rel in ('index.html', 'chung-nhan/index.html', 'gioi-thieu/index.html', 'huong-dan-chon-size/index.html', 'cau-hoi-thuong-gap/index.html'):
+    page = read(PROJECT/rel)
+    for internal in ('FY2026', 'trong nguồn', 'listing', 'đối chiếu ngày', 'tại A ', 'nội suy', 'phạm vi hồ sơ'):
+        check(internal not in page, f'Internal wording on customer page {rel}: {internal}')
 check('không gồm dùng thử' in read(PROJECT/'chinh-sach-van-chuyen/index.html'), 'Delivery inspection qualification')
 check('111 đường 3C' in read(PROJECT/'layout.js'), 'Footer source address')
 registry = read(BRAIN/'source_registry.md')

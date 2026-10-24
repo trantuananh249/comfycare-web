@@ -7395,3 +7395,22 @@ a.product-card__media {
     font-size: 9px;
   }
 }
+/* Bảng rộng (class m-stack): trên điện thoại hiển thị thành thẻ dọc, mỗi ô có nhãn cột, không phải kéo ngang. */
+@media (max-width: 700px) {
+  .table-wrap:has(> table.m-stack),
+  .product-comparison__table-wrap:has(> table.m-stack) {
+    overflow: visible;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+  table.m-stack { display: block; width: 100%; min-width: 0 !important; }
+  table.m-stack colgroup, table.m-stack thead { display: none; }
+  table.m-stack tbody { display: grid; gap: 10px; }
+  table.m-stack tr { display: grid; overflow: hidden; border: 1px solid var(--line); border-radius: 14px; background: var(--white); box-shadow: 0 8px 18px rgba(15, 23, 42, 0.055); }
+  table.m-stack th, table.m-stack td { display: block; width: 100%; min-width: 0; padding: 10px 14px; border: 0; border-bottom: 1px solid #e4eeee; line-height: 1.48; white-space: normal; text-align: left; }
+  table.m-stack tr > :last-child { border-bottom: 0; }
+  table.m-stack th { background: #f1fbfb; font-weight: 800; }
+  table.m-stack td[data-label]::before { content: attr(data-label); display: block; margin-bottom: 2px; color: var(--muted); font-size: 12px; font-weight: 800; letter-spacing: 0.02em; text-transform: uppercase; }
+}

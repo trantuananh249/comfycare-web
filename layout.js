@@ -29,8 +29,8 @@
               <path d="M20 17H8a4 4 0 0 1-4-4v-1" />
               <path d="m8 21-4-4 4-4" />
             </svg>
-            <span class="top-bar__desktop-text">${isContactPage ? 'Danh bạ liên hệ chính thức Comfycare' : 'Đổi size miễn phí 15 ngày từ khi nhận hàng'}</span>
-            <span class="top-bar__mobile-text">${isContactPage ? 'Danh bạ liên hệ' : 'Đổi size 15 ngày'}</span>
+            <span class="top-bar__desktop-text">${isContactPage ? 'Danh bạ liên hệ chính thức Comfycare' : 'Đổi trả 15 ngày từ khi nhận hàng'}</span>
+            <span class="top-bar__mobile-text">${isContactPage ? 'Danh bạ liên hệ' : 'Đổi trả 15 ngày'}</span>
           </span>
           <a class="top-bar__item" href="tel:0848621092">
             <svg class="top-bar__icon" viewBox="0 0 24 24" aria-hidden="true">
