@@ -139,6 +139,14 @@
           "thumb": "/assets/products/CS21/gallery/9-160.webp",
           "width": 1254,
           "height": 1254
+        },
+        {
+          "n": 10,
+          "src": "/assets/products/CS21/gallery/10.webp",
+          "medium": "/assets/products/CS21/gallery/10-640.webp",
+          "thumb": "/assets/products/CS21/gallery/10-160.webp",
+          "width": 1254,
+          "height": 1254
         }
       ],
       "url": "/san-pham/cs21/"
@@ -1403,6 +1411,14 @@
           "thumb": "/assets/products/CS25/gallery/8-160.webp",
           "width": 1254,
           "height": 1254
+        },
+        {
+          "n": 9,
+          "src": "/assets/products/CS25/gallery/9.webp",
+          "medium": "/assets/products/CS25/gallery/9-640.webp",
+          "thumb": "/assets/products/CS25/gallery/9-160.webp",
+          "width": 1254,
+          "height": 1254
         }
       ],
       "url": "/san-pham/cs25/"
@@ -1797,6 +1813,14 @@
           "thumb": "/assets/products/CS30/gallery/8-160.webp",
           "width": 1254,
           "height": 1254
+        },
+        {
+          "n": 9,
+          "src": "/assets/products/CS30/gallery/9.webp",
+          "medium": "/assets/products/CS30/gallery/9-640.webp",
+          "thumb": "/assets/products/CS30/gallery/9-160.webp",
+          "width": 1254,
+          "height": 1254
         }
       ],
       "url": "/san-pham/cs30/"
@@ -2048,6 +2072,14 @@
           "src": "/assets/products/CS11/gallery/8.webp",
           "medium": "/assets/products/CS11/gallery/8-640.webp",
           "thumb": "/assets/products/CS11/gallery/8-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 9,
+          "src": "/assets/products/CS11/gallery/9.webp",
+          "medium": "/assets/products/CS11/gallery/9-640.webp",
+          "thumb": "/assets/products/CS11/gallery/9-160.webp",
           "width": 1254,
           "height": 1254
         }
@@ -2430,9 +2462,42 @@
       "image": "/assets/products/CS100/1.png",
       "gallery": [
         {
-          "src": "/assets/products/CS100/1.webp",
-          "medium": "/assets/products/CS100/1-640.webp",
-          "thumb": "/assets/products/CS100/1-320.webp",
+          "n": 1,
+          "src": "/assets/products/CS100/gallery/1.webp",
+          "medium": "/assets/products/CS100/gallery/1-640.webp",
+          "thumb": "/assets/products/CS100/gallery/1-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 2,
+          "src": "/assets/products/CS100/gallery/2.webp",
+          "medium": "/assets/products/CS100/gallery/2-640.webp",
+          "thumb": "/assets/products/CS100/gallery/2-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 3,
+          "src": "/assets/products/CS100/gallery/3.webp",
+          "medium": "/assets/products/CS100/gallery/3-640.webp",
+          "thumb": "/assets/products/CS100/gallery/3-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 4,
+          "src": "/assets/products/CS100/gallery/4.webp",
+          "medium": "/assets/products/CS100/gallery/4-640.webp",
+          "thumb": "/assets/products/CS100/gallery/4-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 5,
+          "src": "/assets/products/CS100/gallery/5.webp",
+          "medium": "/assets/products/CS100/gallery/5-640.webp",
+          "thumb": "/assets/products/CS100/gallery/5-160.webp",
           "width": 1254,
           "height": 1254
         }
