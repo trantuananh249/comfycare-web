@@ -25,6 +25,7 @@ for sku in ('CS11', 'CS12'):
     prices[sku] = re.search(sku + r' ([\d.]+) →', records[12])[1]
 prices['CS14'] = prices['CS110'] = re.search(r'CS14 và CS110 ([\d.]+) →', records[12])[1]
 prices['CS100'] = re.search(r'CS100: ([\d.]+)', records[12])[1]
+prices['CS101'] = re.search(r'CS101: ([\d.]+) đồng', records[38])[1]  # business 38, 24/10/2026
 catalog = read(KNOWLEDGE/'products/catalog_pricing.md')
 master = read(MASTER_SPEC)
 # Compare complete price rows, not just a retail number occurring somewhere.

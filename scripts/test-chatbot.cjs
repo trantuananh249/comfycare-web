@@ -9,7 +9,7 @@ fs.mkdirSync(output, { recursive: true });
 const base = process.env.CHATBOT_TEST_URL || 'http://127.0.0.1:4173';
 const pages = ['', 'cart/', 'cau-hoi-thuong-gap/', 'chinh-sach-bao-mat/', 'chinh-sach-doi-tra/', 'chinh-sach-thanh-toan/', 'chinh-sach-van-chuyen/', 'chung-nhan/', 'dieu-khoan-su-dung/', 'gioi-thieu/', 'huong-dan-chon-size/', 'huong-dan-su-dung/', 'lien-he/', 'phu-kien/', 'san-pham/', 'tat-dai-the-thao-cap-2/', 'tat-the-thao-cap-1/', 'tat-y-te-cap-2/',
   // Trang chi tiết sản phẩm (scripts/build-products.py)
-  ...['cs21', 'cs22', 'cs23', 'cs24', 'cs26', 'cs27', 'cs33', 'cs34', 'cs35', 'cs25', 'cs28', 'cs29', 'cs30', 'cs31', 'cs11', 'cs12', 'cs14', 'cs110', 'cs100'].map(sku => `san-pham/${sku}/`)];
+  ...['cs21', 'cs22', 'cs23', 'cs24', 'cs26', 'cs27', 'cs33', 'cs34', 'cs35', 'cs25', 'cs28', 'cs29', 'cs30', 'cs31', 'cs11', 'cs12', 'cs14', 'cs110', 'cs100', 'cs101'].map(sku => `san-pham/${sku}/`)];
 (async () => {
   const browser = await chromium.launch({ executablePath: process.env.CHROME_PATH || 'C:/Program Files/Google/Chrome/Application/chrome.exe', headless: true });
   const context = await browser.newContext({ viewport: { width: 1366, height: 900 } });

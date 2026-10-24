@@ -15,12 +15,11 @@ from workspace_paths import SITE as ROOT, KNOWLEDGE, CONTENT
 
 # Trang chi tiết: mẫu CS22 được duyệt 22/10/2026, áp dụng cho cả 19 mã (kế hoạch 09, bước 2).
 PAGE_SKUS = ['CS21', 'CS22', 'CS23', 'CS24', 'CS26', 'CS27', 'CS33', 'CS34', 'CS35',
-             'CS25', 'CS28', 'CS29', 'CS30', 'CS31', 'CS11', 'CS12', 'CS14', 'CS110', 'CS100']
-# Ảnh sàn không đưa lên web vì trái brain: CS14 ảnh 5 chọn size theo cân nặng (F.7: CS14 chỉ theo chu vi đùi A);
-# CS12 ảnh 3 ghi "1 size S/M" (business 36: CS12 có thêm L/XL), đưa lại khi có ảnh mới.
-GALLERY_SKIP = {'CS14': {5}, 'CS12': {3}}
+             'CS25', 'CS28', 'CS29', 'CS30', 'CS31', 'CS11', 'CS12', 'CS14', 'CS110', 'CS100', 'CS101']
+# Ảnh sàn không đưa lên web vì trái brain. Trống từ 24/10/2026: CS12 ảnh 3, CS14 ảnh 5 đã sửa theo brain.
+GALLERY_SKIP = {}
 # Ảnh trong gallery có bảng size + vị trí đo, dùng làm hình minh họa ở khối chọn size (dòng y tế dùng measure-leg).
-SIZE_FIGURE = {'CS25': 8, 'CS28': 9, 'CS29': 9, 'CS30': 8, 'CS31': 9, 'CS11': 3, 'CS110': 4}
+SIZE_FIGURE = {'CS25': 8, 'CS28': 9, 'CS29': 9, 'CS30': 8, 'CS31': 9, 'CS11': 3, 'CS12': 3, 'CS14': 5, 'CS110': 4}
 # Số đo cần lấy theo F.3–F.7 cho mã ngoài dòng y tế: (các bước, ghi chú).
 MEASURE = {
     'CS25': (['Size giày đang đi'], ''),
@@ -46,14 +45,14 @@ SHOPEE = {
     'CS26': '28156777299', 'CS27': '27356777930', 'CS33': '45558066622', 'CS34': '44858057663',
     'CS35': '41729664819', 'CS25': '28956486512', 'CS28': '41050137462', 'CS29': '49758235651',
     'CS30': '43800142577', 'CS31': '45108300810', 'CS11': '26751930208', 'CS12': '26601929950',
-    'CS14': '29406484639', 'CS110': '29484186147', 'CS100': '28706085493',
+    'CS14': '29406484639', 'CS110': '29484186147', 'CS100': '28706085493', 'CS101': '49169771048',
 }
 SHOP_ID = '1268125014'
 ZALO = 'https://zalo.me/0848621092'
 BYT_NUMBER = '250000052/PCBA-HP'
 # F.1–F.7: các cỡ đang bán. CS11 chỉ một cỡ S/M; CS12 (business 36), CS14, CS110 có S/M và L/XL.
 FULL_SIZES = ['S', 'M', 'L', 'XL', 'XXL']
-SIZES = {'CS11': ['S/M'], 'CS12': ['S/M', 'L/XL'], 'CS14': ['S/M', 'L/XL'], 'CS110': ['S/M', 'L/XL'], 'CS100': []}
+SIZES = {'CS11': ['S/M'], 'CS12': ['S/M', 'L/XL'], 'CS14': ['S/M', 'L/XL'], 'CS110': ['S/M', 'L/XL'], 'CS100': [], 'CS101': []}
 # Tiêu đề trong size_guides.md -> mã dùng bảng đó; neo tương ứng trên /huong-dan-chon-size/.
 SIZE_SECTIONS = [
     ('### F.1.', ['CS21', 'CS22', 'CS26', 'CS23', 'CS24', 'CS27', 'CS33', 'CS34', 'CS35'], 'medical-compression-size'),
@@ -213,15 +212,15 @@ def gallery(sku):
 
 def build_products():
     products = parse_catalog()
-    assert len(products) == 19, 'Danh mục phải có 19 mã đang bán'
+    assert len(products) == 20, 'Danh mục phải có 20 mã đang bán'
     assert set(products) == set(SHOPEE), 'SHOPEE thiếu/thừa mã so với catalog'
     tables = parse_sizes()
     for sku, p in products.items():
         p.update(parse_content(sku))
         p['has_byt'] = p['group'] == 'c2-y-te'
-        # D.6: tất quần bán theo chiếc; CS100 theo chiếc; còn lại theo đôi.
-        p['unit'] = 'chiếc' if sku in ('CS33', 'CS34', 'CS35', 'CS100') else 'đôi'
-        p['colors'] = [] if sku == 'CS100' else ['Da', 'Đen']  # D.7; CS100 chưa có biến thể màu.
+        # D.6: tất quần bán theo chiếc; phụ kiện CS100, CS101 theo chiếc; còn lại theo đôi.
+        p['unit'] = 'chiếc' if sku in ('CS33', 'CS34', 'CS35', 'CS100', 'CS101') else 'đôi'
+        p['colors'] = [] if p['group'] == 'phu-kien' else ['Da', 'Đen']  # D.7; phụ kiện không có biến thể màu.
         p['sizes'] = SIZES.get(sku, FULL_SIZES)
         if sku in tables:
             header, rows, anchor = tables[sku]
@@ -279,9 +278,15 @@ def render_page(p, head, css_version, js_version):
             if p['gift_cs100'] else '')
     scope = ('<p class="pd-scope">Sản phẩm thể thao, không thuộc danh mục công bố thiết bị y tế.</p>'
              if p['group'] in ('c2-the-thao', 'c1') else '')
-    if p['group'] == 'phu-kien':
+    if sku == 'CS100':
         # D.5: dụng cụ không xỏ vừa tất kín bàn.
         scope = '<p class="pd-scope">Dùng cho các mẫu tất không bàn và hở ngón; không dùng được với tất kín bàn (CS26, CS27, CS35).</p>'
+    elif sku == 'CS101':
+        scope = '<p class="pd-scope">Kích thước 30×40 cm. Dùng để bảo vệ tất áp lực khi giặt máy; giặt theo hướng dẫn: chế độ nhẹ, tối đa 30°C, không sấy.</p>'
+    # business 38: tặng túi giặt CS101 cho đơn từ 300.000đ sau voucher, mọi kênh.
+    promo = ('<p class="pd-muted">Đơn từ 300.000đ tiền hàng (sau giảm giá/voucher, không tính ship) được tặng 01 túi giặt tất áp lực CS101.</p>'
+             if sku != 'CS101' else
+             '<p class="pd-muted">Đơn từ 300.000đ tiền hàng (sau giảm giá/voucher, không tính ship) được tặng 01 túi giặt này.</p>')
 
     def options(field, values):
         return ''.join(
@@ -401,6 +406,7 @@ def render_page(p, head, css_version, js_version):
             <p class="pd-muted">Sản phẩm hỗ trợ, không thay thế chỉ định của bác sĩ. <a class="pd-link" href="/huong-dan-su-dung/">Cách mang và bảo quản</a></p>
           </section>'''
     cta = (f'Gửi mã {sku} và số đo qua Zalo, Comfycare chọn size cùng anh/chị.' if p['sizes']
+           else 'Cần mua thêm túi giặt hoặc hỏi về quà tặng? Nhắn Comfycare qua Zalo.' if sku == 'CS101'
            else 'Gửi mã tất đang dùng qua Zalo, Comfycare kiểm tra dụng cụ có phù hợp không.')
 
     schema = {
@@ -454,6 +460,7 @@ def render_page(p, head, css_version, js_version):
                 <small>Giá bán lẻ, đã gồm VAT. Giá trên Shopee có thể khác tùy phân loại và voucher.</small>
               </div>
               {gift}
+              {promo}
               <form class="pd-options" aria-label="Chọn phân loại" onsubmit="return false">
                 {size_field}
                 {color_field}

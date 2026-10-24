@@ -72,7 +72,7 @@ for sku in ("CS21", "CS22", "CS23", "CS35", "CS25", "CS30", "CS31", "CS28"):
         )
     )
 
-for sku in ("CS100", "CS11", "CS110", "CS12", "CS14", "CS21", "CS22", "CS23", "CS24", "CS25", "CS26", "CS27", "CS28", "CS29", "CS30", "CS31", "CS33", "CS34", "CS35"):
+for sku in ("CS100", "CS101", "CS11", "CS110", "CS12", "CS14", "CS21", "CS22", "CS23", "CS24", "CS25", "CS26", "CS27", "CS28", "CS29", "CS30", "CS31", "CS33", "CS34", "CS35"):
     jobs.append(
         (
             f"assets/products/{sku}/1.png",

@@ -121,8 +121,8 @@
           "src": "/assets/products/CS21/gallery/7.webp",
           "medium": "/assets/products/CS21/gallery/7-640.webp",
           "thumb": "/assets/products/CS21/gallery/7-160.webp",
-          "width": 1129,
-          "height": 1129
+          "width": 1254,
+          "height": 1254
         },
         {
           "n": 8,
@@ -661,8 +661,8 @@
           "src": "/assets/products/CS24/gallery/4.webp",
           "medium": "/assets/products/CS24/gallery/4-640.webp",
           "thumb": "/assets/products/CS24/gallery/4-160.webp",
-          "width": 1000,
-          "height": 1000
+          "width": 1254,
+          "height": 1254
         },
         {
           "n": 5,
@@ -1377,8 +1377,8 @@
           "src": "/assets/products/CS25/gallery/5.webp",
           "medium": "/assets/products/CS25/gallery/5-640.webp",
           "thumb": "/assets/products/CS25/gallery/5-160.webp",
-          "width": 1307,
-          "height": 1203
+          "width": 1254,
+          "height": 1254
         },
         {
           "n": 6,
@@ -2112,6 +2112,14 @@
           "height": 1254
         },
         {
+          "n": 3,
+          "src": "/assets/products/CS12/gallery/3.webp",
+          "medium": "/assets/products/CS12/gallery/3-640.webp",
+          "thumb": "/assets/products/CS12/gallery/3-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
           "n": 4,
           "src": "/assets/products/CS12/gallery/4.webp",
           "medium": "/assets/products/CS12/gallery/4-640.webp",
@@ -2233,6 +2241,14 @@
           "src": "/assets/products/CS14/gallery/4.webp",
           "medium": "/assets/products/CS14/gallery/4-640.webp",
           "thumb": "/assets/products/CS14/gallery/4-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 5,
+          "src": "/assets/products/CS14/gallery/5.webp",
+          "medium": "/assets/products/CS14/gallery/5-640.webp",
+          "thumb": "/assets/products/CS14/gallery/5-160.webp",
           "width": 1254,
           "height": 1254
         },
@@ -2421,6 +2437,78 @@
         }
       ],
       "url": "/san-pham/cs100/"
+    },
+    {
+      "sku": "CS101",
+      "name": "Túi Giặt Tất Áp Lực",
+      "group": "phu-kien",
+      "category_route": "phu-kien",
+      "category_label": "Phụ kiện",
+      "price": 40000,
+      "gift_cs100": false,
+      "style": "Túi giặt lưới 30×40 cm, khóa kéo ngang, có chỗ giấu đầu khóa",
+      "pressure": null,
+      "material": "Lưới polyester mịn (listing NCC ghi \"70g\", chưa xác nhận đơn vị nên không ghi lên nội dung khách đọc)",
+      "description": "CS101 là túi giặt lưới polyester 30×40 cm, dùng để bảo vệ tất áp lực khi giặt máy, hạn chế móc kéo, rách xước và giúp tất bền hơn. Túi có khóa kéo với chỗ giấu đầu khóa, dùng lại được nhiều lần.",
+      "has_byt": false,
+      "unit": "chiếc",
+      "colors": [],
+      "sizes": [],
+      "size_table": null,
+      "size_guide_url": null,
+      "shopee_url": "https://shopee.vn/product/1268125014/49169771048",
+      "image": "/assets/products/CS101/1.png",
+      "gallery": [
+        {
+          "n": 1,
+          "src": "/assets/products/CS101/gallery/1.webp",
+          "medium": "/assets/products/CS101/gallery/1-640.webp",
+          "thumb": "/assets/products/CS101/gallery/1-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 2,
+          "src": "/assets/products/CS101/gallery/2.webp",
+          "medium": "/assets/products/CS101/gallery/2-640.webp",
+          "thumb": "/assets/products/CS101/gallery/2-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 3,
+          "src": "/assets/products/CS101/gallery/3.webp",
+          "medium": "/assets/products/CS101/gallery/3-640.webp",
+          "thumb": "/assets/products/CS101/gallery/3-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 4,
+          "src": "/assets/products/CS101/gallery/4.webp",
+          "medium": "/assets/products/CS101/gallery/4-640.webp",
+          "thumb": "/assets/products/CS101/gallery/4-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 5,
+          "src": "/assets/products/CS101/gallery/5.webp",
+          "medium": "/assets/products/CS101/gallery/5-640.webp",
+          "thumb": "/assets/products/CS101/gallery/5-160.webp",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "n": 6,
+          "src": "/assets/products/CS101/gallery/6.webp",
+          "medium": "/assets/products/CS101/gallery/6-640.webp",
+          "thumb": "/assets/products/CS101/gallery/6-160.webp",
+          "width": 1254,
+          "height": 1254
+        }
+      ],
+      "url": "/san-pham/cs101/"
     }
   ]
 }
