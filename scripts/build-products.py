@@ -92,9 +92,7 @@ def parse_listing(sku):
 
 
 def bullets(lines):
-    # File mô tả viết cho sàn ("nhắn shop"); trên web đổi thành Comfycare.
-    web = lambda s: s.replace('nhắn tin trực tiếp cho shop', 'nhắn Comfycare qua Zalo').replace('nhắn shop', 'nhắn Comfycare')
-    return [web(l[2:]) for l in lines if l.startswith('- ')]
+    return [l[2:] for l in lines if l.startswith('- ')]
 
 
 def money(text):
@@ -283,8 +281,7 @@ def render_page(p, head, css_version, js_version):
     pressure = f'<p class="pd-pressure">Áp lực {p["pressure"]}</p>' if p['pressure'] else ''
     gift = ('''<p class="pd-gift"><strong>Tặng kèm</strong> dụng cụ hỗ trợ xỏ tất CS100 (dạng miếng vải polyester).</p>'''
             if p['gift_cs100'] else '')
-    scope = ('<p class="pd-scope">Sản phẩm thể thao, không thuộc danh mục công bố thiết bị y tế.</p>'
-             if p['group'] in ('c2-the-thao', 'c1') else '')
+    scope = ''  # business 41: chỉ tất y tế nhắc chứng nhận; đồ thể thao không nhắc.
     if sku == 'CS100':
         # D.5: dụng cụ không xỏ vừa tất kín bàn.
         scope = '<p class="pd-scope">Dùng cho các mẫu tất không bàn và hở ngón; không dùng được với tất kín bàn (CS26, CS27, CS35).</p>'
@@ -327,7 +324,7 @@ def render_page(p, head, css_version, js_version):
                       f'size S–XXL. <a href="/chung-nhan/">Xem hồ sơ</a></dd></div>')
 
     # Lời khuyên chọn size (dòng không gạch đầu dòng, không kết thúc bằng ":" trong mục HƯỚNG DẪN CHỌN SIZE).
-    notes = [l.replace('nhắn shop', 'nhắn Comfycare') for l in listing.get('HƯỚNG DẪN CHỌN SIZE', []) if not l.startswith('- ') and not l.endswith(':')]
+    notes = [l for l in listing.get('HƯỚNG DẪN CHỌN SIZE', []) if not l.startswith('- ') and not l.endswith(':')]
     size_notes = '\n              '.join(f'<p class="pd-muted">{escape(n)}</p>' for n in notes)
     size_section = ''
     if p['size_table']:
