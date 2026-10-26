@@ -7414,3 +7414,27 @@ a.product-card__media {
   table.m-stack th { background: #f1fbfb; font-weight: 800; }
   table.m-stack td[data-label]::before { content: attr(data-label); display: block; margin-bottom: 2px; color: var(--muted); font-size: 12px; font-weight: 800; letter-spacing: 0.02em; text-transform: uppercase; }
 }
+
+/* Mobile header sau khi mở bán (26/10/2026): hiện biểu tượng tra cứu đơn + giỏ hàng cạnh nút menu;
+   bỏ padding chung của details (khối max-width) khỏi mục menu xổ xuống để thẳng hàng với các mục khác. */
+@media (max-width: 1040px) {
+  .header-actions {
+    display: flex;
+    gap: 2px;
+    margin-left: auto;
+    order: 2;
+  }
+
+  .nav-toggle {
+    order: 3;
+    margin-left: 6px;
+  }
+
+  .main-nav.is-open .nav-dropdown {
+    padding: 0;
+  }
+
+  .main-nav.is-open .nav-dropdown > summary {
+    border-bottom: 0;
+  }
+}

@@ -301,11 +301,23 @@
 .product-detail-page .pd-web-buy {
   flex-direction: column;
   gap: 2px;
+  line-height: 1.15;
+}
+
+/* "Sắp ra mắt" (khi tắt bán hàng): nút xám viền nét đứt */
+.product-detail-page .pd-web-buy:disabled {
   border: 1px dashed #b8c7cc;
   background: #f1f5f6;
   color: #64748b;
   cursor: not-allowed;
-  line-height: 1.15;
+  box-shadow: none;
+}
+
+/* Đã mở bán (26/10/2026): "Mua ngay" trên web là nút chính, đứng trước "Mua trên Shopee" */
+.product-detail-page .pd-web-buy:not(:disabled) {
+  order: -1;
+  border: 0;
+  cursor: pointer;
 }
 
 .product-detail-page .pd-soon {

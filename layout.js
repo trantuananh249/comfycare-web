@@ -77,19 +77,17 @@
             ${link('gioi-thieu', 'Giới thiệu')}
             ${link('lien-he', 'Liên hệ')}
             <div class="main-nav__mobile-actions">
-              <a class="btn btn--primary" href="${shopeeUrl}" target="_blank" rel="noopener noreferrer">MUA TRÊN SHOPEE</a>
               <a class="btn btn--secondary" href="${zaloUrl}" target="_blank" rel="noopener noreferrer">TƯ VẤN ZALO</a>
             </div>
           </nav>
           <div class="header-actions">
             <a class="header-cart header-lookup" href="${route('don-hang/')}" aria-label="Tra cứu đơn hàng" title="Tra cứu đơn hàng" data-shop-link hidden>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 7.5 12 3 4 7.5v9L12 21l8-4.5z" /><path d="M4 7.5 12 12l8-4.5M12 12v9" /></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" /><path d="m15.5 15.5 5 5" /></svg>
             </a>
             <a class="header-cart" href="${route('cart/')}" aria-label="Giỏ hàng" data-cart-link hidden>
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.4 10.2a2 2 0 0 0 2 1.6h7.4a2 2 0 0 0 2-1.5L20.5 8H6.2" /><circle cx="10" cy="20" r="1.4" /><circle cx="17" cy="20" r="1.4" /></svg>
               <span class="header-cart__count" data-cart-count hidden>0</span>
             </a>
-            <a class="btn btn--small btn--primary" href="${shopeeUrl}" target="_blank" rel="noopener noreferrer">MUA TRÊN SHOPEE</a>
           </div>
         </div>
       </header>
