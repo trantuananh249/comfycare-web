@@ -95,9 +95,21 @@ fs.mkdirSync(out, { recursive: true });
 
     await Promise.all([page.waitForURL('**/thanh-toan/'), page.getByRole('link', { name: 'Đặt hàng' }).click()]);
     await page.locator('.shop-form').waitFor();
+    // SĐT kiểm tra ngay trên trang: trống/sai thì không gửi đơn; rời ô cũng báo lỗi.
     await page.locator('.shop-form button[type="submit"]').click();
     await page.locator('#co-phone-error:not([hidden])').waitFor();
-    assert.equal(await page.locator('.shop-field__error:not([hidden])').count(), 6);
+    assert.equal(await page.locator('.shop-field__error:not([hidden])').count(), 1);
+    for (const [bad, message] of [['091234567', /10 số/], ['0951234567', /Đầu số/], ['0241234567', /Đầu số/], ['0988888888', /không hợp lệ/], ['09a2345678', /chữ số/]]) {
+      await page.fill('#co-phone', bad);
+      await page.locator('#co-name').focus();
+      assert.match(await page.locator('#co-phone-error').innerText(), message, bad);
+    }
+    await page.fill('#co-phone', '+84 912.345.678');
+    await page.locator('#co-phone-error').waitFor({ state: 'hidden' });
+    // SĐT đúng, các ô khác trống → máy chủ báo 5 ô.
+    await page.locator('.shop-form button[type="submit"]').click();
+    await page.locator('#co-name-error:not([hidden])').waitFor();
+    assert.equal(await page.locator('.shop-field__error:not([hidden])').count(), 5);
     await noOverflow(page, 'checkout');
     await page.fill('#co-name', 'Khách Thử Tự Động');
     await page.fill('#co-phone', '0900000003');

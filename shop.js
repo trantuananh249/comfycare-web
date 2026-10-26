@@ -38,6 +38,17 @@
   const LAST_ORDER_KEY = 'cc-last-order';
   const MAX_QTY = 20;
   const vnd = (n) => `${Number(n).toLocaleString('vi-VN').replace(/,/g, '.')}đ`;
+  // SĐT di động VN, cùng quy tắc với mobilePhone() ở comfycare-api: trả về [số dạng 0xxxxxxxxx, null] hoặc [null, lỗi].
+  function checkPhone(input) {
+    const digits = String(input ?? '').replace(/[\s.\-()]/g, '');
+    if (!digits) return [null, 'Vui lòng nhập số điện thoại'];
+    const local = digits.startsWith('+84') ? '0' + digits.slice(3) : digits.startsWith('84') && digits.length === 11 ? '0' + digits.slice(2) : digits;
+    if (!/^\d+$/.test(local)) return [null, 'Số điện thoại chỉ gồm chữ số'];
+    if (!/^0\d{9}$/.test(local)) return [null, 'Số di động gồm 10 số, bắt đầu bằng 0 (vd 0912 345 678)'];
+    if (!/^0(3[2-9]|5[25689]|7[06-9]|8[1-9]|9[0-46-9])/.test(local)) return [null, 'Đầu số không phải số di động Việt Nam, vui lòng kiểm tra lại'];
+    if (/(\d)\1{6}$/.test(local)) return [null, 'Số điện thoại không hợp lệ, vui lòng kiểm tra lại'];
+    return [local, null];
+  }
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
   function h(tag, attrs = {}, ...children) {
@@ -278,6 +289,21 @@
       h('p', { class: 'shop-field__error', id: `co-${name}-error`, hidden: true }));
   }
 
+  // Báo lỗi SĐT ngay khi rời ô (và khi gửi); trả về số đã chuẩn hóa hoặc null.
+  function validatePhone(input, errorEl) {
+    const [phone, message] = checkPhone(input.value);
+    errorEl.textContent = message || '';
+    errorEl.hidden = !message;
+    if (message) input.setAttribute('aria-invalid', 'true');
+    else input.removeAttribute('aria-invalid');
+    return phone;
+  }
+  function watchPhone(input, errorEl) {
+    input.setAttribute('aria-describedby', errorEl.id);
+    input.addEventListener('blur', () => { if (input.value.trim()) validatePhone(input, errorEl); });
+    input.addEventListener('input', () => { if (input.getAttribute('aria-invalid') && checkPhone(input.value)[0]) validatePhone(input, errorEl); });
+  }
+
   // ----- /thanh-toan/ -----
   async function renderCheckout(root) {
     const cart = readCart();
@@ -306,7 +332,7 @@
     const form = h('form', { class: 'shop-panel shop-form', novalidate: true },
       h('h2', {}, 'Thông tin giao hàng'),
       field('name', 'Họ và tên', h('input', { type: 'text', required: true, autocomplete: 'name', maxlength: '80' })),
-      field('phone', 'Số điện thoại', h('input', { type: 'tel', required: true, autocomplete: 'tel', inputmode: 'tel', maxlength: '15' }), 'Nhân viên dùng số này để xác nhận đơn và giao hàng.'),
+      field('phone', 'Số điện thoại', h('input', { type: 'tel', required: true, autocomplete: 'tel', inputmode: 'tel', maxlength: '15', placeholder: '0912 345 678' }), 'Nhân viên dùng số này để xác nhận đơn và giao hàng.'),
       field('province', 'Tỉnh/thành phố', province),
       field('ward', 'Phường/xã', ward, 'Theo địa giới hành chính mới từ 01/07/2025.'),
       field('address', 'Số nhà, tên đường', h('input', { type: 'text', required: true, autocomplete: 'street-address', maxlength: '200' })),
@@ -319,6 +345,9 @@
       summaryView(quote),
       h('a', { class: 'shop-link', href: '/cart/' }, 'Sửa giỏ hàng'));
     root.replaceChildren(h('div', { class: 'shop-layout' }, form, summary));
+    const phoneInput = form.elements.phone;
+    const phoneError = $('#co-phone-error', form);
+    watchPhone(phoneInput, phoneError);
 
     if (turnstile) document.head.append(h('script', { src: 'https://challenges.cloudflare.com/turnstile/v0/api.js', async: true, defer: true }));
 
@@ -327,9 +356,11 @@
       $$('.shop-field__error', form).forEach((e) => { e.hidden = true; });
       $$('[aria-invalid]', form).forEach((e) => e.removeAttribute('aria-invalid'));
       formError.hidden = true;
+      const phone = validatePhone(phoneInput, phoneError);
+      if (!phone) { phoneInput.scrollIntoView({ block: 'center', behavior: 'smooth' }); phoneInput.focus({ preventScroll: true }); return; }
       const values = Object.fromEntries(new FormData(form));
       const body = {
-        name: values.name, phone: values.phone, province: values.province, ward: values.ward, address: values.address,
+        name: values.name, phone, province: values.province, ward: values.ward, address: values.address,
         note: values.note || '', method: values.method, accept_terms: form.elements.accept_terms.checked,
         items: cart, turnstile_token: values['cf-turnstile-response'] || '',
         source: (() => { try { return new URLSearchParams(store('sessionStorage')?.getItem('cc-utm') || '').toString(); } catch { return ''; } })(),
