@@ -244,8 +244,29 @@
         h('a', { class: 'shop-link', href: '/san-pham/' }, 'Tiếp tục xem sản phẩm'))));
   }
 
-  // 34 tỉnh, thành sau sắp xếp đơn vị hành chính 2025 (Nghị quyết 202/2025/QH15).
-  const PROVINCES = ['An Giang', 'Bắc Ninh', 'Cà Mau', 'Cao Bằng', 'Cần Thơ', 'Đà Nẵng', 'Đắk Lắk', 'Điện Biên', 'Đồng Nai', 'Đồng Tháp', 'Gia Lai', 'Hà Nội', 'Hà Tĩnh', 'Hải Phòng', 'Hồ Chí Minh', 'Huế', 'Hưng Yên', 'Khánh Hòa', 'Lai Châu', 'Lạng Sơn', 'Lào Cai', 'Lâm Đồng', 'Nghệ An', 'Ninh Bình', 'Phú Thọ', 'Quảng Ngãi', 'Quảng Ninh', 'Quảng Trị', 'Sơn La', 'Tây Ninh', 'Thái Nguyên', 'Thanh Hóa', 'Tuyên Quang', 'Vĩnh Long'];
+  // 34 tỉnh/thành và 3.321 phường/xã sau sắp xếp 2025 (data/dvhc-2025.json, sinh bởi scripts/build-dvhc.py).
+  // Giá trị gửi API là tên đầy đủ ("Thành phố Hải Phòng", "Phường Gia Viên"); API kiểm tra phường/xã thuộc tỉnh.
+  let dvhcPromise;
+  const dvhc = () => (dvhcPromise ||= fetch('/data/dvhc-2025.json').then((r) => r.json())
+    .then((d) => d.provinces.sort((a, b) => a.short.localeCompare(b.short, 'vi'))));
+
+  // Ô chọn tỉnh → phường/xã; không tải được dữ liệu thì quay về ô gõ tay.
+  function addressFields(provinces) {
+    if (!provinces) {
+      return [h('input', { type: 'text', required: true, autocomplete: 'address-level1', maxlength: '60' }),
+        h('input', { type: 'text', required: true, maxlength: '80', placeholder: 'Theo địa giới hành chính mới (2025)' })];
+    }
+    const province = h('select', { required: true, autocomplete: 'address-level1' }, h('option', { value: '' }, 'Chọn tỉnh/thành'),
+      provinces.map((p) => h('option', { value: p.name }, p.short)));
+    const ward = h('select', { required: true, disabled: true }, h('option', { value: '' }, 'Chọn tỉnh/thành trước'));
+    province.addEventListener('change', () => {
+      const p = provinces.find((x) => x.name === province.value);
+      ward.replaceChildren(h('option', { value: '' }, p ? 'Chọn phường/xã' : 'Chọn tỉnh/thành trước'),
+        ...(p ? [...p.wards].sort((a, b) => a.localeCompare(b, 'vi')).map((w) => h('option', { value: w }, w)) : []));
+      ward.disabled = !p;
+    });
+    return [province, ward];
+  }
 
   function field(name, label, input, hint) {
     input.id = `co-${name}`;
@@ -266,7 +287,7 @@
     track('InitiateCheckout', { value: quote.total, currency: 'VND', num_items: cart.reduce((s, l) => s + l.quantity, 0) });
     const products = await catalog();
 
-    const province = h('select', { required: true, autocomplete: 'address-level1' }, h('option', { value: '' }, 'Chọn tỉnh/thành'), PROVINCES.map((p) => h('option', { value: p }, p)));
+    const [province, ward] = addressFields(await dvhc().catch(() => null));
     const methodBox = h('fieldset', { class: 'shop-methods', 'data-field': 'method' },
       h('legend', {}, 'Cách thanh toán'),
       h('label', { class: 'shop-method' }, h('input', { type: 'radio', name: 'method', value: 'cod', checked: true }),
@@ -287,7 +308,7 @@
       field('name', 'Họ và tên', h('input', { type: 'text', required: true, autocomplete: 'name', maxlength: '80' })),
       field('phone', 'Số điện thoại', h('input', { type: 'tel', required: true, autocomplete: 'tel', inputmode: 'tel', maxlength: '15' }), 'Nhân viên dùng số này để xác nhận đơn và giao hàng.'),
       field('province', 'Tỉnh/thành phố', province),
-      field('ward', 'Phường/xã', h('input', { type: 'text', required: true, maxlength: '80', placeholder: 'Theo địa giới hành chính mới (2025)' })),
+      field('ward', 'Phường/xã', ward, 'Theo địa giới hành chính mới từ 01/07/2025.'),
       field('address', 'Số nhà, tên đường', h('input', { type: 'text', required: true, autocomplete: 'street-address', maxlength: '200' })),
       field('note', 'Ghi chú (không bắt buộc)', h('textarea', { rows: '3', maxlength: '500', placeholder: 'Ví dụ: giờ nhận hàng, cần tư vấn thêm size…' })),
       methodBox, consent, turnstile, formError, submit);

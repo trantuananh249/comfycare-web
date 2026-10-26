@@ -74,16 +74,18 @@ fs.mkdirSync(out, { recursive: true });
     await page.locator('.cart-line').first().waitFor();
     assert.equal(await page.locator('[data-cart-count]').innerText(), '2');
     assert.equal(await page.locator('.shop-summary__total strong').innerText(), '606.900đ');
-    assert.equal(await page.locator('.cart-line--gift').count(), 1);
+    // Quà: CS100 (mã được tặng) + túi giặt CS101 (tiền hàng từ 300.000đ, business 38).
+    assert.equal(await page.locator('.cart-line--gift').count(), 2);
+    assert.match(await page.locator('.cart-line--gift', { hasText: 'CS101' }).innerText(), /Quà tặng kèm đơn/);
     assert.equal(await page.title(), 'Giỏ hàng | Comfycare');
 
-    // Thêm CS29 → vẫn 1 quà; giảm CS22 còn 1 → 303.450 + 110.500 = 413.950đ, miễn ship.
+    // Thêm CS29 → vẫn 2 quà; giảm CS22 còn 1 → 303.450 + 110.500 = 413.950đ, miễn ship.
     await page.evaluate(() => { const c = JSON.parse(localStorage.getItem('cc-cart')); c.push({ sku: 'CS29', size: 'S', color: 'Da', quantity: 1 }); localStorage.setItem('cc-cart', JSON.stringify(c)); });
     await page.reload();
     await page.locator('.cart-line').first().waitFor();
     await page.getByRole('button', { name: 'Giảm số lượng CS22' }).click();
     await page.waitForFunction(() => document.querySelector('.shop-summary__total strong')?.textContent === '413.950đ');
-    assert.equal(await page.locator('.cart-line--gift').count(), 1);
+    assert.equal(await page.locator('.cart-line--gift').count(), 2);
     // Xóa CS22 → còn CS29 110.500 + ship 25.000, hết quà.
     await page.locator('.cart-line', { hasText: 'CS22' }).getByRole('button', { name: 'Xóa' }).click();
     await page.waitForFunction(() => document.querySelector('.shop-summary__total strong')?.textContent === '135.500đ');
@@ -99,8 +101,11 @@ fs.mkdirSync(out, { recursive: true });
     await noOverflow(page, 'checkout');
     await page.fill('#co-name', 'Khách Thử Tự Động');
     await page.fill('#co-phone', '0900000003');
-    await page.selectOption('#co-province', 'Hải Phòng');
-    await page.fill('#co-ward', 'Phường Thử');
+    // Ô phường/xã khóa tới khi chọn tỉnh, chỉ liệt kê phường/xã của tỉnh đó (data/dvhc-2025.json).
+    assert.equal(await page.locator('#co-ward').isDisabled(), true);
+    await page.selectOption('#co-province', 'Thành phố Hải Phòng');
+    assert.equal(await page.locator('#co-ward option').count(), 115, '114 phường/xã Hải Phòng + dòng "Chọn"');
+    await page.selectOption('#co-ward', 'Phường Gia Viên');
     await page.fill('#co-address', '3 Đường Thử');
     await page.fill('#co-note', '<script>alert(1)</script>');
     await page.locator('input[name="accept_terms"]').check();
@@ -119,8 +124,8 @@ fs.mkdirSync(out, { recursive: true });
     await page.locator('.shop-form').waitFor();
     await page.fill('#co-name', 'Khách Thử Chuyển Khoản');
     await page.fill('#co-phone', '0900000004');
-    await page.selectOption('#co-province', 'Hà Nội');
-    await page.fill('#co-ward', 'Phường Thử');
+    await page.selectOption('#co-province', 'Thành phố Hà Nội');
+    await page.selectOption('#co-ward', 'Phường Hoàn Kiếm');
     await page.fill('#co-address', '4 Đường Thử');
     await page.locator('label.shop-method:has(input[value="bank"])').click();
     await page.locator('input[name="accept_terms"]').check();
