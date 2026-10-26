@@ -101,6 +101,32 @@
     });
   }
 
+  // Làm mờ lựa chọn hết hàng (cờ còn hàng trong trang quản trị): đang chọn size M thì màu hết hàng của M mờ đi,
+  // đang chọn màu Da thì size hết hàng của Da mờ đi; size/màu hết ở mọi lựa chọn kia thì mờ ngay từ đầu.
+  async function applyStock(sku, form, button) {
+    let out = [];
+    try { out = (await api(`/api/stock/${encodeURIComponent(sku)}`)).data.out || []; } catch { return; }
+    if (!out.length) return;
+    const isOut = (size, color) => out.some((o) => o.size === size && o.color === color);
+    const sizes = [...form.querySelectorAll('input[name="size"]')];
+    const colors = [...form.querySelectorAll('input[name="color"]')];
+    const values = (inputs) => (inputs.length ? inputs.map((i) => i.value) : ['']);
+    const mark = (input, dead) => {
+      input.disabled = dead;
+      if (dead) input.checked = false;
+      input.closest('.pd-chip')?.setAttribute('title', dead ? 'Tạm hết hàng' : '');
+    };
+    const refresh = () => {
+      const size = sizes.find((i) => i.checked)?.value;
+      const color = colors.find((i) => i.checked)?.value;
+      sizes.forEach((i) => mark(i, (color !== undefined ? [color] : values(colors)).every((c) => isOut(i.value, c))));
+      colors.forEach((i) => mark(i, (size !== undefined ? [size] : values(sizes)).every((s) => isOut(s, i.value))));
+      if (!sizes.length && !colors.length && isOut('', '')) { button.disabled = true; button.textContent = 'Tạm hết hàng'; }
+    };
+    form.addEventListener('change', refresh);
+    refresh();
+  }
+
   // ----- Trang chi tiết sản phẩm -----
   function enableDetailPage() {
     const button = $('.pd-web-buy');
@@ -114,6 +140,7 @@
     if (note) note.textContent = 'Đặt trên web: thanh toán khi nhận hàng (COD) hoặc chuyển khoản qua mã QR. Phí ship 25.000đ, miễn ship cho đơn từ 300.000đ.';
     const error = h('p', { class: 'pd-error', role: 'alert', hidden: true });
     button.closest('.pd-actions').after(error);
+    applyStock(sku, form, button);
     button.addEventListener('click', async () => {
       const size = form.querySelector('input[name="size"]:checked')?.value ?? '';
       const color = form.querySelector('input[name="color"]:checked')?.value ?? '';

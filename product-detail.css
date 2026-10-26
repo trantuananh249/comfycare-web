@@ -264,6 +264,17 @@
   outline-offset: 2px;
 }
 
+/* Lựa chọn tạm hết hàng (shop.js applyStock): làm mờ, không chọn được */
+.product-detail-page .pd-chip input:disabled {
+  cursor: not-allowed;
+}
+
+.product-detail-page .pd-chip input:disabled + span {
+  opacity: 0.4;
+  text-decoration: line-through;
+  background: #f2f4f7;
+}
+
 .product-detail-page .pd-qty {
   width: 96px;
   min-height: 42px;
