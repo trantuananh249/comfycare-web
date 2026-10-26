@@ -8,8 +8,10 @@
     <meta name="robots" content="noindex,follow" />
     <link rel="canonical" href="https://comfycare.vn/san-pham/" />
     <link rel="icon" type="image/webp" href="/assets/logo/comfycare-logo-64.webp" />
-    <link rel="stylesheet" href="/styles.min.css?v=ac6bcdcf764b" />
-    <script src="/site.min.js?v=2d182f237681" defer></script>
+    <link rel="stylesheet" href="/styles.min.css?v=cea4c9815428" />
+    <link rel="stylesheet" href="/shop.css?v=b93c46694a33" />
+    <script src="/site.min.js?v=ea4a03174a45" defer></script>
+    <script src="/shop.js?v=7ca8c1e27abd" defer></script>
     <!-- Meta Pixel Code -->
     <script>
     !function(w,d,s,u,id){
@@ -36,13 +38,27 @@
     src="https://www.facebook.com/tr?id=871690012650957&ev=PageView&noscript=1"
     /></noscript>
     <!-- End Meta Pixel Code -->
-    <link rel="stylesheet" href="/chatbot.css?v=9cc8b67ee08f" />
-    <script defer src="/chatbot.js?v=9cc8b67ee08f"></script>
+    <link rel="stylesheet" href="/chatbot.css?v=9a846634fce1" />
+    <script defer src="/chatbot.js?v=9a846634fce1"></script>
   </head>
   <body class="info-page legacy-page" data-base-path="/" data-current-path="san-pham">
     <div data-site-header></div>
     <main class="content-page" id="top">
-      <section class="page-hero">
+      <!-- Khi mở bán trên web (shop.js bật), phần data-shop-on hiện, phần data-shop-off ẩn. -->
+      <section class="page-hero shop-hero" data-shop-on hidden>
+        <div class="container">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="/">Trang chủ</a>
+            <span aria-hidden="true">/</span>
+            <span aria-current="page">Giỏ hàng</span>
+          </nav>
+          <h1>Giỏ hàng</h1>
+        </div>
+      </section>
+      <section class="page-content shop-page" data-shop-on hidden>
+        <div class="container" data-shop-cart></div>
+      </section>
+      <section class="page-hero" data-shop-off>
         <div class="container">
           <nav class="breadcrumb" aria-label="Breadcrumb">
             <a href="/">Trang chủ</a>
@@ -54,7 +70,7 @@
           <p class="page-lead">Website comfycare.vn không xử lý đặt hàng hoặc thanh toán trực tiếp. Anh/chị có thể xem sản phẩm trên website rồi hoàn tất mua hàng tại Shopee.</p>
         </div>
       </section>
-      <section class="page-content">
+      <section class="page-content" data-shop-off>
         <div class="container">
           <article class="legacy-notice">
             <h2>Chọn kênh tiếp theo</h2>

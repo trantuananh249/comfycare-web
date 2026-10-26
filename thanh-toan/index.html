@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thanh toán | Comfycare</title>
+    <meta name="description" content="Thanh toán đơn hàng Comfycare: COD hoặc chuyển khoản QR." />
+    <meta name="robots" content="noindex,follow" />
+    <link rel="canonical" href="https://comfycare.vn/thanh-toan/" />
+    <link rel="icon" type="image/webp" href="/assets/logo/comfycare-logo-64.webp" />
+    <link rel="stylesheet" href="/styles.min.css?v=cea4c9815428" />
+    <link rel="stylesheet" href="/shop.css?v=b93c46694a33" />
+    <script src="/site.min.js?v=ea4a03174a45" defer></script>
+    <script src="/shop.js?v=7ca8c1e27abd" defer></script>
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(w,d,s,u,id){
+      if(w.fbq)return;
+      var q=w.fbq=function(){q.callMethod?q.callMethod.apply(q,arguments):q.queue.push(arguments)};
+      if(!w._fbq)w._fbq=q;
+      q.push=q;q.loaded=!0;q.version="2.0";q.queue=[];
+      var loaded=!1,timer,events=["pointerdown","keydown","touchstart","scroll"];
+      function load(){
+        if(loaded)return;
+        loaded=!0;
+        events.forEach(function(eventName){w.removeEventListener(eventName,activate)});
+        w.clearTimeout(timer);
+        var js=d.createElement(s),first=d.getElementsByTagName(s)[0];
+        js.async=!0;js.src=u;first.parentNode.insertBefore(js,first);
+      }
+      function activate(){load()}
+      events.forEach(function(eventName){w.addEventListener(eventName,activate,{once:!0,passive:!0})});
+      w.addEventListener("load",function(){timer=w.setTimeout(load,8000)},{once:!0});
+      q("init",id);q("track","PageView");
+    }(window,document,"script","https://connect.facebook.net/en_US/fbevents.js","871690012650957");
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=871690012650957&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+    <link rel="stylesheet" href="/chatbot.css?v=9a846634fce1" />
+    <script defer src="/chatbot.js?v=9a846634fce1"></script>
+  </head>
+  <body class="info-page shop-page-body" data-base-path="/" data-current-path="thanh-toan">
+    <div data-site-header></div>
+    <main class="content-page" id="top">
+      <section class="page-hero shop-hero">
+        <div class="container">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="/">Trang chủ</a>
+            <span aria-hidden="true">/</span>
+            <span aria-current="page">Thanh toán</span>
+          </nav>
+          <h1>Thanh toán</h1>
+        </div>
+      </section>
+      <!-- Khi mở bán trên web (shop.js bật), phần data-shop-on hiện, phần data-shop-off ẩn. -->
+      <section class="page-content shop-page" data-shop-on hidden>
+        <div class="container" data-shop-checkout></div>
+      </section>
+      <section class="page-content" data-shop-off>
+        <div class="container">
+          <article class="legacy-notice">
+            <h2>Đặt hàng trên web sắp ra mắt</h2>
+            <p>Hiện anh/chị có thể mua sản phẩm Comfycare tại gian hàng chính hãng trên Shopee hoặc nhắn Zalo để được tư vấn và đặt hàng.</p>
+            <div class="legacy-notice__actions">
+              <a class="btn btn--primary" href="https://shopee.vn/comfycare_official_store" target="_blank" rel="noopener noreferrer">Mua trên Shopee</a>
+              <a class="btn btn--outline" href="https://zalo.me/0848621092" target="_blank" rel="noopener noreferrer">Nhắn Zalo</a>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+    <div data-site-footer></div>
+</body>
+</html>

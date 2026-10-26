@@ -247,7 +247,7 @@ def head_parts():
     pick = lambda pattern: re.search(pattern, html, re.S)[0]
     return {
         'styles': pick(r'<link rel="stylesheet" href="/styles\.min\.css\?v=\w+" />'),
-        'site': pick(r'<script src="/site\.min\.js\?v=\w+" defer></script>'),
+        'site': pick(r'<script src="/site\.min\.js\?v=\w+" defer></script>\s*<script src="/shop\.js\?v=\w+" defer></script>'),
         'pixel': pick(r'<!-- Meta Pixel Code -->.*?<!-- End Meta Pixel Code -->'),
         'chatbot': pick(r'<link rel="stylesheet" href="/chatbot\.css[^>]+>\s*<script defer src="/chatbot\.js[^>]+></script>'),
     }
