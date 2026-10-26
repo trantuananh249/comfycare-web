@@ -81,7 +81,7 @@
       } else message(answers[0], 'bot', ['size', 'zalo']);
     } else if (id === 3) {
       if (sku === 'CS21') message(answers[channel === 'fanpage' ? 2 : 1], 'bot', ['shop']);
-      else if (sku) message(`Với mẫu ${sku}, anh/chị xem giá và phân loại trên gian hàng chính thức nhé. Nếu muốn đặt qua Fanpage, bên em sẽ kiểm tra giá và phí ship theo số lượng trước khi anh/chị quyết định.`, 'bot', ['shop', 'facebook']);
+      else if (sku) message(`Với mẫu ${sku}, giá bán lẻ hiện ngay trên trang này; anh/chị bấm "Mua ngay" để đặt trên website (ship 25.000đ, miễn ship từ 300.000đ), hoặc xem trên gian hàng chính thức. Nếu muốn đặt qua Fanpage, bên em sẽ kiểm tra giá và phí ship theo số lượng trước khi anh/chị quyết định.`, 'bot', ['shop', 'facebook']);
       else message(answers[0]);
     } else if (id === 5) {
       message(answers[0], 'bot', ['zalo']);

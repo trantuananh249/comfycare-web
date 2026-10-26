@@ -1,9 +1,9 @@
 // Bán hàng trên web (kế hoạch 09 bước 4): giỏ hàng, trang thanh toán, trang đơn hàng, nút "Mua ngay".
-// TẮT mặc định: khi SHOP.enabled = false, website giữ nguyên "Sắp ra mắt" và các trang /cart/, /thanh-toan/, /don-hang/ chỉ hiện thông báo.
-// Bật (bước 6): đặt enabled = true, apiBase = địa chỉ Workers, rồi cập nhật version shop.js trên các trang.
+// Đang BẬT (mở bán 26/10/2026). Đặt SHOP.enabled = false để tạm ngừng: website trở lại "Sắp ra mắt" và các trang
+// /cart/, /thanh-toan/, /don-hang/ chỉ hiện thông báo (nhớ chạy scripts/build-shop.py để cập nhật version).
 (() => {
   const SHOP = {
-    enabled: false,
+    enabled: true,        // mở bán 26/10/2026 (bước 6)
     apiBase: 'https://comfycare-api.mr-tuananh-hp92.workers.dev',
     turnstileSiteKey: '0x4AAAAAAFl-R4cZq2lK3Fqs', // khóa site Cloudflare Turnstile (công khai), chỉ chạy trên comfycare.vn
     zalo: 'https://zalo.me/0848621092',
@@ -74,7 +74,7 @@
   }
   function updateCartBadge(cart = readCart()) {
     const count = cart.reduce((s, l) => s + l.quantity, 0);
-    $$('[data-cart-link]').forEach((link) => { link.hidden = false; });
+    $$('[data-cart-link], [data-shop-link]').forEach((link) => { link.hidden = false; });
     $$('[data-cart-count]').forEach((badge) => { badge.textContent = String(count); badge.hidden = count === 0; });
   }
 

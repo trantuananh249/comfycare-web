@@ -82,6 +82,9 @@
             </div>
           </nav>
           <div class="header-actions">
+            <a class="header-cart header-lookup" href="${route('don-hang/')}" aria-label="Tra cứu đơn hàng" title="Tra cứu đơn hàng" data-shop-link hidden>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 7.5 12 3 4 7.5v9L12 21l8-4.5z" /><path d="M4 7.5 12 12l8-4.5M12 12v9" /></svg>
+            </a>
             <a class="header-cart" href="${route('cart/')}" aria-label="Giỏ hàng" data-cart-link hidden>
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.4 10.2a2 2 0 0 0 2 1.6h7.4a2 2 0 0 0 2-1.5L20.5 8H6.2" /><circle cx="10" cy="20" r="1.4" /><circle cx="17" cy="20" r="1.4" /></svg>
               <span class="header-cart__count" data-cart-count hidden>0</span>
@@ -147,8 +150,9 @@
             <nav class="footer-links" aria-label="Hỗ trợ mua hàng">
               <h3>HỖ TRỢ MUA HÀNG</h3>
               ${link('chinh-sach-doi-tra', 'Đổi size & đổi sản phẩm')}
-              ${link('chinh-sach-thanh-toan', 'Mua hàng & thanh toán trên sàn')}
-              ${link('chinh-sach-van-chuyen', 'Vận chuyển đơn hàng trên sàn')}
+              ${link('don-hang', 'Tra cứu đơn hàng')}
+              ${link('chinh-sach-thanh-toan', 'Thanh toán')}
+              ${link('chinh-sach-van-chuyen', 'Vận chuyển & theo dõi đơn')}
               ${link('chinh-sach-bao-mat', 'Bảo mật thông tin')}
             </nav>
 
@@ -186,7 +190,7 @@
                 ${link('chinh-sach-bao-mat', 'Bảo mật thông tin')}
               </div>
             </div>
-            <p class="footer-sales-note"><span>Mua hàng chính hãng qua gian hàng</span> <span>Shopee/TikTok Shop của Comfycare.</span></p>
+            <p class="footer-sales-note"><span>Mua hàng chính hãng trên comfycare.vn hoặc gian hàng</span> <span>Shopee/TikTok Shop của Comfycare.</span></p>
           </div>
         </div>
       </footer>

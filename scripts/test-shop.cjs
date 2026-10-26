@@ -35,21 +35,20 @@ fs.mkdirSync(out, { recursive: true });
   };
 
   try {
-    // 1. Chưa mở bán: giữ nguyên "Sắp ra mắt" / thông báo.
+    // 1. Đã mở bán (SHOP.enabled = true từ bước 6, 26/10/2026), không cần xem thử: nút Mua ngay, giỏ và tra cứu đơn hiện;
+    // footer có link tra cứu. Không gọi API thật (block chặn mạng ngoài).
     {
       const ctx = await browser.newContext(); await block(ctx);
       const page = await ctx.newPage(); watch(page);
-      await page.goto(`${base}/san-pham/cs22/`);
-      assert.equal(await page.locator('.pd-web-buy').isDisabled(), true);
-      assert.equal(await page.locator('[data-cart-link]').isHidden(), true);
-      for (const route of ['cart/', 'thanh-toan/', 'don-hang/']) {
-        await page.goto(`${base}/${route}`);
-        assert.equal(await page.locator('[data-shop-off]').first().isVisible(), true, route);
-        assert.equal(await page.locator('[data-shop-on]').first().isHidden(), true, route);
-      }
       await page.goto(`${base}/`);
-      assert.equal(await page.locator('.product-card .btn-web-soon').count(), 8);
-      results.push('Chưa mở bán: nút disabled, giỏ ẩn, 3 trang chỉ hiện thông báo');
+      assert.equal(await page.locator('.product-card .btn-web-buy').count(), 8, 'thẻ trang chủ là link Mua ngay');
+      assert.equal(await page.locator('.product-card .btn-web-soon').count(), 0);
+      assert.equal(await page.locator('[data-cart-link]').first().isVisible(), true, 'giỏ hàng hiện');
+      assert.equal(await page.locator('[data-shop-link]').first().isVisible(), true, 'biểu tượng tra cứu đơn hiện');
+      assert.equal(await page.locator('footer a[href$="don-hang/"]').count(), 1, 'footer có link tra cứu đơn');
+      await page.goto(`${base}/san-pham/cs22/`);
+      assert.equal(await page.locator('.pd-web-buy').isDisabled(), false);
+      results.push('Đã mở bán: nút Mua ngay, giỏ, tra cứu đơn ở header và footer');
       await ctx.close();
     }
 

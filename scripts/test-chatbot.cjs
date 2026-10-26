@@ -59,7 +59,9 @@ const pages = ['', 'cart/', 'cau-hoi-thuong-gap/', 'chinh-sach-bao-mat/', 'chinh
     await send('Shopee', /178\.500/);
     await send('CS21 gia bao nhieu?', /178\.500/);
     await send('phi ship fanpage', /25\.000/);
-    await send('shopee', /bước đặt hàng trên sàn/);
+    // Từ 26/10/2026 (mở bán web) câu ship gộp kênh website và sàn.
+    await send('shopee', /bước đặt hàng của sàn/);
+    await send('phi ship dat tren web', /Đặt trên website: ship 25\.000đ/);
     await send('Tôi mang thai muốn mua CS21', /bác sĩ điều trị/);
     await send('Tôi bị tê chân khi mang', /tháo tất và hỏi bác sĩ/);
     await send('Toi can nhac them', /cân nhắc thêm/);
