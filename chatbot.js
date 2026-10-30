@@ -33,7 +33,7 @@
     </section>
     <button type="button" class="cc-launcher" aria-controls="cc-panel" aria-expanded="false" aria-label="Mở chat tư vấn Comfycare">
       <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-8 8H5l-3 2v-10a9 9 0 0 1 18 0Z"/><path d="M7 11h.01M12 11h.01M17 11h.01" stroke-width="3" stroke-linecap="round"/></svg>
-      <span>Chat tư vấn</span>
+      <span>Tư vấn</span>
     </button>`;
   document.body.append(root);
   const panel = root.querySelector('.cc-panel');
