@@ -235,7 +235,7 @@ a.t-sku:hover { background: #ffe2b8; }
   .t-hero__media { order: -1; margin: 0 -16px; }
   .t-hero__media picture, .t-hero__media img { min-height: 0; aspect-ratio: 4 / 3; border-radius: 0; }
   .t-hero__media::before { display: none; }
-  .t-float { right: 16px; bottom: 16px; padding: 10px 14px; font-size: 15px; }
+  .t-float { right: auto; left: 16px; bottom: 16px; padding: 10px 14px; font-size: 15px; }
   .t-float b { font-size: 18px; }
   .t-hero__content { padding: 24px 0 32px; }
   .t-cta__inner { grid-template-columns: auto minmax(0, 1fr); }
