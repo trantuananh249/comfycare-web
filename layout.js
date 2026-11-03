@@ -147,7 +147,7 @@
 
             <nav class="footer-links" aria-label="Hỗ trợ mua hàng">
               <h3>HỖ TRỢ MUA HÀNG</h3>
-              ${link('chinh-sach-doi-tra', 'Đổi size & đổi sản phẩm')}
+              ${link('chinh-sach-doi-tra', 'Đổi size & đổi trả')}
               ${link('don-hang', 'Tra cứu đơn hàng')}
               ${link('chinh-sach-thanh-toan', 'Thanh toán')}
               ${link('chinh-sach-van-chuyen', 'Vận chuyển & theo dõi đơn')}

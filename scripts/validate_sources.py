@@ -85,9 +85,10 @@ for sku, amount in prices.items():
     check(web_prices.get(sku) == amount, 'Website price: '+sku)
 returns = read(PROJECT/'chinh-sach-doi-tra/index.html')
 check('giảm đi 20%' not in returns, 'Old exchange formula remains')
-check('trừ số tiền khách thực trả' in returns and 'bằng chuyển khoản' in returns, 'Exchange/refund wording')
+# business 66 (03/11/2026): đơn Fanpage, website chỉ đổi size cùng mẫu, cùng màu; đơn sàn đổi mẫu thì trả hàng trên sàn rồi đặt lại.
+check('chỉ hỗ trợ đổi size cùng mẫu, cùng màu' in returns and 'trả hàng theo quy trình của sàn' in returns, 'Exchange scope wording')
 check('ngoài điều kiện chuẩn' in returns and 'lỗi do sử dụng' in returns, 'Flexible exchange wording')
-check('giá sản phẩm mới' in returns, 'Exchange price reference')
+check('giá sản phẩm mới' not in returns and 'Chuyển khoản trực tiếp' in returns, 'No exchange price formula; refund by transfer')
 # business 36: với khách chỉ nói "đổi trả 15 ngày", không dùng "bảo hành"; lỗi sản xuất cũng 15 ngày.
 check('bảo hành' not in returns.lower() and '14 ngày' not in returns, 'Returns page: no warranty wording or 14-day term')
 check('Size giày từ 41' in size_page, 'CS12 web L/XL row')
