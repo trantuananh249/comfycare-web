@@ -640,3 +640,70 @@
     font-size: 15px;
   }
 }
+
+/* Giao diện 2026 (duyệt 04/11/2026): trang chi tiết theo bộ màu, thẻ của theme-2026.css. */
+.t26.product-detail-page .pd-hero { padding: 0 0 40px; background: var(--t-cream); }
+.t26.product-detail-page .breadcrumb { margin: 22px 0 0; color: var(--t-muted); font-size: 15px; }
+.t26.product-detail-page .breadcrumb a { text-decoration: underline; text-underline-offset: 3px; }
+.t26.product-detail-page .breadcrumb [aria-current] { color: var(--t-ink); font-weight: 600; }
+.t26.product-detail-page .pd-hero__grid { grid-template-columns: minmax(0, 560px) minmax(0, 1fr); gap: 40px; }
+.t26.product-detail-page .pd-gallery__main { border-color: var(--t-line); border-radius: var(--t-radius); box-shadow: var(--t-shadow); }
+.t26.product-detail-page .pd-thumb { border-radius: 10px; box-shadow: 0 0 0 1px var(--t-line); }
+.t26.product-detail-page .pd-thumb[aria-current] { border-color: var(--t-teal); }
+.t26.product-detail-page .pd-gallery__thumbs { grid-auto-columns: 84px; }
+.t26.product-detail-page .pd-summary { gap: 16px; padding: 24px 26px; border: 1px solid var(--t-line); border-radius: var(--t-radius); background: #fff; box-shadow: var(--t-shadow); }
+.t26.product-detail-page .pd-summary h1 { color: var(--t-ink); font-size: clamp(28px, 3vw, 38px); line-height: 1.2; }
+.t26.product-detail-page .catalog-badge { border-radius: 999px; }
+.t26.product-detail-page .pd-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.t26.product-detail-page .pd-tags .pd-pressure { color: var(--t-deep); background: var(--t-teal-soft); border-color: transparent; font-weight: 700; }
+.t26.product-detail-page .pd-lead { color: var(--t-text); font-size: 16.5px; }
+.t26.product-detail-page .pd-price { border-color: var(--t-line); }
+.t26.product-detail-page .pd-price strong { color: #b45f00; font-size: 36px; }
+.t26.product-detail-page .pd-price small, .t26.product-detail-page .pd-muted { color: var(--t-muted); font-size: 14.5px; }
+.t26.product-detail-page .pd-gift { border-radius: 12px; background: var(--t-orange-soft); color: #6b3a00; }
+.t26.product-detail-page .pd-field legend, .t26.product-detail-page .pd-field > label { color: var(--t-ink); font-weight: 700; }
+.t26.product-detail-page .pd-chip span { min-width: 56px; min-height: 44px; border-radius: 999px; border-color: #cfdcdb; color: var(--t-ink); font-weight: 700; }
+.t26.product-detail-page .pd-chip input:checked + span { border-color: var(--t-deep); background: var(--t-deep); color: #fff; box-shadow: none; }
+.t26.product-detail-page .pd-qty { min-height: 44px; border-radius: 12px; border-color: #cfdcdb; }
+.t26.product-detail-page .pd-actions .btn { min-height: 54px; border-radius: 14px; font-size: 17px; }
+.t26.product-detail-page .pd-web-buy:disabled { border-radius: 14px; }
+.t26.product-detail-page .pd-zalo { width: 100%; text-decoration: none; }
+.t26.product-detail-page .pd-services { display: flex; flex-wrap: wrap; gap: 8px 20px; margin: 0; padding: 14px 0 0; border-top: 1px solid var(--t-line); list-style: none; color: var(--t-text); font-size: 15px; font-weight: 600; }
+.t26.product-detail-page .pd-services li { display: inline-flex; align-items: center; gap: 8px; }
+.t26.product-detail-page .pd-services li::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--t-teal); }
+.t26.product-detail-page .pd-tabs { position: sticky; top: 72px; z-index: 15; background: rgb(255 254 247 / 96%); border-block: 1px solid var(--t-line); backdrop-filter: blur(8px); }
+.t26.product-detail-page .pd-tabs .container { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
+.t26.product-detail-page .pd-tabs a { flex: none; display: inline-flex; align-items: center; min-height: 52px; padding: 0 18px; color: var(--t-text); font-weight: 600; border-bottom: 3px solid transparent; }
+.t26.product-detail-page .pd-tabs a:hover, .t26.product-detail-page .pd-tabs a:focus-visible { color: var(--t-deep); border-bottom-color: var(--t-teal); }
+.t26.product-detail-page .pd-size, .t26.product-detail-page .pd-card { scroll-margin-top: 150px; }
+.t26.product-detail-page .pd-size { background: var(--t-cream); border-top: 0; }
+.t26.product-detail-page .pd-size h2, .t26.product-detail-page .pd-card h2 { color: var(--t-ink); }
+.t26.product-detail-page .pd-size__figure, .t26.product-detail-page .pd-table-shell { border-color: var(--t-line); border-radius: 14px; }
+.t26.product-detail-page .pd-measure-key { background: var(--t-deep); }
+.t26.product-detail-page .pd-size-table thead th { background: var(--t-deep); }
+.t26.product-detail-page .pd-size-table th, .t26.product-detail-page .pd-size-table td { color: var(--t-ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+.t26.product-detail-page .pd-size-table thead th { color: #fff; font-weight: 700; }
+.t26.product-detail-page .pd-size-table tbody tr td:first-child { background: var(--t-teal-soft); color: var(--t-deep); font-weight: 800; }
+.t26.product-detail-page .pd-details { background: #fff; border-top: 1px solid var(--t-line); }
+.t26.product-detail-page .pd-card { border-color: var(--t-line); border-radius: var(--t-radius); background: var(--t-cream); }
+.t26.product-detail-page .pd-card--warn { border-color: #f1d3a1; background: #fffaf0; }
+.t26.product-detail-page .pd-list, .t26.product-detail-page .pd-facts dd, .t26.product-detail-page .pd-card p { color: var(--t-text); }
+.t26.product-detail-page .pd-link, .t26.product-detail-page .pd-facts a { color: var(--t-deep); font-weight: 700; }
+.t26.product-detail-page .pd-notice { margin-top: 20px; }
+.t26.product-detail-page .pd-related { background: var(--t-cream); }
+.t-products--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+@media (max-width: 1100px) {
+  .t-products--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 900px) {
+  .t26.product-detail-page .pd-hero__grid { grid-template-columns: 1fr; gap: 20px; }
+  .t26.product-detail-page .pd-tabs { top: 64px; }
+}
+@media (max-width: 760px) {
+  .t26.product-detail-page .pd-summary { padding: 18px 16px; }
+  .t26.product-detail-page .pd-price strong { font-size: 30px; }
+  .t26.product-detail-page .pd-tabs a { min-height: 48px; padding: 0 14px; font-size: 15px; }
+  .t-products--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .t-products--3 > :nth-child(3) { display: none; }
+}

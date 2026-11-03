@@ -270,7 +270,7 @@ def size_table_html(p):
               </div>'''
 
 
-def render_page(p, head, css_version, js_version):
+def render_page(p, head, css_version, js_version, theme_version):
     sku, name, unit = p['sku'], escape(p['name']), p['unit']
     badge = (f'<span class="catalog-badge">BYT {BYT_NUMBER}</span>' if p['has_byt']
              else f'<span class="catalog-badge catalog-badge--warm">{escape(p["category_label"])}</span>')
@@ -278,7 +278,11 @@ def render_page(p, head, css_version, js_version):
     description = f'{p["name"]} ({sku}) Comfycare, {p["category_label"].lower()}'
     description += f', áp lực {p["pressure"]}' if p['pressure'] else ''
     description += f'. Giá bán lẻ {vnd(p["price"])}/{unit}, đã gồm VAT. Bảng size, cách chọn size và mua trên Shopee.'
-    pressure = f'<p class="pd-pressure">Áp lực {p["pressure"]}</p>' if p['pressure'] else ''
+    # Giao diện 2026: áp lực và kiểu dáng hiện thành nhãn dưới tên sản phẩm.
+    tags = [f'<span class="t-chip pd-pressure">Áp lực {p["pressure"]}</span>'] if p['pressure'] else []
+    if p['group'] != 'phu-kien':
+        tags.append(f'<span class="t-chip">{escape(p["style"][:1].upper() + p["style"][1:])}</span>')
+    pressure = f'<div class="pd-tags">{"".join(tags)}</div>' if tags else ''
     gift = ('''<p class="pd-gift"><strong>Tặng kèm</strong> dụng cụ hỗ trợ xỏ tất CS100 (dạng miếng vải polyester).</p>'''
             if p['gift_cs100'] else '')
     scope = ''  # business 41: chỉ tất y tế nhắc chứng nhận; đồ thể thao không nhắc.
@@ -429,6 +433,32 @@ def render_page(p, head, css_version, js_version):
                    'url': f'https://comfycare.vn{p["url"]}'},
     }
 
+    # Thanh mục nhanh: chỉ hiện mục có trên trang.
+    tab_spec = [('pd-info-title', 'Thông tin', True), ('pd-size', 'Bảng size', bool(p['size_table'])),
+                ('pd-usage-title', 'Cách dùng', 'id="pd-usage-title"' in cards),
+                ('pd-care-title', 'Giặt và bảo quản', 'id="pd-care-title"' in cards),
+                ('pd-exchange-title', 'Đổi trả', 'id="pd-exchange-title"' in cards)]
+    tabs = ''.join(f'<a href="#{i}">{t}</a>' for i, t, show in tab_spec if show)
+    # J.3: dòng tất y tế nhắc hỏi bác sĩ với thai kỳ, bệnh nền, sau phẫu thuật.
+    notice = ('''
+          <div class="t-notice pd-notice">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M12 11v5M12 8h.01" /></svg>
+            <p>Đang mang thai, có bệnh nền hoặc sau phẫu thuật: anh/chị hỏi ý kiến bác sĩ trước khi dùng.</p>
+          </div>''' if p['has_byt'] else '')
+    services = ['Đổi trả 15 ngày', 'Giao hàng toàn quốc', 'Tư vấn size qua Zalo']
+    service_row = ''.join(f'<li>{s}</li>' for s in services)
+    related = ''.join(
+        f'''
+            <article class="t-pcard">
+              <a class="t-pcard__media" href="{r["url"]}" tabindex="-1" aria-hidden="true"><img src="{r["gallery"][0]["medium"]}" alt="" width="640" height="640" loading="lazy" decoding="async" /></a>
+              <div class="t-pcard__body">
+                <h3><a href="{r["url"]}">{escape(r["name"])}</a></h3>
+                <span class="t-pcard__sku">{r["sku"]}</span>
+                <p class="t-pcard__price">{vnd(r["price"])} <small>/ {r["unit"]}</small></p>
+                <a class="t-btn t-btn--outline t-btn--small" href="{r["url"]}">Xem chi tiết</a>
+              </div>
+            </article>''' for r in p['related'])
+
     return f'''<!doctype html>
 <html lang="vi">
   <head>
@@ -438,7 +468,11 @@ def render_page(p, head, css_version, js_version):
     <meta name="description" content="{escape(description)}" />
     <link rel="canonical" href="https://comfycare.vn{p["url"]}" />
     <link rel="icon" type="image/webp" href="/assets/logo/comfycare-logo-64.webp" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&amp;display=swap" />
     {head["styles"]}
+    <link rel="stylesheet" href="/theme-2026.css?v={theme_version}" />
     <link rel="stylesheet" href="/product-detail.css?v={css_version}" />
     {head["site"]}
     <script src="/product-detail.js?v={js_version}" defer></script>
@@ -446,7 +480,7 @@ def render_page(p, head, css_version, js_version):
     {head["pixel"]}
     {head["chatbot"]}
   </head>
-  <body class="info-page product-detail-page" data-base-path="/" data-current-path="{p["category_route"]}" data-sku="{sku}">
+  <body class="t26 info-page product-detail-page" data-base-path="/" data-current-path="{p["category_route"]}" data-sku="{sku}">
     <div data-site-header></div>
 
     <main class="content-page" id="top">
@@ -486,11 +520,16 @@ def render_page(p, head, css_version, js_version):
                 <button class="btn pd-web-buy" type="button" disabled aria-describedby="pd-web-note">Mua ngay <span class="pd-soon">Sắp ra mắt</span></button>
               </div>
               <p class="pd-muted" id="pd-web-note">Đặt mua trực tiếp trên website đang được chuẩn bị. Trong lúc chờ, anh/chị mua trên Shopee hoặc nhắn Zalo để được tư vấn.</p>
-              <a class="pd-zalo" href="{ZALO}" target="_blank" rel="noopener noreferrer">{'Cần tư vấn size? Nhắn Zalo' if p['sizes'] else 'Cần tư vấn? Nhắn Zalo'}</a>
+              <a class="t-btn t-btn--outline pd-zalo" href="{ZALO}" target="_blank" rel="noopener noreferrer">{'Gửi số đo, nhờ tư vấn size qua Zalo' if p['sizes'] else 'Cần tư vấn? Nhắn Zalo'}</a>
+              <ul class="pd-services">{service_row}</ul>
             </div>
           </div>
         </div>
       </section>
+
+      <nav class="pd-tabs" aria-label="Mục trên trang">
+        <div class="container">{tabs}</div>
+      </nav>
 {size_section}
 
       <section class="pd-details">
@@ -503,15 +542,29 @@ def render_page(p, head, css_version, js_version):
           </section>
 {cards}
         </div>
+        <div class="container">{notice}
+        </div>
       </section>
 
-      <section class="page-cta">
-        <div class="container page-cta__inner">
-          <div>
-            <p class="eyebrow">Cần tư vấn thêm?</p>
-            <h2>{cta}</h2>
+      <section class="t-section pd-related" aria-labelledby="pd-related-title">
+        <div class="container">
+          <div class="t-head">
+            <h2 class="t-title" id="pd-related-title">Sản phẩm liên quan</h2>
+            <a class="t-link" href="/{p["category_route"]}/">Xem {escape(p["category_label"].lower())} <span aria-hidden="true">→</span></a>
           </div>
-          <a class="btn btn--primary" href="{ZALO}" target="_blank" rel="noopener noreferrer">Tư vấn qua Zalo</a>
+          <div class="t-products t-products--3">{related}
+          </div>
+        </div>
+      </section>
+
+      <section class="t-cta" aria-label="Tư vấn qua Zalo">
+        <div class="container t-cta__inner">
+          <img class="t-cta__avatar" src="/assets/home-2026/tu-van-240.webp" alt="" width="240" height="240" loading="lazy" decoding="async" />
+          <div>
+            <h2>Cần tư vấn thêm?</h2>
+            <p>{cta}</p>
+          </div>
+          <a class="t-btn t-btn--cta" href="{ZALO}" target="_blank" rel="noopener noreferrer">Nhắn Zalo 0848 621 092</a>
         </div>
       </section>
     </main>
@@ -542,11 +595,18 @@ out.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + '\n', encodin
 
 version = lambda name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest()[:12]
 css_version, js_version = version('product-detail.css'), version('product-detail.js')
+theme_version = version('theme-2026.css')
 head = head_parts()
 for sku in PAGE_SKUS:
+    p = products[sku]
+    # Sản phẩm liên quan: 3 mã cùng nhóm theo thứ tự PAGE_SKUS; phụ kiện gợi ý dòng tất y tế.
+    group = 'c2-y-te' if p['group'] == 'phu-kien' else p['group']
+    pool = [s for s in PAGE_SKUS if s != sku and products[s]['group'] == group]
+    p['related'] = [products[s] for s in (pool + [s for s in PAGE_SKUS if s != sku and s not in pool])[:3]]
     page = ROOT / 'san-pham' / sku.lower() / 'index.html'
     page.parent.mkdir(exist_ok=True)
-    page.write_text(render_page(products[sku], head, css_version, js_version), encoding='utf-8')
+    page.write_text(render_page(p, head, css_version, js_version, theme_version), encoding='utf-8')
+    del p['related']
 update_sitemap(PAGE_SKUS)
 print({'products': len(products), 'pages': PAGE_SKUS, 'gallery': {s: len(products[s]['gallery']) for s in PAGE_SKUS},
        'css_version': css_version, 'js_version': js_version})
