@@ -921,3 +921,51 @@
 .t26.product-detail-page .pd-services { grid-template-columns: minmax(0, .9fr) minmax(0, 1fr) minmax(0, 1.35fr); }
 .t26.product-detail-page .pd-services li.pd-gift { padding: 10px 14px; }
 @media (max-width: 760px) { .t26.product-detail-page .pd-services { grid-template-columns: minmax(0, 1fr); } }
+
+/* Chỉnh 04/11 (4): khối mua quá to; đưa về thang chữ thống nhất 14/16/18/24/32 (UI/UX Pro: modular scale). */
+.t26.product-detail-page .pd-hero__grid { grid-template-columns: minmax(0, .85fr) minmax(0, 1fr); gap: 32px; }
+@media (max-width: 900px) { .t26.product-detail-page .pd-hero__grid { grid-template-columns: minmax(0, 1fr); } }
+.t26.product-detail-page .pd-summary { gap: 10px; padding: 22px 24px; }
+.t26.product-detail-page .pd-summary h1, .t26.product-detail-page .pd-summary h1 { font-size: clamp(26px, 2.3vw, 32px) !important; }
+.t26.product-detail-page .pd-sku { font-size: 22px !important; margin-top: -4px; }
+.t26.product-detail-page .pd-price strong { font-size: clamp(32px, 2.8vw, 40px) !important; }
+.t26.product-detail-page .pd-price small { font-size: 14px; }
+.pd-feats li { font-size: 15px !important; padding: 9px 12px !important; gap: 8px; }
+.pd-feats svg { width: 22px !important; height: 22px !important; }
+.t26.product-detail-page .pd-field legend, .t26.product-detail-page .pd-field > label { font-size: 16px !important; margin-bottom: 6px; }
+.t26.product-detail-page .pd-chip span { font-size: 16px !important; min-height: 40px !important; min-width: 64px; }
+.t26.product-detail-page .pd-chip--color span { min-width: 0; }
+.t26.product-detail-page .pd-chip--color i { width: 28px; height: 28px; }
+.t26.product-detail-page .pd-field .pd-link { font-size: 14px; }
+.pd-stepper button { width: 40px; height: 40px; font-size: 20px; }
+.pd-stepper input { height: 40px; width: 48px; }
+.t26.product-detail-page .pd-actions { gap: 12px; }
+.t26.product-detail-page .pd-actions .btn { font-size: 18px !important; min-height: 52px !important; }
+.t26.product-detail-page .pd-zalo { font-size: 16px !important; min-height: 48px !important; gap: 10px; }
+.t26.product-detail-page .pd-zalo img { width: 28px; height: 28px; }
+.t26.product-detail-page .pd-services { padding-top: 12px; }
+.t26.product-detail-page .pd-services li { font-size: 15px !important; gap: 10px; }
+.t26.product-detail-page .pd-services svg { width: 32px !important; height: 32px !important; }
+.t26.product-detail-page .pd-services li.pd-gift { padding: 8px 12px; }
+.pd-cert { font-size: 14px; }
+/* Phần nội dung dưới: tiêu đề 32, chữ 18 */
+.pd-h2 { font-size: clamp(26px, 2.3vw, 32px) !important; }
+.pd-desc { font-size: 18px !important; }
+.pd-highlights li { font-size: 18px !important; gap: 14px; }
+.pd-highlights svg { width: 48px !important; height: 48px !important; }
+.pd-specs { font-size: 16px !important; }
+.t26.product-detail-page .pd-tab { font-size: 17px !important; min-height: 56px !important; }
+.t26.product-detail-page .pd-size-table th, .t26.product-detail-page .pd-size-table td { font-size: 17px !important; }
+.pd-wear li { font-size: 17px !important; }
+.pd-rcard h3 { font-size: 18px !important; }
+.pd-rcard__price { font-size: 22px !important; }
+.pd-xem-them > summary { font-size: 17px !important; }
+/* Hình chân bảng size: gọn, không phóng quá khung */
+.t26.product-detail-page .pd-size__grid { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); align-items: start; }
+.leg-figure { max-width: 460px; }
+.leg-tag { min-width: 128px; font-size: 13px; padding: 6px 12px; }
+.leg-tag b { font-size: 19px; }
+@media (max-width: 760px) {
+  .t26.product-detail-page .pd-actions .btn { font-size: 17px !important; min-height: 50px !important; }
+  .leg-figure { max-width: none; }
+}

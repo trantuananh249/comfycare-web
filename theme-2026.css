@@ -904,3 +904,82 @@ a.t-sku:hover { background: #ffe2b8; }
 .t26.faq-page .page-lead { margin-left: 0 !important; max-width: 900px; }
 .t26 .page-hero .container, .t26 .page-hero h1 { justify-items: start !important; }
 .a26-hero h1 { font-size: clamp(28px, 3.1vw, 42px) !important; }
+
+/* Chỉnh 04/11 (4): theo ghi chú anh trên ảnh. Thang chữ thống nhất 14/16/18/24/32 (UI/UX Pro). */
+/* Trang chủ: dải cam kết to hơn; link "Khám phá sản phẩm": chỉ gạch dưới chữ, không gạch mũi tên */
+.t-trust__item { gap: 14px; min-height: 88px; font-size: 20px; }
+.t-trust__item svg { width: 40px; height: 40px; }
+.t-link { text-decoration: none; }
+.t-link__t { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1.5px; }
+@media (max-width: 760px) { .t-trust__item { min-height: 60px; font-size: 17px; } .t-trust__item svg { width: 32px; height: 32px; } }
+
+/* Bài "Cách đo chân": tiêu đề, chữ cân với nội dung; ảnh đúng tỷ lệ gốc */
+.g26 { font-size: 17px; }
+.g26-title { font-size: clamp(30px, 3vw, 42px) !important; }
+.g26-meta { font-size: 16px; }
+.g26-cover { aspect-ratio: 2 / 1 !important; object-position: 30% 50% !important; border-radius: 20px; }
+.g26-lead { font-size: clamp(18px, 1.5vw, 21px); }
+.g26-toc { padding: 20px 22px; }
+.g26-toc p, .g26-zalo p { font-size: 21px; }
+.g26-toc a { font-size: 17px; min-height: 46px; }
+.g26-toc a::before { width: 30px; height: 30px; font-size: 15px; }
+.g26-zalo { padding: 20px; }
+.g26-sec h2 { font-size: clamp(24px, 2.2vw, 30px) !important; margin-bottom: 12px; }
+.g26-checks { padding-left: 0; }
+.g26-checks li { font-size: 17px; gap: 12px; }
+.g26-checks svg { width: 26px; height: 26px; }
+.g26-table th, .g26-table td { font-size: 17px; }
+.g26-callout { font-size: 17px; }
+.g26-photos img { aspect-ratio: 9 / 5 !important; border-radius: 16px; }
+.g26-photos figcaption { font-size: 16px; }
+/* Hình chân vẽ nét cao + nhãn HTML (thay ảnh cắt bị méo) */
+.g26-leg--v2 { width: min(100%, 680px); margin: 0 0 24px; }
+.g26-leg--v2 img { width: 230px !important; height: auto; margin: 0 0 0 24px !important; }
+.g26-leg--v2 .g26-pin { left: 190px; right: 0; width: auto; }
+.g26-leg--v2 .g26-pin em { width: auto; margin-left: 70px; padding: 10px 18px; font-size: 16px; }
+.g26-leg--v2 .g26-pin em::before { width: 70px; border-top-style: dashed; }
+.g26-leg--v2 .g26-pin--g { top: 10%; }
+.g26-leg--v2 .g26-pin--c { top: 56%; }
+.g26-leg--v2 .g26-pin--b { top: 80%; }
+/* Sản phẩm gợi ý: 4 cột, ảnh vuông hiện đủ */
+.g26-products { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.g26 .g26-products .t-pcard__media img { aspect-ratio: 1 !important; object-fit: contain !important; }
+.g26 .g26-products .t-pcard__body { padding: 12px 14px 14px; gap: 2px; }
+.g26 .g26-products .t-pcard h3 { font-size: 16px !important; }
+.g26 .g26-products .t-pcard__sku { font-size: 14px !important; }
+.g26 .g26-products .t-pcard__price { font-size: 18px !important; margin: 4px 0 10px; }
+.g26 .g26-products .t-btn { min-height: 40px; font-size: 15px; }
+.g26-line a { color: var(--t-deep); font-weight: 700; text-decoration: underline; }
+/* Bài viết liên quan: ảnh tỷ lệ 16:10, không cắt méo */
+.g26 .t-acard img, .f26-related .t-acard img { aspect-ratio: 16 / 10 !important; object-fit: cover; }
+.g26 .t-acard span { font-size: 17px; }
+@media (max-width: 900px) { .g26-products { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 760px) {
+  .g26-leg--v2 img { width: 120px !important; margin-left: 0 !important; }
+  .g26-leg--v2 .g26-pin { left: 84px; }
+  .g26-leg--v2 .g26-pin em { margin-left: 24px; padding: 6px 10px; font-size: 13px; border-radius: 12px; }
+  .g26-leg--v2 .g26-pin em::before { width: 24px; }
+  .g26-photos img { aspect-ratio: 16 / 9 !important; }
+  .g26 .t-acard img, .f26-related .t-acard img { aspect-ratio: auto !important; height: 100%; }
+}
+
+/* Liên hệ: bỏ khoảng trống thừa dưới 3 thẻ Email/Website/Giờ làm việc */
+.t26 .contact-info-grid > .contact-mini-card:not(.contact-mini-card--place) { min-height: 0; height: auto; align-items: center; padding: 16px 18px; }
+.t26 .contact-info-grid { align-items: start; }
+
+/* Câu hỏi thường gặp: giãn các chủ đề bên trái */
+.t-doc .t-toc ol { display: grid; gap: 6px; }
+.t-doc .t-toc li { border-top: 0; }
+.t-doc .t-toc a { padding: 10px 10px !important; min-height: 0 !important; line-height: 1.4; border-radius: 12px; }
+.t-doc .t-toc li + li a { border-top: 0; }
+.t-doc .t-toc li + li { position: relative; }
+.t-doc .t-toc li + li::before { content: ""; position: absolute; left: 10px; right: 10px; top: -3px; border-top: 1px solid var(--t-line); }
+@media (max-width: 760px) {
+  .g26-leg--v2 img { width: 160px !important; }
+  .g26-leg--v2 .g26-pin { left: 112px; }
+  .g26-leg--v2 .g26-pin em { margin-left: 16px; font-size: 13px !important; line-height: 1.3; }
+  .g26-leg--v2 .g26-pin em::before { width: 16px; }
+  .g26-photos { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; gap: 8px !important; }
+  .g26-photos img { aspect-ratio: 1 !important; border-radius: 12px; }
+  .g26-photos figcaption { width: 100%; padding: 4px 6px; font-size: 13px; }
+}

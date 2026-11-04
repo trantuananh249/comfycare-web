@@ -355,11 +355,8 @@ def render_page(p, head, css_version, js_version, theme_version):
                 points.insert(0, ('cG', 'Vòng đùi', 'g'))
             labels = ''.join(f'<span class="leg-tag leg-tag--{c}"><b>{k}</b>({v})</span>' for k, v, c in points)
             leg = 'chan-do-duoi' if sku in LEG_ONLY else 'chan-do'
-            if sku in LEG_ONLY:  # Hình trong layout duyệt (tất ống chân: cC, cB).
-                figure = '''<figure class="leg-figure leg-figure--layout"><img src="/assets/layout-2026/sp-chan.webp" alt="Vị trí đo cC (vòng bắp chân) và cB (vòng cổ chân)" width="475" height="320" loading="lazy" decoding="async" /></figure>'''
-            else:
-                figure = ''
-            figure = figure or f'''<figure class="leg-figure{' leg-figure--short' if sku in LEG_ONLY else ''}">
+            # Ảnh cắt từ layout (sp-chan) bị vỡ: dùng hình chân vẽ nét cao + nhãn HTML (04/11).
+            figure = f'''<figure class="leg-figure{' leg-figure--short' if sku in LEG_ONLY else ''}">
                 <img src="/assets/trang-2026/{leg}-600.webp" srcset="/assets/trang-2026/{leg}-600.webp 600w, /assets/trang-2026/{leg}.webp 900w" sizes="(max-width: 900px) 90vw, 480px" alt="Vị trí đo {', '.join(f'{k} ({v.lower()})' for k, v, _ in points)}" width="900" height="{1100 if leg == 'chan-do' else 770}" loading="lazy" decoding="async" />
                 {labels}
               </figure>'''
@@ -528,7 +525,7 @@ def render_page(p, head, css_version, js_version, theme_version):
         'chat': '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12Z" /></svg>',
     }
     services = [('swap', 'Đổi trả 15 ngày'), ('truck', 'Giao hàng toàn quốc')]
-    services.append(('gift', 'Tặng kèm dụng cụ xỏ tất CS100 theo chính sách') if p['gift_cs100'] else ('chat', 'Tư vấn size qua Zalo'))
+    services.append(('gift', 'Tặng kèm dụng cụ xỏ tất CS100') if p['gift_cs100'] else ('chat', 'Tư vấn size qua Zalo'))
     service_row = ''.join(f'<li{" class=\"pd-gift\"" if i == "gift" else ""}>{SVC[i]}<span>{t}</span></li>' for i, t in services)
     related = ''.join(
         f'''
