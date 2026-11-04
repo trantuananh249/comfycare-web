@@ -255,7 +255,8 @@ def head_parts():
 
 def size_table_html(p):
     header, rows = p['size_table']['header'], p['size_table']['rows']
-    th = ''.join(f'<th scope="col">{escape(h.replace(" (vị trí A)", " (ngay trên gối)"))}</th>' for h in header)
+    long_names = {'cB (cm)': 'Vòng cổ chân cB (cm)', 'cC (cm)': 'Vòng bắp chân cC (cm)', 'cG (cm)': 'Vòng đùi cG (cm)'}
+    th = ''.join(f'<th scope="col">{escape(long_names.get(h, h).replace(" (vị trí A)", " (ngay trên gối)"))}</th>' for h in header)
     body = '\n'.join(
         '                  <tr>' + ''.join(f'<td>{escape(c)}</td>' for c in row) + '</tr>' for row in rows)
     # Không dùng catalog-size-table: CSS chung đổi bảng đó thành thẻ dọc trên điện thoại.
@@ -278,11 +279,20 @@ def render_page(p, head, css_version, js_version, theme_version):
     description = f'{p["name"]} ({sku}) Comfycare, {p["category_label"].lower()}'
     description += f', áp lực {p["pressure"]}' if p['pressure'] else ''
     description += f'. Giá bán lẻ {vnd(p["price"])}/{unit}, đã gồm VAT. Bảng size, cách chọn size và mua trên Shopee.'
-    # Giao diện 2026: áp lực và kiểu dáng hiện thành nhãn dưới tên sản phẩm.
-    tags = [f'<span class="t-chip pd-pressure">Áp lực {p["pressure"]}</span>'] if p['pressure'] else []
-    if p['group'] != 'phu-kien':
-        tags.append(f'<span class="t-chip">{escape(p["style"][:1].upper() + p["style"][1:])}</span>')
-    pressure = f'<div class="pd-tags">{"".join(tags)}</div>' if tags else ''
+    # Layout duyệt 04/11: 3 ô đặc điểm có dấu tích dưới giá (áp lực + kiểu dáng tách theo dấu phẩy).
+    CHECK = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="m7.5 12.5 3 3 6-6.5" /></svg>'
+    feats = []
+    if p['pressure']:
+        level = ' (cấp 2)' if p['group'].startswith('c2') else ' (cấp 1)' if p['group'] == 'c1' else ''
+        feats.append(f'Áp lực {p["pressure"]}{level}')
+    if p['group'] == 'c2-y-te':
+        n = p['name']
+        feats.append('Hở 5 đầu ngón' if 'Hở Ngón' in n else 'Hở cả bàn chân' if 'Không Bàn' in n else 'Kín bàn chân')
+        feats.append('Dài đến dưới gối' if 'Ống Chân' in n else 'Dài đến đùi' if 'Đùi' in n else 'Dài đến eo')
+    elif p['group'] != 'phu-kien':
+        feats.append(p['style'][:1].upper() + p['style'][1:])
+    pressure = (f'<ul class="pd-feats">{"".join(f"<li>{CHECK}<span>{escape(f)}</span></li>" for f in feats)}</ul>'
+                if feats else '')
     gift = ('''<p class="pd-gift"><strong>Tặng kèm</strong> dụng cụ hỗ trợ xỏ tất CS100 (dạng miếng vải polyester).</p>'''
             if p['gift_cs100'] else '')
     scope = ''  # business 41: chỉ tất y tế nhắc chứng nhận; đồ thể thao không nhắc.
@@ -302,14 +312,19 @@ def render_page(p, head, css_version, js_version, theme_version):
             for v in values)
     size_field = ''
     if p['sizes']:
-        guide = ('<a class="pd-link" href="#pd-size">Cách đo và bảng size</a>' if p['size_table'] else '')
+        guide = ('<a class="pd-link" href="#pd-size">Cách đo chân để chọn size</a>' if p['size_table'] else '')
         size_field = f'''<fieldset class="pd-field">
-                  <legend>Size {guide}</legend>
+                  <legend>Chọn size</legend>
                   <div class="pd-chips">{options("size", p["sizes"])}</div>
+                  {guide}
                 </fieldset>'''
+    SWATCH = {'Da': '#f2cfae', 'Đen': '#1f1f1f'}
+    swatches = ''.join(
+        f'<label class="pd-chip pd-chip--color"><input type="radio" name="color" value="{escape(v)}" /><span><i style="background:{SWATCH.get(v, "#ccc")}"></i>{escape(v)}</span></label>'
+        for v in p['colors'])
     color_field = (f'''<fieldset class="pd-field">
-                  <legend>Màu</legend>
-                  <div class="pd-chips">{options("color", p["colors"])}</div>
+                  <legend>Màu sắc</legend>
+                  <div class="pd-chips">{swatches}</div>
                 </fieldset>''' if p['colors'] else '')
 
     listing = LISTING[sku]
@@ -334,18 +349,19 @@ def render_page(p, head, css_version, js_version, theme_version):
     if p['size_table']:
         figure, measures = '', ''
         if p['group'] == 'c2-y-te':
-            # F.1: cB mắt cá, cC bắp chân (vùng to nhất), cG đùi (vùng to nhất, sát bẹn).
-            steps = [('cB', 'Chu vi mắt cá chân'), ('cC', 'Chu vi bắp chân, chỗ to nhất')]
+            # F.1: cB mắt cá, cC bắp chân (vùng to nhất), cG đùi (vùng to nhất, sát bẹn). Hình chân có nhãn như layout.
+            points = [('cC', 'Vòng bắp chân', 'c'), ('cB', 'Vòng cổ chân', 'b')]
             if sku not in LEG_ONLY:
-                steps.append(('cG', 'Chu vi đùi, chỗ to nhất sát bẹn'))
-            items = ''.join(f'<li><span class="pd-measure-key">{k}</span>{v}</li>' for k, v in steps)
-            note = ('<p class="pd-muted">Tất ống chân chỉ cần cB và cC, không cần đo đùi (cG).</p>'
-                    if sku in LEG_ONLY else '')
-            measures = f'''<p class="pd-size__need">{sku} cần <strong>{len(steps)} số đo</strong>:</p>
-                <ol class="pd-measure">{items}</ol>
-                {note}'''
-            figure = '''<figure class="pd-size__figure pd-size__figure--wide">
-                <img src="/assets/size-guide/measure-leg-800.webp" srcset="/assets/size-guide/measure-leg-480.webp 480w, /assets/size-guide/measure-leg-800.webp 800w, /assets/size-guide/measure-leg.webp 1448w" sizes="(max-width: 900px) calc(100vw - 32px), 560px" alt="Minh họa vị trí đo cB (mắt cá), cC (bắp chân), cG (đùi)" width="1448" height="1086" loading="lazy" decoding="async" />
+                points.insert(0, ('cG', 'Vòng đùi', 'g'))
+            labels = ''.join(f'<span class="leg-tag leg-tag--{c}"><b>{k}</b>({v})</span>' for k, v, c in points)
+            leg = 'chan-do-duoi' if sku in LEG_ONLY else 'chan-do'
+            if sku in LEG_ONLY:  # Hình trong layout duyệt (tất ống chân: cC, cB).
+                figure = '''<figure class="leg-figure leg-figure--layout"><img src="/assets/layout-2026/sp-chan.webp" alt="Vị trí đo cC (vòng bắp chân) và cB (vòng cổ chân)" width="475" height="320" loading="lazy" decoding="async" /></figure>'''
+            else:
+                figure = ''
+            figure = figure or f'''<figure class="leg-figure{' leg-figure--short' if sku in LEG_ONLY else ''}">
+                <img src="/assets/trang-2026/{leg}-600.webp" srcset="/assets/trang-2026/{leg}-600.webp 600w, /assets/trang-2026/{leg}.webp 900w" sizes="(max-width: 900px) 90vw, 480px" alt="Vị trí đo {', '.join(f'{k} ({v.lower()})' for k, v, _ in points)}" width="900" height="{1100 if leg == 'chan-do' else 770}" loading="lazy" decoding="async" />
+                {labels}
               </figure>'''
         elif sku in MEASURE:
             items = ''.join(f'<li><span class="pd-measure-key">{i}</span>{escape(s)}</li>' for i, s in enumerate(MEASURE[sku], 1))
@@ -356,24 +372,18 @@ def render_page(p, head, css_version, js_version, theme_version):
                 figure = f'''<figure class="pd-size__figure pd-size__figure--square">
                 <img src="{g["medium"]}" srcset="{g["medium"]} 640w, {g["src"]} {g["width"]}w" sizes="(max-width: 900px) calc(100vw - 32px), 560px" alt="Hướng dẫn chọn size {name}" width="{g["width"]}" height="{g["height"]}" loading="lazy" decoding="async" />
               </figure>'''
+        # Layout: bảng bên trái + ghi chú dạng thanh; hình đo bên phải.
         size_section = f'''
-          <div class="pd-size">
-          <h2 id="pd-size-title">Cách đo và chọn size</h2>
-          <div class="pd-size__grid{'' if figure or measures else ' pd-size__grid--single'}">
-            <div class="pd-size__how">
-              {figure}
-              {measures}
-            </div>
+          <h2 class="pd-h2" id="pd-size-title">Bảng size</h2>
+          <div class="pd-size__grid{'' if figure else ' pd-size__grid--single'}">
             <div class="pd-size__chart">
-              <p class="pd-size__label">Đối chiếu số đo với bảng (cm)</p>
               {size_table_html(p)}
+              <p class="pd-note"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="M12 11v5M12 8h.01" /></svg>Số đo nằm giữa 2 size hoặc mới dùng lần đầu: <a href="{ZALO}" target="_blank" rel="noopener noreferrer">nhắn Zalo để em tư vấn</a>.</p>
+              {measures}
               {size_notes}
-              <div class="pd-size__links">
-                <a class="btn btn--secondary btn--small" href="{ZALO}" target="_blank" rel="noopener noreferrer">Gửi số đo qua Zalo</a>
-                <a class="pd-link" href="{p["size_guide_url"]}">Hướng dẫn chọn size đầy đủ</a>
-              </div>
+              <a class="pd-link" href="{p["size_guide_url"]}">Hướng dẫn chọn size đầy đủ</a>
             </div>
-          </div>
+            {figure}
           </div>'''
 
     images = p['gallery']
@@ -437,20 +447,70 @@ def render_page(p, head, css_version, js_version, theme_version):
             <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M12 11v5M12 8h.01" /></svg>
             <p>Đang mang thai, có bệnh nền hoặc sau phẫu thuật: anh/chị hỏi ý kiến bác sĩ trước khi dùng.</p>
           </div>''' if p['has_byt'] else '')
-    # Nội dung chi tiết chia theo tab để trang không dài: mỗi tab một nhóm thẻ; không có JS thì hiện tất cả.
-    info_card = f'''
-          <section class="pd-card" aria-labelledby="pd-info-title">
-            <h2 id="pd-info-title">Thông tin sản phẩm</h2>
-            <dl class="pd-facts">
-{fact_rows}
-            </dl>
-          </section>'''
+    # Nội dung chi tiết chia tab (anh yêu cầu 04/11), bố cục từng tab theo layout duyệt: Mô tả, Bảng size, Cách mang, Giặt và bảo quản, Đổi trả.
+    ICONS = {
+        'leg': '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M18 4v22c0 4-2 7-6 9l-4 2c-2 1-2 5 1 5h18c3 0 5-2 5-5V4" /><path d="M18 14h14" /></svg>',
+        'cycle': '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M38 18A15 15 0 0 0 11 13l-3 3" /><path d="M8 8v8h8" /><path d="M10 30a15 15 0 0 0 27 5l3-3" /><path d="M40 40v-8h-8" /></svg>',
+        'toe': '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M14 6h16v18l10 8c3 2 2 8-3 8H20c-4 0-6-3-6-6Z" /><path d="M14 16h16" /><path d="M32 40c1-3 0-6-2-8" /></svg>',
+        'gauge': '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 34a16 16 0 1 1 32 0" /><path d="m24 34 8-10" /><circle cx="24" cy="34" r="2.5" /></svg>',
+    }
+    highlights = [('leg', 'Hỗ trợ giảm đau mỏi chân'), ('cycle', 'Hỗ trợ tuần hoàn')]
+    if p['group'] == 'c2-y-te' and 'Hở Ngón' in p['name']:
+        highlights.append(('toe', 'Hở ngón dễ kiểm tra đầu ngón'))
+    elif p['pressure']:
+        highlights.append(('gauge', f'Áp lực {p["pressure"]}'))
+    if p['group'] == 'phu-kien':
+        highlights = []
+    hl = ''.join(f'<li>{ICONS[i]}<span>{escape(t)}</span></li>' for i, t in highlights)
+    spec_keys = ('Chất liệu', 'Quy cách', 'Màu sắc', 'Kích cỡ')
+    specs = [(k, v) for k, v in facts if k in spec_keys] or facts[:4]
+    spec_html = ''.join(f'<li><b>{escape(k)}:</b> {escape(v)}</li>' for k, v in specs)
+    more_facts = ''.join(f'<div><dt>{escape(k)}</dt><dd>{escape(v)}</dd></div>' for k, v in facts if (k, v) not in specs)
+    if p['has_byt']:
+        more_facts += (f'<div><dt>Công bố</dt><dd>Công bố tiêu chuẩn áp dụng {BYT_NUMBER} tại Sở Y tế Hải Phòng, '
+                       f'size S–XXL. <a href="/chung-nhan/">Xem hồ sơ</a></dd></div>')
+    desc_panel = f'''
+          <h2 class="pd-h2" id="pd-info-title">Mô tả</h2>
+          <p class="pd-desc">{escape(p["description"])}</p>
+          {f'<ul class="pd-highlights">{hl}</ul>' if hl else ''}
+          <ul class="pd-specs">{spec_html}</ul>
+          <details class="pd-xem-them">
+            <summary>Xem thêm thông tin sản phẩm</summary>
+            <div class="pd-more">
+              {f'<section class="pd-card"><h3>Thông tin thêm</h3><dl class="pd-facts">{more_facts}</dl></section>' if more_facts else ''}{''.join(cards.get(c, '') for c in ('benefit', 'audience', 'quality'))}
+            </div>
+          </details>'''
+    # Cách mang: 4 bước dùng dụng cụ xỏ tất CS100 (ảnh thật của CS100) cho các mẫu không bàn, hở ngón.
+    wear_steps = ''
+    if p['gift_cs100'] or sku == 'CS100':
+        step_list = [('Mang dụng cụ', 'Đặt dụng cụ CS100 vào bàn chân'), ('Xỏ tất', 'Luồn tất qua dụng cụ lên cổ chân'),
+                     ('Kéo tất lên', 'Kéo tất lên bắp chân nhẹ nhàng'), ('Rút qua đầu hở', 'Rút dụng cụ ra qua đầu hở')]
+        wear_steps = '<ol class="pd-wear">' + ''.join(
+            f'<li><figure><img src="/assets/trang-2026/cs100-buoc-{i}.webp" alt="{escape(d)}" width="442" height="322" loading="lazy" decoding="async" /><span>{i}</span></figure><b>{t}</b></li>'
+            for i, (t, d) in enumerate(step_list, 1)) + '</ol>'
+    wear_panel = f'''
+          <h2 class="pd-h2" id="pd-wear-title">Cách mang</h2>
+          {wear_steps}
+          {notice}
+          <details class="pd-xem-them">
+            <summary>Cách sử dụng và lưu ý khi dùng</summary>
+            <div class="pd-more">{''.join(cards.get(c, '') for c in ('usage', 'caution'))}
+            </div>
+          </details>'''
+    care_panel = f'''
+          <h2 class="pd-h2">Giặt và bảo quản</h2>
+          <div class="pd-more">{cards.get('care', '')}
+          </div>'''
+    exchange_panel = f'''
+          <h2 class="pd-h2">Đổi trả</h2>
+          <div class="pd-more">{cards.get('exchange', '')}{cards.get('gift', '')}
+          </div>'''
     panel_spec = [
-        ('pd-thong-tin', 'Thông tin', info_card + ''.join(cards.get(c, '') for c in ('benefit', 'audience', 'quality', 'gift'))),
+        ('pd-mo-ta', 'Mô tả', desc_panel),
         ('pd-size', 'Bảng size', size_section),
-        ('pd-cach-dung', 'Cách dùng', ''.join(cards.get(c, '') for c in ('usage', 'caution')) + notice),
-        ('pd-giat', 'Giặt và bảo quản', cards.get('care', '')),
-        ('pd-doi-tra', 'Đổi trả', cards.get('exchange', '')),
+        ('pd-cach-mang', 'Cách mang', wear_panel if (wear_steps or 'usage' in cards or 'caution' in cards) else ''),
+        ('pd-giat', 'Giặt và bảo quản', care_panel if 'care' in cards else ''),
+        ('pd-doi-tra', 'Đổi trả', exchange_panel if ('exchange' in cards or 'gift' in cards) else ''),
     ]
     panel_spec = [x for x in panel_spec if x[2].strip()]
     tabs = ''.join(
@@ -458,22 +518,35 @@ def render_page(p, head, css_version, js_version, theme_version):
         for i, (pid, label, _) in enumerate(panel_spec))
     panels = ''.join(
         f'''
-          <div class="pd-panel{' is-active' if i == 0 else ''}{' pd-panel--grid' if pid != 'pd-size' else ''}" id="{pid}" role="tabpanel" aria-labelledby="{pid}-tab" tabindex="0">{body}
+          <div class="pd-panel{' is-active' if i == 0 else ''}" id="{pid}" role="tabpanel" aria-labelledby="{pid}-tab" tabindex="0">{body}
           </div>'''
         for i, (pid, _, body) in enumerate(panel_spec))
-    services = ['Đổi trả 15 ngày', 'Giao hàng toàn quốc', 'Tư vấn size qua Zalo']
-    service_row = ''.join(f'<li>{s}</li>' for s in services)
+    SVC = {
+        'swap': '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 7v5h-5" /><path d="M4 17v-5h5" /><path d="M18.6 9A7 7 0 0 0 6.4 6.1L4 8.5" /><path d="M5.4 15A7 7 0 0 0 17.6 17.9L20 15.5" /></svg>',
+        'truck': '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h11v10H3z" /><path d="M14 9h4l3 4v3h-7z" /><circle cx="7" cy="18" r="2" /><circle cx="17" cy="18" r="2" /></svg>',
+        'gift': '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="8" width="18" height="5" rx="1" /><path d="M5 13v8h14v-8M12 8v13" /><path d="M12 8c-2-4-6-4-6-1s6 1 6 1Zm0 0c2-4 6-4 6-1s-6 1-6 1Z" /></svg>',
+        'chat': '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12Z" /></svg>',
+    }
+    services = [('swap', 'Đổi trả 15 ngày'), ('truck', 'Giao hàng toàn quốc')]
+    services.append(('gift', 'Tặng kèm dụng cụ xỏ tất CS100 theo chính sách') if p['gift_cs100'] else ('chat', 'Tư vấn size qua Zalo'))
+    service_row = ''.join(f'<li{" class=\"pd-gift\"" if i == "gift" else ""}>{SVC[i]}<span>{t}</span></li>' for i, t in services)
     related = ''.join(
         f'''
-            <article class="t-pcard">
-              <a class="t-pcard__media" href="{r["url"]}" tabindex="-1" aria-hidden="true"><img src="{r["gallery"][0]["medium"]}" srcset="{r["gallery"][0]["medium"].replace("-640", "-320")} 320w, {r["gallery"][0]["medium"]} 640w" sizes="(max-width: 760px) 50vw, 380px" alt="" width="640" height="640" loading="lazy" decoding="async" /></a>
-              <div class="t-pcard__body">
+            <article class="pd-rcard">
+              <a class="pd-rcard__media" href="{r["url"]}" tabindex="-1" aria-hidden="true"><img src="{r["gallery"][0]["medium"].replace("-640", "-320")}" alt="" width="320" height="320" loading="lazy" decoding="async" /></a>
+              <div>
                 <h3><a href="{r["url"]}">{escape(r["name"])}</a></h3>
-                <span class="t-pcard__sku">{r["sku"]}</span>
-                <p class="t-pcard__price">{vnd(r["price"])} <small>/ {r["unit"]}</small></p>
+                <span class="pd-rcard__sku">{r["sku"]}</span>
+                <p class="pd-rcard__price">{vnd(r["price"])}</p>
                 <a class="t-btn t-btn--outline t-btn--small" href="{r["url"]}">Xem chi tiết</a>
               </div>
             </article>''' for r in p['related'])
+    reviews = ''.join(
+        f'''
+            <figure class="pd-review">
+              <figcaption><span aria-hidden="true">“</span>Khách hàng trên Shopee</figcaption>
+              <img src="/assets/reviews/review-shopee-0{i}-480.webp" alt="Đánh giá của khách hàng trên Shopee Comfycare" width="480" height="{h}" loading="lazy" decoding="async" />
+            </figure>''' for i, h in ((1, 147), (2, 160), (3, 151)))
 
     return f'''<!doctype html>
 <html lang="vi">
@@ -514,32 +587,33 @@ def render_page(p, head, css_version, js_version, theme_version):
           <div class="pd-hero__grid">
             {gallery_html}
             <div class="pd-summary">
-              <div class="pd-badges">{badge}<span class="sku">{sku}</span></div>
+              <span class="pd-cat">{escape(p["category_label"])}</span>
               <h1>{name}</h1>
+              <p class="pd-sku">{sku}</p>
+              <p class="pd-price"><strong>{vnd(p["price"])}</strong><small>Giá cho 1 {unit}{' (2 chiếc)' if unit == 'đôi' else ''}, đã gồm VAT</small></p>
               {pressure}
-              <p class="pd-lead">{escape(p["description"])}</p>
               {scope}
-              <div class="pd-price">
-                <strong>{vnd(p["price"])}</strong><span>/ {unit}</span>
-                <small>Giá bán lẻ, đã gồm VAT. Giá trên Shopee có thể khác tùy phân loại và voucher.</small>
-              </div>
-              {gift}
-              {promo}
               <form class="pd-options" aria-label="Chọn phân loại" onsubmit="return false">
-                {size_field}
                 {color_field}
-                <div class="pd-field">
+                {size_field}
+                <div class="pd-field pd-field--qty">
                   <label for="pd-qty">Số lượng</label>
-                  <input id="pd-qty" class="pd-qty" type="number" name="qty" min="1" max="20" value="1" inputmode="numeric" />
+                  <div class="pd-stepper">
+                    <button type="button" data-qty="-1" aria-label="Giảm số lượng">−</button>
+                    <input id="pd-qty" class="pd-qty" type="number" name="qty" min="1" max="20" value="1" inputmode="numeric" />
+                    <button type="button" data-qty="1" aria-label="Tăng số lượng">+</button>
+                  </div>
                 </div>
               </form>
               <div class="pd-actions">
-                <a class="btn btn--primary" href="{p["shopee_url"]}" target="_blank" rel="noopener noreferrer">Mua trên Shopee</a>
-                <button class="btn pd-web-buy" type="button" disabled aria-describedby="pd-web-note">Mua ngay <span class="pd-soon">Sắp ra mắt</span></button>
+                <button class="btn pd-web-buy" type="button" disabled aria-describedby="pd-web-note">Mua ngay</button>
+                <button class="btn pd-web-add" type="button" disabled>Thêm vào giỏ</button>
               </div>
-              <p class="pd-muted" id="pd-web-note">Đặt mua trực tiếp trên website đang được chuẩn bị. Trong lúc chờ, anh/chị mua trên Shopee hoặc nhắn Zalo để được tư vấn.</p>
-              <a class="t-btn t-btn--outline pd-zalo" href="{ZALO}" target="_blank" rel="noopener noreferrer">{'Gửi số đo, nhờ tư vấn size qua Zalo' if p['sizes'] else 'Cần tư vấn? Nhắn Zalo'}</a>
+              <p class="pd-muted" id="pd-web-note" hidden></p>
+              <a class="pd-zalo" href="{ZALO}" target="_blank" rel="noopener noreferrer"><img src="/assets/icons/mxh-zalo.svg" alt="" width="36" height="36" />{'Gửi số đo, nhờ tư vấn size qua Zalo' if p['sizes'] else 'Cần tư vấn? Nhắn Zalo'}</a>
               <ul class="pd-services">{service_row}</ul>
+              {'<p class="pd-cert">Thuộc công bố tiêu chuẩn: 9 mẫu tất y tế cấp 2, cỡ S–XXL</p>' if p['has_byt'] else ''}
+              <p class="pd-shopee">{promo.replace('<p class="pd-muted">', '').replace('</p>', '')} <a href="{p["shopee_url"]}" target="_blank" rel="noopener noreferrer">Mua trên Shopee</a></p>
             </div>
           </div>
         </div>
@@ -553,13 +627,15 @@ def render_page(p, head, css_version, js_version, theme_version):
         </div>
       </section>
 
-      <section class="t-section pd-related" aria-labelledby="pd-related-title">
+      <section class="pd-related" aria-labelledby="pd-related-title">
         <div class="container">
-          <div class="t-head">
-            <h2 class="t-title" id="pd-related-title">Sản phẩm liên quan</h2>
-            <a class="t-link" href="/{p["category_route"]}/">Xem {escape(p["category_label"].lower())} <span aria-hidden="true">→</span></a>
+          <h2 class="pd-h2" id="pd-related-title">Sản phẩm liên quan</h2>
+          <div class="pd-related__grid">{related}
           </div>
-          <div class="t-products t-products--3">{related}
+          <div class="pd-reviews">
+            <h2>Lắng nghe để đồng hành tốt hơn</h2>
+            <div class="pd-reviews__grid">{reviews}
+            </div>
           </div>
         </div>
       </section>
@@ -568,10 +644,10 @@ def render_page(p, head, css_version, js_version, theme_version):
         <div class="container t-cta__inner">
           <img class="t-cta__avatar" src="/assets/home-2026/tu-van-240.webp" alt="" width="240" height="240" loading="lazy" decoding="async" />
           <div>
-            <h2>Cần tư vấn thêm?</h2>
+            <h2>Cùng tìm đôi tất vừa ý</h2>
             <p>{cta}</p>
           </div>
-          <a class="t-btn t-btn--cta" href="{ZALO}" target="_blank" rel="noopener noreferrer">Nhắn Zalo 0848 621 092</a>
+          <a class="t-btn t-btn--cta" href="{ZALO}" target="_blank" rel="noopener noreferrer">{SVC['chat']}Nhắn Zalo 0848 621 092</a>
         </div>
       </section>
     </main>

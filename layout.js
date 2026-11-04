@@ -109,16 +109,16 @@
               </p>
               <div class="footer-social" aria-label="Mạng xã hội Comfycare">
                 <a href="https://facebook.com/Comfycare249" aria-label="Facebook Comfycare" target="_blank" rel="noopener noreferrer">
-                  <img src="${route('assets/icons/icon facebook.png')}" srcset="${route('assets/icons/icon-facebook-64.webp')} 64w" sizes="40px" alt="" width="1254" height="1254" loading="lazy" decoding="async" />
+                  <img src="${route('assets/icons/mxh-facebook.svg')}" alt="" width="48" height="48" loading="lazy" decoding="async" />
                 </a>
                 <a href="${zaloUrl}" aria-label="Zalo Comfycare" target="_blank" rel="noopener noreferrer">
-                  <img src="${route('assets/icons/icon zalo.png')}" srcset="${route('assets/icons/icon-zalo-64.webp')} 64w" sizes="40px" alt="" width="1254" height="1254" loading="lazy" decoding="async" />
+                  <img src="${route('assets/icons/mxh-zalo.svg')}" alt="" width="48" height="48" loading="lazy" decoding="async" />
                 </a>
                 <a href="${shopeeUrl}" aria-label="Shopee Comfycare" target="_blank" rel="noopener noreferrer">
-                  <img src="${route('assets/icons/icon shopee.png')}" srcset="${route('assets/icons/icon-shopee-64.webp')} 64w" sizes="40px" alt="" width="1254" height="1254" loading="lazy" decoding="async" />
+                  <img src="${route('assets/icons/mxh-shopee.svg')}" alt="" width="48" height="48" loading="lazy" decoding="async" />
                 </a>
                 <a href="${tiktokUrl}" aria-label="TikTok Comfycare" target="_blank" rel="noopener noreferrer">
-                  <img src="${route('assets/icons/icon tiktok.png')}" srcset="${route('assets/icons/icon-tiktok-64.webp')} 64w" sizes="40px" alt="" width="1254" height="1254" loading="lazy" decoding="async" />
+                  <img src="${route('assets/icons/mxh-tiktok.svg')}" alt="" width="48" height="48" loading="lazy" decoding="async" />
                 </a>
               </div>
               <a class="footer-bct" href="https://online.gov.vn/nen-tang/2162bbaa-3fc3-4df5-8ed0-d7c52256bc97" target="_blank" rel="noopener noreferrer" aria-label="Đã thông báo Bộ Công Thương, xem hồ sơ trên online.gov.vn">

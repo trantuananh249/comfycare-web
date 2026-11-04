@@ -80,3 +80,10 @@
   });
   openHash(location.hash);
 })();
+
+// Nút − / + cạnh ô số lượng (layout 04/11).
+document.querySelectorAll('[data-qty]').forEach((button) => button.addEventListener('click', () => {
+  const input = button.parentElement.querySelector('input');
+  const next = (parseInt(input.value, 10) || 1) + Number(button.dataset.qty);
+  input.value = String(Math.max(Number(input.min) || 1, Math.min(Number(input.max) || 20, next)));
+}));

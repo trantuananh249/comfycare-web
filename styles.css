@@ -1770,25 +1770,16 @@ input {
 
 .footer-social a {
   display: inline-block;
-  position: relative;
-  width: 36px;
-  height: 36px;
-  flex: 0 0 36px;
-  border: 1px solid #d9e6e8;
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
   border-radius: 999px;
-  background: var(--white);
-  overflow: hidden;
 }
 
 .footer-social img {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 68px;
-  height: 68px;
-  object-fit: contain;
-  max-width: none;
-  transform: translate(-50%, -50%);
+  display: block;
+  width: 40px;
+  height: 40px;
 }
 
 .footer-links,

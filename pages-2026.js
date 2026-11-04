@@ -31,3 +31,23 @@
     });
   }
 })();
+
+// Link có #neo trỏ vào mục nằm trong khối thu gọn (vd. #cs25-size): mở các khối cha rồi cuộn tới.
+(() => {
+  const open = () => {
+    const target = location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (!target) return;
+    for (let el = target; el; el = el.parentElement) if (el.tagName === 'DETAILS') el.open = true;
+    target.scrollIntoView({ block: 'start' });
+  };
+  window.addEventListener('hashchange', open);
+  open();
+})();
+
+// Dải "Ống chân · Đùi · Quần" trên trang danh mục: bấm hình thì lọc theo kiểu dài tương ứng.
+document.querySelectorAll('[data-length-pick]').forEach((pick) => pick.addEventListener('click', () => {
+  const button = document.querySelector(`[data-filter="length"][data-value="${pick.dataset.lengthPick}"]`);
+  if (!button) return;
+  if (button.getAttribute('aria-pressed') !== 'true') button.click();
+  document.querySelector('[data-catalog-filter]')?.scrollIntoView({ block: 'center' });
+}));

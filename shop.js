@@ -145,13 +145,43 @@
     const sku = document.body.dataset.sku;
     const form = $('.pd-options');
     button.disabled = false;
-    button.classList.add('btn--teal');
+    if (!document.body.classList.contains('t26')) button.classList.add('btn--teal');
     button.textContent = 'Mua ngay';
     const note = $('#pd-web-note');
     if (note) note.textContent = 'Đặt trên web: thanh toán khi nhận hàng (COD) hoặc chuyển khoản qua mã QR. Phí ship 25.000đ, miễn ship cho đơn từ 300.000đ.';
     const error = h('p', { class: 'pd-error', role: 'alert', hidden: true });
     button.closest('.pd-actions').after(error);
     applyStock(sku, form, button);
+    // Nút "Thêm vào giỏ" (layout 04/11): cùng kiểm tra size/màu, thêm vào giỏ rồi ở lại trang.
+    const add = $('.pd-web-add');
+    if (add) {
+      add.disabled = false;
+      add.addEventListener('click', async () => {
+        const picked = pick();
+        if (!picked) return;
+        addToCart(picked);
+        const product = (await catalog()).get(sku);
+        track('AddToCart', { content_ids: [sku], content_type: 'product', value: (product?.price || 0) * picked.quantity, currency: 'VND' });
+        add.textContent = 'Đã thêm vào giỏ';
+        setTimeout(() => { add.textContent = 'Thêm vào giỏ'; }, 2500);
+      });
+    }
+    function pick() {
+      const size = form.querySelector('input[name="size"]:checked')?.value ?? '';
+      const color = form.querySelector('input[name="color"]:checked')?.value ?? '';
+      const quantity = Math.max(1, Math.min(MAX_QTY, parseInt(form.querySelector('input[name="qty"]').value, 10) || 1));
+      const missing = [];
+      if (form.querySelector('input[name="size"]') && !size) missing.push('size');
+      if (form.querySelector('input[name="color"]') && !color) missing.push('màu');
+      if (missing.length) {
+        error.textContent = `Vui lòng chọn ${missing.join(' và ')} trước khi mua.`;
+        error.hidden = false;
+        form.querySelector(`input[name="${missing[0] === 'size' ? 'size' : 'color'}"]`)?.focus();
+        return null;
+      }
+      error.hidden = true;
+      return { sku, size, color, quantity };
+    }
     button.addEventListener('click', async () => {
       const size = form.querySelector('input[name="size"]:checked')?.value ?? '';
       const color = form.querySelector('input[name="color"]:checked')?.value ?? '';
