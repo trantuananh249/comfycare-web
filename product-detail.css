@@ -969,3 +969,15 @@
   .t26.product-detail-page .pd-actions .btn { font-size: 17px !important; min-height: 50px !important; }
   .leg-figure { max-width: none; }
 }
+
+/* Chỉnh 04/11 (5): bảng size trên điện thoại: bảng và hình chân xếp dọc, nhãn không chồng */
+@media (max-width: 900px) {
+  .t26.product-detail-page .pd-size__grid { grid-template-columns: minmax(0, 1fr) !important; }
+  .leg-figure { max-width: 420px; width: 100%; justify-self: center; }
+}
+@media (max-width: 760px) {
+  .leg-figure img { width: 62%; margin-left: 38%; }
+  .leg-tag { left: 4%; min-width: 0; padding: 5px 10px; font-size: 12px; }
+  .leg-tag b { font-size: 17px; }
+  .leg-tag::after { width: 30px; }
+}

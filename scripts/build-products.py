@@ -375,7 +375,7 @@ def render_page(p, head, css_version, js_version, theme_version):
           <div class="pd-size__grid{'' if figure else ' pd-size__grid--single'}">
             <div class="pd-size__chart">
               {size_table_html(p)}
-              <p class="pd-note"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="M12 11v5M12 8h.01" /></svg>Số đo nằm giữa 2 size hoặc mới dùng lần đầu: <a href="{ZALO}" target="_blank" rel="noopener noreferrer">nhắn Zalo để em tư vấn</a>.</p>
+              <p class="pd-note"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="M12 11v5M12 8h.01" /></svg><span>Số đo nằm giữa 2 size hoặc mới dùng lần đầu: <a href="{ZALO}" target="_blank" rel="noopener noreferrer">nhắn Zalo để em tư vấn</a>.</span></p>
               {measures}
               {size_notes}
               <a class="pd-link" href="{p["size_guide_url"]}">Hướng dẫn chọn size đầy đủ</a>

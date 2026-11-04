@@ -983,3 +983,11 @@ a.t-sku:hover { background: #ffe2b8; }
   .g26-photos img { aspect-ratio: 1 !important; border-radius: 12px; }
   .g26-photos figcaption { width: 100%; padding: 4px 6px; font-size: 13px; }
 }
+
+/* Chỉnh 04/11 (5): lỗi ảnh trên điện thoại */
+.a26-photo { aspect-ratio: 7 / 5 !important; object-position: center 35%; }
+.a26-why img { aspect-ratio: 3 / 2 !important; }
+@media (max-width: 760px) {
+  .t-need--sport img { aspect-ratio: 16 / 10 !important; object-position: center 30%; }
+  .t-need--sport .t-sku { background: #fff; }
+}
