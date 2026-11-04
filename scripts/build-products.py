@@ -357,8 +357,7 @@ def render_page(p, head, css_version, js_version, theme_version):
                 <img src="{g["medium"]}" srcset="{g["medium"]} 640w, {g["src"]} {g["width"]}w" sizes="(max-width: 900px) calc(100vw - 32px), 560px" alt="Hướng dẫn chọn size {name}" width="{g["width"]}" height="{g["height"]}" loading="lazy" decoding="async" />
               </figure>'''
         size_section = f'''
-      <section class="pd-size" id="pd-size" aria-labelledby="pd-size-title">
-        <div class="container">
+          <div class="pd-size">
           <h2 id="pd-size-title">Cách đo và chọn size</h2>
           <div class="pd-size__grid{'' if figure or measures else ' pd-size__grid--single'}">
             <div class="pd-size__how">
@@ -375,8 +374,7 @@ def render_page(p, head, css_version, js_version, theme_version):
               </div>
             </div>
           </div>
-        </div>
-      </section>'''
+          </div>'''
 
     images = p['gallery']
     first = images[0]
@@ -409,14 +407,14 @@ def render_page(p, head, css_version, js_version, theme_version):
         ('QUÀ TẶNG', 'Quà tặng', 'gift', '', ''),
         ('ĐỔI TRẢ 15 NGÀY', 'Đổi trả 15 ngày', 'exchange', '', '<a class="pd-link" href="/chinh-sach-doi-tra/">Xem chính sách đổi trả</a>'),
     ]
-    cards = ''
+    cards = {}
     for key, heading, cid, extra, link in cards_spec:
         items = bullets(listing.get(key, []))
         if not items:
             continue
         lis = ''.join(f'<li>{escape(i)}</li>' for i in items)
         tail = f'\n            <p>{link}</p>' if link else ''
-        cards += f'''
+        cards[cid] = f'''
           <section class="pd-card{extra}" aria-labelledby="pd-{cid}-title">
             <h2 id="pd-{cid}-title">{heading}</h2>
             <ul class="pd-list">{lis}</ul>{tail}
@@ -433,24 +431,42 @@ def render_page(p, head, css_version, js_version, theme_version):
                    'url': f'https://comfycare.vn{p["url"]}'},
     }
 
-    # Thanh mục nhanh: chỉ hiện mục có trên trang.
-    tab_spec = [('pd-info-title', 'Thông tin', True), ('pd-size', 'Bảng size', bool(p['size_table'])),
-                ('pd-usage-title', 'Cách dùng', 'id="pd-usage-title"' in cards),
-                ('pd-care-title', 'Giặt và bảo quản', 'id="pd-care-title"' in cards),
-                ('pd-exchange-title', 'Đổi trả', 'id="pd-exchange-title"' in cards)]
-    tabs = ''.join(f'<a href="#{i}">{t}</a>' for i, t, show in tab_spec if show)
     # J.3: dòng tất y tế nhắc hỏi bác sĩ với thai kỳ, bệnh nền, sau phẫu thuật.
     notice = ('''
           <div class="t-notice pd-notice">
             <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M12 11v5M12 8h.01" /></svg>
             <p>Đang mang thai, có bệnh nền hoặc sau phẫu thuật: anh/chị hỏi ý kiến bác sĩ trước khi dùng.</p>
           </div>''' if p['has_byt'] else '')
+    # Nội dung chi tiết chia theo tab để trang không dài: mỗi tab một nhóm thẻ; không có JS thì hiện tất cả.
+    info_card = f'''
+          <section class="pd-card" aria-labelledby="pd-info-title">
+            <h2 id="pd-info-title">Thông tin sản phẩm</h2>
+            <dl class="pd-facts">
+{fact_rows}
+            </dl>
+          </section>'''
+    panel_spec = [
+        ('pd-thong-tin', 'Thông tin', info_card + ''.join(cards.get(c, '') for c in ('benefit', 'audience', 'quality', 'gift'))),
+        ('pd-size', 'Bảng size', size_section),
+        ('pd-cach-dung', 'Cách dùng', ''.join(cards.get(c, '') for c in ('usage', 'caution')) + notice),
+        ('pd-giat', 'Giặt và bảo quản', cards.get('care', '')),
+        ('pd-doi-tra', 'Đổi trả', cards.get('exchange', '')),
+    ]
+    panel_spec = [x for x in panel_spec if x[2].strip()]
+    tabs = ''.join(
+        f'<button class="pd-tab" type="button" role="tab" id="{pid}-tab" aria-controls="{pid}" aria-selected="{"true" if i == 0 else "false"}"{"" if i == 0 else " tabindex=\"-1\""}>{label}</button>'
+        for i, (pid, label, _) in enumerate(panel_spec))
+    panels = ''.join(
+        f'''
+          <div class="pd-panel{' is-active' if i == 0 else ''}{' pd-panel--grid' if pid != 'pd-size' else ''}" id="{pid}" role="tabpanel" aria-labelledby="{pid}-tab" tabindex="0">{body}
+          </div>'''
+        for i, (pid, _, body) in enumerate(panel_spec))
     services = ['Đổi trả 15 ngày', 'Giao hàng toàn quốc', 'Tư vấn size qua Zalo']
     service_row = ''.join(f'<li>{s}</li>' for s in services)
     related = ''.join(
         f'''
             <article class="t-pcard">
-              <a class="t-pcard__media" href="{r["url"]}" tabindex="-1" aria-hidden="true"><img src="{r["gallery"][0]["medium"]}" alt="" width="640" height="640" loading="lazy" decoding="async" /></a>
+              <a class="t-pcard__media" href="{r["url"]}" tabindex="-1" aria-hidden="true"><img src="{r["gallery"][0]["medium"]}" srcset="{r["gallery"][0]["medium"].replace("-640", "-320")} 320w, {r["gallery"][0]["medium"]} 640w" sizes="(max-width: 760px) 50vw, 380px" alt="" width="640" height="640" loading="lazy" decoding="async" /></a>
               <div class="t-pcard__body">
                 <h3><a href="{r["url"]}">{escape(r["name"])}</a></h3>
                 <span class="t-pcard__sku">{r["sku"]}</span>
@@ -468,9 +484,11 @@ def render_page(p, head, css_version, js_version, theme_version):
     <meta name="description" content="{escape(description)}" />
     <link rel="canonical" href="https://comfycare.vn{p["url"]}" />
     <link rel="icon" type="image/webp" href="/assets/logo/comfycare-logo-64.webp" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&amp;display=swap" />
+    <script>document.documentElement.classList.add('js')</script>
+    <link rel="preload" href="/assets/fonts/be-vietnam-pro-400-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/be-vietnam-pro-400-vietnamese.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/be-vietnam-pro-700-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/be-vietnam-pro-700-vietnamese.woff2" as="font" type="font/woff2" crossorigin />
     {head["styles"]}
     <link rel="stylesheet" href="/theme-2026.css?v={theme_version}" />
     <link rel="stylesheet" href="/product-detail.css?v={css_version}" />
@@ -527,22 +545,11 @@ def render_page(p, head, css_version, js_version, theme_version):
         </div>
       </section>
 
-      <nav class="pd-tabs" aria-label="Mục trên trang">
-        <div class="container">{tabs}</div>
-      </nav>
-{size_section}
-
-      <section class="pd-details">
-        <div class="container pd-details__grid">
-          <section class="pd-card" aria-labelledby="pd-info-title">
-            <h2 id="pd-info-title">Thông tin sản phẩm</h2>
-            <dl class="pd-facts">
-{fact_rows}
-            </dl>
-          </section>
-{cards}
+      <section class="pd-details" aria-label="Chi tiết sản phẩm" data-tabs>
+        <div class="pd-tabs">
+          <div class="container" role="tablist" aria-label="Chi tiết sản phẩm">{tabs}</div>
         </div>
-        <div class="container">{notice}
+        <div class="container">{panels}
         </div>
       </section>
 

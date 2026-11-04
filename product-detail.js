@@ -37,3 +37,46 @@
     startX = null;
   }, { passive: true });
 })();
+
+// Tab nội dung chi tiết (Thông tin, Bảng size, Cách dùng…): một tab hiện một lúc; link #pd-... mở đúng tab.
+(() => {
+  const root = document.querySelector('[data-tabs]');
+  if (!root) return;
+  const tabs = [...root.querySelectorAll('[role="tab"]')];
+  const panels = tabs.map((tab) => document.getElementById(tab.getAttribute('aria-controls')));
+
+  const select = (index, focus) => {
+    tabs.forEach((tab, i) => {
+      const on = i === index;
+      tab.setAttribute('aria-selected', String(on));
+      tab.tabIndex = on ? 0 : -1;
+      panels[i].classList.toggle('is-active', on);
+    });
+    if (focus) tabs[index].focus();
+  };
+
+  tabs.forEach((tab, i) => {
+    tab.addEventListener('click', () => select(i));
+    tab.addEventListener('keydown', (event) => {
+      const step = { ArrowRight: 1, ArrowLeft: -1 }[event.key];
+      if (step) select((i + step + tabs.length) % tabs.length, true);
+    });
+  });
+
+  const openHash = (hash) => {
+    const target = hash && document.getElementById(hash.slice(1));
+    const index = target ? panels.findIndex((panel) => panel.contains(target)) : -1;
+    if (index < 0) return false;
+    select(index);
+    root.scrollIntoView({ block: 'start' });
+    return true;
+  };
+  document.addEventListener('click', (event) => {
+    const link = event.target.closest('a[href^="#pd-"]');
+    if (link && openHash(link.getAttribute('href'))) {
+      event.preventDefault();
+      history.replaceState(null, '', link.getAttribute('href'));
+    }
+  });
+  openHash(location.hash);
+})();

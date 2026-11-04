@@ -7,7 +7,13 @@
     <meta name="description" content="Thanh toán khi mua trên comfycare.vn: COD toàn quốc hoặc chuyển khoản qua mã QR; tài khoản nhận tiền, lưu ý an toàn và hoàn tiền." />
     <link rel="canonical" href="https://comfycare.vn/chinh-sach-thanh-toan/" />
     <link rel="icon" type="image/webp" href="/assets/logo/comfycare-logo-64.webp" />
+    <script>document.documentElement.classList.add('js')</script>
+    <link rel="preload" href="/assets/fonts/be-vietnam-pro-400-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/be-vietnam-pro-400-vietnamese.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/be-vietnam-pro-700-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/be-vietnam-pro-700-vietnamese.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="/styles.min.css?v=cae25aca04d2" />
+    <link rel="stylesheet" href="/theme-2026.css?v=5b456c55de0e" />
     <script src="/site.min.js?v=265068e7a426" defer></script>
     <script src="/shop.js?v=34fa9696ef67" defer></script>
     <!-- Meta Pixel Code -->
@@ -39,7 +45,7 @@
     <link rel="stylesheet" href="/chatbot.css?v=a1971798dcbb" />
     <script defer src="/chatbot.js?v=a1971798dcbb"></script>
   </head>
-  <body class="info-page" data-base-path="/" data-current-path="chinh-sach-thanh-toan">
+  <body class="t26 info-page" data-base-path="/" data-current-path="chinh-sach-thanh-toan">
     <div data-site-header></div>
 
     <main class="content-page" id="top">
@@ -57,14 +63,15 @@
       </section>
 
       <section class="page-content">
-        <div class="container page-stack">
+        <div class="container t-doc">
+          <div class="page-stack t-doc__main">
           <div class="info-grid">
             <article class="info-card">
-              <h2>Thanh toán khi nhận hàng (COD)</h2>
+              <h2 id="thanh-toan-khi-nhan-hang-cod">Thanh toán khi nhận hàng (COD)</h2>
               <ul class="check-list"><li>Áp dụng toàn quốc.</li><li>Sau khi anh/chị đặt, nhân viên Comfycare gọi hoặc nhắn Zalo xác nhận đơn trong giờ làm việc (9:00–15:00, thứ 2 đến thứ 7). Đơn ngoài giờ được xác nhận vào ngày làm việc kế tiếp.</li><li>Anh/chị được kiểm tra hàng trước khi thanh toán. Kiểm tra hàng không gồm dùng thử.</li></ul>
             </article>
             <article class="info-card">
-              <h2>Chuyển khoản qua mã QR</h2>
+              <h2 id="chuyen-khoan-qua-ma-qr">Chuyển khoản qua mã QR</h2>
               <ul class="check-list"><li>Sau khi đặt, trang đơn hàng hiện mã QR có sẵn số tiền và nội dung chuyển khoản là mã đơn (dạng CC…). Anh/chị quét bằng app ngân hàng, giữ nguyên số tiền và nội dung.</li><li>Hệ thống tự ghi nhận khi tiền vào, thường trong vòng 1–2 phút; trang đơn tự chuyển sang “Đã nhận thanh toán”.</li><li>Mã QR giữ trong 30 phút. Nếu tiền đến sau khi đơn hết hạn, nhân viên kiểm tra và liên hệ lại trong giờ làm việc.</li><li>Chuyển thừa: bên em hoàn phần thừa bằng chuyển khoản. Chuyển thiếu hoặc sai nội dung: bên em liên hệ để xử lý, anh/chị không cần chuyển lại.</li></ul>
             </article>
           </div>
@@ -72,7 +79,7 @@
           <section class="table-block">
             <div class="page-section-heading">
               <p class="eyebrow">Tài khoản nhận tiền</p>
-              <h2>Tài khoản nhận tiền đơn web</h2>
+              <h2 id="tai-khoan-nhan-tien-don-web">Tài khoản nhận tiền đơn web</h2>
             </div>
             <div class="table-wrap">
               <table class="page-table page-table--wide m-stack">
@@ -106,7 +113,7 @@
           <section class="table-block">
             <div class="page-section-heading">
               <p class="eyebrow">Hoàn tiền</p>
-              <h2>Khi nào và hoàn bằng cách nào</h2>
+              <h2 id="khi-nao-va-hoan-bang-cach-nao">Khi nào và hoàn bằng cách nào</h2>
             </div>
             <div class="table-wrap">
               <table class="page-table page-table--wide m-stack">
@@ -131,7 +138,7 @@
           <section class="table-block">
             <div class="page-section-heading">
               <p class="eyebrow">Kênh mua hàng</p>
-              <h2>Kênh mua hàng chính hãng</h2>
+              <h2 id="kenh-mua-hang-chinh-hang">Kênh mua hàng chính hãng</h2>
             </div>
             <div class="table-wrap">
               <table class="page-table page-table--wide m-stack">
@@ -156,16 +163,31 @@
               </table>
             </div>
           </section>
+          </div>
+          <aside class="t-doc__side">
+            <nav class="t-toc" aria-label="Nội dung trang">
+              <p class="t-toc__title">Nội dung</p>
+              <ol><li><a href="#thanh-toan-khi-nhan-hang-cod">Thanh toán khi nhận hàng (COD)</a></li><li><a href="#chuyen-khoan-qua-ma-qr">Chuyển khoản qua mã QR</a></li><li><a href="#tai-khoan-nhan-tien-don-web">Tài khoản nhận tiền đơn web</a></li><li><a href="#khi-nao-va-hoan-bang-cach-nao">Khi nào và hoàn bằng cách nào</a></li><li><a href="#kenh-mua-hang-chinh-hang">Kênh mua hàng chính hãng</a></li></ol>
+            </nav>
+            <nav class="t-sidelinks" aria-label="Chính sách khác">
+              <p class="t-toc__title">Chính sách</p>
+              <ul><li><a href="/chinh-sach-doi-tra/">Đổi trả</a></li><li><a href="/chinh-sach-thanh-toan/" aria-current="page">Thanh toán</a></li><li><a href="/chinh-sach-van-chuyen/">Vận chuyển</a></li><li><a href="/chinh-sach-bao-mat/">Bảo mật thông tin</a></li><li><a href="/dieu-khoan-su-dung/">Điều khoản website</a></li></ul>
+            </nav>
+            <div class="t-sidecta">
+              <p>Cần hỗ trợ thêm? Nhắn Comfycare qua Zalo</p>
+              <a class="t-btn t-btn--cta" href="https://zalo.me/0848621092" target="_blank" rel="noopener noreferrer">Nhắn Zalo 0848 621 092</a>
+            </div>
+          </aside>
         </div>
       </section>
 
-      <section class="page-cta">
-        <div class="container page-cta__inner">
+      <section class="t-cta" aria-label="Tư vấn thêm">
+        <div class="container t-cta__inner">
+          <img class="t-cta__avatar" src="/assets/home-2026/tu-van-240.webp" alt="" width="240" height="240" loading="lazy" decoding="async" />
           <div>
-            <p class="eyebrow">Cần kiểm tra đơn?</p>
             <h2>Nhập mã đơn và số điện thoại đặt hàng để xem trạng thái thanh toán và giao hàng.</h2>
           </div>
-          <a class="btn btn--primary" href="/don-hang/">Tra cứu đơn hàng</a>
+          <div class="t-cta__actions"><a class="t-btn t-btn--cta" href="/don-hang/">Tra cứu đơn hàng</a></div>
         </div>
       </section>
     </main>

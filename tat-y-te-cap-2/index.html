@@ -7,7 +7,13 @@
     <meta name="description" content="Danh mục 9 mã tất y tế cấp 2 Comfycare có công bố BYT." />
     <link rel="canonical" href="https://comfycare.vn/tat-y-te-cap-2/" />
     <link rel="icon" type="image/webp" href="/assets/logo/comfycare-logo-64.webp" />
+    <script>document.documentElement.classList.add('js')</script>
+    <link rel="preload" href="/assets/fonts/be-vietnam-pro-400-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/be-vietnam-pro-400-vietnamese.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/be-vietnam-pro-700-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/be-vietnam-pro-700-vietnamese.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="/styles.min.css?v=cae25aca04d2" />
+    <link rel="stylesheet" href="/theme-2026.css?v=5b456c55de0e" />
     <script src="/site.min.js?v=265068e7a426" defer></script>
     <script src="/shop.js?v=34fa9696ef67" defer></script>
     <!-- Meta Pixel Code -->
@@ -38,13 +44,14 @@
     <!-- End Meta Pixel Code -->
     <link rel="stylesheet" href="/chatbot.css?v=a1971798dcbb" />
     <script defer src="/chatbot.js?v=a1971798dcbb"></script>
+      <script src="/pages-2026.js?v=4851fbc6d3f1" defer></script>
   </head>
-  <body class="info-page category-list-page" data-base-path="/" data-current-path="tat-y-te-cap-2">
+  <body class="t26 info-page category-list-page" data-base-path="/" data-current-path="tat-y-te-cap-2">
     <div data-site-header></div>
 
     <main class="content-page" id="top">
       <section class="page-hero">
-        <div class="container">
+        <div class="container t-hero-split">
           <nav class="breadcrumb" aria-label="Breadcrumb">
             <a href="/">Trang chủ</a>
             <span aria-hidden="true">/</span>
@@ -53,8 +60,16 @@
           <p class="eyebrow">Sản phẩm Comfycare</p>
           <h1>Tất y tế cấp 2</h1>
           <p class="page-lead">Dòng 21–32 mmHg hỗ trợ điều trị suy giãn tĩnh mạch, giảm đau mỏi và ổn định tuần hoàn.</p>
+          <aside class="t-hero-side">
+            <p>Chưa biết chọn mẫu nào? Gửi số đo qua Zalo</p>
+            <a class="t-btn t-btn--cta" href="https://zalo.me/0848621092" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12Z" /></svg>Nhắn Zalo 0848 621 092</a>
+          </aside>
         </div>
       </section>
+
+      <nav class="t-cats" aria-label="Dòng sản phẩm">
+        <div class="container"><a class="t-pill" href="/san-pham/">Tất cả sản phẩm</a><a class="t-pill" href="/tat-y-te-cap-2/" aria-current="page">Tất y tế cấp 2</a><a class="t-pill" href="/tat-dai-the-thao-cap-2/">Tất/đai thể thao cấp 2</a><a class="t-pill" href="/tat-the-thao-cap-1/">Tất thể thao cấp 1</a><a class="t-pill" href="/phu-kien/">Phụ kiện</a></div>
+      </nav>
 
       <section class="page-content">
         <div class="container page-stack">
@@ -71,8 +86,12 @@
               <p>Dòng tất y tế cấp 2 21–32 mmHg phù hợp hỗ trợ điều trị suy giãn tĩnh mạch, giảm đau mỏi và nặng chân. Anh/chị nên chọn loại tất dài qua vùng chân cần hỗ trợ và gửi số đo để Comfycare tư vấn size phù hợp.</p>
             </div>
           </aside>
+          <div class="t-filters" data-catalog-filter role="group" aria-label="Lọc theo kiểu tất">
+            <div><button class="t-filter" type="button" data-filter="length" data-value="ong" aria-pressed="false">Ống chân</button><button class="t-filter" type="button" data-filter="length" data-value="dui" aria-pressed="false">Đùi</button><button class="t-filter" type="button" data-filter="length" data-value="quan" aria-pressed="false">Quần</button></div>
+            <div><button class="t-filter" type="button" data-filter="foot" data-value="khong-ban" aria-pressed="false">Không bàn</button><button class="t-filter" type="button" data-filter="foot" data-value="ho-ngon" aria-pressed="false">Hở ngón</button><button class="t-filter" type="button" data-filter="foot" data-value="kin-ban" aria-pressed="false">Kín bàn</button></div>
+          </div>
           <div class="category-product-grid">
-          <article class="category-product-card">
+          <article class="category-product-card" data-length="ong" data-foot="khong-ban">
             <a class="category-product-card__media" href="/san-pham/cs21/" tabindex="-1" aria-hidden="true">
               <picture>
                 <source srcset="/assets/products/CS21/1-320.webp 320w, /assets/products/CS21/1-640.webp 640w, /assets/products/CS21/1.webp 1254w" sizes="(max-width: 700px) 146px, 249px" type="image/webp" />
@@ -91,7 +110,7 @@
               </div>
             </div>
           </article>
-          <article class="category-product-card">
+          <article class="category-product-card" data-length="ong" data-foot="ho-ngon">
             <a class="category-product-card__media" href="/san-pham/cs22/" tabindex="-1" aria-hidden="true">
               <picture>
                 <source srcset="/assets/products/CS22/1-320.webp 320w, /assets/products/CS22/1-640.webp 640w, /assets/products/CS22/1.webp 1254w" sizes="(max-width: 700px) 146px, 249px" type="image/webp" />
@@ -110,7 +129,7 @@
               </div>
             </div>
           </article>
-          <article class="category-product-card">
+          <article class="category-product-card" data-length="dui" data-foot="khong-ban">
             <a class="category-product-card__media" href="/san-pham/cs23/" tabindex="-1" aria-hidden="true">
               <picture>
                 <source srcset="/assets/products/CS23/1-320.webp 320w, /assets/products/CS23/1-640.webp 640w, /assets/products/CS23/1.webp 1254w" sizes="(max-width: 700px) 146px, 249px" type="image/webp" />
@@ -129,7 +148,7 @@
               </div>
             </div>
           </article>
-          <article class="category-product-card">
+          <article class="category-product-card" data-length="dui" data-foot="ho-ngon">
             <a class="category-product-card__media" href="/san-pham/cs24/" tabindex="-1" aria-hidden="true">
               <picture>
                 <source srcset="/assets/products/CS24/1-320.webp 320w, /assets/products/CS24/1-640.webp 640w, /assets/products/CS24/1.webp 1254w" sizes="(max-width: 700px) 146px, 249px" type="image/webp" />
@@ -148,7 +167,7 @@
               </div>
             </div>
           </article>
-          <article class="category-product-card">
+          <article class="category-product-card" data-length="ong" data-foot="kin-ban">
             <a class="category-product-card__media" href="/san-pham/cs26/" tabindex="-1" aria-hidden="true">
               <picture>
                 <source srcset="/assets/products/CS26/1-320.webp 320w, /assets/products/CS26/1-640.webp 640w, /assets/products/CS26/1.webp 1254w" sizes="(max-width: 700px) 146px, 249px" type="image/webp" />
@@ -167,7 +186,7 @@
               </div>
             </div>
           </article>
-          <article class="category-product-card">
+          <article class="category-product-card" data-length="dui" data-foot="kin-ban">
             <a class="category-product-card__media" href="/san-pham/cs27/" tabindex="-1" aria-hidden="true">
               <picture>
                 <source srcset="/assets/products/CS27/1-320.webp 320w, /assets/products/CS27/1-640.webp 640w, /assets/products/CS27/1.webp 1254w" sizes="(max-width: 700px) 146px, 249px" type="image/webp" />
@@ -186,7 +205,7 @@
               </div>
             </div>
           </article>
-          <article class="category-product-card">
+          <article class="category-product-card" data-length="quan" data-foot="khong-ban">
             <a class="category-product-card__media" href="/san-pham/cs33/" tabindex="-1" aria-hidden="true">
               <picture>
                 <source srcset="/assets/products/CS33/1-320.webp 320w, /assets/products/CS33/1-640.webp 640w, /assets/products/CS33/1.webp 1254w" sizes="(max-width: 700px) 146px, 249px" type="image/webp" />
@@ -205,7 +224,7 @@
               </div>
             </div>
           </article>
-          <article class="category-product-card">
+          <article class="category-product-card" data-length="quan" data-foot="ho-ngon">
             <a class="category-product-card__media" href="/san-pham/cs34/" tabindex="-1" aria-hidden="true">
               <picture>
                 <source srcset="/assets/products/CS34/1-320.webp 320w, /assets/products/CS34/1-640.webp 640w, /assets/products/CS34/1.webp 1254w" sizes="(max-width: 700px) 146px, 249px" type="image/webp" />
@@ -224,7 +243,7 @@
               </div>
             </div>
           </article>
-          <article class="category-product-card">
+          <article class="category-product-card" data-length="quan" data-foot="kin-ban">
             <a class="category-product-card__media" href="/san-pham/cs35/" tabindex="-1" aria-hidden="true">
               <picture>
                 <source srcset="/assets/products/CS35/1-320.webp 320w, /assets/products/CS35/1-640.webp 640w, /assets/products/CS35/1.webp 1254w" sizes="(max-width: 700px) 146px, 249px" type="image/webp" />
@@ -247,13 +266,13 @@
         </div>
       </section>
 
-      <section class="page-cta">
-        <div class="container page-cta__inner">
+      <section class="t-cta" aria-label="Tư vấn thêm">
+        <div class="container t-cta__inner">
+          <img class="t-cta__avatar" src="/assets/home-2026/tu-van-240.webp" alt="" width="240" height="240" loading="lazy" decoding="async" />
           <div>
-            <p class="eyebrow">Cần tư vấn thêm?</p>
             <h2>Gửi câu hỏi qua Zalo để Comfycare hỗ trợ đúng trường hợp của anh/chị.</h2>
           </div>
-          <a class="btn btn--primary" href="https://zalo.me/0848621092" target="_blank" rel="noopener noreferrer">Tư vấn qua Zalo</a>
+          <div class="t-cta__actions"><a class="t-btn t-btn--cta" href="https://zalo.me/0848621092" target="_blank" rel="noopener noreferrer">Tư vấn qua Zalo</a></div>
         </div>
       </section>
     </main>

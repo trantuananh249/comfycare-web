@@ -671,10 +671,6 @@
 .t26.product-detail-page .pd-services { display: flex; flex-wrap: wrap; gap: 8px 20px; margin: 0; padding: 14px 0 0; border-top: 1px solid var(--t-line); list-style: none; color: var(--t-text); font-size: 15px; font-weight: 600; }
 .t26.product-detail-page .pd-services li { display: inline-flex; align-items: center; gap: 8px; }
 .t26.product-detail-page .pd-services li::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--t-teal); }
-.t26.product-detail-page .pd-tabs { position: sticky; top: 72px; z-index: 15; background: rgb(255 254 247 / 96%); border-block: 1px solid var(--t-line); backdrop-filter: blur(8px); }
-.t26.product-detail-page .pd-tabs .container { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
-.t26.product-detail-page .pd-tabs a { flex: none; display: inline-flex; align-items: center; min-height: 52px; padding: 0 18px; color: var(--t-text); font-weight: 600; border-bottom: 3px solid transparent; }
-.t26.product-detail-page .pd-tabs a:hover, .t26.product-detail-page .pd-tabs a:focus-visible { color: var(--t-deep); border-bottom-color: var(--t-teal); }
 .t26.product-detail-page .pd-size, .t26.product-detail-page .pd-card { scroll-margin-top: 150px; }
 .t26.product-detail-page .pd-size { background: var(--t-cream); border-top: 0; }
 .t26.product-detail-page .pd-size h2, .t26.product-detail-page .pd-card h2 { color: var(--t-ink); }
@@ -698,12 +694,37 @@
 }
 @media (max-width: 900px) {
   .t26.product-detail-page .pd-hero__grid { grid-template-columns: 1fr; gap: 20px; }
-  .t26.product-detail-page .pd-tabs { top: 64px; }
 }
 @media (max-width: 760px) {
   .t26.product-detail-page .pd-summary { padding: 18px 16px; }
   .t26.product-detail-page .pd-price strong { font-size: 30px; }
-  .t26.product-detail-page .pd-tabs a { min-height: 48px; padding: 0 14px; font-size: 15px; }
   .t-products--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .t-products--3 > :nth-child(3) { display: none; }
+}
+
+/* Tab nội dung chi tiết (04/11/2026): JS bật thì chỉ hiện tab đang chọn; không có JS thì hiện tất cả. */
+.t26.product-detail-page .pd-details { padding: 0 0 36px; background: #fff; border-top: 0; scroll-margin-top: 72px; }
+.t26.product-detail-page .pd-tabs { position: sticky; top: 72px; z-index: 15; margin-bottom: 22px; background: rgb(255 254 247 / 97%); border-block: 1px solid var(--t-line); }
+.t26.product-detail-page .pd-tabs .container { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
+.t26.product-detail-page .pd-tab { flex: none; min-height: 52px; padding: 0 20px; border: 0; border-bottom: 3px solid transparent; background: none; color: var(--t-text); font: inherit; font-weight: 600; cursor: pointer; }
+.t26.product-detail-page .pd-tab:hover { color: var(--t-deep); }
+.t26.product-detail-page .pd-tab[aria-selected="true"] { color: var(--t-deep); border-bottom-color: var(--t-teal); font-weight: 700; }
+.t26.product-detail-page .pd-tab:focus-visible { outline: 3px solid var(--t-teal); outline-offset: -3px; }
+.js .t26.product-detail-page .pd-panel:not(.is-active) { display: none; }
+.t26.product-detail-page .pd-panel { scroll-margin-top: 140px; }
+.t26.product-detail-page .pd-panel + .pd-panel { margin-top: 20px; }
+.t26.product-detail-page .pd-panel--grid { columns: 2; column-gap: 18px; }
+.t26.product-detail-page .pd-panel--grid > * { break-inside: avoid; margin: 0 0 18px; }
+.t26.product-detail-page .pd-panel--grid > .pd-card:only-child { columns: auto; max-width: 820px; }
+.t26.product-detail-page .pd-panel--grid:has(> :only-child) { columns: 1; }
+.t26.product-detail-page .pd-panel .pd-size { padding: 0; background: none; }
+.t26.product-detail-page .pd-related { padding-top: 36px; }
+@media (max-width: 900px) {
+  .t26.product-detail-page .pd-tabs { top: 64px; }
+  .t26.product-detail-page .pd-panel--grid { columns: 1; }
+  .t26.product-detail-page .pd-panel--grid > * { margin-bottom: 12px; }
+}
+@media (max-width: 760px) {
+  .t26.product-detail-page .pd-tab { min-height: 48px; padding: 0 14px; font-size: 15px; }
+  .t26.product-detail-page .pd-tabs { margin-bottom: 14px; }
 }

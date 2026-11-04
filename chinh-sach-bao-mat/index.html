@@ -7,7 +7,13 @@
     <meta name="description" content="Comfycare thu thông tin gì khi anh/chị đặt hàng hoặc nhờ tư vấn, dùng để làm gì, ai được xem, lưu bao lâu và cách yêu cầu sửa, xóa." />
     <link rel="canonical" href="https://comfycare.vn/chinh-sach-bao-mat/" />
     <link rel="icon" type="image/webp" href="/assets/logo/comfycare-logo-64.webp" />
+    <script>document.documentElement.classList.add('js')</script>
+    <link rel="preload" href="/assets/fonts/be-vietnam-pro-400-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/be-vietnam-pro-400-vietnamese.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/be-vietnam-pro-700-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/be-vietnam-pro-700-vietnamese.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="/styles.min.css?v=cae25aca04d2" />
+    <link rel="stylesheet" href="/theme-2026.css?v=5b456c55de0e" />
     <script src="/site.min.js?v=265068e7a426" defer></script>
     <script src="/shop.js?v=34fa9696ef67" defer></script>
     <!-- Meta Pixel Code -->
@@ -39,7 +45,7 @@
     <link rel="stylesheet" href="/chatbot.css?v=a1971798dcbb" />
     <script defer src="/chatbot.js?v=a1971798dcbb"></script>
   </head>
-  <body class="info-page" data-base-path="/" data-current-path="chinh-sach-bao-mat">
+  <body class="t26 info-page" data-base-path="/" data-current-path="chinh-sach-bao-mat">
     <div data-site-header></div>
 
     <main class="content-page" id="top">
@@ -57,26 +63,27 @@
       </section>
 
       <section class="page-content">
-        <div class="container page-stack">
+        <div class="container t-doc">
+          <div class="page-stack t-doc__main">
           <div class="info-grid">
             <article class="info-card">
-              <h2>Thông tin bên em thu</h2>
+              <h2 id="thong-tin-ben-em-thu">Thông tin bên em thu</h2>
               <ul class="check-list"><li>Khi đặt hàng trên web: họ tên, số điện thoại, tỉnh/thành, phường/xã, địa chỉ, ghi chú, sản phẩm đã đặt, cách thanh toán.</li><li>Khi chuyển khoản: số tiền, nội dung, thời gian giao dịch và tên người chuyển do ngân hàng gửi về (qua dịch vụ đối soát SePay). Bên em không nhận và không lưu thông tin thẻ, mật khẩu hay mã OTP.</li><li>Khi tư vấn: số đo chân, tình trạng sử dụng, nội dung anh/chị gửi qua Zalo, hotline, email.</li><li>Thông tin kỹ thuật: địa chỉ IP được mã hóa một chiều để chặn đặt đơn ảo, không lưu dạng đọc được; nguồn truy cập (ví dụ đến từ quảng cáo nào).</li></ul>
             </article>
             <article class="info-card">
-              <h2>Mục đích</h2>
+              <h2 id="muc-dich">Mục đích</h2>
               <p>Xác nhận và giao đơn, đối soát thanh toán, đổi trả và hoàn tiền, tư vấn size, chống đơn ảo, đo lường hiệu quả quảng cáo ở mức tổng hợp.</p>
             </article>
             <article class="info-card">
-              <h2>Ai được xem thông tin</h2>
+              <h2 id="ai-duoc-xem-thong-tin">Ai được xem thông tin</h2>
               <ul class="check-list"><li>Nhân viên CSKH và kho của Comfycare xử lý đơn. Thông báo đơn mới gửi vào nhóm nhắn tin nội bộ của nhân viên chỉ gồm mã đơn và số tiền, không có thông tin cá nhân.</li><li>Đơn vị vận chuyển: tên, số điện thoại, địa chỉ để giao hàng.</li><li>Nhà cung cấp dịch vụ kỹ thuật: máy chủ lưu đơn hàng (Cloudflare), dịch vụ đối soát chuyển khoản (SePay), công cụ chống đơn ảo (Cloudflare Turnstile), công cụ đo lường (Meta Pixel). Họ xử lý dữ liệu để vận hành dịch vụ cho Comfycare.</li><li>Comfycare không bán dữ liệu cá nhân.</li></ul>
             </article>
             <article class="info-card">
-              <h2>Lưu trữ và xóa</h2>
+              <h2 id="luu-tru-va-xoa">Lưu trữ và xóa</h2>
               <ul class="check-list"><li>Thông tin đơn hàng lưu 1 năm kể từ ngày đặt để phục vụ đổi trả và đối soát. Sau đó bên em xóa thông tin cá nhân (tên, số điện thoại, địa chỉ, ghi chú), chỉ giữ số liệu bán hàng không gắn với cá nhân.</li><li>Tra cứu đơn trên web cần cả mã đơn và số điện thoại đặt hàng.</li></ul>
             </article>
             <article class="info-card">
-              <h2>Cookie và đo lường</h2>
+              <h2 id="cookie-va-do-luong">Cookie và đo lường</h2>
               <p>Website có thể dùng cookie hoặc công cụ đo lường lượt truy cập để hiểu cách người dùng tương tác với nội dung, ở mức tổng hợp. Giỏ hàng lưu trên trình duyệt của anh/chị, không gửi lên máy chủ cho tới khi đặt hàng.</p>
             </article>
           </div>
@@ -85,16 +92,31 @@
             <strong>Quyền của anh/chị:</strong>
             <span>Xem, sửa hoặc yêu cầu xóa thông tin, rút lại đồng ý: nhắn Zalo/hotline <a href="https://zalo.me/0848621092" target="_blank" rel="noopener noreferrer">0848 621 092</a> hoặc email <a href="mailto:comfycare.store@gmail.com">comfycare.store@gmail.com</a>. Với đơn đang giao hoặc đang đổi trả, bên em xóa sau khi xử lý xong.</span>
           </aside>
+          </div>
+          <aside class="t-doc__side">
+            <nav class="t-toc" aria-label="Nội dung trang">
+              <p class="t-toc__title">Nội dung</p>
+              <ol><li><a href="#thong-tin-ben-em-thu">Thông tin bên em thu</a></li><li><a href="#muc-dich">Mục đích</a></li><li><a href="#ai-duoc-xem-thong-tin">Ai được xem thông tin</a></li><li><a href="#luu-tru-va-xoa">Lưu trữ và xóa</a></li><li><a href="#cookie-va-do-luong">Cookie và đo lường</a></li></ol>
+            </nav>
+            <nav class="t-sidelinks" aria-label="Chính sách khác">
+              <p class="t-toc__title">Chính sách</p>
+              <ul><li><a href="/chinh-sach-doi-tra/">Đổi trả</a></li><li><a href="/chinh-sach-thanh-toan/">Thanh toán</a></li><li><a href="/chinh-sach-van-chuyen/">Vận chuyển</a></li><li><a href="/chinh-sach-bao-mat/" aria-current="page">Bảo mật thông tin</a></li><li><a href="/dieu-khoan-su-dung/">Điều khoản website</a></li></ul>
+            </nav>
+            <div class="t-sidecta">
+              <p>Cần hỗ trợ thêm? Nhắn Comfycare qua Zalo</p>
+              <a class="t-btn t-btn--cta" href="https://zalo.me/0848621092" target="_blank" rel="noopener noreferrer">Nhắn Zalo 0848 621 092</a>
+            </div>
+          </aside>
         </div>
       </section>
 
-      <section class="page-cta">
-        <div class="container page-cta__inner">
+      <section class="t-cta" aria-label="Tư vấn thêm">
+        <div class="container t-cta__inner">
+          <img class="t-cta__avatar" src="/assets/home-2026/tu-van-240.webp" alt="" width="240" height="240" loading="lazy" decoding="async" />
           <div>
-            <p class="eyebrow">Cần tư vấn thêm?</p>
             <h2>Gửi câu hỏi qua Zalo để Comfycare hỗ trợ đúng trường hợp của anh/chị.</h2>
           </div>
-          <a class="btn btn--primary" href="https://zalo.me/0848621092" target="_blank" rel="noopener noreferrer">Tư vấn qua Zalo</a>
+          <div class="t-cta__actions"><a class="t-btn t-btn--cta" href="https://zalo.me/0848621092" target="_blank" rel="noopener noreferrer">Tư vấn qua Zalo</a></div>
         </div>
       </section>
     </main>
