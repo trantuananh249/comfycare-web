@@ -69,6 +69,27 @@
     document.dispatchEvent(new CustomEvent('cc:track', { detail: { event, data } }));
   };
 
+  // Icon nét (giao diện 2026, layout duyệt 04/11): span chứa SVG, ẩn với trình đọc màn hình.
+  const ICONS = {
+    trash: '<path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13M10 11v6M14 11v6"/>',
+    swap: '<path d="M4 9h13l-3-3M20 15H7l3 3"/>',
+    box: '<path d="M3 7l9-4 9 4-9 4-9-4zM3 7v10l9 4 9-4V7M12 11v10"/>',
+    chat: '<path d="M4 5h16v11H9l-5 4z"/><path d="M8 10.5h.01M12 10.5h.01M16 10.5h.01"/>',
+    gift: '<path d="M4 11h16v9H4zM3 7h18v4H3zM12 7v13M12 7c-2-4-6-3-5 0M12 7c2-4 6-3 5 0"/>',
+    info: '<circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/>',
+    truck: '<path d="M3 6h11v10H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/>',
+    qr: '<path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h2v2h-2zM18 18h2v2h-2zM14 19h2M19 14h1"/>',
+    lock: '<rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>',
+    copy: '<rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/>',
+    clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+    shield: '<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/>',
+    check: '<path d="M5 12l5 5 9-10"/>',
+    x: '<path d="M6 6l12 12M18 6L6 18"/>',
+    arrow: '<path d="M9 6l6 6-6 6"/>',
+    edit: '<path d="M4 20h4L19 9l-4-4L4 16z"/>',
+  };
+  const icon = (name) => { const el = h('span', { class: 'shop-ico', 'aria-hidden': 'true' }); el.innerHTML = `<svg viewBox="0 0 24 24">${ICONS[name]}</svg>`; return el; };
+
   function readCart() {
     try { const cart = JSON.parse(store('localStorage')?.getItem(CART_KEY) || '[]'); return Array.isArray(cart) ? cart : []; } catch { return []; }
   }
@@ -213,8 +234,8 @@
   function lineView(line, product, controls) {
     const image = product?.gallery?.[0]?.thumb || product?.image;
     return h('li', { class: `cart-line${line.is_gift ? ' cart-line--gift' : ''}` },
-      h('a', { class: 'cart-line__media', href: product?.url || '#', tabindex: '-1', 'aria-hidden': 'true' },
-        image ? h('img', { src: image, alt: '', width: '160', height: '160', loading: 'lazy' }) : null),
+      h('a', { class: 'cart-line__media', href: product?.url || '#', tabindex: '-1', 'aria-hidden': 'true', 'data-qty': String(line.quantity || 1) },
+        image ? h('img', { src: image, alt: '', width: '160', height: '160', loading: 'lazy' }) : icon('gift')),
       h('div', { class: 'cart-line__body' },
         h('a', { class: 'cart-line__name', href: product?.url || '#' }, line.name),
         h('p', { class: 'cart-line__meta' }, [line.sku, line.size && `Size ${line.size}`, line.color && `Màu ${line.color}`].filter(Boolean).join(' · ')),
@@ -273,16 +294,21 @@
             h('button', { type: 'button', 'aria-label': `Giảm số lượng ${line.sku}`, onclick: () => setQty(line.quantity - 1) }, '−'),
             h('span', { 'aria-live': 'polite' }, String(line.quantity)),
             h('button', { type: 'button', 'aria-label': `Tăng số lượng ${line.sku}`, disabled: line.quantity >= MAX_QTY, onclick: () => setQty(line.quantity + 1) }, '+')),
-          h('button', { class: 'cart-line__remove', type: 'button', onclick: () => setQty(0) }, 'Xóa'));
+          h('button', { class: 'cart-line__remove', type: 'button', onclick: () => setQty(0) }, icon('trash'), 'Xóa'));
       }
       list.append(lineView(line, products.get(line.sku), controls));
     });
     root.append(h('div', { class: 'shop-layout' },
-      h('section', { class: 'shop-panel', 'aria-label': 'Sản phẩm trong giỏ' }, list),
+      h('section', { class: 'shop-panel', 'aria-label': 'Sản phẩm trong giỏ' }, list,
+        data.lines.some((l) => l.is_gift && l.sku === 'CS101') ? h('p', { class: 'shop-note' }, icon('info'), 'Đơn từ 300.000đ được miễn phí vận chuyển và tặng 01 túi giặt tất CS101.') : null),
       h('aside', { class: 'shop-panel shop-panel--summary' },
         h('h2', {}, 'Tóm tắt đơn'), summaryView(data),
-        h('a', { class: 'btn btn--primary shop-cta', href: '/thanh-toan/' }, 'Đặt hàng'),
-        h('a', { class: 'shop-link', href: '/san-pham/' }, 'Tiếp tục xem sản phẩm'))));
+        h('a', { class: 'btn btn--primary shop-cta', href: '/thanh-toan/' }, 'Đặt hàng', icon('arrow')),
+        h('a', { class: 'shop-link', href: '/san-pham/' }, 'Tiếp tục xem sản phẩm'),
+        h('ul', { class: 'shop-trust' },
+          h('li', {}, icon('swap'), 'Đổi trả 15 ngày'),
+          h('li', {}, icon('box'), 'Kiểm tra hàng khi nhận (COD)'),
+          h('li', {}, icon('chat'), h('a', { href: SHOP.zalo, target: '_blank', rel: 'noopener noreferrer' }, 'Tư vấn size qua Zalo 0848 621 092'))))));
   }
 
   // 34 tỉnh/thành và 3.321 phường/xã sau sắp xếp 2025 (data/dvhc-2025.json, sinh bởi scripts/build-dvhc.py).
@@ -345,10 +371,10 @@
 
     const [province, ward] = addressFields(await dvhc().catch(() => null));
     const methodBox = h('fieldset', { class: 'shop-methods', 'data-field': 'method' },
-      h('legend', {}, 'Cách thanh toán'),
-      h('label', { class: 'shop-method' }, h('input', { type: 'radio', name: 'method', value: 'cod', checked: true }),
+      h('legend', {}, '2. Cách thanh toán'),
+      h('label', { class: 'shop-method' }, h('input', { type: 'radio', name: 'method', value: 'cod', checked: true }), icon('truck'),
         h('span', {}, h('strong', {}, 'Thanh toán khi nhận hàng (COD)'), h('small', {}, 'Nhân viên gọi hoặc nhắn Zalo xác nhận đơn trước khi giao. Được kiểm tra hàng khi nhận (không gồm dùng thử).'))),
-      h('label', { class: 'shop-method' }, h('input', { type: 'radio', name: 'method', value: 'bank' }),
+      h('label', { class: 'shop-method' }, h('input', { type: 'radio', name: 'method', value: 'bank' }), icon('qr'),
         h('span', {}, h('strong', {}, 'Chuyển khoản qua mã QR'), h('small', {}, 'Quét mã QR có sẵn số tiền và nội dung ở bước sau. Tài khoản nhận tiền giai đoạn đầu là tài khoản cá nhân; tên chủ tài khoản hiển thị đầy đủ ở bước sau. Comfycare không bao giờ hỏi mã OTP.'))),
       h('p', { class: 'shop-field__error', id: 'co-method-error', hidden: true }));
     const consent = h('div', { class: 'shop-field shop-consent', 'data-field': 'accept_terms' },
@@ -356,11 +382,13 @@
         h('span', {}, 'Tôi đã đọc và đồng ý với ', h('a', { href: '/dieu-khoan-su-dung/', target: '_blank' }, 'điều khoản sử dụng'), ' và ', h('a', { href: '/chinh-sach-bao-mat/', target: '_blank' }, 'chính sách bảo mật'), '; đồng ý để Comfycare dùng thông tin này để xử lý và giao đơn hàng.')),
       h('p', { class: 'shop-field__error', id: 'co-accept_terms-error', hidden: true }));
     const turnstile = SHOP.turnstileSiteKey ? h('div', { class: 'cf-turnstile', 'data-sitekey': SHOP.turnstileSiteKey }) : null;
-    const submit = h('button', { class: 'btn btn--primary shop-cta', type: 'submit' }, `Xác nhận đặt hàng · ${vnd(quote.total)}`);
+    const submit = h('button', { class: 'btn btn--primary shop-cta', type: 'submit' });
+    const submitIdle = () => submit.replaceChildren(icon('lock'), `Xác nhận đặt hàng · ${vnd(quote.total)}`);
+    submitIdle();
     const formError = h('p', { class: 'shop-alert', role: 'alert', hidden: true });
 
     const form = h('form', { class: 'shop-panel shop-form', novalidate: true },
-      h('h2', {}, 'Thông tin giao hàng'),
+      h('h2', {}, '1. Thông tin giao hàng'),
       field('name', 'Họ và tên', h('input', { type: 'text', required: true, autocomplete: 'name', maxlength: '80' })),
       field('phone', 'Số điện thoại', h('input', { type: 'tel', required: true, autocomplete: 'tel', inputmode: 'tel', maxlength: '15', placeholder: '0912 345 678' }), 'Nhân viên dùng số này để xác nhận đơn và giao hàng.'),
       field('province', 'Tỉnh/thành phố', province),
@@ -373,7 +401,7 @@
       h('h2', {}, 'Đơn hàng của anh/chị'),
       h('ul', { class: 'cart-lines cart-lines--compact' }, quote.lines.map((l) => lineView(l, products.get(l.sku)))),
       summaryView(quote),
-      h('a', { class: 'shop-link', href: '/cart/' }, 'Sửa giỏ hàng'));
+      h('a', { class: 'shop-link', href: '/cart/' }, icon('edit'), 'Sửa giỏ hàng'));
     root.replaceChildren(h('div', { class: 'shop-layout' }, form, summary));
     const phoneInput = form.elements.phone;
     const phoneError = $('#co-phone-error', form);
@@ -405,7 +433,7 @@
         return;
       }
       submit.disabled = false;
-      submit.textContent = `Xác nhận đặt hàng · ${vnd(quote.total)}`;
+      submitIdle();
       const fields = data.fields || {};
       Object.entries(fields).forEach(([name, message]) => {
         const err = $(`#co-${name}-error`, form);
@@ -434,15 +462,15 @@
   };
   const copyButton = (value, label) => h('button', { class: 'copy-btn', type: 'button', onclick: async (e) => {
     try { await navigator.clipboard.writeText(value); e.currentTarget.textContent = 'Đã chép'; } catch { e.currentTarget.textContent = 'Chép thủ công'; }
-  }, 'aria-label': `Sao chép ${label}` }, 'Sao chép');
+  }, 'aria-label': `Sao chép ${label}` }, icon('copy'), 'Sao chép');
 
-  function lookupForm(root, message) {
-    const form = h('form', { class: 'shop-panel shop-form shop-lookup' },
-      h('h2', {}, 'Tra cứu đơn hàng'),
+  function lookupForm(root, message, other = false) {
+    const form = h('form', { class: `shop-panel shop-form shop-lookup${other ? ' shop-lookup--side' : ''}` },
+      h('h2', {}, other ? 'Tra cứu đơn khác' : 'Tra cứu đơn hàng'),
       message ? h('p', { class: 'shop-alert', role: 'alert' }, message) : null,
       field('code', 'Mã đơn hàng', h('input', { type: 'text', required: true, maxlength: '20', autocapitalize: 'characters', placeholder: 'CC…' })),
       field('phone', 'Số điện thoại đặt hàng', h('input', { type: 'tel', required: true, inputmode: 'tel', maxlength: '15' })),
-      h('button', { class: 'btn btn--primary', type: 'submit' }, 'Tra cứu'));
+      h('button', { class: other ? 'btn btn--secondary' : 'btn btn--primary', type: 'submit' }, 'Tra cứu'));
     form.addEventListener('submit', (event) => {
       event.preventDefault();
       const code = form.elements.code.value.trim().toUpperCase();
@@ -453,6 +481,20 @@
     return form;
   }
 
+  // Màu nhãn trạng thái và dòng tiến độ đơn (layout duyệt 04/11).
+  const statusTone = (status) => (['da_thanh_toan', 'da_xac_nhan', 'dang_giao', 'da_giao'].includes(status) ? 'ok'
+    : ['da_huy', 'het_han', 'hoan_tien'].includes(status) ? 'bad' : 'wait');
+  function orderTrack(order) {
+    const steps = ['Đặt hàng', ...(order.method === 'bank' ? ['Thanh toán'] : []), 'Xác nhận', 'Đang giao', 'Đã giao'];
+    const reached = { cho_thanh_toan: 'Đặt hàng', cho_xac_nhan: order.method === 'bank' ? 'Thanh toán' : 'Đặt hàng', da_thanh_toan: 'Thanh toán',
+      da_xac_nhan: 'Xác nhận', dang_giao: 'Xác nhận', da_giao: 'Đã giao' }[order.status];
+    if (!reached) return null;
+    const done = steps.indexOf(reached);
+    return h('ol', { class: 'order-track', 'aria-label': 'Tiến độ đơn hàng' }, steps.map((step, i) => h('li', {
+      class: i <= done ? 'is-done' : (i === done + 1 ? 'is-current' : ''), 'aria-current': i === done + 1 ? 'step' : null,
+    }, h('span', { class: 'order-track__dot' }, i <= done ? icon('check') : null), step)));
+  }
+
   let pollTimer;
   let countdownTimer;
   async function renderOrder(root) {
@@ -461,9 +503,12 @@
     const code = (new URLSearchParams(location.search).get('ma') || '').toUpperCase();
     let saved = null;
     try { saved = JSON.parse(store('sessionStorage')?.getItem(LAST_ORDER_KEY) || 'null'); } catch { /* bỏ qua */ }
+    const steps = $('.shop-steps');
+    if (steps) steps.hidden = true;
     if (!code || !saved || saved.code !== code) { root.replaceChildren(lookupForm(root)); return; }
     const { status, data } = await api(`/api/orders/${encodeURIComponent(code)}?phone=${encodeURIComponent(saved.phone)}`, { method: 'GET' });
     if (status !== 200) { root.replaceChildren(lookupForm(root, data.error || 'Không tìm thấy đơn hàng.')); return; }
+    if (steps) steps.hidden = false;
     const order = data.order;
     const products = await catalog();
     const [title, text] = STATUS[order.status] || [order.status, ''];
@@ -480,8 +525,9 @@
     const head = h('section', { class: `shop-panel order-status order-status--${order.status}` },
       h('p', { class: 'eyebrow' }, 'Mã đơn hàng'),
       h('p', { class: 'order-code' }, h('strong', {}, order.code), copyButton(order.code, 'mã đơn')),
-      h('h2', {}, title),
+      h('h2', { class: `order-pill order-pill--${statusTone(order.status)}` }, icon(statusTone(order.status) === 'ok' ? 'check' : statusTone(order.status) === 'bad' ? 'x' : 'clock'), title),
       h('p', {}, text),
+      orderTrack(order),
       order.tracking_code ? h('p', {}, 'Mã vận đơn: ', h('strong', {}, order.tracking_code)) : null);
 
     let pay = null;
@@ -498,15 +544,17 @@
       const row = (label, value, copy) => h('div', {}, h('dt', {}, label), h('dd', {}, h('span', {}, value), copy ? copyButton(copy, label) : null));
       pay = h('section', { class: 'shop-panel order-pay' },
         h('h2', {}, 'Chuyển khoản'),
-        p.qr_url ? h('img', { class: 'order-qr', src: p.qr_url, alt: `Mã QR chuyển ${vnd(p.amount)} cho đơn ${order.code}`, width: '360', height: '360' }) : null,
-        h('p', { class: 'order-timer' }, 'Mã QR còn hiệu lực: ', left),
+        h('div', { class: 'order-pay__grid' },
+        h('div', { class: 'order-pay__qr' },
+          p.qr_url ? h('img', { class: 'order-qr', src: p.qr_url, alt: `Mã QR chuyển ${vnd(p.amount)} cho đơn ${order.code}`, width: '360', height: '360' }) : null,
+          h('p', { class: 'order-timer' }, 'Mã QR còn hiệu lực: ', left)),
         h('dl', { class: 'order-bank' },
           row('Ngân hàng', p.bank),
           row('Số tài khoản', p.account, p.account),
           row('Chủ tài khoản', p.holder),
           row('Số tiền', vnd(p.amount), String(p.amount)),
-          row('Nội dung', p.content, p.content)),
-        h('p', { class: 'shop-alert' }, 'Chỉ chuyển vào đúng tài khoản hiển thị tại đây, giữ nguyên nội dung là mã đơn. Comfycare không bao giờ hỏi mã OTP. Tài khoản nhận tiền giai đoạn đầu là tài khoản cá nhân.'));
+          row('Nội dung', p.content, p.content))),
+        h('p', { class: 'shop-alert order-warn' }, icon('shield'), 'Chỉ chuyển vào đúng tài khoản hiển thị tại đây, giữ nguyên nội dung là mã đơn. Comfycare không bao giờ hỏi mã OTP. Tài khoản nhận tiền giai đoạn đầu là tài khoản cá nhân.'));
       // Hỏi trạng thái mỗi 4 giây; chỉ vẽ lại khi trạng thái đổi (giữ nguyên đồng hồ, nút sao chép).
       const poll = async () => {
         const fresh = await api(`/api/orders/${encodeURIComponent(code)}?phone=${encodeURIComponent(saved.phone)}`, { method: 'GET' }).catch(() => null);
@@ -521,9 +569,10 @@
       h('ul', { class: 'cart-lines cart-lines--compact' }, order.items.map((l) => lineView(l, products.get(l.sku)))),
       summaryView(order, { placed: true }),
       h('p', { class: 'shop-muted' }, order.method === 'cod' ? 'Thanh toán khi nhận hàng (COD).' : 'Thanh toán chuyển khoản.'),
-      h('a', { class: 'btn btn--secondary', href: SHOP.zalo, target: '_blank', rel: 'noopener noreferrer' }, 'Cần hỗ trợ? Nhắn Zalo'));
+      h('a', { class: 'btn btn--secondary', href: SHOP.zalo, target: '_blank', rel: 'noopener noreferrer' }, icon('chat'), 'Cần hỗ trợ? Nhắn Zalo'));
 
-    root.replaceChildren(h('div', { class: 'shop-layout' }, h('div', { class: 'shop-stack' }, head, pay), items));
+    root.replaceChildren(h('div', { class: 'shop-layout' }, h('div', { class: 'shop-stack' }, head, pay),
+      h('div', { class: 'shop-stack shop-stack--side' }, items, lookupForm(root, null, true))));
   }
 
   // Lưu UTM của lượt truy cập đầu (nguồn đơn).
