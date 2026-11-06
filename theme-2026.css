@@ -991,3 +991,20 @@ a.t-sku:hover { background: #ffe2b8; }
   .t-need--sport img { aspect-ratio: 16 / 10 !important; object-position: center 30%; }
   .t-need--sport .t-sku { background: #fff; }
 }
+
+/* Rà soát 07/11: sửa lỗi nhỏ giao diện */
+@media (max-width: 1040px) {
+  .t-cta__inner > .t-cta__actions { grid-column: 1 / -1; }
+}
+@media (max-width: 760px) {
+  .t-filters > div { flex: 1 1 100%; }
+  .t-filters > div + div { padding-top: 10px; border-top: 1px solid var(--t-line); }
+  .g26-table table { min-width: 0; }
+  .g26-table th, .g26-table td { padding: 8px 4px; font-size: 16px; }
+  .footer-sales-note span { display: inline; }
+  .t26 .official-channel-card strong { font-size: 14px; }
+}
+@media (min-width: 1101px) {
+  .footer-grid { grid-template-columns: minmax(200px, 1fr) minmax(160px, 0.75fr) minmax(150px, 0.7fr) minmax(190px, 0.85fr) minmax(250px, 1.15fr); }
+}
+.footer-contact a[href^="tel:"] { white-space: nowrap; }
