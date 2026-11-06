@@ -837,7 +837,8 @@
 .pd-rcard__price { margin: 4px 0 10px; color: #e8890c; font-weight: 800; font-size: 24px; }
 .pd-reviews { margin-top: 28px; padding: 22px 28px 28px; border-radius: 22px; background: var(--t-teal-soft); }
 .pd-reviews h2 { margin: 0 0 16px; color: var(--t-deep); text-align: center; font-size: clamp(24px, 2.4vw, 32px); }
-.pd-reviews__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.pd-reviews__grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; max-width: 760px; margin-inline: auto; }
+.pd-review a { display: block; cursor: zoom-in; }
 .pd-review { margin: 0; padding: 14px 16px; border-radius: 16px; background: #fff; }
 .pd-review figcaption { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; color: var(--t-ink); font-weight: 700; }
 .pd-review figcaption span { color: var(--t-teal); font-size: 40px; line-height: .6; font-family: Georgia, serif; }

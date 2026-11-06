@@ -1008,3 +1008,37 @@ a.t-sku:hover { background: #ffe2b8; }
   .footer-grid { grid-template-columns: minmax(200px, 1fr) minmax(160px, 0.75fr) minmax(150px, 0.7fr) minmax(190px, 0.85fr) minmax(250px, 1.15fr); }
 }
 .footer-contact a[href^="tel:"] { white-space: nowrap; }
+
+/* Rà soát 07/11 (đợt 2): nhãn Cấp 2 không che logo, vùng bấm ≥ 32px, gợi ý vuốt tab, chữ tối thiểu 12px, bảng chứng nhận dạng thẻ. */
+.c26-badge { top: auto; bottom: 10px; }
+.c26-shopee { display: inline-flex; align-items: center; justify-content: center; min-height: 36px; }
+.t26 .breadcrumb a, .t26 .t-crumb a { display: inline-flex; align-items: center; min-height: 32px; }
+.pd-shopee a { display: inline-block; padding: 6px 0; }
+.t26.product-detail-page .pd-link { display: inline-flex; align-items: center; min-height: 32px; }
+@media (max-width: 760px) {
+  .t26 .top-bar__inner { font-size: 13px; }
+  .t26 .top-bar__item { min-height: 32px; }
+  .t26 .c26-card .sku, .t26 .category-list-page .category-product-card .sku { font-size: 13px; }
+  .t26 .c26-card .c26-pressure, .t26 .c26-card .c26-price { font-size: 13px; }
+  .c26-badge { bottom: 8px; left: 8px; padding: 3px 10px; font-size: 13px; }
+  .t26 .footer-links a { display: inline-block; padding-block: 5px; }
+  .t26 .footer-legal-links a { display: inline-block; padding-block: 7px; }
+  .t26 .footer-contact a { display: inline-block; padding-block: 6px; }
+  .t-hero__media picture, .t-hero__media img { aspect-ratio: 16 / 9; object-position: 60% 30%; }
+  .t26.product-detail-page .pd-tabs .container { scroll-snap-type: x proximity; -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 44px), transparent); mask-image: linear-gradient(90deg, #000 calc(100% - 44px), transparent); }
+  .t26.product-detail-page .pd-tabs .container.is-end { -webkit-mask-image: none; mask-image: none; }
+  .r26-table { overflow: visible; border: 0; background: none; }
+  .r26-table thead { display: none; }
+  .r26-table table, .r26-table tbody, .r26-table tr, .r26-table th, .r26-table td { display: block; }
+  .r26-table table { min-width: 0; }
+  .r26-table tbody tr { margin-bottom: 12px; padding: 4px 16px 10px; border: 1px solid var(--t-line); border-radius: 14px; background: #fff; }
+  .r26-table tbody th { padding: 12px 0 6px; border: 0; background: none; color: var(--t-deep); font-size: 18px; }
+  .r26-table td { padding: 8px 0; text-align: right; font-size: 16px; }
+  .r26-table td::before { float: left; color: var(--t-muted); font-weight: 600; }
+  .r26-table td:nth-child(2)::before { content: "Đăng ký FDA"; }
+  .r26-table td:nth-child(3)::before { content: "ISO 13485"; }
+  .r26-table td:nth-child(4)::before { content: "ISO 9001"; }
+  .r26-table td:nth-child(5)::before { content: "Công bố tại Việt Nam"; }
+  .r26-table td svg { margin-right: 6px; }
+  body #comfy-chat .cc-launcher { width: 46px; min-height: 46px; }
+}

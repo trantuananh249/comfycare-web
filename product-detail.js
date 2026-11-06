@@ -53,7 +53,17 @@
       panels[i].classList.toggle('is-active', on);
     });
     if (focus) tabs[index].focus();
+    tabs[index].scrollIntoView({ block: 'nearest', inline: 'nearest' });
   };
+
+  // Thanh tab trên điện thoại cuộn ngang: mờ dần mép phải làm gợi ý vuốt, hết khi đã cuộn tới cuối.
+  const bar = tabs[0] && tabs[0].parentElement;
+  const markEnd = () => bar.classList.toggle('is-end', bar.scrollLeft + bar.clientWidth >= bar.scrollWidth - 4);
+  if (bar) {
+    bar.addEventListener('scroll', markEnd, { passive: true });
+    window.addEventListener('resize', markEnd);
+    markEnd();
+  }
 
   tabs.forEach((tab, i) => {
     tab.addEventListener('click', () => select(i));

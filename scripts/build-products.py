@@ -13,6 +13,7 @@ import re
 import struct
 
 from workspace_paths import SITE as ROOT, KNOWLEDGE, CONTENT
+from og_tags import og_block
 
 # Nội dung mô tả trang chi tiết lấy từ file mô tả sàn (cùng nội dung đăng Shopee/TikTok), đặt cạnh ảnh sản phẩm:
 # <Ảnh sản phẩm>/<mã viết thường>/<MÃ>_Tieu_de_Mo_ta.txt. File sinh từ brain; sửa nội dung thì sửa brain rồi sinh lại file.
@@ -278,7 +279,7 @@ def render_page(p, head, css_version, js_version, theme_version):
     title = f'{p["name"]} {sku} | Comfycare'
     description = f'{p["name"]} ({sku}) Comfycare, {p["category_label"].lower()}'
     description += f', áp lực {p["pressure"]}' if p['pressure'] else ''
-    description += f'. Giá bán lẻ {vnd(p["price"])}/{unit}, đã gồm VAT. Bảng size, cách chọn size và mua trên Shopee.'
+    description += f'. Giá bán lẻ {vnd(p["price"])}/{unit}, đã gồm VAT. Bảng size, cách chọn size, đặt mua trên website hoặc Shopee.'
     # Layout duyệt 04/11: 3 ô đặc điểm có dấu tích dưới giá (áp lực + kiểu dáng tách theo dấu phẩy).
     CHECK = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="m7.5 12.5 3 3 6-6.5" /></svg>'
     feats = []
@@ -542,7 +543,7 @@ def render_page(p, head, css_version, js_version, theme_version):
         f'''
             <figure class="pd-review">
               <figcaption><span aria-hidden="true">“</span>Khách hàng trên Shopee</figcaption>
-              <img src="/assets/reviews/review-shopee-0{i}-480.webp" alt="Đánh giá của khách hàng trên Shopee Comfycare" width="480" height="{h}" loading="lazy" decoding="async" />
+              <a href="/assets/reviews/review-shopee-0{i}.png" target="_blank" rel="noopener" aria-label="Xem ảnh đánh giá {i} cỡ lớn"><img src="/assets/reviews/review-shopee-0{i}-800.webp" srcset="/assets/reviews/review-shopee-0{i}-480.webp 480w, /assets/reviews/review-shopee-0{i}-800.webp 800w" sizes="(max-width: 860px) calc(100vw - 72px), 760px" alt="Đánh giá của khách hàng trên Shopee Comfycare" width="480" height="{h}" loading="lazy" decoding="async" /></a>
             </figure>''' for i, h in ((1, 147), (2, 160), (3, 151)))
 
     return f'''<!doctype html>
@@ -553,6 +554,7 @@ def render_page(p, head, css_version, js_version, theme_version):
     <title>{escape(title)}</title>
     <meta name="description" content="{escape(description)}" />
     <link rel="canonical" href="https://comfycare.vn{p["url"]}" />
+    {og_block(title, description, "https://comfycare.vn" + p["url"], f"/assets/og/{sku.lower()}.jpg", "product")}
     <link rel="icon" type="image/webp" href="/assets/logo/comfycare-logo-64.webp" />
     <script>document.documentElement.classList.add('js')</script>
     <link rel="preload" href="/assets/fonts/be-vietnam-pro-400-latin.woff2" as="font" type="font/woff2" crossorigin />
@@ -610,7 +612,7 @@ def render_page(p, head, css_version, js_version, theme_version):
               <a class="pd-zalo" href="{ZALO}" target="_blank" rel="noopener noreferrer"><img src="/assets/icons/mxh-zalo.svg" alt="" width="36" height="36" />{'Gửi số đo, nhờ tư vấn size qua Zalo' if p['sizes'] else 'Cần tư vấn? Nhắn Zalo'}</a>
               <ul class="pd-services">{service_row}</ul>
               {'<p class="pd-cert">Thuộc công bố tiêu chuẩn: 9 mẫu tất y tế cấp 2, cỡ S–XXL</p>' if p['has_byt'] else ''}
-              <p class="pd-shopee">{promo.replace('<p class="pd-muted">', '').replace('</p>', '')} <a href="{p["shopee_url"]}" target="_blank" rel="noopener noreferrer">Mua trên Shopee</a></p>
+              <p class="pd-shopee">{promo.replace('<p class="pd-muted">', '').replace('.</p>', '')}, áp dụng khi đặt trên website và tại <a href="{p["shopee_url"]}" target="_blank" rel="noopener noreferrer">gian hàng Shopee chính hãng</a>.</p>
             </div>
           </div>
         </div>
