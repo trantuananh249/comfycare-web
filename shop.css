@@ -595,7 +595,7 @@
 .t26 .shop-summary dt { color: var(--t-text); font-size: 16px; }
 .t26 .shop-summary dd { color: var(--t-ink); font-size: 16px; font-weight: 700; }
 .t26 .shop-summary__total { align-items: baseline; padding-top: 14px; border-top: 1px solid var(--t-line); color: var(--t-ink); font-size: 17px; font-weight: 800; }
-.t26 .shop-summary__total strong { color: var(--t-cta); font-size: 28px; }
+.t26 .shop-summary__total strong { color: var(--t-price, #b45309); font-size: 28px; }
 .shop-trust { display: grid; gap: 12px; margin: 4px 0 0; padding: 16px 0 0; border-top: 1px solid var(--t-line); list-style: none; }
 .shop-trust li { display: flex; align-items: center; gap: 12px; color: var(--t-ink); font-size: 15px; }
 .shop-trust .shop-ico { color: var(--t-deep); }
@@ -660,7 +660,7 @@
 .order-pay__qr { display: grid; gap: 10px; justify-items: center; }
 .t26 .order-qr { width: 100%; max-width: 280px; border-radius: 12px; border-color: var(--t-line); }
 .t26 .order-timer { color: var(--t-text); font-size: 15px; }
-.t26 .order-countdown { color: var(--t-cta); font-size: 22px; }
+.t26 .order-countdown { color: var(--t-price, #b45309); font-size: 22px; }
 .t26 .order-bank div { grid-template-columns: minmax(0, 1fr); gap: 4px; padding: 10px 0; border-bottom: 1px solid var(--t-line); }
 .t26 .order-bank dt { color: var(--t-muted); font-size: 14px; font-weight: 600; }
 .t26 .order-bank dd { justify-content: space-between; color: var(--t-ink); font-size: 18px; }

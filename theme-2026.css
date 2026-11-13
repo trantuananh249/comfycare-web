@@ -1044,7 +1044,7 @@ a.t-sku:hover { background: #ffe2b8; }
 }
 
 /* Rà soát 13/11 (đợt 1): tương phản nút cam, vùng bấm trên điện thoại, chữ tối thiểu 14px. */
-.t26 { --t-cta: #b45309; --t-cta-hover: #92400e; }
+.t26 { --t-cta: #f29e24; --t-cta-hover: #e08a12; --t-price: #b45309; }
 .g26-zalo .t-btn, .t-cta .t-btn--cta, .t-hero-side .t-btn, .g26 .t-tag { background: var(--t-cta); color: #fff; }
 .g26-zalo .t-btn:hover, .t-cta .t-btn--cta:hover, .t-hero-side .t-btn:hover { background: var(--t-cta-hover); }
 .t26 .review-hint { color: var(--t-deep); font-size: 14px; }
@@ -1094,3 +1094,9 @@ a.t-sku:hover { background: #ffe2b8; }
   .t-quick__list .c26-card h3 { font-size: 16px; }
   .t-quick__list .c26-price strong { font-size: 19px; }
 }
+
+/* Anh yêu cầu 13/11: nút cam đúng màu thương hiệu #F29E24 (brand_quick_guide), chữ trắng như bản gốc; giá giữ cam đậm để dễ đọc; giá niêm yết gạch ngang. */
+.t26 .btn--primary, .t-btn--cta, .g26-zalo .t-btn, .t-cta .t-btn--cta, .t-hero-side .t-btn, .t-sidecta .t-btn--cta { background: var(--t-cta); color: #fff; }
+.t26 .btn--primary:hover, .t-btn--cta:hover, .g26-zalo .t-btn:hover, .t-cta .t-btn--cta:hover, .t-hero-side .t-btn:hover { background: var(--t-cta-hover); color: #fff; }
+.c26-price strong { color: var(--t-price); }
+.c26-price del, .t-pcard__price del { margin-right: 4px; color: var(--t-muted, #64748b); font-size: .8em; font-weight: 500; }

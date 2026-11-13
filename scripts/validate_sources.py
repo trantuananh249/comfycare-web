@@ -68,7 +68,9 @@ product_data = {p['sku']: p for p in json.loads(read(PROJECT/'data/products.json
 check(set(product_data) == set(prices), 'products.json SKU coverage differs from approved catalog')
 for sku, p in product_data.items():
     check(sku in prices and p['price'] == int(prices[sku].replace('.', '')), 'products.json price: '+sku)
-    check(p['shopee_url'] == shopee_links.get(sku), 'products.json Shopee link: '+sku)
+    # 13/11: thẻ danh mục bỏ nút "Mua trên Shopee" (anh duyệt); chỉ đối chiếu khi trang còn link trên thẻ.
+    check(sku not in shopee_links or p['shopee_url'] == shopee_links[sku], 'products.json Shopee link: '+sku)
+    check(p['shopee_url'].startswith('https://shopee.vn/product/'), 'products.json Shopee link format: '+sku)
     detail = PROJECT/'san-pham'/sku.lower()/'index.html'
     if detail.exists():
         html = read(detail)

@@ -987,23 +987,27 @@
 .t26.product-detail-page .pd-web-buy, .t26.product-detail-page .pd-web-buy:disabled { background: var(--t-cta); }
 .t26.product-detail-page .pd-web-buy:hover { background: var(--t-cta-hover); }
 .t26.product-detail-page .pd-sku, .pd-rcard__sku { color: #0b7f86; }
-.pd-rcard__price { color: var(--t-cta); }
+.pd-rcard__price { color: var(--t-price, #b45309); }
 .product-detail-page .pd-error { margin: 2px 0 0; color: #b42318; font-weight: 700; font-size: 16px; }
 .product-detail-page .pd-field.is-missing { border-radius: 12px; outline: 2px solid #d92d20; outline-offset: 6px; }
 .product-detail-page .pd-field.is-missing legend { color: #b42318 !important; }
 @media (max-width: 420px) {
   .t26.product-detail-page .pd-actions .btn { padding-inline: 10px; white-space: nowrap; font-size: 16px !important; }
 }
-.t26.product-detail-page .pd-price strong { color: var(--t-cta); }
+.t26.product-detail-page .pd-price strong { color: var(--t-price, #b45309); }
 
 /* Mẫu đợt 3 (anh duyệt 13/11): thanh mua dính trên điện thoại ở trang sản phẩm. */
 @media (max-width: 760px) {
   .mobile-sticky-cta.pd-buybar { grid-template-columns: auto minmax(0, 1fr) 48px; align-items: center; gap: 10px; }
   .pd-buybar__price { display: grid; margin: 0; line-height: 1.15; }
-  .pd-buybar__price strong { color: var(--t-cta, #b45309); font-size: 20px; font-weight: 800; white-space: nowrap; }
+  .pd-buybar__price strong { color: var(--t-price, #b45309); font-size: 20px; font-weight: 800; white-space: nowrap; }
   .pd-buybar__price span { color: var(--t-muted, #5b6b70); font-size: 14px; }
   .mobile-sticky-cta.pd-buybar .pd-buybar__buy { min-height: 48px; border: 0; border-radius: 12px; background: var(--t-cta, #b45309); color: #fff; font-size: 17px; font-weight: 700; white-space: nowrap; }
   .mobile-sticky-cta.pd-buybar .pd-buybar__buy:hover { background: var(--t-cta-hover, #92400e); }
   .pd-buybar__zalo { display: grid; place-items: center; width: 48px; height: 48px; border: 1.5px solid var(--t-line, #d6e9ea); border-radius: 50%; background: #fff; }
   .pd-buybar__zalo img { width: 30px; height: 30px; }
 }
+
+/* Giá niêm yết gạch ngang (anh duyệt 13/11). */
+.t26.product-detail-page .pd-price del { display: block; color: var(--t-muted, #64748b); font-size: 18px; font-weight: 500; }
+.pd-rcard__price del { color: var(--t-muted, #64748b); font-size: .75em; font-weight: 500; }

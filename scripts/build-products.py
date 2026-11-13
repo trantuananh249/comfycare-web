@@ -135,7 +135,9 @@ def parse_catalog():
         # D.1–D.3: cột 4 là giá bán lẻ/TMĐT; D.4 (CS100) chỉ có một mức giá ở cột 4.
         products[row[1]] = {'sku': row[1], 'name': cells[1].replace('**', ''), 'group': group,
                             'category_route': route, 'category_label': label,
-                            'price': money(cells[3])}
+                            'price': money(cells[3]),
+                            # Anh duyệt 13/11: hiện giá niêm yết gạch ngang (D.1–D.3 cột 3); D.4 chỉ có một mức giá.
+                            'list_price': money(cells[2]) if section != 'D.4' and money(cells[2]) > money(cells[3]) else None}
     gifts = re.search(r'Tặng kèm cho:\*\* ([^(]+)', read(KNOWLEDGE / 'products/catalog_pricing.md'))[1]
     gift_skus = set(re.findall(r'CS\d+', gifts))
     assert gift_skus == {'CS21', 'CS22', 'CS23', 'CS24', 'CS33', 'CS34'}, 'D.5 thay đổi: rà lại quà CS100'
@@ -560,7 +562,7 @@ def render_page(p, head, css_version, js_version, theme_version):
               <div>
                 <h3><a href="{r["url"]}">{escape(r["name"])}</a></h3>
                 <span class="pd-rcard__sku">{r["sku"]}</span>
-                <p class="pd-rcard__price">{vnd(r["price"])}</p>
+                <p class="pd-rcard__price">{f'<del>{vnd(r["list_price"])}</del> ' if r.get("list_price") else ''}{vnd(r["price"])}</p>
                 <a class="t-btn t-btn--outline t-btn--small" href="{r["url"]}">Xem chi tiết</a>
               </div>
             </article>''' for r in p['related'])
@@ -615,7 +617,7 @@ def render_page(p, head, css_version, js_version, theme_version):
               <span class="pd-cat">{escape(p["category_label"])}</span>
               <h1>{name}</h1>
               <p class="pd-sku">{sku}</p>
-              <p class="pd-price"><strong>{vnd(p["price"])}</strong><small>Giá cho 1 {unit}{' (2 chiếc)' if unit == 'đôi' else ''}, đã gồm VAT</small></p>
+              <p class="pd-price">{f'<del aria-label="Giá niêm yết {vnd(p["list_price"])}">{vnd(p["list_price"])}</del>' if p.get("list_price") else ''}<strong>{vnd(p["price"])}</strong><small>Giá cho 1 {unit}{' (2 chiếc)' if unit == 'đôi' else ''}, đã gồm VAT</small></p>
               {pressure}
               {scope}
               <form class="pd-options" aria-label="Chọn phân loại" onsubmit="return false">
