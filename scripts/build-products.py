@@ -36,7 +36,7 @@ MEASURE = {
     'CS11': ['Chu vi bắp chân, chỗ to nhất'],
     'CS12': ['Size giày đang đi'],
     'CS14': ['Chu vi đùi, đo ngay phía trên gối'],
-    'CS110': ['Giới tính và cân nặng (bảng tham khảo)'],
+    'CS110': ['Chu vi bắp chân, chỗ to nhất'],
 }
 CATEGORIES = {
     'D.1': ('c2-y-te', 'tat-y-te-cap-2', 'Tất y tế cấp 2'),
@@ -280,6 +280,11 @@ def render_page(p, head, css_version, js_version, theme_version):
     description = f'{p["name"]} ({sku}) Comfycare, {p["category_label"].lower()}'
     description += f', áp lực {p["pressure"]}' if p['pressure'] else ''
     description += f'. Giá bán lẻ {vnd(p["price"])}/{unit}, đã gồm VAT. Bảng size, cách chọn size, đặt mua trên website hoặc Shopee.'
+    # Rà soát 13/11: Google cắt mô tả quá 160 ký tự; rút gọn đuôi khi dài.
+    if len(description) > 160:
+        description = description.replace(' Bảng size, cách chọn size, đặt mua trên website hoặc Shopee.', ' Bảng size, đặt mua trên website.')
+    if len(description) > 160:
+        description = description.replace(', đã gồm VAT', '')
     # Layout duyệt 04/11: 3 ô đặc điểm có dấu tích dưới giá (áp lực + kiểu dáng tách theo dấu phẩy).
     CHECK = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="m7.5 12.5 3 3 6-6.5" /></svg>'
     feats = []
@@ -399,7 +404,7 @@ def render_page(p, head, css_version, js_version, theme_version):
                 <span class="pd-gallery__count" data-gallery-count aria-live="polite">1/{len(images)}</span>''' if many else '')
     gallery_html = f'''<div class="pd-gallery" data-gallery data-name="{name}">
               <div class="pd-gallery__main">
-                <img data-gallery-main src="{first["src"]}" srcset="{first["medium"]} 640w, {first["src"]} {first["width"]}w" sizes="(max-width: 900px) calc(100vw - 32px), 540px" alt="{name}{f' – ảnh 1/{len(images)}' if many else ''}" width="{first["width"]}" height="{first["height"]}" fetchpriority="high" decoding="async" />{nav}
+                <img data-gallery-main src="{first["src"]}" srcset="{first["medium"]} 640w, {first["medium"].replace("-640", "-960")} 960w, {first["src"]} {first["width"]}w" sizes="(max-width: 900px) calc(100vw - 32px), 540px" alt="{name}{f' – ảnh 1/{len(images)}' if many else ''}" width="{first["width"]}" height="{first["height"]}" fetchpriority="high" decoding="async" />{nav}
               </div>{thumbs}
             </div>'''
 
@@ -436,8 +441,28 @@ def render_page(p, head, css_version, js_version, theme_version):
         'image': [f'https://comfycare.vn{g["src"]}' for g in p['gallery']], 'description': p['description'],
         'brand': {'@type': 'Brand', 'name': 'Comfycare'},
         'offers': {'@type': 'Offer', 'price': p['price'], 'priceCurrency': 'VND',
-                   'url': f'https://comfycare.vn{p["url"]}'},
+                   'url': f'https://comfycare.vn{p["url"]}',
+                   # Rà soát 13/11: đủ trường để Google hiện giá, giao hàng, đổi trả (brain M.2, M.3, H).
+                   'availability': 'https://schema.org/InStock',
+                   'itemCondition': 'https://schema.org/NewCondition',
+                   'seller': {'@type': 'Organization', 'name': 'Comfycare', 'url': 'https://comfycare.vn/'},
+                   'shippingDetails': {
+                       '@type': 'OfferShippingDetails',
+                       'shippingRate': {'@type': 'MonetaryAmount', 'value': 25000, 'currency': 'VND'},
+                       'shippingDestination': {'@type': 'DefinedRegion', 'addressCountry': 'VN'},
+                       'deliveryTime': {'@type': 'ShippingDeliveryTime',
+                                        'handlingTime': {'@type': 'QuantitativeValue', 'minValue': 0, 'maxValue': 1, 'unitCode': 'DAY'},
+                                        'transitTime': {'@type': 'QuantitativeValue', 'minValue': 2, 'maxValue': 5, 'unitCode': 'DAY'}}},
+                   'hasMerchantReturnPolicy': {
+                       '@type': 'MerchantReturnPolicy', 'applicableCountry': 'VN',
+                       'returnPolicyCategory': 'https://schema.org/MerchantReturnFiniteReturnWindow',
+                       'merchantReturnDays': 15, 'returnMethod': 'https://schema.org/ReturnByMail',
+                       'merchantReturnLink': 'https://comfycare.vn/chinh-sach-doi-tra/'}},
     }
+    breadcrumb = {'@context': 'https://schema.org', '@type': 'BreadcrumbList', 'itemListElement': [
+        {'@type': 'ListItem', 'position': 1, 'name': 'Trang chủ', 'item': 'https://comfycare.vn/'},
+        {'@type': 'ListItem', 'position': 2, 'name': p['category_label'], 'item': f'https://comfycare.vn/{p["category_route"]}/'},
+        {'@type': 'ListItem', 'position': 3, 'name': p['name'], 'item': f'https://comfycare.vn{p["url"]}'}]}
 
     # J.3: dòng tất y tế nhắc hỏi bác sĩ với thai kỳ, bệnh nền, sau phẫu thuật.
     notice = ('''
@@ -567,6 +592,7 @@ def render_page(p, head, css_version, js_version, theme_version):
     {head["site"]}
     <script src="/product-detail.js?v={js_version}" defer></script>
     <script type="application/ld+json">{json.dumps(schema, ensure_ascii=False)}</script>
+    <script type="application/ld+json">{json.dumps(breadcrumb, ensure_ascii=False)}</script>
     {head["pixel"]}
     {head["chatbot"]}
   </head>
@@ -661,7 +687,7 @@ def render_page(p, head, css_version, js_version, theme_version):
 def update_sitemap(skus):
     path = ROOT / 'sitemap.xml'
     xml = read(path)
-    xml = re.sub(r'\s*<url>\s*<loc>https://comfycare\.vn/san-pham/cs\d+/</loc>\s*</url>', '', xml)
+    xml = re.sub(r'\s*<url>\s*<loc>https://comfycare\.vn/san-pham/cs\d+/</loc>(?:<lastmod>[^<]*</lastmod>)?\s*</url>', '', xml)
     entries = ''.join(f'\n  <url>\n    <loc>https://comfycare.vn/san-pham/{s.lower()}/</loc>\n  </url>' for s in skus)
     xml = xml.replace('\n</urlset>', entries + '\n</urlset>')
     path.write_text(xml, encoding='utf-8')

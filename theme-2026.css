@@ -1042,3 +1042,20 @@ a.t-sku:hover { background: #ffe2b8; }
   .r26-table td svg { margin-right: 6px; }
   body #comfy-chat .cc-launcher { width: 46px; min-height: 46px; }
 }
+
+/* Rà soát 13/11 (đợt 1): tương phản nút cam, vùng bấm trên điện thoại, chữ tối thiểu 14px. */
+.t26 { --t-cta: #b45309; --t-cta-hover: #92400e; }
+.g26-zalo .t-btn, .t-cta .t-btn--cta, .t-hero-side .t-btn, .g26 .t-tag { background: var(--t-cta); color: #fff; }
+.g26-zalo .t-btn:hover, .t-cta .t-btn--cta:hover, .t-hero-side .t-btn:hover { background: var(--t-cta-hover); }
+.t26 .review-hint { color: var(--t-deep); font-size: 14px; }
+.t-need { position: relative; }
+.t-need__title a::after { content: ""; position: absolute; inset: 0; z-index: 1; }
+.t-need__skus { position: relative; z-index: 2; }
+.t-sku { position: relative; }
+.t-sku::after { content: ""; position: absolute; inset: -7px -3px; }
+.t-link { padding-block: 9px; margin-block: -9px; }
+@media (max-width: 760px) {
+  .t26 .top-bar__item, .t-need__note, .t26 .footer-legal-links a { font-size: 14px; }
+  .t26 .main-nav.is-open .nav-dropdown__panel a { min-height: 44px; display: flex; align-items: center; }
+  .t26 .footer-legal-links a { min-height: 44px; display: inline-flex; align-items: center; }
+}

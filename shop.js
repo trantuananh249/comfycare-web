@@ -194,32 +194,30 @@
       const missing = [];
       if (form.querySelector('input[name="size"]') && !size) missing.push('size');
       if (form.querySelector('input[name="color"]') && !color) missing.push('màu');
+      form.querySelectorAll('.pd-field.is-missing').forEach((f) => f.classList.remove('is-missing'));
       if (missing.length) {
-        error.textContent = `Vui lòng chọn ${missing.join(' và ')} trước khi mua.`;
+        // Rà soát 13/11: báo rõ ô còn thiếu (viền đỏ, cuộn tới), giọng anh/chị–em.
+        error.textContent = `Anh/chị chọn ${missing.join(' và ')} giúp em ạ.`;
         error.hidden = false;
-        form.querySelector(`input[name="${missing[0] === 'size' ? 'size' : 'color'}"]`)?.focus();
+        const first = form.querySelector(`input[name="${missing[0] === 'size' ? 'size' : 'color'}"]`);
+        missing.forEach((m) => form.querySelector(`input[name="${m === 'size' ? 'size' : 'color'}"]`)?.closest('.pd-field')?.classList.add('is-missing'));
+        first?.closest('.pd-field')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        first?.focus({ preventScroll: true });
         return null;
       }
       error.hidden = true;
       return { sku, size, color, quantity };
     }
+    form.addEventListener('change', (e) => {
+      e.target.closest('.pd-field')?.classList.remove('is-missing');
+      if (!form.querySelector('.pd-field.is-missing')) error.hidden = true;
+    });
     button.addEventListener('click', async () => {
-      const size = form.querySelector('input[name="size"]:checked')?.value ?? '';
-      const color = form.querySelector('input[name="color"]:checked')?.value ?? '';
-      const quantity = Math.max(1, Math.min(MAX_QTY, parseInt(form.querySelector('input[name="qty"]').value, 10) || 1));
-      const missing = [];
-      if (form.querySelector('input[name="size"]') && !size) missing.push('size');
-      if (form.querySelector('input[name="color"]') && !color) missing.push('màu');
-      if (missing.length) {
-        error.textContent = `Vui lòng chọn ${missing.join(' và ')} trước khi mua.`;
-        error.hidden = false;
-        form.querySelector(`input[name="${missing[0] === 'size' ? 'size' : 'color'}"]`)?.focus();
-        return;
-      }
-      error.hidden = true;
-      addToCart({ sku, size, color, quantity });
+      const picked = pick();
+      if (!picked) return;
+      addToCart(picked);
       const product = (await catalog()).get(sku);
-      track('AddToCart', { content_ids: [sku], content_type: 'product', value: (product?.price || 0) * quantity, currency: 'VND' });
+      track('AddToCart', { content_ids: [sku], content_type: 'product', value: (product?.price || 0) * picked.quantity, currency: 'VND' });
       location.href = '/cart/';
     });
   }

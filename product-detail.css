@@ -982,3 +982,16 @@
   .leg-tag b { font-size: 17px; }
   .leg-tag::after { width: 30px; }
 }
+
+/* Rà soát 13/11 (đợt 1): nút Mua đủ tương phản, báo thiếu size/màu rõ, nút không gãy chữ trên điện thoại, mã/giá đủ tương phản. */
+.t26.product-detail-page .pd-web-buy, .t26.product-detail-page .pd-web-buy:disabled { background: var(--t-cta); }
+.t26.product-detail-page .pd-web-buy:hover { background: var(--t-cta-hover); }
+.t26.product-detail-page .pd-sku, .pd-rcard__sku { color: #0b7f86; }
+.pd-rcard__price { color: var(--t-cta); }
+.product-detail-page .pd-error { margin: 2px 0 0; color: #b42318; font-weight: 700; font-size: 16px; }
+.product-detail-page .pd-field.is-missing { border-radius: 12px; outline: 2px solid #d92d20; outline-offset: 6px; }
+.product-detail-page .pd-field.is-missing legend { color: #b42318 !important; }
+@media (max-width: 420px) {
+  .t26.product-detail-page .pd-actions .btn { padding-inline: 10px; white-space: nowrap; font-size: 16px !important; }
+}
+.t26.product-detail-page .pd-price strong { color: var(--t-cta); }

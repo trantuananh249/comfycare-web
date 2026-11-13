@@ -2345,19 +2345,16 @@
       "size_table": {
         "header": [
           "Cỡ",
-          "S/M",
-          "L/XL"
+          "Chu vi bắp chân"
         ],
         "rows": [
           [
-            "Nam",
-            "< 60 kg",
-            "60–65 kg"
+            "S/M",
+            "< 35 cm"
           ],
           [
-            "Nữ",
-            "< 55 kg",
-            "55–60 kg"
+            "L/XL",
+            "35–40 cm"
           ]
         ]
       },

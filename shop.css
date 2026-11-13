@@ -559,8 +559,8 @@
 .t26 .shop-muted { color: var(--t-muted); font-size: 14px; }
 .t26 .shop-link { display: inline-flex; align-items: center; gap: 6px; color: var(--t-deep); font-size: 16px; }
 .t26 .shop-page .btn { border-radius: 12px; }
-.t26 .shop-cta { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 56px; border: 0; background: #e8890c; color: #fff; font-size: 18px; font-weight: 700; }
-.t26 .shop-cta:hover { background: #cf7608; }
+.t26 .shop-cta { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 56px; border: 0; background: var(--t-cta); color: #fff; font-size: 18px; font-weight: 700; }
+.t26 .shop-cta:hover { background: var(--t-cta-hover); }
 .t26 .shop-cta .shop-ico svg { width: 22px; height: 22px; stroke-width: 2.2; }
 .t26 .shop-page .btn--secondary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 50px; border: 1.5px solid var(--t-teal); background: #fff; color: var(--t-deep); font-weight: 700; }
 .t26 .shop-alert { border-color: #f4d7a8; border-radius: 12px; background: #fff6e8; color: #6b3a00; font-size: 15px; }
@@ -595,7 +595,7 @@
 .t26 .shop-summary dt { color: var(--t-text); font-size: 16px; }
 .t26 .shop-summary dd { color: var(--t-ink); font-size: 16px; font-weight: 700; }
 .t26 .shop-summary__total { align-items: baseline; padding-top: 14px; border-top: 1px solid var(--t-line); color: var(--t-ink); font-size: 17px; font-weight: 800; }
-.t26 .shop-summary__total strong { color: #e8890c; font-size: 28px; }
+.t26 .shop-summary__total strong { color: var(--t-cta); font-size: 28px; }
 .shop-trust { display: grid; gap: 12px; margin: 4px 0 0; padding: 16px 0 0; border-top: 1px solid var(--t-line); list-style: none; }
 .shop-trust li { display: flex; align-items: center; gap: 12px; color: var(--t-ink); font-size: 15px; }
 .shop-trust .shop-ico { color: var(--t-deep); }
@@ -641,7 +641,7 @@
 .t26 .order-code { gap: 14px; }
 .t26 .order-code strong { color: var(--t-deep); font-size: 32px; letter-spacing: .03em; }
 .t26 .shop-panel h2.order-pill { display: inline-flex; justify-self: start; align-items: center; gap: 10px; margin: 0; padding: 8px 18px; border-radius: 999px; font-size: 18px; font-weight: 700; }
-.t26 .shop-panel h2.order-pill--wait { background: #e8890c; color: #fff; }
+.t26 .shop-panel h2.order-pill--wait { background: var(--t-cta); color: #fff; }
 .t26 .shop-panel h2.order-pill--ok { background: var(--t-deep); color: #fff; }
 .t26 .shop-panel h2.order-pill--bad { background: #fde8e6; color: #9f1d12; }
 .order-pill .shop-ico svg { width: 22px; height: 22px; stroke-width: 2; }
@@ -660,7 +660,7 @@
 .order-pay__qr { display: grid; gap: 10px; justify-items: center; }
 .t26 .order-qr { width: 100%; max-width: 280px; border-radius: 12px; border-color: var(--t-line); }
 .t26 .order-timer { color: var(--t-text); font-size: 15px; }
-.t26 .order-countdown { color: #e8890c; font-size: 22px; }
+.t26 .order-countdown { color: var(--t-cta); font-size: 22px; }
 .t26 .order-bank div { grid-template-columns: minmax(0, 1fr); gap: 4px; padding: 10px 0; border-bottom: 1px solid var(--t-line); }
 .t26 .order-bank dt { color: var(--t-muted); font-size: 14px; font-weight: 600; }
 .t26 .order-bank dd { justify-content: space-between; color: var(--t-ink); font-size: 18px; }
