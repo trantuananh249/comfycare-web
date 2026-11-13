@@ -596,7 +596,7 @@ def render_page(p, head, css_version, js_version, theme_version):
     {head["pixel"]}
     {head["chatbot"]}
   </head>
-  <body class="t26 info-page product-detail-page" data-base-path="/" data-current-path="{p["category_route"]}" data-sku="{sku}">
+  <body class="t26 info-page product-detail-page" data-base-path="/" data-current-path="{p["category_route"]}" data-sku="{sku}" data-unit="{unit}">
     <div data-site-header></div>
 
     <main class="content-page" id="top">

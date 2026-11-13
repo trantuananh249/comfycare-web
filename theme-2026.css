@@ -1059,3 +1059,38 @@ a.t-sku:hover { background: #ffe2b8; }
   .t26 .main-nav.is-open .nav-dropdown__panel a { min-height: 44px; display: flex; align-items: center; }
   .t26 .footer-legal-links a { min-height: 44px; display: inline-flex; align-items: center; }
 }
+
+/* Mẫu đợt 3 (anh duyệt 13/11): danh mục trên điện thoại — sản phẩm lên màn hình đầu, khối Zalo xuống cuối trang, lọc 1 hàng cuộn ngang, thẻ chỉ còn nút "Chọn size". */
+@media (max-width: 760px) {
+  .category-list-page .page-hero .eyebrow, .category-list-page .t-hero-side { display: none; }
+  .category-list-page .page-hero { padding-bottom: 8px; }
+  .category-list-page .page-stack > .c26-tip { order: 5; }
+  .category-list-page .page-stack { gap: 16px; }
+  .t26 .t-filters { flex-wrap: nowrap; overflow-x: auto; gap: 8px; margin-inline: -16px; padding: 4px 16px; scrollbar-width: none; }
+  .t26 .t-filters::-webkit-scrollbar { display: none; }
+  .t26 .t-filters > div { flex: 0 0 auto; flex-wrap: nowrap; gap: 8px; }
+  .t26 .t-filters > div + div { padding: 0 0 0 10px; border-top: 0; border-left: 1px solid var(--t-line); }
+  .t26 .t-filters .t-filter { white-space: nowrap; }
+  .c26-shopee { display: none !important; }
+  .c26-card__actions .t-btn { min-height: 44px; }
+}
+@media (max-width: 760px) { .category-list-page .t-cats + .page-content { padding-top: 8px; } }
+
+/* Mẫu đợt 3 (anh duyệt 13/11): trang chủ trên điện thoại — đầu trang gọn, 2 nút đủ rộng, dải "Mẫu tất y tế cấp 2" cuộn ngang ngay sau đầu trang. */
+.t-quick { display: none; }
+@media (max-width: 760px) {
+  .t-hero .t-hero__lead, .t-hero .t-hero__chips { display: none; }
+  .t-hero__actions { display: grid; gap: 12px; }
+  .t-hero__actions .t-link { justify-content: center; min-height: 48px; margin: 0; padding: 0 16px; border: 1.5px solid var(--t-teal); border-radius: 12px; background: #fff; text-decoration: none; }
+  .t-hero__actions .t-link > span[aria-hidden] { display: none; }
+  .t-hero__actions .t-link .t-link__t { text-decoration: none; }
+  .t-hero .t-hero__media picture, .t-hero .t-hero__media img { aspect-ratio: 2 / 1; object-position: 60% 35%; }
+  .t-quick { display: block; padding: 20px 0 8px; }
+  .t-quick__head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+  .t-quick__head .t-title { margin: 0; font-size: 22px; }
+  .t-quick__list { display: grid; grid-auto-flow: column; grid-auto-columns: 46%; gap: 12px; overflow-x: auto; padding: 2px 0 10px; scroll-snap-type: x mandatory; scrollbar-width: none; }
+  .t-quick__list::-webkit-scrollbar { display: none; }
+  .t-quick__list .c26-card { scroll-snap-align: start; }
+  .t-quick__list .c26-card h3 { font-size: 16px; }
+  .t-quick__list .c26-price strong { font-size: 19px; }
+}

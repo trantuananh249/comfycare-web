@@ -97,3 +97,50 @@ document.querySelectorAll('[data-qty]').forEach((button) => button.addEventListe
   const next = (parseInt(input.value, 10) || 1) + Number(button.dataset.qty);
   input.value = String(Math.max(Number(input.min) || 1, Math.min(Number(input.max) || 20, next)));
 }));
+
+// Mẫu đợt 3 (anh duyệt 13/11): trên điện thoại, thanh dính cuối trang sản phẩm thành giá + "Chọn size & mua" + nút Zalo nhỏ.
+// Dùng lại khung .mobile-sticky-cta (chatbot đã tự né thanh này).
+(() => {
+  const price = document.querySelector('.pd-price strong');
+  const form = document.querySelector('.pd-options');
+  if (!price || !form) return;
+  const unit = document.body.dataset.unit || '';
+  const hasChoice = !!form.querySelector('input[name="size"], input[name="color"]');
+  const go = () => {
+    const buy = document.querySelector('.pd-web-buy');
+    if (buy && !buy.disabled) { buy.click(); return; }
+    form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  };
+  const build = (bar) => {
+    if (bar.classList.contains('pd-buybar')) return;
+    const zalo = bar.querySelector('a[href*="zalo.me"]');
+    const href = zalo ? zalo.href : 'https://zalo.me/0848621092';
+    bar.classList.add('pd-buybar');
+    bar.setAttribute('aria-label', 'Mua nhanh');
+    bar.innerHTML = '';
+    const info = document.createElement('p');
+    info.className = 'pd-buybar__price';
+    info.innerHTML = `<strong></strong><span></span>`;
+    info.querySelector('strong').textContent = price.textContent.trim();
+    info.querySelector('span').textContent = unit ? `/ ${unit}` : '';
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'btn pd-buybar__buy';
+    btn.textContent = hasChoice ? 'Chọn size & mua' : 'Mua ngay';
+    btn.addEventListener('click', go);
+    const chat = document.createElement('a');
+    chat.className = 'pd-buybar__zalo';
+    chat.href = href;
+    chat.target = '_blank';
+    chat.rel = 'noopener noreferrer';
+    chat.setAttribute('aria-label', 'Nhắn Zalo tư vấn size');
+    chat.innerHTML = '<img src="/assets/icons/mxh-zalo.svg" alt="" width="40" height="40" />';
+    bar.append(info, btn, chat);
+    window.dispatchEvent(new Event('resize'));
+  };
+  const find = () => { const bar = document.querySelector('.mobile-sticky-cta'); if (bar) build(bar); return !!bar; };
+  if (!find()) {
+    const observer = new MutationObserver(() => { if (find()) observer.disconnect(); });
+    observer.observe(document.body, { childList: true, subtree: true });
+  }
+})();
