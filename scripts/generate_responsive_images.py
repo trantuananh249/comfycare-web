@@ -7,6 +7,7 @@ from PIL import Image, ImageOps
 
 
 ROOT = Path(__file__).resolve().parents[1]
+# 13/11/2026: bỏ job ảnh cũ không trang nào dùng (ảnh CSxx(1).png, icon hero, icon mạng xã hội 64px, doctor, measure-leg); file đã xoá.
 
 
 def render(source: str, outputs: list[tuple[str, int]], *, quality: int = 92, lossless: bool = False) -> list[dict]:
@@ -62,16 +63,6 @@ jobs.append(
     )
 )
 
-for sku in ("CS21", "CS22", "CS23", "CS35", "CS25", "CS30", "CS31", "CS28"):
-    jobs.append(
-        (
-            f"assets/products/{sku}/{sku}(1).png",
-            [(f"assets/products/{sku}/{sku}-1-{width}.webp", width) for width in (192, 384)],
-            94,
-            False,
-        )
-    )
-
 for sku in ("CS100", "CS101", "CS11", "CS110", "CS12", "CS14", "CS21", "CS22", "CS23", "CS24", "CS25", "CS26", "CS27", "CS28", "CS29", "CS30", "CS31", "CS33", "CS34", "CS35"):
     jobs.append(
         (
@@ -90,16 +81,6 @@ jobs.append(
         True,
     )
 )
-
-for name in ("medical-standard", "effectiveness", "comfort", "official"):
-    jobs.append(
-        (
-            f"assets/icons/hero/hero-icon-{name}.png",
-            [(f"assets/icons/hero/hero-icon-{name}-{width}.webp", width) for width in (64, 128)],
-            100,
-            True,
-        )
-    )
 
 for name in ("byt", "fda", "iso13485", "iso9001"):
     jobs.append(
@@ -120,15 +101,6 @@ jobs.append(
     )
 )
 
-jobs.append(
-    (
-        "assets/sections/why-choose/doctor.png",
-        [(f"assets/sections/why-choose/doctor-{width}.webp", width) for width in (320, 640)],
-        92,
-        False,
-    )
-)
-
 for index in range(1, 6):  # review 06 đã gỡ 22/10/2026 (lời khách hứa khỏi bệnh)
     name = f"review-shopee-{index:02d}"
     jobs.append(
@@ -139,15 +111,6 @@ for index in range(1, 6):  # review 06 đã gỡ 22/10/2026 (lời khách hứa 
             False,
         )
     )
-
-jobs.append(
-    (
-        "assets/size-guide/measure-leg.png",
-        [(f"assets/size-guide/measure-leg-{width}.webp", width) for width in (480, 800)],
-        92,
-        False,
-    )
-)
 
 for name in ("how-to-wear-illustration",) + tuple(f"how-to-wear-step-{index:02d}" for index in range(1, 7)):
     jobs.append(
@@ -171,21 +134,6 @@ for source, stem in (
             [(f"{stem}-{width}.webp", width) for width in (480, 800)],
             94,
             False,
-        )
-    )
-
-for source_name, destination_name in (
-    ("icon facebook.png", "icon-facebook"),
-    ("icon zalo.png", "icon-zalo"),
-    ("icon shopee.png", "icon-shopee"),
-    ("icon tiktok.png", "icon-tiktok"),
-):
-    jobs.append(
-        (
-            f"assets/icons/{source_name}",
-            [(f"assets/icons/{destination_name}-64.webp", 64)],
-            100,
-            True,
         )
     )
 
