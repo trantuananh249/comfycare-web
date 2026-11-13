@@ -76,7 +76,8 @@ for sku, p in product_data.items():
         html = read(detail)
         amount = f"{p['price']:,}".replace(',', '.')
         check(f'<strong>{amount}đ</strong>' in html and f'"price": {p["price"]}' in html, 'Detail page price: '+sku)
-        check(p['shopee_url'] in html, 'Detail page Shopee link: '+sku)
+        # 13/11: anh bỏ link Shopee trong câu quà CS101; trang chi tiết không còn link Shopee nào.
+        check('shopee.vn/product' not in html, 'Detail page still links Shopee: '+sku)
         check(('250000052/PCBA-HP' in html) == p['has_byt'], 'Detail page BYT scope: '+sku)
         check(('class="pd-gift"' in html) == p['gift_cs100'], 'Detail page CS100 gift: '+sku)
 check(set(prices) == set(web_prices), 'Website SKU coverage differs from approved catalog')

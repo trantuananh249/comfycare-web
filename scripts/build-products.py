@@ -640,7 +640,7 @@ def render_page(p, head, css_version, js_version, theme_version):
               <a class="pd-zalo" href="{ZALO}" target="_blank" rel="noopener noreferrer"><img src="/assets/icons/mxh-zalo.svg" alt="" width="36" height="36" />{'Gửi số đo, nhờ tư vấn size qua Zalo' if p['sizes'] else 'Cần tư vấn? Nhắn Zalo'}</a>
               <ul class="pd-services">{service_row}</ul>
               {'<p class="pd-cert">Thuộc công bố tiêu chuẩn: 9 mẫu tất y tế cấp 2, cỡ S–XXL</p>' if p['has_byt'] else ''}
-              <p class="pd-shopee">{promo.replace('<p class="pd-muted">', '').replace('.</p>', '')}, áp dụng khi đặt trên website và tại <a href="{p["shopee_url"]}" target="_blank" rel="noopener noreferrer">gian hàng Shopee chính hãng</a>.</p>
+              <p class="pd-shopee">{promo.replace('<p class="pd-muted">', '').replace('.</p>', '')}, áp dụng khi đặt trên website và tại gian hàng Shopee chính hãng.</p>
             </div>
           </div>
         </div>
