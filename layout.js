@@ -44,7 +44,7 @@
       <header class="site-header">
         <div class="container header__inner">
           <a class="brand" href="${homeRoute()}" aria-label="Comfycare trang chủ">
-            <img src="${route('assets/logo/comfycare-logo.png')}" srcset="${route('assets/logo/comfycare-logo-64.webp')} 64w, ${route('assets/logo/comfycare-logo-128.webp')} 128w" sizes="(max-width: 700px) 36px, 44px" alt="Comfycare" width="2303" height="2320" decoding="async" />
+            <img src="${route('assets/logo/comfycare-logo.png')}" srcset="${route('assets/logo/comfycare-logo-64.webp')} 64w, ${route('assets/logo/comfycare-logo-128.webp')} 128w" sizes="(max-width: 700px) 36px, 44px" alt="" width="2303" height="2320" decoding="async" />
             <span>COMFYCARE</span>
           </a>
           <button class="nav-toggle" type="button" aria-label="Mở menu" aria-expanded="false">
@@ -101,7 +101,7 @@
           <div class="container footer-grid">
             <div class="footer-company">
               <a class="footer-brand" href="${homeRoute()}" aria-label="Comfycare trang chủ">
-                <img class="footer-logo" src="${route('assets/logo/comfycare-logo.png')}" srcset="${route('assets/logo/comfycare-logo-64.webp')} 64w, ${route('assets/logo/comfycare-logo-128.webp')} 128w" sizes="58px" alt="Comfycare" width="2303" height="2320" loading="lazy" decoding="async" />
+                <img class="footer-logo" src="${route('assets/logo/comfycare-logo.png')}" srcset="${route('assets/logo/comfycare-logo-64.webp')} 64w, ${route('assets/logo/comfycare-logo-128.webp')} 128w" sizes="58px" alt="" width="2303" height="2320" loading="lazy" decoding="async" />
                 <span>COMFYCARE</span>
               </a>
               <p>
