@@ -305,7 +305,7 @@
         h('a', { class: 'shop-link', href: '/san-pham/' }, 'Tiếp tục xem sản phẩm'),
         h('ul', { class: 'shop-trust' },
           h('li', {}, icon('swap'), 'Đổi trả 15 ngày'),
-          h('li', {}, icon('box'), 'Kiểm tra hàng khi nhận (COD)'),
+          h('li', {}, icon('box'), 'Kiểm tra, thử hàng khi nhận (COD)'),
           h('li', {}, icon('chat'), h('a', { href: SHOP.zalo, target: '_blank', rel: 'noopener noreferrer' }, 'Tư vấn size qua Zalo 0848 621 092'))))));
   }
 
@@ -371,7 +371,7 @@
     const methodBox = h('fieldset', { class: 'shop-methods', 'data-field': 'method' },
       h('legend', {}, '2. Cách thanh toán'),
       h('label', { class: 'shop-method' }, h('input', { type: 'radio', name: 'method', value: 'cod', checked: true }), icon('truck'),
-        h('span', {}, h('strong', {}, 'Thanh toán khi nhận hàng (COD)'), h('small', {}, 'Nhân viên gọi hoặc nhắn Zalo xác nhận đơn trước khi giao. Được kiểm tra hàng khi nhận (không gồm dùng thử).'))),
+        h('span', {}, h('strong', {}, 'Thanh toán khi nhận hàng (COD)'), h('small', {}, 'Nhân viên gọi hoặc nhắn Zalo xác nhận đơn trước khi giao. Được kiểm tra và thử hàng khi nhận.'))),
       h('label', { class: 'shop-method' }, h('input', { type: 'radio', name: 'method', value: 'bank' }), icon('qr'),
         h('span', {}, h('strong', {}, 'Chuyển khoản qua mã QR'), h('small', {}, 'Quét mã QR có sẵn số tiền và nội dung ở bước sau. Tài khoản nhận tiền giai đoạn đầu là tài khoản cá nhân; tên chủ tài khoản hiển thị đầy đủ ở bước sau. Comfycare không bao giờ hỏi mã OTP.'))),
       h('p', { class: 'shop-field__error', id: 'co-method-error', hidden: true }));

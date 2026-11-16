@@ -103,7 +103,7 @@ for rel in ('index.html', 'chung-nhan/index.html', 'gioi-thieu/index.html', 'huo
     page = read(PROJECT/rel)
     for internal in ('FY2026', 'trong nguồn', 'listing', 'đối chiếu ngày', 'tại A ', 'nội suy', 'phạm vi hồ sơ'):
         check(internal not in page, f'Internal wording on customer page {rel}: {internal}')
-check('không gồm dùng thử' in read(PROJECT/'chinh-sach-van-chuyen/index.html'), 'Delivery inspection qualification')
+check('mặc thử sản phẩm ngay lúc nhận hàng' in read(PROJECT/'chinh-sach-van-chuyen/index.html'), 'Delivery inspection qualification')  # 16/11/2026: đơn ngoài sàn cho thử hàng (business 77)
 check('111 đường 3C' in read(PROJECT/'layout.js'), 'Footer source address')
 registry = read(BRAIN/'source_registry.md')
 check('created_at không phải ngày hiệu lực' in registry, 'Approval vs creation date')
