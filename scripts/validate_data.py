@@ -4,8 +4,8 @@ import re, json, sqlite3, hashlib
 from workspace_paths import SITE as PROJECT, BRAIN_DB, CONTENT, QA_BASELINES
 # Nguồn duy nhất: Tuấn Anh Workspace/brain/brain.db
 BASELINE=QA_BASELINES/"data-brain-20261012"
-# Hash brain.db hiện hành so với baseline mới nhất (18/11: thêm business 78, giá lẻ CS23 452.000).
-DB_BASELINE=QA_BASELINES/"brain-baseline-20261118a.json"
+# Hash brain.db hiện hành so với baseline mới nhất (18/11: thêm business 78, 79, làm tròn giá lẻ).
+DB_BASELINE=QA_BASELINES/"brain-baseline-20261118b.json"
 OUT=PROJECT/"outputs/data-validation"
 OUT.mkdir(parents=True, exist_ok=True)
 DATA=CONTENT
@@ -26,6 +26,10 @@ for rid in [10,11]:
 prices['CS23']=(int(re.search(r'Giá bán lẻ/TMĐT CS23 \(Tất Đùi Không Bàn C2\): ([\d.]+) đồng',records[78])[1].replace('.','')),prices['CS23'][1])
 for sku,retail,combo in [('CS11',99750,179250),('CS12',73500,132000),('CS14',105000,189000),('CS110',105000,189000),('CS100',20000,None),('CS101',40000,None)]:
     prices[sku]=(retail,combo)
+# business 79 (18/11/2026): làm tròn xuống giá lẻ có số lẻ trăm đồng.
+for sku,_,new in re.findall(r'(CS\d+) ([\d.]+) → ([\d.]*\d)',records[79]):
+    prices[sku]=(int(new.replace('.','')),prices[sku][1])
+prices['CS11']=(prices['CS11'][0],int(re.search(r'CS11 Combo 2 [\d.]+ → ([\d.]+)',records[79])[1].replace('.','')))
 for sku,(retail,multi) in prices.items():
     s=text('products/'+sku+'.md')
     check('- Giá bán lẻ/TMĐT: **'+money(retail)+'**' in s,'PRICE '+sku)
@@ -56,7 +60,7 @@ check('**Đôi (2 chiếc)**' in text('products/CS25.md'),'CS25_UNIT')
 check(text('products/CS14.md').startswith('# CS14 — Đai thể thao áp lực hỗ trợ đầu gối'),'CS14_NAME')
 check(not (DATA/'products/CS32.md').exists(),'NO_UNCONFIRMED_PRODUCT')
 check('chỉ bán combo 2 đôi 300.000đ' in text('products/CS21.md'),'CS21_FANPAGE')
-check('178.500đ' in text('products/CS21.md') and '199.000đ/đôi chưa được áp dụng' in text('products/CS21.md'),'NO_EXPERIMENTAL_PRICE')
+check('178.000đ' in text('products/CS21.md') and '199.000đ/đôi chưa được áp dụng' in text('products/CS21.md'),'NO_EXPERIMENTAL_PRICE')
 changed=[]
 for f in (BASELINE/'before').rglob('*.md'):
     rel=f.relative_to(BASELINE/'before')

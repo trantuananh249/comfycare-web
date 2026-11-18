@@ -73,24 +73,24 @@ fs.mkdirSync(out, { recursive: true });
     await Promise.all([page.waitForURL('**/cart/'), page.locator('.pd-web-buy').click()]);
     await page.locator('.cart-line').first().waitFor();
     assert.equal(await page.locator('[data-cart-count]').innerText(), '2');
-    assert.equal(await page.locator('.shop-summary__total strong').innerText(), '606.900đ');
+    assert.equal(await page.locator('.shop-summary__total strong').innerText(), '606.000đ');
     // Quà: CS100 (mã được tặng) + túi giặt CS101 (tiền hàng từ 300.000đ, business 38).
     assert.equal(await page.locator('.cart-line--gift').count(), 2);
     assert.match(await page.locator('.cart-line--gift', { hasText: 'CS101' }).innerText(), /Quà tặng kèm đơn/);
     assert.equal(await page.title(), 'Giỏ hàng | Comfycare');
 
-    // Thêm CS29 → vẫn 2 quà; giảm CS22 còn 1 → 303.450 + 110.500 = 413.950đ, miễn ship.
+    // Thêm CS29 → vẫn 2 quà; giảm CS22 còn 1 → 303.000 + 110.000 = 413.000đ, miễn ship.
     await page.evaluate(() => { const c = JSON.parse(localStorage.getItem('cc-cart')); c.push({ sku: 'CS29', size: 'S', color: 'Da', quantity: 1 }); localStorage.setItem('cc-cart', JSON.stringify(c)); });
     await page.reload();
     await page.locator('.cart-line').first().waitFor();
     await page.getByRole('button', { name: 'Giảm số lượng CS22' }).click();
-    await page.waitForFunction(() => document.querySelector('.shop-summary__total strong')?.textContent === '413.950đ');
+    await page.waitForFunction(() => document.querySelector('.shop-summary__total strong')?.textContent === '413.000đ');
     assert.equal(await page.locator('.cart-line--gift').count(), 2);
-    // Xóa CS22 → còn CS29 110.500 + ship 25.000, hết quà.
+    // Xóa CS22 → còn CS29 110.000 + ship 25.000, hết quà.
     await page.locator('.cart-line', { hasText: 'CS22' }).getByRole('button', { name: 'Xóa' }).click();
-    await page.waitForFunction(() => document.querySelector('.shop-summary__total strong')?.textContent === '135.500đ');
+    await page.waitForFunction(() => document.querySelector('.shop-summary__total strong')?.textContent === '135.000đ');
     assert.equal(await page.locator('.cart-line--gift').count(), 0);
-    assert.match(await page.locator('.shop-summary').innerText(), /Mua thêm 189\.500đ/);
+    assert.match(await page.locator('.shop-summary').innerText(), /Mua thêm 190\.000đ/);
     await noOverflow(page, 'cart');
 
     await Promise.all([page.waitForURL('**/thanh-toan/'), page.getByRole('link', { name: 'Đặt hàng' }).click()]);
@@ -145,18 +145,18 @@ fs.mkdirSync(out, { recursive: true });
     await page.locator('.order-pay').waitFor();
     const bankCode = new URL(page.url()).searchParams.get('ma');
     const qr = new URL(await page.locator('.order-qr').getAttribute('src'));
-    assert.equal(qr.searchParams.get('amount'), '303450');
+    assert.equal(qr.searchParams.get('amount'), '303000');
     assert.equal(qr.searchParams.get('des'), bankCode);
     assert.match(await page.locator('.order-countdown').innerText(), /^(29|30):\d\d$/);
     await noOverflow(page, 'order-bank');
     const hook = await fetch(`${apiBase}/api/webhooks/sepay`, {
       method: 'POST', headers: { 'content-type': 'application/json', authorization: `Apikey ${sepayKey}` },
-      body: JSON.stringify({ id: `test-${Date.now()}`, gateway: 'MBBank', transactionDate: '', accountNumber: '', code: null, content: `NAP ${bankCode} CHUYEN`, transferType: 'in', description: '', transferAmount: 303450, accumulated: 0, referenceCode: 'TEST' }),
+      body: JSON.stringify({ id: `test-${Date.now()}`, gateway: 'MBBank', transactionDate: '', accountNumber: '', code: null, content: `NAP ${bankCode} CHUYEN`, transferType: 'in', description: '', transferAmount: 303000, accumulated: 0, referenceCode: 'TEST' }),
     });
     assert.deepEqual(await hook.json(), { success: true });
     await page.waitForFunction(() => document.querySelector('.order-status h2')?.textContent === 'Đã nhận thanh toán', null, { timeout: 15000 });
     assert.equal(await page.locator('.order-pay').count(), 0);
-    results.push(`Chuyển khoản: ${bankCode}, QR 303.450đ, webhook → Đã nhận thanh toán`);
+    results.push(`Chuyển khoản: ${bankCode}, QR 303.000đ, webhook → Đã nhận thanh toán`);
 
     // Meta Pixel: AddToCart, InitiateCheckout, Purchase (COD khi tạo đơn, chuyển khoản khi đã trả) — ghi qua sự kiện cc:track.
     const tracked = await page.evaluate(() => JSON.parse(sessionStorage.getItem('__tracked') || '[]'));

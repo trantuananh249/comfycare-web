@@ -27,6 +27,12 @@ prices['CS14'] = prices['CS110'] = re.search(r'CS14 và CS110 ([\d.]+) →', rec
 prices['CS100'] = re.search(r'CS100: ([\d.]+)', records[12])[1]
 prices['CS101'] = re.search(r'CS101: ([\d.]+) đồng', records[38])[1]  # business 38, 24/10/2026
 prices['CS23'] = re.search(r'Giá bán lẻ/TMĐT CS23 \(Tất Đùi Không Bàn C2\): ([\d.]+) đồng', records[78])[1]  # business 78, 18/11/2026: thay 452.200 của business 10
+# business 79, 18/11/2026: làm tròn xuống giá lẻ có số lẻ trăm đồng (thay giá lẻ ở business 10, 11, 12).
+round79 = {sku: (old, new) for sku, old, new in re.findall(r'(CS\d+) ([\d.]+) → ([\d.]*\d)', records[79])}
+round79['CS11 Combo 2'] = re.search(r'CS11 Combo 2 ([\d.]+) → ([\d.]+)', records[79]).groups()
+for sku, (old, new) in round79.items():
+    if sku in prices:
+        prices[sku] = new
 catalog = read(KNOWLEDGE/'products/catalog_pricing.md')
 master = read(MASTER_SPEC)
 # Compare complete price rows, not just a retail number occurring somewhere.
@@ -37,6 +43,9 @@ for row in master_rows:
         continue  # Construction remains an explicitly documented source conflict.
     if row.startswith('| **CS23**'):
         row = row.replace('**452.200đ**', '**'+prices['CS23']+'đ**')  # business 78
+    row_sku = re.match(r'\| \*\*(CS\d+(?: Combo 2)?)\*\*', row)[1]
+    if row_sku in round79:
+        row = row.replace('**'+round79[row_sku][0]+'đ**', '**'+round79[row_sku][1]+'đ**')  # business 79
     check(row in catalog, 'Master list/retail/CTV or multi-buy row differs: '+row.split('|')[1])
 check(len(master_rows) == 23, 'Master price coverage: 19 products and 4 combos')
 size_page = read(PROJECT/'huong-dan-chon-size/index.html')
