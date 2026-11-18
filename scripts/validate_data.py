@@ -4,8 +4,8 @@ import re, json, sqlite3, hashlib
 from workspace_paths import SITE as PROJECT, BRAIN_DB, CONTENT, QA_BASELINES
 # Nguồn duy nhất: Tuấn Anh Workspace/brain/brain.db
 BASELINE=QA_BASELINES/"data-brain-20261012"
-# Hash brain.db hiện hành so với baseline mới nhất (16/11: thêm business 77, đơn ngoài sàn cho đồng kiểm và thử hàng).
-DB_BASELINE=QA_BASELINES/"brain-baseline-20261116a.json"
+# Hash brain.db hiện hành so với baseline mới nhất (18/11: thêm business 78, giá lẻ CS23 452.000).
+DB_BASELINE=QA_BASELINES/"brain-baseline-20261118a.json"
 OUT=PROJECT/"outputs/data-validation"
 OUT.mkdir(parents=True, exist_ok=True)
 DATA=CONTENT
@@ -22,6 +22,8 @@ prices={}
 for rid in [10,11]:
     for sku,retail,multi in re.findall(r'(CS\d+) ([\d.]+) → ([\d.]+)', records[rid]):
         prices[sku]=(int(retail.replace('.','')),int(multi.replace('.','')))
+# business 78 (18/11/2026): giá lẻ CS23 452.000, thay 452.200 của business 10.
+prices['CS23']=(int(re.search(r'Giá bán lẻ/TMĐT CS23 \(Tất Đùi Không Bàn C2\): ([\d.]+) đồng',records[78])[1].replace('.','')),prices['CS23'][1])
 for sku,retail,combo in [('CS11',99750,179250),('CS12',73500,132000),('CS14',105000,189000),('CS110',105000,189000),('CS100',20000,None),('CS101',40000,None)]:
     prices[sku]=(retail,combo)
 for sku,(retail,multi) in prices.items():
